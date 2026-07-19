@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,50:00ff41,100:0d1117&height=220&section=header&text=SV%20KAUSHIK&fontSize=60&fontColor=00FF41&animation=fadeIn&fontAlignY=38&desc=%3E%20whoami%20%26%26%20cat%20/etc/security/access.log&descAlignY=58&descSize=18" width="100%"/>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,50:00ff41,100:0d1117&height=220&section=header&text=SV%20KAUSHIK&fontSize=60&fontColor=00FF41&animation=fadeIn&fontAlignY=38&desc=%3E%20whoami%20%3E%3E%20cat%20/etc/security/access.log&descAlignY=58&descSize=18" width="100%"/>
 
 <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=22&duration=2500&pause=800&color=00FF41&center=true&vCenter=true&multiline=true&repeat=true&random=false&width=800&height=100&lines=root%40kaushik%3A~%23+initiating+breach_protocol...;%5BOK%5D+access+granted+-+welcome+intruder;%5BOK%5D+scanning+ports...+2210+open;%5B%2B%5D+building+secure+systems+by+day%2C+breaking+them+by+choice" alt="Typing SVG" />
 
