@@ -81,24 +81,6 @@
 
 <div align="center">
 
-## `[ ACHIEVEMENTS.db ]`
-
-<img src="https://github-profile-trophy.vercel.app/?username=Kaushik2210&theme=matrix&no-frame=true&no-bg=true&margin-w=15&row=1" />
-
-</div>
-
-<br/>
-
-<div align="center">
-
-## `[ ESTABLISH_CONNECTION ]`
-
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-000000?style=for-the-badge&logo=linkedin&logoColor=00ff41)](#)
-[![Twitter](https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=00ff41)](#)
-[![Gmail](https://img.shields.io/badge/Email-000000?style=for-the-badge&logo=gmail&logoColor=00ff41)](mailto:svkaushik2210@gmail.com)
-
-<br/>
-
 <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,50:0a3d1f,100:0d1117&height=100&section=footer"/>
 
 <sub>🔒 connection encrypted // session terminated gracefully</sub>
