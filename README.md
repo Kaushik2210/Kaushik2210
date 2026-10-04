@@ -28,11 +28,35 @@
 
 <div align="center">
 
+## `[ OPERATOR.DOSSIER ]`
+
+<img src="assets/dossier.svg" alt="My GitHub avatar rendered as animated colour ASCII art, next to live stats: repos, followers, streak and language mix" width="100%"/>
+
+<sub>🧬 that's me, rebuilt from my avatar into glyphs on every run. the stats beside it are live from the GitHub API, no third-party widgets.</sub>
+
+</div>
+
+<br/>
+
+<div align="center">
+
 ## `[ THREAT.RADAR ]`
 
 <img src="assets/radar.svg" alt="Animated radar: every repo is a blip. Bearing is language, distance from centre is how recently I pushed to it." width="100%"/>
 
 <sub>🛰️ not a screenshot: a live scan of my repos, regenerated every 6 hours by <code>scripts/radar.py</code>.<br/>closer to the centre = pushed more recently · each blip flashes when the sweep passes it</sub>
+
+</div>
+
+<br/>
+
+<div align="center">
+
+## `[ CONTRIBUTION.GALAXY ]`
+
+<img src="assets/galaxy.svg" alt="My last 365 days of contributions drawn as a spiral galaxy, one star per day, newest at the core" width="100%"/>
+
+<sub>🌌 one star per day for the last year, laid out on a golden-angle spiral. the glowing core is today.</sub>
 
 </div>
 
@@ -76,42 +100,6 @@ U1RBR0UgMS8zIDo6IG5pY2UsIHlvdSBkZWNvZGVkIGJhc2U2NC4gdGhlIHJhZGFyIGlzIG1vcmUgdGhh
 <!--HOF_START-->
 _no one has cracked it yet. first blood is up for grabs._
 <!--HOF_END-->
-
-<br/>
-
-<div align="center">
-
-## `[ SYSTEM.STATS ]`
-
-<img src="https://raw.githubusercontent.com/Kaushik2210/Kaushik2210/main/profile-summary-card-output/github_dark/0-profile-details.svg" width="49%"/>
-<img src="https://raw.githubusercontent.com/Kaushik2210/Kaushik2210/main/profile-summary-card-output/github_dark/3-stats.svg" width="49%"/>
-
-<img src="https://raw.githubusercontent.com/Kaushik2210/Kaushik2210/main/profile-summary-card-output/github_dark/1-repos-per-language.svg" width="49%"/>
-<img src="https://raw.githubusercontent.com/Kaushik2210/Kaushik2210/main/profile-summary-card-output/github_dark/2-most-commit-language.svg" width="49%"/>
-
-<img src="https://github-readme-streak-stats.herokuapp.com/?user=Kaushik2210&theme=github-dark-blue&background=0d1117&stroke=00ff41&ring=00ff41&fire=00ff41&currStreakLabel=00ff41&border=00ff41&sideLabels=c9d1d9&currStreakNum=c9d1d9&sideNums=c9d1d9&dates=8b949e" height="165"/>
-
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=Kaushik2210&theme=react-dark&bg_color=0d1117&color=00ff41&line=00ff41&point=ffffff&area=true&hide_border=false&border_color=00ff41" width="90%"/>
-
-<sub>⚡ generated daily by GitHub Actions — see <code>.github/workflows/summary-cards.yml</code></sub>
-
-</div>
-
-<br/>
-
-<div align="center">
-
-## `[ CONTRIBUTION_MATRIX.exe ]`
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Kaushik2210/Kaushik2210/output/github-snake-dark.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Kaushik2210/Kaushik2210/output/github-snake.svg" />
-  <img alt="snake eating contribution graph" src="https://raw.githubusercontent.com/Kaushik2210/Kaushik2210/output/github-snake.svg" width="90%"/>
-</picture>
-
-<sub>⚡ auto-regenerated daily by GitHub Actions — see <code>.github/workflows/snake.yml</code></sub>
-
-</div>
 
 <br/>
 
