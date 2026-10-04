@@ -100,7 +100,7 @@
 <circle cx="404.7" cy="250.0" r="4.1" fill="#f7df1e" filter="url(#glow)"/>
 </g>
 <g opacity=".3"><animate attributeName="opacity" values="1;.6;.3;.3" keyTimes="0;.12;.7;1" dur="9.0s" begin="-6.60s" repeatCount="indefinite"/>
-<circle cx="394.4" cy="267.5" r="3.2" fill="#f7df1e" filter="url(#glow)"/>
+<circle cx="394.5" cy="267.5" r="3.2" fill="#f7df1e" filter="url(#glow)"/>
 </g>
 <g opacity=".3"><animate attributeName="opacity" values="1;.6;.3;.3" keyTimes="0;.12;.7;1" dur="9.0s" begin="-6.46s" repeatCount="indefinite"/>
 <circle cx="391.8" cy="284.9" r="3.2" fill="#f7df1e" filter="url(#glow)"/>
@@ -244,7 +244,7 @@
 <text x="222" y="268" font-size="9" fill="#00ff41" text-anchor="middle" fill-opacity=".8">YOU</text>
 <text x="222" y="50" font-size="9" fill="#00ff41" text-anchor="middle" fill-opacity=".6">N</text>
 <text x="452" y="46" font-size="19" fill="#00ff41" font-weight="bold">THREAT RADAR // KAUSHIK2210</text>
-<text x="452" y="64" font-size="12" fill="#7d8590">live scan · auto-rebuilt · 10-04 17:46 UTC</text>
+<text x="452" y="64" font-size="12" fill="#7d8590">live scan · auto-rebuilt · 10-04 17:49 UTC</text>
 <line x1="452" y1="76" x2="800" y2="76" stroke="#0f5d2c"/>
 <text x="452" y="100" font-size="13" fill="#7d8590">CONTACTS</text>
 <text x="602" y="100" font-size="13" fill="#e6edf3">61</text>
