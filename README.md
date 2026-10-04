@@ -32,6 +32,18 @@
 
 <div align="center">
 
+<img src="assets/div-replay.svg" alt="CONTRIBUTION.REPLAY" width="100%"/>
+
+<img src="assets/replay.svg" alt="Animated time-lapse of my contribution heatmap: a playhead sweeps the year, days pop in, my busiest days fire shockwaves and a counter ticks up" width="100%"/>
+
+<sub>⏯️ my real contribution calendar, replayed as a time-lapse. the playhead sweeps the year, gold rings mark the busiest days, the counter ticks up. loops forever.</sub>
+
+</div>
+
+<br/>
+
+<div align="center">
+
 <img src="assets/div-galaxy.svg" alt="CONTRIBUTION.GALAXY" width="100%"/>
 
 <img src="assets/galaxy.svg" alt="My last 365 days of contributions drawn as a spiral galaxy, one star per day, newest at the core" width="100%"/>
