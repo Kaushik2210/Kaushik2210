@@ -14,7 +14,7 @@ import common
 
 USER = sys.argv[1] if len(sys.argv) > 1 else "Kaushik2210"
 OUT = sys.argv[2] if len(sys.argv) > 2 else "assets/galaxy.svg"
-W, H, CX, CY, R = 940, 470, 250, 235, 205
+W, H, CX, CY, R = 830, 480, 222, 240, 192
 GOLDEN = math.radians(137.50776)
 
 
@@ -59,7 +59,7 @@ def main():
     for d, lab in ((90, "3 mo"), (180, "6 mo"), (270, "9 mo"), (n - 1, "1 yr")):
         r = R * math.sqrt(d / (n - 1))
         o.append(f'<circle cx="{CX}" cy="{CY}" r="{r:.1f}" fill="none" stroke="#2c3a78" stroke-opacity=".5" stroke-dasharray="2 6"/>')
-        o.append(f'<text x="{CX+r+3:.1f}" y="{CY-3}" font-size="8" fill="#6f84d6" fill-opacity=".7">{lab}</text>')
+        o.append(f'<text x="{CX}" y="{CY-r-3:.1f}" font-size="10" fill="#6f84d6" fill-opacity=".8" text-anchor="middle">{lab}</text>')
 
     o.append(f'<g><animateTransform attributeName="transform" type="rotate" from="0 {CX} {CY}" to="360 {CX} {CY}" dur="240s" repeatCount="indefinite"/>')
     for i, (date, c) in enumerate(ds):
@@ -83,29 +83,29 @@ def main():
     o.append(f'<circle cx="{CX}" cy="{CY}" r="38" fill="url(#core)"/>')
     o.append(f'<text x="{CX}" y="{CY+4}" font-size="9" fill="#05060f" text-anchor="middle" font-weight="bold">NOW</text>')
 
-    px = 520
+    px = 452
     bd = ds[best]
-    o.append(f'<text x="{px}" y="52" font-size="16" fill="#ffeb78" font-weight="bold">CONTRIBUTION GALAXY</text>')
-    o.append(f'<text x="{px}" y="70" font-size="10" fill="#7d8590">{n} days · 1 star per day · {datetime.now(timezone.utc):%Y-%m-%d} UTC</text>')
+    o.append(f'<text x="{px}" y="52" font-size="19" fill="#ffeb78" font-weight="bold">CONTRIBUTION GALAXY</text>')
+    o.append(f'<text x="{px}" y="70" font-size="12" fill="#7d8590">1 star per day · {datetime.now(timezone.utc):%Y-%m-%d}</text>')
     o.append(f'<line x1="{px}" y1="84" x2="{W-30}" y2="84" stroke="#1b2147"/>')
     rows = [("CONTRIBUTIONS", f"{total}"), ("ACTIVE DAYS", f"{active} / {n}"),
             ("CURRENT STREAK", f"{cur} days"), ("LONGEST STREAK", f"{longest} days"),
             ("BRIGHTEST STAR", f"{bd[1]} on {bd[0]}")]
     for i, (k, v) in enumerate(rows):
         y = 110 + i * 26
-        o.append(f'<text x="{px}" y="{y}" font-size="11" fill="#7d8590">{k}</text>')
-        o.append(f'<text x="{px+150}" y="{y}" font-size="12" fill="#e6edf3">{escape(v)}</text>')
-    o.append(f'<line x1="{px}" y1="252" x2="{W-30}" y2="252" stroke="#1b2147"/>')
-    o.append(f'<text x="{px}" y="274" font-size="10" fill="#9fb4ff">HOW TO READ</text>')
+        o.append(f'<text x="{px}" y="{y}" font-size="13" fill="#7d8590">{k}</text>')
+        o.append(f'<text x="{px+158}" y="{y}" font-size="14" fill="#e6edf3">{escape(v)}</text>')
+    o.append(f'<line x1="{px}" y1="250" x2="{W-30}" y2="252" stroke="#1b2147"/>')
+    o.append(f'<text x="{px}" y="274" font-size="12" fill="#9fb4ff">HOW TO READ</text>')
     for i, t in enumerate(["centre = today, rim = a year ago",
-                           "bigger + warmer star = more commits that day",
-                           "dim dust = quiet day (still counts as a day)",
-                           "pulsing ring = your single busiest day"]):
-        o.append(f'<text x="{px}" y="{296 + i * 20}" font-size="11" fill="#c9d1d9">&#8250; {t}</text>')
-    o.append(f'<text x="{px}" y="{H-42}" font-size="9" fill="#7d8590">quiet</text>')
+                           "bigger, warmer star = more commits",
+                           "dim dust = a quiet day",
+                           "pulsing ring = your busiest day"]):
+        o.append(f'<text x="{px}" y="{298 + i * 24}" font-size="13" fill="#c9d1d9">&#8250; {t}</text>')
+    o.append(f'<text x="{px}" y="{H-42}" font-size="11" fill="#7d8590">quiet</text>')
     for i in range(8):
         o.append(f'<circle cx="{px+42+i*18}" cy="{H-45}" r="{2+i*0.6:.1f}" fill="{color(round(mx*(i/7)**2), mx)}"/>')
-    o.append(f'<text x="{px+196}" y="{H-42}" font-size="9" fill="#7d8590">busy</text>')
+    o.append(f'<text x="{px+196}" y="{H-42}" font-size="11" fill="#7d8590">busy</text>')
     o.append("</svg>")
     with open(OUT, "w", encoding="utf-8") as f:
         f.write("\n".join(o))

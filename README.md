@@ -1,34 +1,14 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,50:0a3d1f,100:0d1117&height=220&section=header&text=Kaushik2210&fontSize=58&fontColor=00FF41&animation=fadeIn&fontAlignY=35&desc=%3E%20root%20access%20granted%20%3A%3A%20developer%20by%20day%2C%20security%20tinkerer%20by%20night&descAlignY=58&descSize=16&descColor=39FF6A" width="100%"/>
-
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=22&duration=2500&pause=800&color=00FF41&center=true&vCenter=true&multiline=true&repeat=true&random=false&width=800&height=100&lines=root%40kaushik%3A~%23+initiating+breach_protocol...;%5BOK%5D+access+granted+-+welcome+intruder;%5BOK%5D+scanning+ports...+2210+open;%5B%2B%5D+building+secure+systems+by+day%2C+breaking+them+by+choice" alt="Typing SVG" />
-
-<img src="https://komarev.com/ghpvc/?username=Kaushik2210&label=TERMINAL%20VISITS&color=00ff41&style=flat-square&labelColor=0d1117" alt="visitor badge"/>
+<img src="assets/header.svg" alt="Kaushik2210: developer and security tinkerer" width="100%"/>
 
 </div>
 
 <br/>
 
-```yaml
-> user.profile --decrypt
-{
-  "handle"      : "Kaushik2210",
-  "role"        : "Developer // Security Enthusiast",
-  "status"      : "🟢 online",
-  "shell"       : "/bin/zsh",
-  "current_op"  : "building things, then trying to break them",
-  "radar"       : "online, rescanning every 6h",
-  "clearance"   : "root",
-  "objective"   : "ship secure, elegant, no-nonsense software"
-}
-```
-
-<br/>
-
 <div align="center">
 
-## `[ OPERATOR.DOSSIER ]`
+<img src="assets/div-dossier.svg" alt="OPERATOR.DOSSIER" width="100%"/>
 
 <img src="assets/dossier.svg" alt="My GitHub avatar rendered as animated colour ASCII art, next to live stats: repos, followers, streak and language mix" width="100%"/>
 
@@ -40,7 +20,7 @@
 
 <div align="center">
 
-## `[ THREAT.RADAR ]`
+<img src="assets/div-radar.svg" alt="THREAT.RADAR" width="100%"/>
 
 <img src="assets/radar.svg" alt="Animated radar: every repo is a blip. Bearing is language, distance from centre is how recently I pushed to it." width="100%"/>
 
@@ -52,7 +32,7 @@
 
 <div align="center">
 
-## `[ CONTRIBUTION.GALAXY ]`
+<img src="assets/div-galaxy.svg" alt="CONTRIBUTION.GALAXY" width="100%"/>
 
 <img src="assets/galaxy.svg" alt="My last 365 days of contributions drawn as a spiral galaxy, one star per day, newest at the core" width="100%"/>
 
@@ -64,7 +44,7 @@
 
 <div align="center">
 
-## `[ INTERCEPTED.TRANSMISSION ]`
+<img src="assets/div-ctf.svg" alt="INTERCEPTED.TRANSMISSION" width="100%"/>
 
 **A 3-stage CTF hidden in this profile. Crack it and your name goes in the Hall of Fame below, automatically.**
 
@@ -105,7 +85,7 @@ _no one has cracked it yet. first blood is up for grabs._
 
 <div align="center">
 
-## `[ ARSENAL.list ]`
+<img src="assets/div-arsenal.svg" alt="ARSENAL.list" width="100%"/>
 
 <img src="https://skillicons.dev/icons?i=py,js,ts,react,nodejs,linux,bash,docker,git,github,vscode,c,java,mysql,postgres,mongodb,aws&theme=dark" />
 
@@ -122,8 +102,6 @@ _no one has cracked it yet. first blood is up for grabs._
 <br/>
 
 <div align="center">
-
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,50:0a3d1f,100:0d1117&height=100&section=footer"/>
 
 <sub>🔒 connection encrypted // session terminated gracefully</sub>
 

@@ -1,28 +1,31 @@
 #!/usr/bin/env python3
-"""assets/dossier.svg: avatar rendered as animated colour-ASCII + a live neofetch readout.
+"""assets/dossier.svg: avatar rendered as an animated colour halftone + live readout.
 
-The portrait is rebuilt from the real avatar on every run (Pillow). Rows
-"decrypt" in top to bottom under a scan line, hold, fade, and re-scan every
-CYCLE seconds. Stats come from the GitHub API, so nothing here is third-party.
+The portrait is rebuilt from the real avatar on every run (Pillow). Each cell
+becomes a dot sized by local brightness and tinted with the photo's own hue.
+Rows pop in under a scan line, hold, fade and re-scan. Stats come straight from
+the GitHub API, so there is nothing third-party to break.
 """
 import colorsys
+import collections
 import io
 import sys
 import urllib.request
 from datetime import datetime, timezone
 from xml.sax.saxutils import escape
 
-from PIL import Image, ImageEnhance, ImageFilter, ImageOps
+from PIL import Image, ImageFilter, ImageOps
 
 import common
 
 USER = sys.argv[1] if len(sys.argv) > 1 else "Kaushik2210"
 OUT = sys.argv[2] if len(sys.argv) > 2 else "assets/dossier.svg"
-CROP = (0.20, 0.40, 0.82, 1.0)  # fractions of the avatar: head + shoulders
-COLS, FS, CW, LH = 88, 8.0, 4.8, 8.0  # glyph grid: cols, font size, char width, line height
-RAMP = " .:-=+*#%@"
-CYCLE = 26.0  # seconds per scan loop
+CROP = (0.20, 0.40, 0.82, 1.0)  # head + shoulders
+COLS, PITCH = 58, 6.6
+W = 830
+CYCLE = 24.0
 GREEN = "#00ff41"
+FONT = "ui-monospace,SFMono-Regular,Menlo,Consolas,'DejaVu Sans Mono',monospace"
 
 
 def portrait():
@@ -31,68 +34,57 @@ def portrait():
     im = Image.open(io.BytesIO(raw)).convert("RGB")
     w, h = im.size
     im = im.crop((int(CROP[0] * w), int(CROP[1] * h), int(CROP[2] * w), int(CROP[3] * h)))
-    rows = round(COLS * (im.height / im.width) * (CW / LH))
+    rows = round(COLS * im.height / im.width)
     im = im.resize((COLS, rows), Image.LANCZOS)
-    # local contrast normalisation: each cell is judged against its neighbourhood,
-    # so a dark face in front of a bright wall still gets full-range glyphs
+    # local contrast: judge each cell against its neighbourhood so a dark face
+    # in front of a bright wall still gets the full dot-size range
     im = ImageOps.autocontrast(im, cutoff=1)
     lum = im.convert("L")
-    blur = lum.filter(ImageFilter.GaussianBlur(5))
+    blur = lum.filter(ImageFilter.GaussianBlur(4))
     px, lp, bp = im.load(), lum.load(), blur.load()
-    for y in range(im.height):
-        for x in range(im.width):
+    for y in range(rows):
+        for x in range(COLS):
             l, b = lp[x, y] / 255, bp[x, y] / 255
-            adj = max(0.0, min(1.0, 0.35 * l + 0.65 * (0.5 + 2.4 * (l - b))))
+            adj = max(0.0, min(1.0, 0.4 * l + 0.6 * (0.5 + 2.2 * (l - b))))
             k = adj / l if l > 0.02 else 1.0
             r, g, bl = px[x, y]
             px[x, y] = (min(255, int(r * k)), min(255, int(g * k)), min(255, int(bl * k)))
     return im, rows
 
 
-def cell(rgb):
+def dot(rgb):
     r, g, b = (v / 255 for v in rgb)
     h, s, v = colorsys.rgb_to_hsv(r, g, b)
     lum = 0.299 * r + 0.587 * g + 0.114 * b
-    ch = RAMP[min(len(RAMP) - 1, int(lum * len(RAMP) * 0.999))]
-    if lum < 0.08:
-        return " ", None
-    # keep the photo's hue but push it neon: saturate, floor the brightness
-    r2, g2, b2 = colorsys.hsv_to_rgb(h, min(1, s * 1.35 + 0.1), 0.38 + 0.62 * min(1, lum * 1.15))
-    return ch, "#%x%x%x" % (round(r2 * 15), round(g2 * 15), round(b2 * 15))
+    if lum < 0.10:
+        return None
+    rad = PITCH * 0.52 * min(1.0, (lum * 1.1) ** 0.6)
+    r2, g2, b2 = colorsys.hsv_to_rgb(h, min(1, s * 1.3 + 0.08), 0.45 + 0.55 * min(1, lum * 1.2))
+    return rad, "#%02x%02x%02x" % (round(r2 * 255), round(g2 * 255), round(b2 * 255))
 
 
 def portrait_svg(im, rows, x0, y0):
     out = []
     for y in range(rows):
-        runs, cur, buf = [], None, ""
+        cells = []
         for x in range(COLS):
-            ch, col = cell(im.getpixel((x, y)))
-            if col != cur and buf:
-                runs.append((cur, buf))
-                buf = ""
-            cur = col
-            buf += ch
-        runs.append((cur, buf))
-        tspans = "".join(
-            f'<tspan fill="{c}">{escape(t)}</tspan>' if c else f"<tspan>{escape(t)}</tspan>" for c, t in runs)
-        t0 = y * 0.07
-        a = t0 / CYCLE
-        out.append(
-            f'<text x="{x0}" y="{y0 + y * LH:.1f}" font-size="{FS}" textLength="{COLS * CW:.1f}" '
-            f'lengthAdjust="spacing" xml:space="preserve" opacity="0">'
-            f'<animate attributeName="opacity" values="0;0;1;.88;1;1;0;0" '
-            f'keyTimes="0;{a:.4f};{a + .006:.4f};{a + .03:.4f};{a + .05:.4f};.93;.97;1" '
-            f'dur="{CYCLE}s" repeatCount="indefinite"/>{tspans}</text>')
+            d = dot(im.getpixel((x, y)))
+            if d:
+                cells.append(f'<circle cx="{x0 + x * PITCH + PITCH / 2:.1f}" cy="{y0 + y * PITCH + PITCH / 2:.1f}" '
+                             f'r="{d[0]:.2f}" fill="{d[1]}"/>')
+        a = (y * 0.06) / CYCLE
+        out.append(f'<g opacity="0"><animate attributeName="opacity" values="0;0;1;.8;1;1;0;0" '
+                   f'keyTimes="0;{a:.4f};{a + .005:.4f};{a + .03:.4f};{a + .05:.4f};.93;.97;1" '
+                   f'dur="{CYCLE}s" repeatCount="indefinite"/>{"".join(cells)}</g>')
     return "\n".join(out)
 
 
-def bar(frac, n=16):
-    k = round(frac * n)
+def bar(frac, n=14):
+    k = max(1, round(frac * n))
     return "█" * k + "░" * (n - k)
 
 
 def main():
-    import collections
     u = common.user_graph(USER)
     ds = common.days(u)
     cur, longest = common.streaks(ds)
@@ -106,87 +98,74 @@ def main():
     years = (datetime.now(timezone.utc) - joined).days / 365.25
 
     im, rows = portrait()
-    W = 960
-    px0, py0 = 26, 62
-    tx = 520
-    n_lines = 12 + len(top) + 2 + 4 + 2
-    H = max(int(rows * LH) + 70, 62 + n_lines * 21 + 50)
+    px0, py0 = 30, 62
+    ph = rows * PITCH
+    H = max(int(py0 + ph + 46), 530)
+    tx = 452
     o = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" role="img" '
-         f'aria-label="ASCII portrait of {escape(USER)} with live GitHub stats">',
+         f'aria-label="Halftone portrait of {escape(USER)} with live GitHub stats">',
          f"<title>OPERATOR DOSSIER // {escape(USER)}</title>",
-         f"""<defs><filter id="g" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="2.2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-<style>text{{font-family:'Fira Code','Cascadia Code',Consolas,'DejaVu Sans Mono',monospace}}</style></defs>
-<rect width="{W}" height="{H}" rx="14" fill="#0d1117" stroke="#0f5d2c"/>
-<text x="{px0}" y="34" font-size="12" fill="{GREEN}">&#9608; SUBJECT_IMG.render()</text>
-<text x="{px0 + 190}" y="34" font-size="10" fill="#7d8590">avatar &#8594; {COLS}x{rows} glyph grid &#183; colour-preserving ASCII</text>"""]
+         f"""<defs><filter id="g" x="-20%" y="-300%" width="140%" height="700%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+<style>text{{font-family:{FONT}}}</style></defs>
+<rect width="{W}" height="{H}" rx="14" fill="#0b1015" stroke="#0f5d2c"/>
+<text x="{px0}" y="36" font-size="13" fill="{GREEN}">&#9608; SUBJECT.render()</text>"""]
+    # corner brackets around the portrait
+    bx0, by0, bx1, by1 = px0 - 8, py0 - 8, px0 + COLS * PITCH + 8, py0 + ph + 8
+    for (x, y, sx, sy) in ((bx0, by0, 1, 1), (bx1, by0, -1, 1), (bx0, by1, 1, -1), (bx1, by1, -1, -1)):
+        o.append(f'<path d="M{x},{y + 16 * sy} L{x},{y} L{x + 16 * sx},{y}" fill="none" stroke="{GREEN}" stroke-width="2"/>')
     o.append(portrait_svg(im, rows, px0, py0))
-    # scan line
-    ph = rows * LH
-    sc = 3.0 * rows * 0.07 / 3.0  # seconds the scan takes
-    f = (rows * 0.07) / CYCLE
-    o.append(f'<rect x="{px0 - 4}" y="{py0 - 8}" width="{COLS * CW + 8:.0f}" height="3" fill="{GREEN}" opacity="0" filter="url(#g)">'
-             f'<animate attributeName="y" values="{py0 - 8};{py0 + ph:.0f};{py0 + ph:.0f}" keyTimes="0;{f:.4f};1" dur="{CYCLE}s" repeatCount="indefinite"/>'
+    o.append(f'<text x="{px0}" y="{py0 + ph + 34:.0f}" font-size="12" fill="#7d8590">SUBJECT_ID <tspan fill="#c9d1d9">{u["id"] if "id" in u else "83902056"}</tspan>'
+             f' &#183; MATCH <tspan fill="{GREEN}">99.7%</tspan> &#183; STATUS <tspan fill="{GREEN}">ONLINE</tspan></text>')
+    f = (rows * 0.06) / CYCLE
+    o.append(f'<rect x="{px0 - 4}" y="{py0}" width="{COLS * PITCH + 8:.0f}" height="3" fill="{GREEN}" opacity="0" filter="url(#g)">'
+             f'<animate attributeName="y" values="{py0};{py0 + ph:.0f};{py0 + ph:.0f}" keyTimes="0;{f:.4f};1" dur="{CYCLE}s" repeatCount="indefinite"/>'
              f'<animate attributeName="opacity" values=".95;.95;0;0" keyTimes="0;{f:.4f};{f + .004:.4f};1" dur="{CYCLE}s" repeatCount="indefinite"/></rect>')
-    o.append(f'<line x1="{tx - 24}" y1="22" x2="{tx - 24}" y2="{H - 22}" stroke="#0f5d2c"/>')
+    o.append(f'<line x1="{tx - 22}" y1="24" x2="{tx - 22}" y2="{H - 24}" stroke="#0f3d22"/>')
 
-    # neofetch-style readout, lines type in after the scan finishes
     lines = [
         ("h", f"{USER.lower()}@github"),
-        ("r", "-" * 28),
-        ("kv", ("ROLE", "Developer // Security enthusiast")),
+        ("r", "─" * 26),
+        ("kv", ("ROLE", "Developer / Security")),
         ("kv", ("BASE", "Bangalore, IN")),
         ("kv", ("UPTIME", f"{years:.1f} yrs on GitHub")),
-        ("kv", ("REPOS", f"{len(rp)} public  ·  {stars} stars")),
+        ("kv", ("REPOS", f"{len(rp)} public  ·  {stars}★")),
         ("kv", ("NETWORK", f"{u['followers']['totalCount']} followers · {u['following']['totalCount']} following")),
-        ("kv", ("COMMITS", f"{cc['totalCommitContributions']} in the last year")),
-        ("kv", ("PRS/ISSUES", f"{cc['totalPullRequestContributions']} PRs · {cc['totalIssueContributions']} issues")),
+        ("kv", ("COMMITS", f"{cc['totalCommitContributions']} this year")),
+        ("kv", ("PR / ISSUES", f"{cc['totalPullRequestContributions']} / {cc['totalIssueContributions']}")),
         ("kv", ("STREAK", f"{cur}d now · {longest}d best")),
         ("r", ""),
         ("s", "LANGUAGE.MIX"),
-    ]
-    for lang, cnt in top:
-        lines.append(("bar", (lang, cnt / tot, cnt)))
-    lines += [("r", ""), ("s", "ACTIVE.OPS")]
-    for r in sorted(rp, key=lambda r: r["pushed_at"], reverse=True)[:4]:
-        lines.append(("op", r["name"][:30]))
-    lines += [("r", ""), ("pal", None)]
+    ] + [("bar", (lang, cnt / tot)) for lang, cnt in top]
 
-    y = 62
+    y = 70
+    t0 = rows * 0.06 * 0.5
     for i, (kind, val) in enumerate(lines):
-        begin = f / 1.0 * 0 + (rows * 0.07 * 0.55) + i * 0.16
-        a = begin / CYCLE
+        a = (t0 + i * 0.18) / CYCLE
         anim = (f'<animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;{a:.4f};{a + .004:.4f};.93;.97;1" '
                 f'dur="{CYCLE}s" repeatCount="indefinite"/>')
         if kind == "h":
-            body = f'<text x="{tx}" y="{y}" font-size="17" fill="{GREEN}" font-weight="bold" opacity="0">{escape(val)}{anim}</text>'
+            o.append(f'<text x="{tx}" y="{y}" font-size="21" fill="{GREEN}" font-weight="bold" opacity="0">{escape(val)}{anim}</text>')
         elif kind == "r":
-            body = f'<text x="{tx}" y="{y}" font-size="12" fill="#0f5d2c" opacity="0">{val}{anim}</text>' if val else ""
+            if val:
+                o.append(f'<text x="{tx}" y="{y}" font-size="14" fill="#0f5d2c" opacity="0">{val}{anim}</text>')
         elif kind == "s":
-            body = f'<text x="{tx}" y="{y}" font-size="11" fill="{GREEN}" opacity="0">&#9656; {val}{anim}</text>'
+            o.append(f'<text x="{tx}" y="{y}" font-size="13" fill="{GREEN}" opacity="0">&#9656; {val}{anim}</text>')
         elif kind == "kv":
             k, v = val
-            body = (f'<text x="{tx}" y="{y}" font-size="12" opacity="0"><tspan fill="{GREEN}">{k}</tspan>'
-                    f'<tspan x="{tx + 112}" fill="#e6edf3">{escape(v)}</tspan>{anim}</text>')
-        elif kind == "bar":
-            lang, fr, cnt = val
-            body = (f'<text x="{tx}" y="{y}" font-size="12" opacity="0"><tspan fill="#c9d1d9">{escape(lang)}</tspan>'
-                    f'<tspan x="{tx + 112}" fill="{GREEN}">{bar(fr)}</tspan>'
-                    f'<tspan fill="#7d8590"> {fr * 100:.0f}%</tspan>{anim}</text>')
-        elif kind == "op":
-            body = f'<text x="{tx}" y="{y}" font-size="12" fill="#c9d1d9" opacity="0">&#8250; {escape(val)}{anim}</text>'
-        else:  # colour palette strip
-            sw = "".join(f'<rect x="{tx + j * 26}" y="{y - 10}" width="22" height="12" fill="{c}"/>'
-                         for j, c in enumerate(["#00ff41", "#39ff6a", "#ffd43b", "#4aa8ff", "#ff5f87", "#b48cff", "#ff7a45", "#e6edf3"]))
-            body = f'<g opacity="0">{sw}{anim}</g>'
-        o.append(body)
-        y += 22 if kind not in ("r",) else 12
-    # blinking cursor
-    o.append(f'<rect x="{tx}" y="{y + 6}" width="9" height="15" fill="{GREEN}"><animate attributeName="opacity" values="1;1;0;0" keyTimes="0;.5;.5;1" dur="1s" repeatCount="indefinite"/></rect>')
-    o.append(f'<text x="{W - 24}" y="{H - 14}" font-size="9" fill="#7d8590" text-anchor="end">rendered {datetime.now(timezone.utc):%Y-%m-%d %H:%M} UTC by scripts/dossier.py</text>')
+            o.append(f'<text x="{tx}" y="{y}" font-size="14" opacity="0"><tspan fill="{GREEN}">{k}</tspan>'
+                     f'<tspan x="{tx + 118}" fill="#e6edf3">{escape(v)}</tspan>{anim}</text>')
+        else:
+            lang, fr = val
+            o.append(f'<text x="{tx}" y="{y}" font-size="14" opacity="0"><tspan fill="#c9d1d9">{escape(lang)}</tspan>'
+                     f'<tspan x="{tx + 118}" fill="{GREEN}">{bar(fr)}</tspan>'
+                     f'<tspan fill="#7d8590"> {fr * 100:.0f}%</tspan>{anim}</text>')
+        y += 14 if kind == "r" else 26 if kind != "h" else 30
+    o.append(f'<rect x="{tx}" y="{y - 4}" width="10" height="17" fill="{GREEN}"><animate attributeName="opacity" values="1;1;0;0" keyTimes="0;.5;.5;1" dur="1s" repeatCount="indefinite"/></rect>')
+    o.append(f'<text x="{W - 24}" y="{H - 16}" font-size="10" fill="#7d8590" text-anchor="end">rendered {datetime.now(timezone.utc):%Y-%m-%d %H:%M} UTC &#183; scripts/dossier.py</text>')
     o.append("</svg>")
     with open(OUT, "w", encoding="utf-8") as fh:
         fh.write("\n".join(o))
-    print(f"wrote {OUT}: {COLS}x{rows} portrait, {len(rp)} repos, {stars} stars, {len(o)} nodes")
+    print(f"wrote {OUT}: {COLS}x{rows} halftone, {len(rp)} repos, {stars} stars, H={H}")
 
 
 if __name__ == "__main__":

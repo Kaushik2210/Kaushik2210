@@ -25,8 +25,8 @@ OUT = sys.argv[2] if len(sys.argv) > 2 else "assets/radar.svg"
 # stage 2 of the README CTF lives in <desc>; written by scripts/ctf_build.py
 DESC_FILE = os.path.join(os.path.dirname(__file__), "..", "ctf", "desc.hex")
 
-W, H = 940, 500
-CX, CY, R = 250, 250, 210
+W, H = 830, 500
+CX, CY, R = 222, 250, 192
 PERIOD = 9.0  # seconds per sweep
 BG, GRID, GREEN = "#0d1117", "#0f5d2c", "#00ff41"
 
@@ -166,7 +166,7 @@ def main():
             right = b["x"] < CX + 90
             tx = b["x"] + (b["size"] + 5 if right else -(b["size"] + 5))
             anchor = "start" if right else "end"
-            add(f'<text x="{tx:.1f}" y="{b["y"]+3:.1f}" font-size="10" fill="{b["color"]}" text-anchor="{anchor}">{escape(b["r"]["name"][:18])}</text>')
+            add(f'<text x="{tx:.1f}" y="{b["y"]+3:.1f}" font-size="11" fill="{b["color"]}" text-anchor="{anchor}">{escape(b["r"]["name"][:18])}</text>')
         add("</g>")
 
     # centre marker
@@ -175,36 +175,36 @@ def main():
     add(f'<text x="{CX}" y="{CY-R-8}" font-size="9" fill="{GREEN}" text-anchor="middle" fill-opacity=".6">N</text>')
 
     # ---- readout panel ----
-    px = 505
+    px = 452
     langs_n = len(order)
     newest = min(blips, key=lambda b: b["r"]["days"])["r"] if blips else None
     stars = sum(b["r"]["stargazers_count"] for b in blips)
-    add(f'<text x="{px}" y="46" font-size="16" fill="{GREEN}" font-weight="bold">THREAT RADAR // {escape(USER.upper())}</text>')
-    add(f'<text x="{px}" y="64" font-size="10" fill="#7d8590">live scan · rebuilt daily by GitHub Actions · {now:%Y-%m-%d %H:%M} UTC</text>')
+    add(f'<text x="{px}" y="46" font-size="19" fill="{GREEN}" font-weight="bold">THREAT RADAR // {escape(USER.upper())}</text>')
+    add(f'<text x="{px}" y="64" font-size="12" fill="#7d8590">live scan · auto-rebuilt · {now:%m-%d %H:%M} UTC</text>')
     add(f'<line x1="{px}" y1="76" x2="{W-30}" y2="76" stroke="{GRID}"/>')
     stats = [("CONTACTS", str(len(blips))), ("LANGUAGES", str(langs_n)), ("STARS EARNED", str(stars)),
              ("HOT (30d)", str(sum(1 for b in blips if b["r"]["days"] <= 30))),
              ("LAST CONTACT", f'{newest["name"][:20]} ({newest["days"]}d)' if newest else "-")]
     for i, (k, v) in enumerate(stats):
         y = 100 + i * 21
-        add(f'<text x="{px}" y="{y}" font-size="11" fill="#7d8590">{k}</text>')
-        add(f'<text x="{px+130}" y="{y}" font-size="11" fill="#e6edf3">{escape(v)}</text>')
+        add(f'<text x="{px}" y="{y}" font-size="13" fill="#7d8590">{k}</text>')
+        add(f'<text x="{px+150}" y="{y}" font-size="13" fill="#e6edf3">{escape(v)}</text>')
     add(f'<line x1="{px}" y1="214" x2="{W-30}" y2="214" stroke="{GRID}"/>')
-    add(f'<text x="{px}" y="234" font-size="10" fill="{GREEN}" fill-opacity=".8">SECTORS</text>')
+    add(f'<text x="{px}" y="234" font-size="12" fill="{GREEN}" fill-opacity=".8">SECTORS</text>')
     for i, k in enumerate(order):
         col, row = i % 2, i // 2
-        x, y = px + col * 200, 254 + row * 20
+        x, y = px + col * 190, 254 + row * 20
         add(f'<circle cx="{x+4}" cy="{y-3}" r="4" fill="{LANG_COLOR[k]}"/>')
-        add(f'<text x="{x+16}" y="{y}" font-size="11" fill="#e6edf3">{k} <tspan fill="#7d8590">x{len(groups[k])}</tspan></text>')
+        add(f'<text x="{x+18}" y="{y}" font-size="13" fill="#e6edf3">{k} <tspan fill="#7d8590">x{len(groups[k])}</tspan></text>')
     hot = sorted(blips, key=lambda b: b["r"]["days"])[:5]
     add(f'<line x1="{px}" y1="352" x2="{W-30}" y2="352" stroke="{GRID}"/>')
-    add(f'<text x="{px}" y="372" font-size="10" fill="{GREEN}" fill-opacity=".8">LATEST ACTIVITY</text>')
+    add(f'<text x="{px}" y="372" font-size="12" fill="{GREEN}" fill-opacity=".8">LATEST ACTIVITY</text>')
     for i, b in enumerate(hot):
         y = 392 + i * 20
         d = b["r"]["days"]
         add(f'<circle cx="{px+4}" cy="{y-3}" r="3.5" fill="{b["color"]}"/>')
-        add(f'<text x="{px+16}" y="{y}" font-size="11" fill="#e6edf3">{escape(b["r"]["name"][:24])}</text>')
-        add(f'<text x="{W-30}" y="{y}" font-size="11" fill="#7d8590" text-anchor="end">{"today" if d == 0 else f"{d}d ago"}</text>')
+        add(f'<text x="{px+18}" y="{y}" font-size="13" fill="#e6edf3">{escape(b["r"]["name"][:24])}</text>')
+        add(f'<text x="{W-30}" y="{y}" font-size="13" fill="#7d8590" text-anchor="end">{"today" if d == 0 else f"{d}d ago"}</text>')
     add("</svg>")
 
     os.makedirs(os.path.dirname(OUT) or ".", exist_ok=True)

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 830 56" width="830" height="56" role="img" aria-label="CONTRIBUTION.GALAXY">
+<title>CONTRIBUTION.GALAXY</title>
+<defs><filter id="g" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter><style>text{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,'DejaVu Sans Mono',monospace}</style></defs>
+<text x="2" y="26" font-size="13" fill="#0f8f3f">03 //</text>
+<text x="40" y="27" font-size="21" font-weight="bold" fill="#00ff41" filter="url(#g)">CONTRIBUTION.GALAXY</text>
+<line x1="0" y1="42" x2="830" y2="42" stroke="#0f3d22"/>
+<line x1="0" y1="42" x2="830" y2="42" stroke="#00ff41" stroke-width="2" stroke-dasharray="60 830" filter="url(#g)"><animate attributeName="stroke-dashoffset" from="60" to="-830" dur="4s" repeatCount="indefinite"/></line>
+<rect x="0" y="39" width="6" height="6" fill="#00ff41"/><rect x="824" y="39" width="6" height="6" fill="#00ff41"/>
+</svg>
