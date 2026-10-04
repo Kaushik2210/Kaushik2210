@@ -65,7 +65,7 @@
 <text x="520" y="140" font-size="12" opacity="0"><tspan fill="#00ff41">UPTIME</tspan><tspan x="632" fill="#e6edf3">5.4 yrs on GitHub</tspan><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.1001;0.1041;.93;.97;1" dur="26.0s" repeatCount="indefinite"/></text>
 <text x="520" y="162" font-size="12" opacity="0"><tspan fill="#00ff41">REPOS</tspan><tspan x="632" fill="#e6edf3">62 public  ·  4 stars</tspan><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.1063;0.1103;.93;.97;1" dur="26.0s" repeatCount="indefinite"/></text>
 <text x="520" y="184" font-size="12" opacity="0"><tspan fill="#00ff41">NETWORK</tspan><tspan x="632" fill="#e6edf3">18 followers · 27 following</tspan><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.1124;0.1164;.93;.97;1" dur="26.0s" repeatCount="indefinite"/></text>
-<text x="520" y="206" font-size="12" opacity="0"><tspan fill="#00ff41">COMMITS</tspan><tspan x="632" fill="#e6edf3">1813 in the last year</tspan><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.1186;0.1226;.93;.97;1" dur="26.0s" repeatCount="indefinite"/></text>
+<text x="520" y="206" font-size="12" opacity="0"><tspan fill="#00ff41">COMMITS</tspan><tspan x="632" fill="#e6edf3">1814 in the last year</tspan><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.1186;0.1226;.93;.97;1" dur="26.0s" repeatCount="indefinite"/></text>
 <text x="520" y="228" font-size="12" opacity="0"><tspan fill="#00ff41">PRS/ISSUES</tspan><tspan x="632" fill="#e6edf3">19 PRs · 58 issues</tspan><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.1247;0.1288;.93;.97;1" dur="26.0s" repeatCount="indefinite"/></text>
 <text x="520" y="250" font-size="12" opacity="0"><tspan fill="#00ff41">STREAK</tspan><tspan x="632" fill="#e6edf3">29d now · 32d best</tspan><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.1309;0.1349;.93;.97;1" dur="26.0s" repeatCount="indefinite"/></text>
 
@@ -83,5 +83,5 @@
 
 <g opacity="0"><rect x="520" y="518" width="22" height="12" fill="#00ff41"/><rect x="546" y="518" width="22" height="12" fill="#39ff6a"/><rect x="572" y="518" width="22" height="12" fill="#ffd43b"/><rect x="598" y="518" width="22" height="12" fill="#4aa8ff"/><rect x="624" y="518" width="22" height="12" fill="#ff5f87"/><rect x="650" y="518" width="22" height="12" fill="#b48cff"/><rect x="676" y="518" width="22" height="12" fill="#ff7a45"/><rect x="702" y="518" width="22" height="12" fill="#e6edf3"/><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.2171;0.2211;.93;.97;1" dur="26.0s" repeatCount="indefinite"/></g>
 <rect x="520" y="556" width="9" height="15" fill="#00ff41"><animate attributeName="opacity" values="1;1;0;0" keyTimes="0;.5;.5;1" dur="1s" repeatCount="indefinite"/></rect>
-<text x="936" y="602" font-size="9" fill="#7d8590" text-anchor="end">rendered 2026-10-04 17:39 UTC by scripts/dossier.py</text>
+<text x="936" y="602" font-size="9" fill="#7d8590" text-anchor="end">rendered 2026-10-04 17:40 UTC by scripts/dossier.py</text>
 </svg>
