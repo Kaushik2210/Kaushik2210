@@ -21,7 +21,7 @@ GLYPHS = "01ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄ{}<>/\\|
 DIVIDERS = [  # (file, number, label)
     ("div-dossier", "01", "OPERATOR.DOSSIER"),
     ("div-radar", "02", "THREAT.RADAR"),
-    ("div-run", "03", "CONTRIBUTION.RUN"),
+    ("div-skyline", "03", "CONTRIBUTION.SKYLINE"),
     ("div-galaxy", "04", "CONTRIBUTION.GALAXY"),
     ("div-ctf", "05", "INTERCEPTED.TRANSMISSION"),
     ("div-arsenal", "06", "ARSENAL"),

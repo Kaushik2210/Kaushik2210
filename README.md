@@ -32,11 +32,11 @@
 
 <div align="center">
 
-<img src="assets/div-run.svg" alt="CONTRIBUTION.RUN" width="100%"/>
+<img src="assets/div-skyline.svg" alt="CONTRIBUTION.SKYLINE" width="100%"/>
 
-<img src="assets/run.svg" alt="A platformer where my contribution graph is the level: tall towers are busy weeks, gaps are pits, and a hero wearing my face runs across the year collecting coins" width="100%"/>
+<img src="assets/skyline.svg" alt="My last year of contributions as an animated isometric night city: every day is a building, taller means more commits, lit windows mean activity" width="100%"/>
 
-<sub>🎮 my contribution graph, played as a game. towers = busy weeks, spikes = weeks off, coins sit on my biggest weeks, the hero is me. it plays itself, then resets.</sub>
+<sub>🏙️ my contribution graph, extruded into a city. one building per day, height = commits, windows light up as it rises. the beacon marks my busiest day.</sub>
 
 </div>
 
