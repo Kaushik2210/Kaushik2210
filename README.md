@@ -32,11 +32,11 @@
 
 <div align="center">
 
-<img src="assets/div-replay.svg" alt="CONTRIBUTION.REPLAY" width="100%"/>
+<img src="assets/div-run.svg" alt="CONTRIBUTION.RUN" width="100%"/>
 
-<img src="assets/replay.svg" alt="Animated time-lapse of my contribution heatmap: a playhead sweeps the year, days pop in, my busiest days fire shockwaves and a counter ticks up" width="100%"/>
+<img src="assets/run.svg" alt="A platformer where my contribution graph is the level: tall towers are busy weeks, gaps are pits, and a hero wearing my face runs across the year collecting coins" width="100%"/>
 
-<sub>⏯️ my real contribution calendar, replayed as a time-lapse. the playhead sweeps the year, gold rings mark the busiest days, the counter ticks up. loops forever.</sub>
+<sub>🎮 my contribution graph, played as a game. towers = busy weeks, spikes = weeks off, coins sit on my biggest weeks, the hero is me. it plays itself, then resets.</sub>
 
 </div>
 

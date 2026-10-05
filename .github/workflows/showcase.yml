@@ -22,12 +22,12 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install --quiet pillow
-      - name: Render header, dossier, radar, replay and galaxy
+      - name: Render header, dossier, radar, run and galaxy
         working-directory: scripts
         run: |
           python banners.py "${{ github.repository_owner }}" ../assets
           python dossier.py "${{ github.repository_owner }}" ../assets/dossier.svg
-          python replay.py  "${{ github.repository_owner }}" ../assets/replay.svg
+          python runner.py  "${{ github.repository_owner }}" ../assets/run.svg
           python galaxy.py  "${{ github.repository_owner }}" ../assets/galaxy.svg
           python radar.py   "${{ github.repository_owner }}" ../assets/radar.svg
         env:
