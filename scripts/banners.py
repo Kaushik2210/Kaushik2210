@@ -23,8 +23,9 @@ DIVIDERS = [  # (file, number, label)
     ("div-radar", "02", "THREAT.RADAR"),
     ("div-skyline", "03", "CONTRIBUTION.SKYLINE"),
     ("div-galaxy", "04", "CONTRIBUTION.GALAXY"),
-    ("div-ctf", "05", "INTERCEPTED.TRANSMISSION"),
-    ("div-arsenal", "06", "ARSENAL"),
+    ("div-ops", "05", "ACTIVE.OPS"),
+    ("div-ctf", "06", "INTERCEPTED.TRANSMISSION"),
+    ("div-arsenal", "07", "ARSENAL"),
 ]
 
 

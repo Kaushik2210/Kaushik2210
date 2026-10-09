@@ -5,7 +5,10 @@ Each day is a star. The newest day sits at the core, the oldest at the rim, so
 your recent history burns brightest at the centre. Star size and colour follow
 the contribution count. The galaxy rotates slowly; busy stars twinkle.
 """
+import hashlib
+import json
 import math
+import os
 import sys
 from datetime import datetime, timezone
 from xml.sax.saxutils import escape
@@ -16,6 +19,29 @@ USER = sys.argv[1] if len(sys.argv) > 1 else "Kaushik2210"
 OUT = sys.argv[2] if len(sys.argv) > 2 else "assets/galaxy.svg"
 W, H, CX, CY, R = 830, 480, 222, 240, 192
 GOLDEN = math.radians(137.50776)
+STARS_DB = os.environ.get("STARS_DB") or os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "stars", "visitors.json")
+VISITOR_COLORS = {"cyan": "#19f9ff", "pink": "#ff5fd0", "gold": "#ffd43b", "green": "#00ff41", "violet": "#b48cff"}
+
+
+def load_visitors():
+    try:
+        with open(STARS_DB, encoding="utf-8") as f:
+            return json.load(f)
+    except (OSError, ValueError):
+        return []
+
+
+def h01(s, salt):
+    return int(hashlib.sha1(f"{salt}:{s}".encode()).hexdigest()[:8], 16) / 0xFFFFFFFF
+
+
+def star_points(cx, cy, ro=8.0, ri=3.4):
+    pts = []
+    for k in range(10):
+        r = ro if k % 2 == 0 else ri
+        a = -math.pi / 2 + k * math.pi / 5
+        pts.append(f"{cx + r * math.cos(a):.1f},{cy + r * math.sin(a):.1f}")
+    return " ".join(pts)
 
 
 def lerp(a, b, t):
@@ -79,6 +105,16 @@ def main():
             o.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="9" fill="none" stroke="#ffeb78" stroke-width="1">'
                      f'<animate attributeName="r" values="6;16;6" dur="3s" repeatCount="indefinite"/>'
                      f'<animate attributeName="opacity" values=".9;0;.9" dur="3s" repeatCount="indefinite"/></circle>')
+    visitors = load_visitors()
+    for v in visitors[-60:]:  # named visitor stars live in the same rotating sky
+        rr = R * (0.30 + 0.66 * h01(v["login"], "r"))
+        th = 2 * math.pi * h01(v["login"], "a")
+        x, y = CX + rr * math.cos(th), CY + rr * math.sin(th)
+        col = VISITOR_COLORS.get(v.get("color"), "#19f9ff")
+        o.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="9" fill="none" stroke="{col}" stroke-width="1">'
+                 f'<animate attributeName="r" values="6;18;6" dur="{3 + 2 * h01(v["login"], "d"):.1f}s" repeatCount="indefinite"/>'
+                 f'<animate attributeName="opacity" values=".8;0;.8" dur="{3 + 2 * h01(v["login"], "d"):.1f}s" repeatCount="indefinite"/></circle>')
+        o.append(f'<polygon points="{star_points(x, y)}" fill="{col}" filter="url(#g)"/>')
     o.append("</g>")
     o.append(f'<circle cx="{CX}" cy="{CY}" r="38" fill="url(#core)"/>')
     o.append(f'<text x="{CX}" y="{CY+4}" font-size="9" fill="#05060f" text-anchor="middle" font-weight="bold">NOW</text>')
@@ -95,13 +131,19 @@ def main():
         y = 110 + i * 26
         o.append(f'<text x="{px}" y="{y}" font-size="13" fill="#7d8590">{k}</text>')
         o.append(f'<text x="{px+158}" y="{y}" font-size="14" fill="#e6edf3">{escape(v)}</text>')
-    o.append(f'<line x1="{px}" y1="250" x2="{W-30}" y2="252" stroke="#1b2147"/>')
-    o.append(f'<text x="{px}" y="274" font-size="12" fill="#9fb4ff">HOW TO READ</text>')
-    for i, t in enumerate(["centre = today, rim = a year ago",
-                           "bigger, warmer star = more commits",
-                           "dim dust = a quiet day",
-                           "pulsing ring = your busiest day"]):
-        o.append(f'<text x="{px}" y="{298 + i * 24}" font-size="13" fill="#c9d1d9">&#8250; {t}</text>')
+    o.append(f'<line x1="{px}" y1="236" x2="{W-30}" y2="236" stroke="#1b2147"/>')
+    o.append(f'<text x="{px}" y="258" font-size="12" fill="#ffeb78">&#9733; VISITOR STARS <tspan fill="#7d8590">({len(visitors)})</tspan></text>')
+    if visitors:
+        for i, v in enumerate(reversed(visitors[-5:])):
+            col = VISITOR_COLORS.get(v.get("color"), "#19f9ff")
+            y = 284 + i * 22
+            o.append(f'<polygon points="{star_points(px + 6, y - 4, 6, 2.6)}" fill="{col}"/>')
+            o.append(f'<text x="{px + 20}" y="{y}" font-size="12" fill="#e6edf3">@{escape(v["login"][:18])} '
+                     f'<tspan fill="#7d8590">{escape(v["msg"][:26])}</tspan></text>')
+    else:
+        for i, t in enumerate(["the sky is empty. be the first.", "click this galaxy to add your own star,", "it stays here and keeps orbiting."]):
+            o.append(f'<text x="{px}" y="{286 + i * 22}" font-size="12" fill="#c9d1d9">&#8250; {t}</text>')
+    o.append(f'<text x="{px}" y="{H-66}" font-size="11" fill="#586069">centre = today · rim = a year ago · warmer = busier</text>')
     o.append(f'<text x="{px}" y="{H-42}" font-size="11" fill="#7d8590">quiet</text>')
     for i in range(8):
         o.append(f'<circle cx="{px+42+i*18}" cy="{H-45}" r="{2+i*0.6:.1f}" fill="{color(round(mx*(i/7)**2), mx)}"/>')
@@ -109,7 +151,7 @@ def main():
     o.append("</svg>")
     with open(OUT, "w", encoding="utf-8") as f:
         f.write("\n".join(o))
-    print(f"wrote {OUT}: {n} stars, streak {cur}/{longest}, best {bd}")
+    print(f"wrote {OUT}: {n} stars + {len(visitors)} visitor stars, streak {cur}/{longest}")
 
 
 if __name__ == "__main__":
