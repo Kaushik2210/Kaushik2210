@@ -75,6 +75,15 @@
 </details>
 
 <details>
+<summary>🟨 <b>gitVisualise</b> &nbsp;·&nbsp; <code>JavaScript</code> &nbsp;·&nbsp; ⭐ 1 &nbsp;·&nbsp; pushed today</summary>
+
+> Paste a GitHub link, get an interactive, narrated architecture tour. Website, CLI, Claude Code skill and GitHub Action. Zero dependencies, runs in your browser. Contributors welcome.
+
+`architecture` `architecture-diagram` `claude-code` `code-visualization` `dependency-graph` `developer-tools` &nbsp;·&nbsp; [repo](https://github.com/Kaushik2210/gitVisualise) · [live](https://kaushik2210.github.io/gitVisualise/) · [commits](https://github.com/Kaushik2210/gitVisualise/commits)
+
+</details>
+
+<details>
 <summary>🔷 <b>Portfolio_General</b> &nbsp;·&nbsp; <code>TypeScript</code> &nbsp;·&nbsp; ⭐ 0 &nbsp;·&nbsp; pushed today</summary>
 
 > No description yet. Still cooking.
@@ -107,15 +116,6 @@
 > Live house-competition platform for campuses: teams earn points, the leaderboard reacts in real time, faculty run the season. Next.js, TypeScript, Supabase.
 
 `education` `framer-motion` `gamification` `leaderboard` `nextjs` `supabase` &nbsp;·&nbsp; [repo](https://github.com/Kaushik2210/Overrank) · [live](https://overrank.vercel.app) · [commits](https://github.com/Kaushik2210/Overrank/commits)
-
-</details>
-
-<details>
-<summary>🟨 <b>gitVisualise</b> &nbsp;·&nbsp; <code>JavaScript</code> &nbsp;·&nbsp; ⭐ 1 &nbsp;·&nbsp; pushed 6d ago</summary>
-
-> Paste a GitHub link, get an interactive, narrated architecture tour. Website, CLI, Claude Code skill and GitHub Action. Zero dependencies, runs in your browser. Contributors welcome.
-
-`architecture` `architecture-diagram` `claude-code` `code-visualization` `dependency-graph` `developer-tools` &nbsp;·&nbsp; [repo](https://github.com/Kaushik2210/gitVisualise) · [live](https://kaushik2210.github.io/gitVisualise/) · [commits](https://github.com/Kaushik2210/gitVisualise/commits)
 
 </details>
 
