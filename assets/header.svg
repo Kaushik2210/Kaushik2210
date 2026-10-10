@@ -97,7 +97,7 @@
 <line x1="0" y1="268" x2="830" y2="268" stroke="#0f5d2c"/>
 <circle cx="24" cy="284" r="4" fill="#00ff41"><animate attributeName="opacity" values="1;.2;1" dur="1.6s" repeatCount="indefinite"/></circle>
 <text x="38" y="288" font-size="12" fill="#c9d1d9">ONLINE &#183; <tspan fill="#00ff41">@Kaushik2210</tspan> &#183; Bangalore, IN</text>
-<text x="810" y="288" font-size="12" fill="#7d8590" text-anchor="end">LAST SEEN: <tspan fill="#c9d1d9">100-days-of-java (today)</tspan></text>
+<text x="810" y="288" font-size="12" fill="#7d8590" text-anchor="end">LAST SEEN: <tspan fill="#c9d1d9">Kaushik2210 (today)</tspan></text>
 </g>
 <rect x=".5" y=".5" width="829" height="299" rx="16" fill="none" stroke="#0f5d2c"/>
 </svg>
