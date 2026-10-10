@@ -75,7 +75,7 @@
 </details>
 
 <details>
-<summary>🐍 <b>Net-Sentinel</b> &nbsp;·&nbsp; <code>Python</code> &nbsp;·&nbsp; ⭐ 0 &nbsp;·&nbsp; pushed today</summary>
+<summary>🐍 <b>Net-Sentinel</b> &nbsp;·&nbsp; <code>Python</code> &nbsp;·&nbsp; ⭐ 0 &nbsp;·&nbsp; pushed yesterday</summary>
 
 > No description yet. Still cooking.
 
@@ -84,7 +84,7 @@
 </details>
 
 <details>
-<summary>🟨 <b>gitVisualise</b> &nbsp;·&nbsp; <code>JavaScript</code> &nbsp;·&nbsp; ⭐ 1 &nbsp;·&nbsp; pushed today</summary>
+<summary>🟨 <b>gitVisualise</b> &nbsp;·&nbsp; <code>JavaScript</code> &nbsp;·&nbsp; ⭐ 1 &nbsp;·&nbsp; pushed yesterday</summary>
 
 > Paste a GitHub link, get an interactive, narrated architecture tour. Website, CLI, Claude Code skill and GitHub Action. Zero dependencies, runs in your browser. Contributors welcome.
 
@@ -93,7 +93,7 @@
 </details>
 
 <details>
-<summary>🔷 <b>Portfolio_General</b> &nbsp;·&nbsp; <code>TypeScript</code> &nbsp;·&nbsp; ⭐ 0 &nbsp;·&nbsp; pushed today</summary>
+<summary>🔷 <b>Portfolio_General</b> &nbsp;·&nbsp; <code>TypeScript</code> &nbsp;·&nbsp; ⭐ 0 &nbsp;·&nbsp; pushed yesterday</summary>
 
 > No description yet. Still cooking.
 
@@ -102,7 +102,7 @@
 </details>
 
 <details>
-<summary>📦 <b>HireOS</b> &nbsp;·&nbsp; <code>misc</code> &nbsp;·&nbsp; ⭐ 0 &nbsp;·&nbsp; pushed 3d ago</summary>
+<summary>📦 <b>HireOS</b> &nbsp;·&nbsp; <code>misc</code> &nbsp;·&nbsp; ⭐ 0 &nbsp;·&nbsp; pushed 4d ago</summary>
 
 > No description yet. Still cooking.
 
@@ -120,7 +120,7 @@
 </details>
 
 <details>
-<summary>🟨 <b>MY_PORTFOLIO</b> &nbsp;·&nbsp; <code>JavaScript</code> &nbsp;·&nbsp; ⭐ 0 &nbsp;·&nbsp; pushed 7d ago</summary>
+<summary>🟨 <b>MY_PORTFOLIO</b> &nbsp;·&nbsp; <code>JavaScript</code> &nbsp;·&nbsp; ⭐ 0 &nbsp;·&nbsp; pushed 8d ago</summary>
 
 > No description yet. Still cooking.
 
