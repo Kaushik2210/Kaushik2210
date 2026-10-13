@@ -75,7 +75,7 @@
 <circle cx="318.0" cy="144.1" r="3.2" fill="#f7df1e" filter="url(#glow)"/>
 </g>
 <g opacity=".3"><animate attributeName="opacity" values="1;.6;.3;.3" keyTimes="0;.12;.7;1" dur="9.0s" begin="-7.80s" repeatCount="indefinite"/>
-<circle cx="346.0" cy="137.6" r="3.2" fill="#f7df1e" filter="url(#glow)"/>
+<circle cx="346.1" cy="137.5" r="3.2" fill="#f7df1e" filter="url(#glow)"/>
 </g>
 <g opacity=".3"><animate attributeName="opacity" values="1;.6;.3;.3" keyTimes="0;.12;.7;1" dur="9.0s" begin="-7.66s" repeatCount="indefinite"/>
 <circle cx="352.6" cy="153.1" r="3.6" fill="#f7df1e" filter="url(#glow)"/>
@@ -97,13 +97,13 @@
 <circle cx="397.5" cy="224.0" r="3.2" fill="#f7df1e" filter="url(#glow)"/>
 </g>
 <g opacity=".3"><animate attributeName="opacity" values="1;.6;.3;.3" keyTimes="0;.12;.7;1" dur="9.0s" begin="-6.82s" repeatCount="indefinite"/>
-<circle cx="405.1" cy="241.0" r="4.1" fill="#f7df1e" filter="url(#glow)"/>
+<circle cx="405.2" cy="241.0" r="4.1" fill="#f7df1e" filter="url(#glow)"/>
 </g>
 <g opacity=".3"><animate attributeName="opacity" values="1;.6;.3;.3" keyTimes="0;.12;.7;1" dur="9.0s" begin="-6.68s" repeatCount="indefinite"/>
-<circle cx="395.8" cy="258.5" r="3.2" fill="#f7df1e" filter="url(#glow)"/>
+<circle cx="395.9" cy="258.5" r="3.2" fill="#f7df1e" filter="url(#glow)"/>
 </g>
 <g opacity=".3"><animate attributeName="opacity" values="1;.6;.3;.3" keyTimes="0;.12;.7;1" dur="9.0s" begin="-6.54s" repeatCount="indefinite"/>
-<circle cx="394.1" cy="275.5" r="3.2" fill="#f7df1e" filter="url(#glow)"/>
+<circle cx="394.2" cy="275.5" r="3.2" fill="#f7df1e" filter="url(#glow)"/>
 </g>
 <g opacity=".3"><animate attributeName="opacity" values="1;.6;.3;.3" keyTimes="0;.12;.7;1" dur="9.0s" begin="-6.40s" repeatCount="indefinite"/>
 <circle cx="400.5" cy="294.7" r="3.2" fill="#f7df1e" filter="url(#glow)"/>
@@ -141,7 +141,7 @@
 <circle cx="274.5" cy="396.8" r="3.2" fill="#4aa8ff" filter="url(#glow)"/>
 </g>
 <g opacity=".3"><animate attributeName="opacity" values="1;.6;.3;.3" keyTimes="0;.12;.7;1" dur="9.0s" begin="-4.85s" repeatCount="indefinite"/>
-<circle cx="261.3" cy="407.0" r="3.2" fill="#4aa8ff" filter="url(#glow)"/>
+<circle cx="261.4" cy="407.1" r="3.2" fill="#4aa8ff" filter="url(#glow)"/>
 </g>
 <g opacity=".3"><animate attributeName="opacity" values="1;.6;.3;.3" keyTimes="0;.12;.7;1" dur="9.0s" begin="-4.71s" repeatCount="indefinite"/>
 <circle cx="245.9" cy="411.4" r="3.2" fill="#4aa8ff" filter="url(#glow)"/>
@@ -165,26 +165,26 @@
 <circle cx="205.3" cy="285.3" r="3.2" fill="#ffd43b" filter="url(#glow)"/>
 </g>
 <g opacity=".3"><animate attributeName="opacity" values="1;.6;.3;.3" keyTimes="0;.12;.7;1" dur="9.0s" begin="-3.73s" repeatCount="indefinite"/>
-<circle cx="192.8" cy="298.6" r="3.2" fill="#ffd43b" filter="url(#glow)"/>
+<circle cx="188.9" cy="305.2" r="3.2" fill="#ffd43b" filter="url(#glow)"/>
 </g>
 <g opacity=".3"><animate attributeName="opacity" values="1;.6;.3;.3" keyTimes="0;.12;.7;1" dur="9.0s" begin="-3.59s" repeatCount="indefinite"/>
 <circle cx="162.4" cy="330.3" r="5.5" fill="#ffd43b" filter="url(#glow)"/>
 </g>
 <g opacity=".3"><animate attributeName="opacity" values="1;.6;.3;.3" keyTimes="0;.12;.7;1" dur="9.0s" begin="-3.45s" repeatCount="indefinite"/>
-<circle cx="155.7" cy="323.2" r="4.8" fill="#ffd43b" filter="url(#glow)"/>
-<text x="165.5" y="326.2" font-size="11" fill="#ffd43b" text-anchor="start">ORBITAL-SENTINEL</text>
+<circle cx="154.5" cy="324.5" r="4.8" fill="#ffd43b" filter="url(#glow)"/>
+<text x="164.4" y="327.5" font-size="11" fill="#ffd43b" text-anchor="start">ORBITAL-SENTINEL</text>
 </g>
 <g opacity=".3"><animate attributeName="opacity" values="1;.6;.3;.3" keyTimes="0;.12;.7;1" dur="9.0s" begin="-3.30s" repeatCount="indefinite"/>
-<circle cx="129.8" cy="333.6" r="3.3" fill="#ffd43b" filter="url(#glow)"/>
+<circle cx="129.2" cy="334.1" r="3.3" fill="#ffd43b" filter="url(#glow)"/>
 </g>
 <g opacity=".3"><animate attributeName="opacity" values="1;.6;.3;.3" keyTimes="0;.12;.7;1" dur="9.0s" begin="-3.16s" repeatCount="indefinite"/>
-<circle cx="119.8" cy="325.8" r="3.2" fill="#ffd43b" filter="url(#glow)"/>
+<circle cx="119.2" cy="326.2" r="3.2" fill="#ffd43b" filter="url(#glow)"/>
 </g>
 <g opacity=".3"><animate attributeName="opacity" values="1;.6;.3;.3" keyTimes="0;.12;.7;1" dur="9.0s" begin="-3.02s" repeatCount="indefinite"/>
 <circle cx="85.5" cy="331.8" r="3.2" fill="#ffd43b" filter="url(#glow)"/>
 </g>
 <g opacity=".3"><animate attributeName="opacity" values="1;.6;.3;.3" keyTimes="0;.12;.7;1" dur="9.0s" begin="-2.88s" repeatCount="indefinite"/>
-<circle cx="81.2" cy="316.6" r="5.2" fill="#ffd43b" filter="url(#glow)"/>
+<circle cx="81.0" cy="316.7" r="5.2" fill="#ffd43b" filter="url(#glow)"/>
 </g>
 <g opacity=".3"><animate attributeName="opacity" values="1;.6;.3;.3" keyTimes="0;.12;.7;1" dur="9.0s" begin="-2.74s" repeatCount="indefinite"/>
 <circle cx="49.0" cy="311.9" r="3.2" fill="#ffd43b" filter="url(#glow)"/>
@@ -197,13 +197,13 @@
 <circle cx="88.5" cy="269.8" r="3.2" fill="#ff5f87" filter="url(#glow)"/>
 </g>
 <g opacity=".3"><animate attributeName="opacity" values="1;.6;.3;.3" keyTimes="0;.12;.7;1" dur="9.0s" begin="-2.32s" repeatCount="indefinite"/>
-<circle cx="75.7" cy="257.2" r="3.2" fill="#ff5f87" filter="url(#glow)"/>
+<circle cx="75.5" cy="257.2" r="3.2" fill="#ff5f87" filter="url(#glow)"/>
 </g>
 <g opacity=".3"><animate attributeName="opacity" values="1;.6;.3;.3" keyTimes="0;.12;.7;1" dur="9.0s" begin="-2.18s" repeatCount="indefinite"/>
-<circle cx="72.4" cy="242.6" r="3.2" fill="#ff5f87" filter="url(#glow)"/>
+<circle cx="72.1" cy="242.6" r="3.2" fill="#ff5f87" filter="url(#glow)"/>
 </g>
 <g opacity=".3"><animate attributeName="opacity" values="1;.6;.3;.3" keyTimes="0;.12;.7;1" dur="9.0s" begin="-2.04s" repeatCount="indefinite"/>
-<circle cx="68.0" cy="227.2" r="3.2" fill="#ff5f87" filter="url(#glow)"/>
+<circle cx="67.7" cy="227.1" r="3.2" fill="#ff5f87" filter="url(#glow)"/>
 </g>
 <g opacity=".3"><animate attributeName="opacity" values="1;.6;.3;.3" keyTimes="0;.12;.7;1" dur="9.0s" begin="-1.90s" repeatCount="indefinite"/>
 <circle cx="73.1" cy="212.7" r="3.2" fill="#ff5f87" filter="url(#glow)"/>
@@ -231,10 +231,10 @@
 <circle cx="121.8" cy="115.0" r="3.2" fill="#9aa4b2" filter="url(#glow)"/>
 </g>
 <g opacity=".3"><animate attributeName="opacity" values="1;.6;.3;.3" keyTimes="0;.12;.7;1" dur="9.0s" begin="-0.77s" repeatCount="indefinite"/>
-<circle cx="128.8" cy="94.5" r="3.2" fill="#9aa4b2" filter="url(#glow)"/>
+<circle cx="128.8" cy="94.4" r="3.2" fill="#9aa4b2" filter="url(#glow)"/>
 </g>
 <g opacity=".3"><animate attributeName="opacity" values="1;.6;.3;.3" keyTimes="0;.12;.7;1" dur="9.0s" begin="-0.63s" repeatCount="indefinite"/>
-<circle cx="148.7" cy="94.9" r="3.2" fill="#9aa4b2" filter="url(#glow)"/>
+<circle cx="148.6" cy="94.9" r="3.2" fill="#9aa4b2" filter="url(#glow)"/>
 </g>
 <g opacity=".3"><animate attributeName="opacity" values="1;.6;.3;.3" keyTimes="0;.12;.7;1" dur="9.0s" begin="-0.49s" repeatCount="indefinite"/>
 <circle cx="160.0" cy="76.8" r="3.2" fill="#9aa4b2" filter="url(#glow)"/>
@@ -250,7 +250,7 @@
 <text x="222" y="268" font-size="9" fill="#00ff41" text-anchor="middle" fill-opacity=".8">YOU</text>
 <text x="222" y="50" font-size="9" fill="#00ff41" text-anchor="middle" fill-opacity=".6">N</text>
 <text x="452" y="46" font-size="19" fill="#00ff41" font-weight="bold">THREAT RADAR // KAUSHIK2210</text>
-<text x="452" y="64" font-size="12" fill="#7d8590">live scan · auto-rebuilt · 10-12 15:19 UTC</text>
+<text x="452" y="64" font-size="12" fill="#7d8590">live scan · auto-rebuilt · 10-13 00:37 UTC</text>
 <line x1="452" y1="76" x2="800" y2="76" stroke="#0f5d2c"/>
 <text x="452" y="100" font-size="13" fill="#7d8590">CONTACTS</text>
 <text x="602" y="100" font-size="13" fill="#e6edf3">63</text>
@@ -287,10 +287,10 @@
 <circle cx="456" cy="429" r="3.5" fill="#ffd43b"/>
 <text x="470" y="432" font-size="13" fill="#e6edf3">Deepfake-Detector</text>
 <text x="800" y="432" font-size="13" fill="#7d8590" text-anchor="end">1d ago</text>
-<circle cx="456" cy="449" r="3.5" fill="#ffd43b"/>
-<text x="470" y="452" font-size="13" fill="#e6edf3">Net-Sentinel</text>
-<text x="800" y="452" font-size="13" fill="#7d8590" text-anchor="end">2d ago</text>
-<circle cx="456" cy="469" r="3.5" fill="#4aa8ff"/>
-<text x="470" y="472" font-size="13" fill="#e6edf3">Portfolio_General</text>
+<circle cx="456" cy="449" r="3.5" fill="#4aa8ff"/>
+<text x="470" y="452" font-size="13" fill="#e6edf3">Portfolio_General</text>
+<text x="800" y="452" font-size="13" fill="#7d8590" text-anchor="end">3d ago</text>
+<circle cx="456" cy="469" r="3.5" fill="#ffd43b"/>
+<text x="470" y="472" font-size="13" fill="#e6edf3">Net-Sentinel</text>
 <text x="800" y="472" font-size="13" fill="#7d8590" text-anchor="end">3d ago</text>
 </svg>
