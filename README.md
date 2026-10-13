@@ -66,6 +66,15 @@
 
 <!--OPS_START-->
 <details>
+<summary>🐍 <b>Voice-Agents-</b> &nbsp;·&nbsp; <code>Python</code> &nbsp;·&nbsp; ⭐ 0 &nbsp;·&nbsp; pushed today</summary>
+
+> No description yet. Still cooking.
+
+[repo](https://github.com/Kaushik2210/Voice-Agents-) · [commits](https://github.com/Kaushik2210/Voice-Agents-/commits)
+
+</details>
+
+<details>
 <summary>☕ <b>100-days-of-java</b> &nbsp;·&nbsp; <code>Java</code> &nbsp;·&nbsp; ⭐ 0 &nbsp;·&nbsp; pushed today</summary>
 
 > Daily Java practice log
@@ -93,7 +102,7 @@
 </details>
 
 <details>
-<summary>🐍 <b>Net-Sentinel</b> &nbsp;·&nbsp; <code>Python</code> &nbsp;·&nbsp; ⭐ 0 &nbsp;·&nbsp; pushed 3d ago</summary>
+<summary>🐍 <b>Net-Sentinel</b> &nbsp;·&nbsp; <code>Python</code> &nbsp;·&nbsp; ⭐ 0 &nbsp;·&nbsp; pushed 4d ago</summary>
 
 > No description yet. Still cooking.
 
@@ -102,7 +111,7 @@
 </details>
 
 <details>
-<summary>🔷 <b>Portfolio_General</b> &nbsp;·&nbsp; <code>TypeScript</code> &nbsp;·&nbsp; ⭐ 0 &nbsp;·&nbsp; pushed 3d ago</summary>
+<summary>🔷 <b>Portfolio_General</b> &nbsp;·&nbsp; <code>TypeScript</code> &nbsp;·&nbsp; ⭐ 0 &nbsp;·&nbsp; pushed 4d ago</summary>
 
 > No description yet. Still cooking.
 
@@ -111,7 +120,7 @@
 </details>
 
 <details>
-<summary>📦 <b>HireOS</b> &nbsp;·&nbsp; <code>misc</code> &nbsp;·&nbsp; ⭐ 0 &nbsp;·&nbsp; pushed 6d ago</summary>
+<summary>📦 <b>HireOS</b> &nbsp;·&nbsp; <code>misc</code> &nbsp;·&nbsp; ⭐ 0 &nbsp;·&nbsp; pushed 7d ago</summary>
 
 > No description yet. Still cooking.
 
@@ -125,15 +134,6 @@
 > Live house-competition platform for campuses: teams earn points, the leaderboard reacts in real time, faculty run the season. Next.js, TypeScript, Supabase.
 
 `education` `framer-motion` `gamification` `leaderboard` `nextjs` `supabase` &nbsp;·&nbsp; [repo](https://github.com/Kaushik2210/Overrank) · [live](https://overrank.vercel.app) · [commits](https://github.com/Kaushik2210/Overrank/commits)
-
-</details>
-
-<details>
-<summary>🟨 <b>MY_PORTFOLIO</b> &nbsp;·&nbsp; <code>JavaScript</code> &nbsp;·&nbsp; ⭐ 0 &nbsp;·&nbsp; pushed 11d ago</summary>
-
-> No description yet. Still cooking.
-
-[repo](https://github.com/Kaushik2210/MY_PORTFOLIO) · [live](https://my-portfolio-eosin-two-r79pc1zrgg.vercel.app) · [commits](https://github.com/Kaushik2210/MY_PORTFOLIO/commits)
 
 </details>
 <!--OPS_END-->
