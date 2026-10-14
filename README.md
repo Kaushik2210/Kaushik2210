@@ -75,7 +75,7 @@
 </details>
 
 <details>
-<summary>☕ <b>100-days-of-java</b> &nbsp;·&nbsp; <code>Java</code> &nbsp;·&nbsp; ⭐ 0 &nbsp;·&nbsp; pushed today</summary>
+<summary>☕ <b>100-days-of-java</b> &nbsp;·&nbsp; <code>Java</code> &nbsp;·&nbsp; ⭐ 0 &nbsp;·&nbsp; pushed yesterday</summary>
 
 > Daily Java practice log
 
@@ -93,7 +93,7 @@
 </details>
 
 <details>
-<summary>🐍 <b>Deepfake-Detector</b> &nbsp;·&nbsp; <code>Python</code> &nbsp;·&nbsp; ⭐ 0 &nbsp;·&nbsp; pushed 2d ago</summary>
+<summary>🐍 <b>Deepfake-Detector</b> &nbsp;·&nbsp; <code>Python</code> &nbsp;·&nbsp; ⭐ 0 &nbsp;·&nbsp; pushed 3d ago</summary>
 
 > Synthetic-media (deepfake) detection platform — calibrated probabilities and visual evidence, never a binary verdict. Web app, Chrome extension, and REST API on one detection core.
 
