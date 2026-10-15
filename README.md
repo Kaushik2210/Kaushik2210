@@ -84,7 +84,7 @@
 </details>
 
 <details>
-<summary>🟨 <b>gitVisualise</b> &nbsp;·&nbsp; <code>JavaScript</code> &nbsp;·&nbsp; ⭐ 1 &nbsp;·&nbsp; pushed 3d ago</summary>
+<summary>🟨 <b>gitVisualise</b> &nbsp;·&nbsp; <code>JavaScript</code> &nbsp;·&nbsp; ⭐ 1 &nbsp;·&nbsp; pushed 4d ago</summary>
 
 > Paste a GitHub link, get an interactive, narrated architecture tour. Website, CLI, Claude Code skill and GitHub Action. Zero dependencies, runs in your browser. Contributors welcome.
 
@@ -93,7 +93,7 @@
 </details>
 
 <details>
-<summary>🐍 <b>Deepfake-Detector</b> &nbsp;·&nbsp; <code>Python</code> &nbsp;·&nbsp; ⭐ 0 &nbsp;·&nbsp; pushed 3d ago</summary>
+<summary>🐍 <b>Deepfake-Detector</b> &nbsp;·&nbsp; <code>Python</code> &nbsp;·&nbsp; ⭐ 0 &nbsp;·&nbsp; pushed 4d ago</summary>
 
 > Synthetic-media (deepfake) detection platform — calibrated probabilities and visual evidence, never a binary verdict. Web app, Chrome extension, and REST API on one detection core.
 
@@ -129,7 +129,7 @@
 </details>
 
 <details>
-<summary>🔷 <b>Overrank</b> &nbsp;·&nbsp; <code>TypeScript</code> &nbsp;·&nbsp; ⭐ 0 &nbsp;·&nbsp; pushed 10d ago</summary>
+<summary>🔷 <b>Overrank</b> &nbsp;·&nbsp; <code>TypeScript</code> &nbsp;·&nbsp; ⭐ 0 &nbsp;·&nbsp; pushed 11d ago</summary>
 
 > Live house-competition platform for campuses: teams earn points, the leaderboard reacts in real time, faculty run the season. Next.js, TypeScript, Supabase.
 
