@@ -66,20 +66,47 @@
 
 <!--OPS_START-->
 <details>
-<summary>☕ <b>100-days-of-java</b> &nbsp;·&nbsp; <code>Java</code> &nbsp;·&nbsp; ⭐ 0 &nbsp;·&nbsp; pushed today</summary>
-
-> Daily Java practice log
-
-[repo](https://github.com/Kaushik2210/100-days-of-java) · [commits](https://github.com/Kaushik2210/100-days-of-java/commits)
-
-</details>
-
-<details>
 <summary>🐍 <b>Voice-Agents-</b> &nbsp;·&nbsp; <code>Python</code> &nbsp;·&nbsp; ⭐ 0 &nbsp;·&nbsp; pushed today</summary>
 
 > No description yet. Still cooking.
 
 [repo](https://github.com/Kaushik2210/Voice-Agents-) · [commits](https://github.com/Kaushik2210/Voice-Agents-/commits)
+
+</details>
+
+<details>
+<summary>🔷 <b>HireOS</b> &nbsp;·&nbsp; <code>TypeScript</code> &nbsp;·&nbsp; ⭐ 0 &nbsp;·&nbsp; pushed today</summary>
+
+> No description yet. Still cooking.
+
+[repo](https://github.com/Kaushik2210/HireOS) · [commits](https://github.com/Kaushik2210/HireOS/commits)
+
+</details>
+
+<details>
+<summary>🔷 <b>Portfolio_General</b> &nbsp;·&nbsp; <code>TypeScript</code> &nbsp;·&nbsp; ⭐ 0 &nbsp;·&nbsp; pushed today</summary>
+
+> No description yet. Still cooking.
+
+[repo](https://github.com/Kaushik2210/Portfolio_General) · [live](https://portfolio-general-ten.vercel.app) · [commits](https://github.com/Kaushik2210/Portfolio_General/commits)
+
+</details>
+
+<details>
+<summary>🐍 <b>Net-Sentinel</b> &nbsp;·&nbsp; <code>Python</code> &nbsp;·&nbsp; ⭐ 0 &nbsp;·&nbsp; pushed today</summary>
+
+> No description yet. Still cooking.
+
+[repo](https://github.com/Kaushik2210/Net-Sentinel) · [commits](https://github.com/Kaushik2210/Net-Sentinel/commits)
+
+</details>
+
+<details>
+<summary>☕ <b>100-days-of-java</b> &nbsp;·&nbsp; <code>Java</code> &nbsp;·&nbsp; ⭐ 0 &nbsp;·&nbsp; pushed today</summary>
+
+> Daily Java practice log
+
+[repo](https://github.com/Kaushik2210/100-days-of-java) · [commits](https://github.com/Kaushik2210/100-days-of-java/commits)
 
 </details>
 
@@ -98,33 +125,6 @@
 > Synthetic-media (deepfake) detection platform — calibrated probabilities and visual evidence, never a binary verdict. Web app, Chrome extension, and REST API on one detection core.
 
 `computer-vision` `deepfake-detection` `fastapi` `media-forensics` `nextjs` `pytorch` &nbsp;·&nbsp; [repo](https://github.com/Kaushik2210/Deepfake-Detector) · [commits](https://github.com/Kaushik2210/Deepfake-Detector/commits)
-
-</details>
-
-<details>
-<summary>🐍 <b>Net-Sentinel</b> &nbsp;·&nbsp; <code>Python</code> &nbsp;·&nbsp; ⭐ 0 &nbsp;·&nbsp; pushed 6d ago</summary>
-
-> No description yet. Still cooking.
-
-[repo](https://github.com/Kaushik2210/Net-Sentinel) · [commits](https://github.com/Kaushik2210/Net-Sentinel/commits)
-
-</details>
-
-<details>
-<summary>🔷 <b>Portfolio_General</b> &nbsp;·&nbsp; <code>TypeScript</code> &nbsp;·&nbsp; ⭐ 0 &nbsp;·&nbsp; pushed 6d ago</summary>
-
-> No description yet. Still cooking.
-
-[repo](https://github.com/Kaushik2210/Portfolio_General) · [live](https://portfolio-general-ten.vercel.app) · [commits](https://github.com/Kaushik2210/Portfolio_General/commits)
-
-</details>
-
-<details>
-<summary>📦 <b>HireOS</b> &nbsp;·&nbsp; <code>misc</code> &nbsp;·&nbsp; ⭐ 0 &nbsp;·&nbsp; pushed 9d ago</summary>
-
-> No description yet. Still cooking.
-
-[repo](https://github.com/Kaushik2210/HireOS) · [commits](https://github.com/Kaushik2210/HireOS/commits)
 
 </details>
 
