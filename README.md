@@ -66,11 +66,11 @@
 
 <!--OPS_START-->
 <details>
-<summary>🐍 <b>Voice-Agents-</b> &nbsp;·&nbsp; <code>Python</code> &nbsp;·&nbsp; ⭐ 0 &nbsp;·&nbsp; pushed today</summary>
+<summary>📦 <b>cp-sysdesign-academy</b> &nbsp;·&nbsp; <code>misc</code> &nbsp;·&nbsp; ⭐ 0 &nbsp;·&nbsp; pushed today</summary>
 
-> No description yet. Still cooking.
+> Open-source interactive course: competitive programming and system design (static site, runs in the browser)
 
-[repo](https://github.com/Kaushik2210/Voice-Agents-) · [commits](https://github.com/Kaushik2210/Voice-Agents-/commits)
+[repo](https://github.com/Kaushik2210/cp-sysdesign-academy) · [commits](https://github.com/Kaushik2210/cp-sysdesign-academy/commits)
 
 </details>
 
@@ -79,7 +79,25 @@
 
 > No description yet. Still cooking.
 
-[repo](https://github.com/Kaushik2210/HireOS) · [commits](https://github.com/Kaushik2210/HireOS/commits)
+[repo](https://github.com/Kaushik2210/HireOS) · [live](https://hireos-beryl.vercel.app) · [commits](https://github.com/Kaushik2210/HireOS/commits)
+
+</details>
+
+<details>
+<summary>☕ <b>100-days-of-java</b> &nbsp;·&nbsp; <code>Java</code> &nbsp;·&nbsp; ⭐ 0 &nbsp;·&nbsp; pushed today</summary>
+
+> Daily Java practice log
+
+[repo](https://github.com/Kaushik2210/100-days-of-java) · [commits](https://github.com/Kaushik2210/100-days-of-java/commits)
+
+</details>
+
+<details>
+<summary>🐍 <b>Voice-Agents-</b> &nbsp;·&nbsp; <code>Python</code> &nbsp;·&nbsp; ⭐ 0 &nbsp;·&nbsp; pushed today</summary>
+
+> No description yet. Still cooking.
+
+[repo](https://github.com/Kaushik2210/Voice-Agents-) · [commits](https://github.com/Kaushik2210/Voice-Agents-/commits)
 
 </details>
 
@@ -102,16 +120,7 @@
 </details>
 
 <details>
-<summary>☕ <b>100-days-of-java</b> &nbsp;·&nbsp; <code>Java</code> &nbsp;·&nbsp; ⭐ 0 &nbsp;·&nbsp; pushed today</summary>
-
-> Daily Java practice log
-
-[repo](https://github.com/Kaushik2210/100-days-of-java) · [commits](https://github.com/Kaushik2210/100-days-of-java/commits)
-
-</details>
-
-<details>
-<summary>🟨 <b>gitVisualise</b> &nbsp;·&nbsp; <code>JavaScript</code> &nbsp;·&nbsp; ⭐ 1 &nbsp;·&nbsp; pushed 4d ago</summary>
+<summary>🟨 <b>gitVisualise</b> &nbsp;·&nbsp; <code>JavaScript</code> &nbsp;·&nbsp; ⭐ 1 &nbsp;·&nbsp; pushed 5d ago</summary>
 
 > Paste a GitHub link, get an interactive, narrated architecture tour. Website, CLI, Claude Code skill and GitHub Action. Zero dependencies, runs in your browser. Contributors welcome.
 
@@ -120,20 +129,11 @@
 </details>
 
 <details>
-<summary>🐍 <b>Deepfake-Detector</b> &nbsp;·&nbsp; <code>Python</code> &nbsp;·&nbsp; ⭐ 0 &nbsp;·&nbsp; pushed 4d ago</summary>
+<summary>🐍 <b>Deepfake-Detector</b> &nbsp;·&nbsp; <code>Python</code> &nbsp;·&nbsp; ⭐ 0 &nbsp;·&nbsp; pushed 5d ago</summary>
 
 > Synthetic-media (deepfake) detection platform — calibrated probabilities and visual evidence, never a binary verdict. Web app, Chrome extension, and REST API on one detection core.
 
 `computer-vision` `deepfake-detection` `fastapi` `media-forensics` `nextjs` `pytorch` &nbsp;·&nbsp; [repo](https://github.com/Kaushik2210/Deepfake-Detector) · [commits](https://github.com/Kaushik2210/Deepfake-Detector/commits)
-
-</details>
-
-<details>
-<summary>🔷 <b>Overrank</b> &nbsp;·&nbsp; <code>TypeScript</code> &nbsp;·&nbsp; ⭐ 0 &nbsp;·&nbsp; pushed 11d ago</summary>
-
-> Live house-competition platform for campuses: teams earn points, the leaderboard reacts in real time, faculty run the season. Next.js, TypeScript, Supabase.
-
-`education` `framer-motion` `gamification` `leaderboard` `nextjs` `supabase` &nbsp;·&nbsp; [repo](https://github.com/Kaushik2210/Overrank) · [live](https://overrank.vercel.app) · [commits](https://github.com/Kaushik2210/Overrank/commits)
 
 </details>
 <!--OPS_END-->
