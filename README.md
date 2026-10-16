@@ -66,11 +66,11 @@
 
 <!--OPS_START-->
 <details>
-<summary>📦 <b>cp-sysdesign-academy</b> &nbsp;·&nbsp; <code>misc</code> &nbsp;·&nbsp; ⭐ 0 &nbsp;·&nbsp; pushed today</summary>
+<summary>🔷 <b>tapwire</b> &nbsp;·&nbsp; <code>TypeScript</code> &nbsp;·&nbsp; ⭐ 0 &nbsp;·&nbsp; pushed today</summary>
 
-> Open-source interactive course: competitive programming and system design (static site, runs in the browser)
+> Turns every mistake an AI coding agent makes into a permanent, enforced rule, and measures how often it repeats fixed mistakes.
 
-[repo](https://github.com/Kaushik2210/cp-sysdesign-academy) · [commits](https://github.com/Kaushik2210/cp-sysdesign-academy/commits)
+[repo](https://github.com/Kaushik2210/tapwire) · [commits](https://github.com/Kaushik2210/tapwire/commits)
 
 </details>
 
@@ -80,6 +80,15 @@
 > No description yet. Still cooking.
 
 [repo](https://github.com/Kaushik2210/HireOS) · [live](https://hireos-beryl.vercel.app) · [commits](https://github.com/Kaushik2210/HireOS/commits)
+
+</details>
+
+<details>
+<summary>📦 <b>cp-sysdesign-academy</b> &nbsp;·&nbsp; <code>misc</code> &nbsp;·&nbsp; ⭐ 0 &nbsp;·&nbsp; pushed today</summary>
+
+> Open-source interactive course: competitive programming and system design (static site, runs in the browser)
+
+[repo](https://github.com/Kaushik2210/cp-sysdesign-academy) · [commits](https://github.com/Kaushik2210/cp-sysdesign-academy/commits)
 
 </details>
 
@@ -125,15 +134,6 @@
 > Paste a GitHub link, get an interactive, narrated architecture tour. Website, CLI, Claude Code skill and GitHub Action. Zero dependencies, runs in your browser. Contributors welcome.
 
 `architecture` `architecture-diagram` `claude-code` `code-visualization` `dependency-graph` `developer-tools` &nbsp;·&nbsp; [repo](https://github.com/Kaushik2210/gitVisualise) · [live](https://kaushik2210.github.io/gitVisualise/) · [commits](https://github.com/Kaushik2210/gitVisualise/commits)
-
-</details>
-
-<details>
-<summary>🐍 <b>Deepfake-Detector</b> &nbsp;·&nbsp; <code>Python</code> &nbsp;·&nbsp; ⭐ 0 &nbsp;·&nbsp; pushed 5d ago</summary>
-
-> Synthetic-media (deepfake) detection platform — calibrated probabilities and visual evidence, never a binary verdict. Web app, Chrome extension, and REST API on one detection core.
-
-`computer-vision` `deepfake-detection` `fastapi` `media-forensics` `nextjs` `pytorch` &nbsp;·&nbsp; [repo](https://github.com/Kaushik2210/Deepfake-Detector) · [commits](https://github.com/Kaushik2210/Deepfake-Detector/commits)
 
 </details>
 <!--OPS_END-->
