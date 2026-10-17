@@ -70,7 +70,16 @@
 
 > Turns every mistake an AI coding agent makes into a permanent, enforced rule, and measures how often it repeats fixed mistakes.
 
-`ai-agents` `code-quality` `developer-tools` `hackathon` `nextjs` `typescript` &nbsp;·&nbsp; [repo](https://github.com/Kaushik2210/tapwire) · [commits](https://github.com/Kaushik2210/tapwire/commits)
+`ai-agents` `code-quality` `developer-tools` `hackathon` `nextjs` `typescript` &nbsp;·&nbsp; [repo](https://github.com/Kaushik2210/tapwire) · [live](https://tapwire-xi.vercel.app) · [commits](https://github.com/Kaushik2210/tapwire/commits)
+
+</details>
+
+<details>
+<summary>🐍 <b>scam-khel</b> &nbsp;·&nbsp; <code>Python</code> &nbsp;·&nbsp; ⭐ 0 &nbsp;·&nbsp; pushed today</summary>
+
+> Private family shield against Indian digital-arrest scams: live detection, simulated honeypot, family alerts, complaint drafts. Nebius Token Factory + NVIDIA Nemotron + Tavily.
+
+`fastapi` `fraud-prevention` `hackathon` `honeypot` `india` `llm` &nbsp;·&nbsp; [repo](https://github.com/Kaushik2210/scam-khel) · [commits](https://github.com/Kaushik2210/scam-khel/commits)
 
 </details>
 
@@ -84,7 +93,7 @@
 </details>
 
 <details>
-<summary>🔷 <b>HireOS</b> &nbsp;·&nbsp; <code>TypeScript</code> &nbsp;·&nbsp; ⭐ 0 &nbsp;·&nbsp; pushed today</summary>
+<summary>🔷 <b>HireOS</b> &nbsp;·&nbsp; <code>TypeScript</code> &nbsp;·&nbsp; ⭐ 0 &nbsp;·&nbsp; pushed yesterday</summary>
 
 > No description yet. Still cooking.
 
@@ -125,15 +134,6 @@
 > No description yet. Still cooking.
 
 [repo](https://github.com/Kaushik2210/Net-Sentinel) · [commits](https://github.com/Kaushik2210/Net-Sentinel/commits)
-
-</details>
-
-<details>
-<summary>🟨 <b>gitVisualise</b> &nbsp;·&nbsp; <code>JavaScript</code> &nbsp;·&nbsp; ⭐ 1 &nbsp;·&nbsp; pushed 6d ago</summary>
-
-> Paste a GitHub link, get an interactive, narrated architecture tour. Website, CLI, Claude Code skill and GitHub Action. Zero dependencies, runs in your browser. Contributors welcome.
-
-`architecture` `architecture-diagram` `claude-code` `code-visualization` `dependency-graph` `developer-tools` &nbsp;·&nbsp; [repo](https://github.com/Kaushik2210/gitVisualise) · [live](https://kaushik2210.github.io/gitVisualise/) · [commits](https://github.com/Kaushik2210/gitVisualise/commits)
 
 </details>
 <!--OPS_END-->
