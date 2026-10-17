@@ -66,20 +66,20 @@
 
 <!--OPS_START-->
 <details>
-<summary>🔷 <b>tapwire</b> &nbsp;·&nbsp; <code>TypeScript</code> &nbsp;·&nbsp; ⭐ 0 &nbsp;·&nbsp; pushed today</summary>
-
-> Turns every mistake an AI coding agent makes into a permanent, enforced rule, and measures how often it repeats fixed mistakes.
-
-`ai-agents` `code-quality` `developer-tools` `hackathon` `nextjs` `typescript` &nbsp;·&nbsp; [repo](https://github.com/Kaushik2210/tapwire) · [live](https://tapwire-xi.vercel.app) · [commits](https://github.com/Kaushik2210/tapwire/commits)
-
-</details>
-
-<details>
 <summary>🐍 <b>scam-khel</b> &nbsp;·&nbsp; <code>Python</code> &nbsp;·&nbsp; ⭐ 0 &nbsp;·&nbsp; pushed today</summary>
 
 > Private family shield against Indian digital-arrest scams: live detection, simulated honeypot, family alerts, complaint drafts. Nebius Token Factory + NVIDIA Nemotron + Tavily.
 
 `fastapi` `fraud-prevention` `hackathon` `honeypot` `india` `llm` &nbsp;·&nbsp; [repo](https://github.com/Kaushik2210/scam-khel) · [commits](https://github.com/Kaushik2210/scam-khel/commits)
+
+</details>
+
+<details>
+<summary>🔷 <b>tapwire</b> &nbsp;·&nbsp; <code>TypeScript</code> &nbsp;·&nbsp; ⭐ 0 &nbsp;·&nbsp; pushed today</summary>
+
+> Turns every mistake an AI coding agent makes into a permanent, enforced rule, and measures how often it repeats fixed mistakes.
+
+`ai-agents` `code-quality` `developer-tools` `hackathon` `nextjs` `typescript` &nbsp;·&nbsp; [repo](https://github.com/Kaushik2210/tapwire) · [live](https://tapwire-xi.vercel.app) · [commits](https://github.com/Kaushik2210/tapwire/commits)
 
 </details>
 
@@ -111,7 +111,7 @@
 </details>
 
 <details>
-<summary>🐍 <b>Voice-Agents-</b> &nbsp;·&nbsp; <code>Python</code> &nbsp;·&nbsp; ⭐ 0 &nbsp;·&nbsp; pushed yesterday</summary>
+<summary>🐍 <b>Voice-Agents-</b> &nbsp;·&nbsp; <code>Python</code> &nbsp;·&nbsp; ⭐ 0 &nbsp;·&nbsp; pushed 2d ago</summary>
 
 > No description yet. Still cooking.
 
@@ -120,7 +120,7 @@
 </details>
 
 <details>
-<summary>🔷 <b>Portfolio_General</b> &nbsp;·&nbsp; <code>TypeScript</code> &nbsp;·&nbsp; ⭐ 0 &nbsp;·&nbsp; pushed yesterday</summary>
+<summary>🔷 <b>Portfolio_General</b> &nbsp;·&nbsp; <code>TypeScript</code> &nbsp;·&nbsp; ⭐ 0 &nbsp;·&nbsp; pushed 2d ago</summary>
 
 > No description yet. Still cooking.
 
@@ -129,7 +129,7 @@
 </details>
 
 <details>
-<summary>🐍 <b>Net-Sentinel</b> &nbsp;·&nbsp; <code>Python</code> &nbsp;·&nbsp; ⭐ 0 &nbsp;·&nbsp; pushed yesterday</summary>
+<summary>🐍 <b>Net-Sentinel</b> &nbsp;·&nbsp; <code>Python</code> &nbsp;·&nbsp; ⭐ 0 &nbsp;·&nbsp; pushed 2d ago</summary>
 
 > No description yet. Still cooking.
 
