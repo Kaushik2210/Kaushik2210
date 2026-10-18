@@ -482,16 +482,16 @@
 <circle cx="191.8" cy="222.5" r="4.5" fill="#fffef5" opacity="0.95" filter="url(#g)"><animate attributeName="opacity" values="0.95;.35;0.95" dur="3.3s" begin="-0.0s" repeatCount="indefinite"/></circle>
 <circle cx="232.0" cy="271.8" r="4.4" fill="#fdfeff" opacity="0.95" filter="url(#g)"><animate attributeName="opacity" values="0.95;.35;0.95" dur="3.7s" begin="-0.3s" repeatCount="indefinite"/></circle>
 <circle cx="235.5" cy="211.2" r="3.9" fill="#cceaff" opacity="0.95" filter="url(#g)"><animate attributeName="opacity" values="0.95;.35;0.95" dur="4.1s" begin="-0.6s" repeatCount="indefinite"/></circle>
-<circle cx="194.1" cy="251.5" r="4.0" fill="#d1ecff" opacity="0.95" filter="url(#g)"><animate attributeName="opacity" values="0.95;.35;0.95" dur="4.5s" begin="-0.9s" repeatCount="indefinite"/></circle>
+<circle cx="194.1" cy="251.5" r="4.1" fill="#dbf0ff" opacity="0.95" filter="url(#g)"><animate attributeName="opacity" values="0.95;.35;0.95" dur="4.5s" begin="-0.9s" repeatCount="indefinite"/></circle>
 <circle cx="248.7" cy="249.8" r="3.1" fill="#73c1ff" opacity="0.95" filter="url(#g)"><animate attributeName="opacity" values="0.95;.35;0.95" dur="4.9s" begin="-1.2s" repeatCount="indefinite"/></circle>
-<circle cx="209.7" cy="216.4" r="3.7" fill="#b4e1ff" opacity="0.95" filter="url(#g)"><animate attributeName="opacity" values="0.95;.35;0.95" dur="2.5s" begin="-1.5s" repeatCount="indefinite"/></circle>
+<circle cx="209.7" cy="216.4" r="3.9" fill="#c9e9ff" opacity="0.95" filter="url(#g)"><animate attributeName="opacity" values="0.95;.35;0.95" dur="2.5s" begin="-1.5s" repeatCount="indefinite"/></circle>
 <circle cx="215.6" cy="263.8" r="3.7" fill="#b0dfff" opacity="0.95" filter="url(#g)"><animate attributeName="opacity" values="0.95;.35;0.95" dur="2.9s" begin="-1.8s" repeatCount="indefinite"/></circle>
 <circle cx="241.0" cy="227.9" r="4.0" fill="#d4eeff" opacity="0.95" filter="url(#g)"><animate attributeName="opacity" values="0.95;.35;0.95" dur="3.3s" begin="-2.1s" repeatCount="indefinite"/></circle>
 <circle cx="202.2" cy="236.5" r="4.1" fill="#def1ff" opacity="0.95" filter="url(#g)"><animate attributeName="opacity" values="0.95;.35;0.95" dur="3.7s" begin="-2.4s" repeatCount="indefinite"/></circle>
 <circle cx="232.6" cy="253.8" r="3.9" fill="#c9e9ff" opacity="0.95" filter="url(#g)"><animate attributeName="opacity" values="0.95;.35;0.95" dur="4.1s" begin="-2.7s" repeatCount="indefinite"/></circle>
-<circle cx="223.2" cy="225.8" r="4.2" fill="#edf8ff" opacity="0.95" filter="url(#g)"><animate attributeName="opacity" values="0.95;.35;0.95" dur="4.5s" begin="-3.0s" repeatCount="indefinite"/></circle>
+<circle cx="223.2" cy="225.8" r="4.3" fill="#f4fbff" opacity="0.95" filter="url(#g)"><animate attributeName="opacity" values="0.95;.35;0.95" dur="4.5s" begin="-3.0s" repeatCount="indefinite"/></circle>
 <circle cx="214.6" cy="246.8" r="4.5" fill="#fffdf4" opacity="0.95" filter="url(#g)"><animate attributeName="opacity" values="0.95;.35;0.95" dur="4.9s" begin="-0.0s" repeatCount="indefinite"/></circle>
-<circle cx="222.0" cy="240.0" r="3.5" fill="#9cd7ff" opacity="0.95" filter="url(#g)"><animate attributeName="opacity" values="0.95;.35;0.95" dur="2.5s" begin="-0.3s" repeatCount="indefinite"/></circle>
+<circle cx="222.0" cy="240.0" r="4.7" fill="#fffae0" opacity="0.95" filter="url(#g)"><animate attributeName="opacity" values="0.95;.35;0.95" dur="2.5s" begin="-0.3s" repeatCount="indefinite"/></circle>
 </g>
 <circle cx="222" cy="240" r="38" fill="url(#core)"/>
 <text x="222" y="244" font-size="9" fill="#05060f" text-anchor="middle" font-weight="bold">NOW</text>
@@ -499,7 +499,7 @@
 <text x="452" y="70" font-size="12" fill="#7d8590">1 star per day · 2026-10-18</text>
 <line x1="452" y1="84" x2="800" y2="84" stroke="#1b2147"/>
 <text x="452" y="110" font-size="13" fill="#7d8590">CONTRIBUTIONS</text>
-<text x="610" y="110" font-size="14" fill="#e6edf3">2409</text>
+<text x="610" y="110" font-size="14" fill="#e6edf3">2490</text>
 <text x="452" y="136" font-size="13" fill="#7d8590">ACTIVE DAYS</text>
 <text x="610" y="136" font-size="14" fill="#e6edf3">141 / 365</text>
 <text x="452" y="162" font-size="13" fill="#7d8590">CURRENT STREAK</text>
