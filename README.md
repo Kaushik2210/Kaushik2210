@@ -66,15 +66,6 @@
 
 <!--OPS_START-->
 <details>
-<summary>🐍 <b>scam-khel</b> &nbsp;·&nbsp; <code>Python</code> &nbsp;·&nbsp; ⭐ 0 &nbsp;·&nbsp; pushed today</summary>
-
-> Private family shield against Indian digital-arrest scams: live detection, simulated honeypot, family alerts, complaint drafts. Nebius Token Factory + NVIDIA Nemotron + Tavily.
-
-`fastapi` `fraud-prevention` `hackathon` `honeypot` `india` `llm` &nbsp;·&nbsp; [repo](https://github.com/Kaushik2210/scam-khel) · [commits](https://github.com/Kaushik2210/scam-khel/commits)
-
-</details>
-
-<details>
 <summary>🔷 <b>tapwire</b> &nbsp;·&nbsp; <code>TypeScript</code> &nbsp;·&nbsp; ⭐ 0 &nbsp;·&nbsp; pushed today</summary>
 
 > Turns every mistake an AI coding agent makes into a permanent, enforced rule, and measures how often it repeats fixed mistakes.
@@ -93,11 +84,20 @@
 </details>
 
 <details>
+<summary>🐍 <b>scam-khel</b> &nbsp;·&nbsp; <code>Python</code> &nbsp;·&nbsp; ⭐ 0 &nbsp;·&nbsp; pushed today</summary>
+
+> Private family shield against Indian digital-arrest scams: live detection, simulated honeypot, family alerts, complaint drafts. Nebius Token Factory + NVIDIA Nemotron + Tavily.
+
+`fastapi` `fraud-prevention` `hackathon` `honeypot` `india` `llm` &nbsp;·&nbsp; [repo](https://github.com/Kaushik2210/scam-khel) · [commits](https://github.com/Kaushik2210/scam-khel/commits)
+
+</details>
+
+<details>
 <summary>🔷 <b>HireOS</b> &nbsp;·&nbsp; <code>TypeScript</code> &nbsp;·&nbsp; ⭐ 0 &nbsp;·&nbsp; pushed yesterday</summary>
 
-> No description yet. Still cooking.
+> Job-search workspace that shows its evidence: fit scoring, tailored materials without invention, and application tracking. Prepares, never submits.
 
-[repo](https://github.com/Kaushik2210/HireOS) · [live](https://hireos-beryl.vercel.app) · [commits](https://github.com/Kaushik2210/HireOS/commits)
+`career-tools` `job-search` `nextjs` `productivity` `react` `supabase` &nbsp;·&nbsp; [repo](https://github.com/Kaushik2210/HireOS) · [live](https://hireos-beryl.vercel.app) · [commits](https://github.com/Kaushik2210/HireOS/commits)
 
 </details>
 
@@ -131,9 +131,9 @@
 <details>
 <summary>🐍 <b>Net-Sentinel</b> &nbsp;·&nbsp; <code>Python</code> &nbsp;·&nbsp; ⭐ 0 &nbsp;·&nbsp; pushed 2d ago</summary>
 
-> No description yet. Still cooking.
+> Explainable network digital twin for threat detection, attack reconstruction and investigation, with MITRE ATT&amp;CK mapping. Consumes Zeek and Suricata telemetry.
 
-[repo](https://github.com/Kaushik2210/Net-Sentinel) · [commits](https://github.com/Kaushik2210/Net-Sentinel/commits)
+`cybersecurity` `fastapi` `mitre-attack` `network-security` `python` `suricata` &nbsp;·&nbsp; [repo](https://github.com/Kaushik2210/Net-Sentinel) · [commits](https://github.com/Kaushik2210/Net-Sentinel/commits)
 
 </details>
 <!--OPS_END-->
