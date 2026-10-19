@@ -54,9 +54,9 @@ def main():
     # ---------- 1. activity rings ----------
     cx, cy = 150, 176
     rings = [
-        ("STREAK", min(1, cur / 30), t.ORANGE, 80, f"{cur} days", "goal 30"),
-        ("CONSISTENCY", active90 / 90, t.PINK, 60, f"{active90}/90 days", "active"),
-        ("MOMENTUM", min(1, mom / 1.5), t.VIOLET, 40, f"{week} commits", f"{mom:.1f}x avg week"),
+        ("STREAK", min(1, cur / 30), t.RINGS[0], 80, f"{cur} days", "goal 30"),
+        ("CONSISTENCY", active90 / 90, t.RINGS[1], 60, f"{active90}/90 days", "active"),
+        ("MOMENTUM", min(1, mom / 1.5), t.RINGS[2], 40, f"{week} commits", f"{mom:.1f}x avg week"),
     ]
     o.append(f'<text x="28" y="74" class="label">ACTIVITY RINGS</text>')
     for i, (name, frac, col, r, val, sub) in enumerate(rings):
@@ -96,12 +96,12 @@ def main():
 
     def hcol(h):
         if h >= 22 or h < 5:
-            return t.VIOLET
+            return t.CLOCK[0]
         if h < 12:
-            return t.AMBER
+            return t.CLOCK[1]
         if h < 18:
-            return t.SKY
-        return t.PINK
+            return t.CLOCK[2]
+        return t.CLOCK[3]
 
     for h in range(24):
         a = math.radians(h * 15 - 90)
@@ -120,7 +120,7 @@ def main():
         o.append(f'<text x="{cx2 + (r_max + 20) * math.cos(a):.1f}" y="{cy2 + (r_max + 20) * math.sin(a) + 4:.1f}" class="mono" font-size="10" fill="{t.TEXT3}" text-anchor="middle">{lab}</text>')
     o.append(f'<text x="{cx2}" y="{cy2 - 1}" font-size="10" font-weight="700" fill="{t.TEXT}" text-anchor="middle" letter-spacing=".6">{chrono}</text>')
     o.append(f'<text x="{cx2}" y="{cy2 + 13}" font-size="9" fill="{t.TEXT3}" text-anchor="middle">peak {peak:02d}:00</text>')
-    for i, (lab, col) in enumerate((("night", t.VIOLET), ("morning", t.AMBER), ("day", t.SKY), ("evening", t.PINK))):
+    for i, (lab, col) in enumerate((("night", t.CLOCK[0]), ("morning", t.CLOCK[1]), ("day", t.CLOCK[2]), ("evening", t.CLOCK[3]))):
         x = 318 + i * 62
         o.append(f'<circle cx="{x}" cy="{H - 36}" r="4" fill="{col}"/><text x="{x + 9}" y="{H - 32}" font-size="{t.T_CAP}" fill="{t.TEXT2}">{lab}</text>')
 
@@ -138,7 +138,7 @@ def main():
                  f'<animate attributeName="y" values="{base};{base};{base - h:.1f};{base - h:.1f};{base};{base}" keyTimes="{grow(i * .004, .2)}" dur="{DUR}s" repeatCount="indefinite" calcMode="spline" keySplines="0 0 1 1;.2 .8 .2 1;0 0 1 1;.4 0 .6 1;0 0 1 1"/></rect>')
     px = bx0 + pk * 8.2 + 2.8
     o.append(f'<g opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="{kt(0, .26, .3, .86, .95, 1)}" dur="{DUR}s" repeatCount="indefinite"/>'
-             f'<text x="{min(px, 770):.1f}" y="{base - max(3, hmax) - 10:.0f}" font-size="{t.T_CAP}" font-weight="600" fill="{t.AMBER}" text-anchor="middle">peak {wk[pk]}</text></g>')
+             f'<text x="{min(px, 770):.1f}" y="{base - max(3, hmax) - 10:.0f}" font-size="{t.T_CAP}" font-weight="600" fill="{t.A3}" text-anchor="middle">peak {wk[pk]}</text></g>')
     half = sum(wk[13:])
     prev = sum(wk[:13])
     delta = (half / prev) if prev else 0
