@@ -64,7 +64,7 @@
 </details>
 
 <details>
-<summary>📦 <b>cp-sysdesign-academy</b> &nbsp;·&nbsp; <code>MDX</code> &nbsp;·&nbsp; ⭐ 0 &nbsp;·&nbsp; pushed today</summary>
+<summary>📦 <b>cp-sysdesign-academy</b> &nbsp;·&nbsp; <code>MDX</code> &nbsp;·&nbsp; ⭐ 0 &nbsp;·&nbsp; pushed yesterday</summary>
 
 > Open-source interactive course: competitive programming and system design (static site, runs in the browser)
 
@@ -82,7 +82,7 @@
 </details>
 
 <details>
-<summary>🔷 <b>HireOS</b> &nbsp;·&nbsp; <code>TypeScript</code> &nbsp;·&nbsp; ⭐ 0 &nbsp;·&nbsp; pushed 2d ago</summary>
+<summary>🔷 <b>HireOS</b> &nbsp;·&nbsp; <code>TypeScript</code> &nbsp;·&nbsp; ⭐ 0 &nbsp;·&nbsp; pushed 3d ago</summary>
 
 > Job-search workspace that shows its evidence: fit scoring, tailored materials without invention, and application tracking. Prepares, never submits.
 

@@ -69,13 +69,13 @@
 <text x="300.1" y="127.6" font-size="11" fill="#ffc94d" text-anchor="start">FSD_Lab_7</text>
 </g>
 <g opacity=".3"><animate attributeName="opacity" values="1;.6;.3;.3" keyTimes="0;.12;.7;1" dur="9.0s" begin="-8.14s" repeatCount="indefinite"/>
-<circle cx="304.9" cy="128.9" r="3.9" fill="#ffc94d" filter="url(#glow)"/>
+<circle cx="305.1" cy="128.7" r="3.9" fill="#ffc94d" filter="url(#glow)"/>
 </g>
 <g opacity=".3"><animate attributeName="opacity" values="1;.6;.3;.3" keyTimes="0;.12;.7;1" dur="9.0s" begin="-8.01s" repeatCount="indefinite"/>
 <circle cx="314.8" cy="138.3" r="3.2" fill="#ffc94d" filter="url(#glow)"/>
 </g>
 <g opacity=".3"><animate attributeName="opacity" values="1;.6;.3;.3" keyTimes="0;.12;.7;1" dur="9.0s" begin="-7.88s" repeatCount="indefinite"/>
-<circle cx="341.0" cy="131.0" r="3.2" fill="#ffc94d" filter="url(#glow)"/>
+<circle cx="341.1" cy="130.9" r="3.2" fill="#ffc94d" filter="url(#glow)"/>
 </g>
 <g opacity=".3"><animate attributeName="opacity" values="1;.6;.3;.3" keyTimes="0;.12;.7;1" dur="9.0s" begin="-7.74s" repeatCount="indefinite"/>
 <circle cx="347.8" cy="145.5" r="3.6" fill="#ffc94d" filter="url(#glow)"/>
@@ -94,7 +94,7 @@
 <circle cx="395.6" cy="191.8" r="3.3" fill="#ffc94d" filter="url(#glow)"/>
 </g>
 <g opacity=".3"><animate attributeName="opacity" values="1;.6;.3;.3" keyTimes="0;.12;.7;1" dur="9.0s" begin="-7.08s" repeatCount="indefinite"/>
-<circle cx="395.2" cy="209.3" r="3.2" fill="#ffc94d" filter="url(#glow)"/>
+<circle cx="395.3" cy="209.2" r="3.2" fill="#ffc94d" filter="url(#glow)"/>
 </g>
 <g opacity=".3"><animate attributeName="opacity" values="1;.6;.3;.3" keyTimes="0;.12;.7;1" dur="9.0s" begin="-6.95s" repeatCount="indefinite"/>
 <circle cx="404.2" cy="224.6" r="4.1" fill="#ffc94d" filter="url(#glow)"/>
@@ -115,36 +115,36 @@
 <circle cx="267.1" cy="265.1" r="3.4" fill="#38d9ff" filter="url(#glow)"/>
 </g>
 <g opacity=".3"><animate attributeName="opacity" values="1;.6;.3;.3" keyTimes="0;.12;.7;1" dur="9.0s" begin="-6.15s" repeatCount="indefinite"/>
-<circle cx="277.5" cy="274.5" r="3.3" fill="#38d9ff" filter="url(#glow)"/>
+<circle cx="284.5" cy="277.6" r="3.3" fill="#38d9ff" filter="url(#glow)"/>
+<text x="292.7" y="280.6" font-size="11" fill="#38d9ff" text-anchor="start">HireOS</text>
 </g>
 <g opacity=".3"><animate attributeName="opacity" values="1;.6;.3;.3" keyTimes="0;.12;.7;1" dur="9.0s" begin="-6.02s" repeatCount="indefinite"/>
 <circle cx="278.5" cy="281.5" r="3.3" fill="#38d9ff" filter="url(#glow)"/>
 </g>
 <g opacity=".3"><animate attributeName="opacity" values="1;.6;.3;.3" keyTimes="0;.12;.7;1" dur="9.0s" begin="-5.89s" repeatCount="indefinite"/>
 <circle cx="299.5" cy="303.1" r="3.2" fill="#38d9ff" filter="url(#glow)"/>
-<text x="307.8" y="306.1" font-size="11" fill="#38d9ff" text-anchor="start">Overrank</text>
 </g>
 <g opacity=".3"><animate attributeName="opacity" values="1;.6;.3;.3" keyTimes="0;.12;.7;1" dur="9.0s" begin="-5.76s" repeatCount="indefinite"/>
-<circle cx="317.7" cy="329.5" r="3.2" fill="#38d9ff" filter="url(#glow)"/>
+<circle cx="318.4" cy="330.0" r="3.2" fill="#38d9ff" filter="url(#glow)"/>
 </g>
 <g opacity=".3"><animate attributeName="opacity" values="1;.6;.3;.3" keyTimes="0;.12;.7;1" dur="9.0s" begin="-5.62s" repeatCount="indefinite"/>
 <circle cx="306.4" cy="334.4" r="3.3" fill="#38d9ff" filter="url(#glow)"/>
 </g>
 <g opacity=".3"><animate attributeName="opacity" values="1;.6;.3;.3" keyTimes="0;.12;.7;1" dur="9.0s" begin="-5.49s" repeatCount="indefinite"/>
-<circle cx="299.6" cy="343.5" r="3.5" fill="#38d9ff" filter="url(#glow)"/>
+<circle cx="300.1" cy="344.0" r="3.5" fill="#38d9ff" filter="url(#glow)"/>
 </g>
 <g opacity=".3"><animate attributeName="opacity" values="1;.6;.3;.3" keyTimes="0;.12;.7;1" dur="9.0s" begin="-5.36s" repeatCount="indefinite"/>
-<circle cx="296.0" cy="358.0" r="3.2" fill="#38d9ff" filter="url(#glow)"/>
+<circle cx="296.3" cy="358.5" r="3.2" fill="#38d9ff" filter="url(#glow)"/>
+<text x="304.5" y="361.5" font-size="11" fill="#38d9ff" text-anchor="start">GLYPHFORGE</text>
 </g>
 <g opacity=".3"><animate attributeName="opacity" values="1;.6;.3;.3" keyTimes="0;.12;.7;1" dur="9.0s" begin="-5.23s" repeatCount="indefinite"/>
 <circle cx="289.3" cy="370.8" r="3.2" fill="#38d9ff" filter="url(#glow)"/>
 </g>
 <g opacity=".3"><animate attributeName="opacity" values="1;.6;.3;.3" keyTimes="0;.12;.7;1" dur="9.0s" begin="-5.10s" repeatCount="indefinite"/>
-<circle cx="278.7" cy="378.5" r="3.2" fill="#38d9ff" filter="url(#glow)"/>
-<text x="286.9" y="381.5" font-size="11" fill="#38d9ff" text-anchor="start">FSD_GATEWAYS_8</text>
+<circle cx="278.9" cy="378.9" r="3.2" fill="#38d9ff" filter="url(#glow)"/>
 </g>
 <g opacity=".3"><animate attributeName="opacity" values="1;.6;.3;.3" keyTimes="0;.12;.7;1" dur="9.0s" begin="-4.96s" repeatCount="indefinite"/>
-<circle cx="271.9" cy="398.9" r="3.2" fill="#38d9ff" filter="url(#glow)"/>
+<circle cx="272.0" cy="399.0" r="3.2" fill="#38d9ff" filter="url(#glow)"/>
 </g>
 <g opacity=".3"><animate attributeName="opacity" values="1;.6;.3;.3" keyTimes="0;.12;.7;1" dur="9.0s" begin="-4.83s" repeatCount="indefinite"/>
 <circle cx="259.3" cy="408.5" r="3.2" fill="#38d9ff" filter="url(#glow)"/>
@@ -191,7 +191,7 @@
 <circle cx="115.1" cy="323.2" r="3.3" fill="#3dffb5" filter="url(#glow)"/>
 </g>
 <g opacity=".3"><animate attributeName="opacity" values="1;.6;.3;.3" keyTimes="0;.12;.7;1" dur="9.0s" begin="-2.98s" repeatCount="indefinite"/>
-<circle cx="106.7" cy="314.2" r="3.2" fill="#3dffb5" filter="url(#glow)"/>
+<circle cx="106.1" cy="314.5" r="3.2" fill="#3dffb5" filter="url(#glow)"/>
 </g>
 <g opacity=".3"><animate attributeName="opacity" values="1;.6;.3;.3" keyTimes="0;.12;.7;1" dur="9.0s" begin="-2.85s" repeatCount="indefinite"/>
 <circle cx="75.2" cy="314.8" r="3.2" fill="#3dffb5" filter="url(#glow)"/>
@@ -207,13 +207,13 @@
 <text x="98.7" y="271.3" font-size="11" fill="#ff5fd0" text-anchor="start">TryHackMe-Rooms</text>
 </g>
 <g opacity=".3"><animate attributeName="opacity" values="1;.6;.3;.3" keyTimes="0;.12;.7;1" dur="9.0s" begin="-2.32s" repeatCount="indefinite"/>
-<circle cx="84.5" cy="256.4" r="3.2" fill="#ff5fd0" filter="url(#glow)"/>
+<circle cx="84.1" cy="256.4" r="3.2" fill="#ff5fd0" filter="url(#glow)"/>
 </g>
 <g opacity=".3"><animate attributeName="opacity" values="1;.6;.3;.3" keyTimes="0;.12;.7;1" dur="9.0s" begin="-2.18s" repeatCount="indefinite"/>
-<circle cx="73.9" cy="243.2" r="3.2" fill="#ff5fd0" filter="url(#glow)"/>
+<circle cx="73.6" cy="243.1" r="3.2" fill="#ff5fd0" filter="url(#glow)"/>
 </g>
 <g opacity=".3"><animate attributeName="opacity" values="1;.6;.3;.3" keyTimes="0;.12;.7;1" dur="9.0s" begin="-2.05s" repeatCount="indefinite"/>
-<circle cx="71.8" cy="229.1" r="3.2" fill="#ff5fd0" filter="url(#glow)"/>
+<circle cx="71.6" cy="229.0" r="3.2" fill="#ff5fd0" filter="url(#glow)"/>
 </g>
 <g opacity=".3"><animate attributeName="opacity" values="1;.6;.3;.3" keyTimes="0;.12;.7;1" dur="9.0s" begin="-1.92s" repeatCount="indefinite"/>
 <circle cx="68.8" cy="214.0" r="3.2" fill="#ff5fd0" filter="url(#glow)"/>
@@ -244,7 +244,7 @@
 <circle cx="126.5" cy="110.6" r="3.2" fill="#8493b8" filter="url(#glow)"/>
 </g>
 <g opacity=".3"><animate attributeName="opacity" values="1;.6;.3;.3" keyTimes="0;.12;.7;1" dur="9.0s" begin="-0.73s" repeatCount="indefinite"/>
-<circle cx="133.5" cy="91.1" r="3.2" fill="#8493b8" filter="url(#glow)"/>
+<circle cx="133.4" cy="91.0" r="3.2" fill="#8493b8" filter="url(#glow)"/>
 </g>
 <g opacity=".3"><animate attributeName="opacity" values="1;.6;.3;.3" keyTimes="0;.12;.7;1" dur="9.0s" begin="-0.60s" repeatCount="indefinite"/>
 <circle cx="152.5" cy="92.5" r="3.2" fill="#8493b8" filter="url(#glow)"/>
@@ -256,13 +256,13 @@
 <circle cx="216.8" cy="225.3" r="3.2" fill="#ff6b8b" filter="url(#glow)"/>
 </g>
 <g opacity=".3"><animate attributeName="opacity" values="1;.6;.3;.3" keyTimes="0;.12;.7;1" dur="9.0s" begin="-0.10s" repeatCount="indefinite"/>
-<circle cx="213.5" cy="127.4" r="3.2" fill="#ff6b8b" filter="url(#glow)"/>
+<circle cx="213.4" cy="126.7" r="3.2" fill="#ff6b8b" filter="url(#glow)"/>
 </g>
 <circle cx="222" cy="250" r="4" fill="#3dffb5" filter="url(#glow)"/>
 <text x="222" y="268" font-size="9" fill="#3dffb5" text-anchor="middle" fill-opacity=".8">YOU</text>
 <text x="222" y="50" font-size="9" fill="#3dffb5" text-anchor="middle" fill-opacity=".6">N</text>
 <text x="452" y="46" font-size="19" fill="#3dffb5" font-weight="bold">REPO RADAR</text>
-<text x="452" y="64" font-size="12" fill="#8493b8">live scan · auto-rebuilt · 10-19 13:22 UTC</text>
+<text x="452" y="64" font-size="12" fill="#8493b8">live scan · auto-rebuilt · 10-19 16:55 UTC</text>
 <line x1="452" y1="76" x2="800" y2="76" stroke="#1d2845"/>
 <text x="452" y="100" font-size="13" fill="#8493b8">CONTACTS</text>
 <text x="602" y="100" font-size="13" fill="#e8edf7">67</text>
@@ -304,5 +304,5 @@
 <text x="800" y="452" font-size="13" fill="#8493b8" text-anchor="end">1d ago</text>
 <circle cx="456" cy="469" r="3.5" fill="#38d9ff"/>
 <text x="470" y="472" font-size="13" fill="#e8edf7">HireOS</text>
-<text x="800" y="472" font-size="13" fill="#8493b8" text-anchor="end">2d ago</text>
+<text x="800" y="472" font-size="13" fill="#8493b8" text-anchor="end">3d ago</text>
 </svg>
