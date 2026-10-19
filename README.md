@@ -66,15 +66,6 @@
 
 <!--OPS_START-->
 <details>
-<summary>📦 <b>cp-sysdesign-academy</b> &nbsp;·&nbsp; <code>MDX</code> &nbsp;·&nbsp; ⭐ 0 &nbsp;·&nbsp; pushed today</summary>
-
-> Open-source interactive course: competitive programming and system design (static site, runs in the browser)
-
-[repo](https://github.com/Kaushik2210/cp-sysdesign-academy) · [commits](https://github.com/Kaushik2210/cp-sysdesign-academy/commits)
-
-</details>
-
-<details>
 <summary>🐍 <b>scam-khel</b> &nbsp;·&nbsp; <code>Python</code> &nbsp;·&nbsp; ⭐ 0 &nbsp;·&nbsp; pushed today</summary>
 
 > Private family shield against Indian digital-arrest scams: live detection, simulated honeypot, family alerts, complaint drafts. Nebius Token Factory + NVIDIA Nemotron + Tavily.
@@ -84,20 +75,29 @@
 </details>
 
 <details>
-<summary>🔷 <b>tapwire</b> &nbsp;·&nbsp; <code>TypeScript</code> &nbsp;·&nbsp; ⭐ 0 &nbsp;·&nbsp; pushed today</summary>
-
-> Turns every mistake an AI coding agent makes into a permanent, enforced rule, and measures how often it repeats fixed mistakes.
-
-`ai-agents` `code-quality` `developer-tools` `hackathon` `nextjs` `typescript` &nbsp;·&nbsp; [repo](https://github.com/Kaushik2210/tapwire) · [live](https://tapwire-xi.vercel.app) · [commits](https://github.com/Kaushik2210/tapwire/commits)
-
-</details>
-
-<details>
 <summary>☕ <b>100-days-of-java</b> &nbsp;·&nbsp; <code>Java</code> &nbsp;·&nbsp; ⭐ 0 &nbsp;·&nbsp; pushed today</summary>
 
 > Daily Java practice log
 
 [repo](https://github.com/Kaushik2210/100-days-of-java) · [commits](https://github.com/Kaushik2210/100-days-of-java/commits)
+
+</details>
+
+<details>
+<summary>📦 <b>cp-sysdesign-academy</b> &nbsp;·&nbsp; <code>MDX</code> &nbsp;·&nbsp; ⭐ 0 &nbsp;·&nbsp; pushed today</summary>
+
+> Open-source interactive course: competitive programming and system design (static site, runs in the browser)
+
+[repo](https://github.com/Kaushik2210/cp-sysdesign-academy) · [commits](https://github.com/Kaushik2210/cp-sysdesign-academy/commits)
+
+</details>
+
+<details>
+<summary>🔷 <b>tapwire</b> &nbsp;·&nbsp; <code>TypeScript</code> &nbsp;·&nbsp; ⭐ 0 &nbsp;·&nbsp; pushed yesterday</summary>
+
+> Turns every mistake an AI coding agent makes into a permanent, enforced rule, and measures how often it repeats fixed mistakes.
+
+`ai-agents` `code-quality` `developer-tools` `hackathon` `nextjs` `typescript` &nbsp;·&nbsp; [repo](https://github.com/Kaushik2210/tapwire) · [live](https://tapwire-xi.vercel.app) · [commits](https://github.com/Kaushik2210/tapwire/commits)
 
 </details>
 
