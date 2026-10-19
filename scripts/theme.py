@@ -61,3 +61,12 @@ def card_open(w, h, title, meta="", r=16):
 
 def card_border(w, h, r=16):
     return f'<rect x=".5" y=".5" width="{w - 1}" height="{h - 1}" rx="{r}" fill="none" stroke="{HAIRLINE}"/>'
+
+
+# language -> colour (one place, so every chart agrees)
+LANG = {"Python": MINT, "TypeScript": CYAN, "JavaScript": AMBER, "Java": ROSE,
+        "HTML": PINK, "C": VIOLET, "Other": "#8493b8"}
+
+
+def lang_color(name):
+    return LANG.get(name, LANG["Other"])

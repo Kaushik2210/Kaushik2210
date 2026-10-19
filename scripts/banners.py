@@ -21,9 +21,9 @@ DIVIDERS = [  # (file, number, label)
     ("div-dossier", "01", "Operator dossier"),
     ("div-vitals", "02", "Vitals"),
     ("div-skyline", "03", "Contribution skyline"),
-    ("div-radar", "04", "Repo radar"),
+    ("div-neural", "04", "Repo neural map"),
     ("div-galaxy", "05", "Contribution galaxy"),
-    ("div-ops", "06", "Active ops"),
+    ("div-ops", "06", "Active ops: flight recorder"),
     ("div-ctf", "07", "Intercepted transmission"),
     ("div-arsenal", "08", "Arsenal"),
 ]

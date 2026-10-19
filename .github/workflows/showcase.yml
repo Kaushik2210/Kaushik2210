@@ -24,7 +24,7 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install --quiet pillow
-      - name: Render header, vitals, dossier, radar, skyline and galaxy
+      - name: Render header, vitals, dossier, neural map, ops, skyline and galaxy
         working-directory: scripts
         run: |
           python banners.py "${{ github.repository_owner }}" ../assets
@@ -32,7 +32,8 @@ jobs:
           python dossier.py "${{ github.repository_owner }}" ../assets/dossier.svg
           python skyline.py "${{ github.repository_owner }}" ../assets/skyline.svg
           python galaxy.py  "${{ github.repository_owner }}" ../assets/galaxy.svg
-          python radar.py   "${{ github.repository_owner }}" ../assets/radar.svg
+          python neural.py  "${{ github.repository_owner }}" ../assets/neural.svg
+          python ops.py     "${{ github.repository_owner }}" ../assets/ops.svg
           python explorer.py "${{ github.repository_owner }}" ../README.md
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

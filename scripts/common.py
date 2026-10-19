@@ -76,3 +76,21 @@ def push_hours(login, tz_minutes=330, pages=3):
         if not evs:
             break  # pages can be short (filtered); only an empty page ends the feed
     return hist, n
+
+
+def push_events(login, pages=3):
+    """[(repo_name, datetime_utc)] for PushEvents in the public feed (~300 events max)."""
+    from datetime import datetime
+    out = []
+    for p in range(1, pages + 1):
+        try:
+            evs = json.loads(_req(f"https://api.github.com/users/{login}/events/public?per_page=100&page={p}"))
+        except Exception:
+            break
+        if not evs:
+            break
+        for e in evs:
+            if e.get("type") == "PushEvent":
+                name = e["repo"]["name"].split("/", 1)[-1]
+                out.append((name, datetime.fromisoformat(e["created_at"].replace("Z", "+00:00"))))
+    return out

@@ -24,98 +24,41 @@
 
 <sub>One building per day. Height is commits, lit windows mean activity, the red beacon marks my busiest day.</sub>
 
-<img src="assets/div-radar.svg" alt="" width="100%"/>
+<img src="assets/div-neural.svg" alt="" width="100%"/>
 
-<a href="https://github.com/Kaushik2210?tab=repositories&sort=updated"><img src="assets/radar.svg" alt="Animated radar: every repository is a blip. Bearing is language, distance from the centre is how recently I pushed." width="100%"/></a>
+<a href="https://github.com/Kaushik2210?tab=repositories&sort=updated"><img src="assets/neural.svg" alt="Neural map of my repositories: each repo is a neuron, clustered by language and wired to repos that share topics. Recently pushed repos fire rings and signals travel along the wires." width="100%"/></a>
 
-<sub>Every repo is a blip. Closer to the centre means pushed more recently; the sweep makes each one flash.</sub>
-
-<img src="assets/div-galaxy.svg" alt="" width="100%"/>
-
-<a href="https://github.com/Kaushik2210/issues/new?template=star.yml"><img src="assets/galaxy.svg" alt="My last 365 days of contributions as a spiral galaxy, one star per day, with visitor stars orbiting" width="100%"/></a>
-
-<sub>One star per day for the last year; the core is today.<br/><b><a href="https://github.com/Kaushik2210/issues/new?template=star.yml">Add your own star</a></b>: pick a colour and your handle orbits here too.</sub>
-
-<img src="assets/div-ops.svg" alt="" width="100%"/>
-
-<sub>What I'm shipping right now, newest first. Tap a card to expand it.</sub>
+<sub>Every repo is a neuron, wired to the ones it shares topics, a name family or a language with. Rings mark what I pushed this week.</sub>
 
 </div>
 
-<br/>
+<div align="center">
+
+<img src="assets/div-galaxy.svg" alt="" width="100%"/>
+
+<a href="https://github.com/Kaushik2210/Kaushik2210/issues/new?template=star.yml"><img src="assets/galaxy.svg" alt="My last 365 days of contributions as a spiral galaxy, one star per day, with visitor stars orbiting" width="100%"/></a>
+
+<sub>One star per day for the last year; the core is today.<br/><b><a href="https://github.com/Kaushik2210/Kaushik2210/issues/new?template=star.yml">Add your own star</a></b>: pick a colour and your handle orbits here too.</sub>
+
+<img src="assets/div-ops.svg" alt="" width="100%"/>
+
+<img src="assets/ops.svg" alt="Flight recorder: push activity per repo over the last two weeks as 6-hour bars. The table below lists the same repos in text." width="100%"/>
+
+<sub>My last two weeks of pushes, one lane per repo. Taller bar, busier window. The table below has the details.</sub>
+
+</div>
 
 <!--OPS_START-->
-<details>
-<summary>🐍 <b>scam-khel</b> &nbsp;·&nbsp; <code>Python</code> &nbsp;·&nbsp; ⭐ 0 &nbsp;·&nbsp; pushed today</summary>
-
-> Private family shield against Indian digital-arrest scams: live detection, simulated honeypot, family alerts, complaint drafts. Nebius Token Factory + NVIDIA Nemotron + Tavily.
-
-`fastapi` `fraud-prevention` `hackathon` `honeypot` `india` `llm` &nbsp;·&nbsp; [repo](https://github.com/Kaushik2210/scam-khel) · [commits](https://github.com/Kaushik2210/scam-khel/commits)
-
-</details>
-
-<details>
-<summary>☕ <b>100-days-of-java</b> &nbsp;·&nbsp; <code>Java</code> &nbsp;·&nbsp; ⭐ 0 &nbsp;·&nbsp; pushed today</summary>
-
-> Daily Java practice log
-
-[repo](https://github.com/Kaushik2210/100-days-of-java) · [commits](https://github.com/Kaushik2210/100-days-of-java/commits)
-
-</details>
-
-<details>
-<summary>📦 <b>cp-sysdesign-academy</b> &nbsp;·&nbsp; <code>MDX</code> &nbsp;·&nbsp; ⭐ 0 &nbsp;·&nbsp; pushed yesterday</summary>
-
-> Open-source interactive course: competitive programming and system design (static site, runs in the browser)
-
-[repo](https://github.com/Kaushik2210/cp-sysdesign-academy) · [commits](https://github.com/Kaushik2210/cp-sysdesign-academy/commits)
-
-</details>
-
-<details>
-<summary>🔷 <b>tapwire</b> &nbsp;·&nbsp; <code>TypeScript</code> &nbsp;·&nbsp; ⭐ 0 &nbsp;·&nbsp; pushed yesterday</summary>
-
-> Turns every mistake an AI coding agent makes into a permanent, enforced rule, and measures how often it repeats fixed mistakes.
-
-`ai-agents` `code-quality` `developer-tools` `hackathon` `nextjs` `typescript` &nbsp;·&nbsp; [repo](https://github.com/Kaushik2210/tapwire) · [live](https://tapwire-xi.vercel.app) · [commits](https://github.com/Kaushik2210/tapwire/commits)
-
-</details>
-
-<details>
-<summary>🔷 <b>HireOS</b> &nbsp;·&nbsp; <code>TypeScript</code> &nbsp;·&nbsp; ⭐ 0 &nbsp;·&nbsp; pushed 3d ago</summary>
-
-> Job-search workspace that shows its evidence: fit scoring, tailored materials without invention, and application tracking. Prepares, never submits.
-
-`career-tools` `job-search` `nextjs` `productivity` `react` `supabase` &nbsp;·&nbsp; [repo](https://github.com/Kaushik2210/HireOS) · [live](https://hireos-beryl.vercel.app) · [commits](https://github.com/Kaushik2210/HireOS/commits)
-
-</details>
-
-<details>
-<summary>🐍 <b>Voice-Agents-</b> &nbsp;·&nbsp; <code>Python</code> &nbsp;·&nbsp; ⭐ 0 &nbsp;·&nbsp; pushed 3d ago</summary>
-
-> No description yet. Still cooking.
-
-[repo](https://github.com/Kaushik2210/Voice-Agents-) · [commits](https://github.com/Kaushik2210/Voice-Agents-/commits)
-
-</details>
-
-<details>
-<summary>🔷 <b>Portfolio_General</b> &nbsp;·&nbsp; <code>TypeScript</code> &nbsp;·&nbsp; ⭐ 0 &nbsp;·&nbsp; pushed 3d ago</summary>
-
-> No description yet. Still cooking.
-
-[repo](https://github.com/Kaushik2210/Portfolio_General) · [live](https://portfolio-general-ten.vercel.app) · [commits](https://github.com/Kaushik2210/Portfolio_General/commits)
-
-</details>
-
-<details>
-<summary>🐍 <b>Net-Sentinel</b> &nbsp;·&nbsp; <code>Python</code> &nbsp;·&nbsp; ⭐ 0 &nbsp;·&nbsp; pushed 3d ago</summary>
-
-> Explainable network digital twin for threat detection, attack reconstruction and investigation, with MITRE ATT&amp;CK mapping. Consumes Zeek and Suricata telemetry.
-
-`cybersecurity` `fastapi` `mitre-attack` `network-security` `python` `suricata` &nbsp;·&nbsp; [repo](https://github.com/Kaushik2210/Net-Sentinel) · [commits](https://github.com/Kaushik2210/Net-Sentinel/commits)
-
-</details>
+| Repo | Stack | Last push | Brief |
+|:--|:--|:--|:--|
+| [**scam-khel**](https://github.com/Kaushik2210/scam-khel) | `Python` | today | Private family shield against Indian digital-arrest scams: live detection, simulated honeypot… |
+| [**100-days-of-java**](https://github.com/Kaushik2210/100-days-of-java) | `Java` | today | Daily Java practice log |
+| [**cp-sysdesign-academy**](https://github.com/Kaushik2210/cp-sysdesign-academy) | `MDX` | yesterday | Open-source interactive course: competitive programming and system design (static site, runs in… |
+| [**tapwire**](https://github.com/Kaushik2210/tapwire) · [live](https://tapwire-xi.vercel.app) | `TypeScript` | yesterday | Turns every mistake an AI coding agent makes into a permanent, enforced rule, and measures how… |
+| [**HireOS**](https://github.com/Kaushik2210/HireOS) · [live](https://hireos-beryl.vercel.app) | `TypeScript` | 3d ago | Job-search workspace that shows its evidence: fit scoring, tailored materials without… |
+| [**Voice-Agents-**](https://github.com/Kaushik2210/Voice-Agents-) | `Python` | 3d ago | _Still cooking._ |
+| [**Portfolio_General**](https://github.com/Kaushik2210/Portfolio_General) · [live](https://portfolio-general-ten.vercel.app) | `TypeScript` | 3d ago | _Still cooking._ |
+| [**Net-Sentinel**](https://github.com/Kaushik2210/Net-Sentinel) | `Python` | 3d ago | Explainable network digital twin for threat detection, attack reconstruction and investigation… |
 <!--OPS_END-->
 
 <br/>
@@ -130,7 +73,7 @@
 
 ```text
 STAGE 1 / 3   (base64)
-U1RBR0UgMS8zIDo6IG5pY2UsIHlvdSBkZWNvZGVkIGJhc2U2NC4gdGhlIHJhZGFyIGlzIG1vcmUgdGhhbiBhIHBpY3R1cmU6IG9wZW4gYXNzZXRzL3JhZGFyLnN2ZyBhcyByYXcgdGV4dCBhbmQgcmVhZCBpdHMgPGRlc2M+IGVsZW1lbnQuIGl0IGlzIGhleC4=
+U1RBR0UgMS8zIDo6IG5pY2UsIHlvdSBkZWNvZGVkIGJhc2U2NC4gdGhlIHJlcG8gbWFwIGlzIG1vcmUgdGhhbiBhIHBpY3R1cmU6IG9wZW4gYXNzZXRzL25ldXJhbC5zdmcgYXMgcmF3IHRleHQgYW5kIHJlYWQgaXRzIDxkZXNjPiBlbGVtZW50LiBpdCBpcyBoZXgu
 ```
 
 <details>
@@ -144,7 +87,7 @@ U1RBR0UgMS8zIDo6IG5pY2UsIHlvdSBkZWNvZGVkIGJhc2U2NC4gdGhlIHJhZGFyIGlzIG1vcmUgdGhh
   echo -n "KAUSHIK{the_flag_you_found}:your-github-login" | sha256sum | cut -c1-12
   ```
   (login in lowercase, 12 hex characters out.) A leaked proof is useless to anyone else.
-- [**Submit your proof**](https://github.com/Kaushik2210/issues/new?template=ctf.yml). An Action checks it and, if it's right, adds you below within a minute.
+- [**Submit your proof**](https://github.com/Kaushik2210/Kaushik2210/issues/new?template=ctf.yml). An Action checks it and, if it's right, adds you below within a minute.
 - No brute force needed. Everything you need is in this repo and my other repos' names.
 
 </details>
