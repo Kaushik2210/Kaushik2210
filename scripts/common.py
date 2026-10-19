@@ -57,3 +57,22 @@ def repos(login):
         if len(b) < 100:
             return [r for r in out if not r["fork"]]
         page += 1
+
+
+def push_hours(login, tz_minutes=330, pages=3):
+    """(hist24, n): pushes per local hour from the public events feed (last ~90 days)."""
+    from datetime import datetime, timedelta
+    hist, n = [0] * 24, 0
+    for p in range(1, pages + 1):
+        try:
+            evs = json.loads(_req(f"https://api.github.com/users/{login}/events/public?per_page=100&page={p}"))
+        except Exception:
+            break
+        for e in evs:
+            if e.get("type") == "PushEvent":
+                d = datetime.fromisoformat(e["created_at"].replace("Z", "+00:00")) + timedelta(minutes=tz_minutes)
+                hist[d.hour] += 1
+                n += 1
+        if not evs:
+            break  # pages can be short (filtered); only an empty page ends the feed
+    return hist, n

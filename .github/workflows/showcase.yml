@@ -24,10 +24,11 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install --quiet pillow
-      - name: Render header, dossier, radar, skyline and galaxy
+      - name: Render header, vitals, dossier, radar, skyline and galaxy
         working-directory: scripts
         run: |
           python banners.py "${{ github.repository_owner }}" ../assets
+          python vitals.py  "${{ github.repository_owner }}" ../assets/vitals.svg
           python dossier.py "${{ github.repository_owner }}" ../assets/dossier.svg
           python skyline.py "${{ github.repository_owner }}" ../assets/skyline.svg
           python galaxy.py  "${{ github.repository_owner }}" ../assets/galaxy.svg

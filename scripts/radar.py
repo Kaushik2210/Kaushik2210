@@ -28,11 +28,11 @@ DESC_FILE = os.path.join(os.path.dirname(__file__), "..", "ctf", "desc.hex")
 W, H = 830, 500
 CX, CY, R = 222, 250, 192
 PERIOD = 9.0  # seconds per sweep
-BG, GRID, GREEN = "#0d1117", "#0f5d2c", "#00ff41"
+BG, GRID, GREEN = "#0c1322", "#1d2845", "#3dffb5"
 
 LANG_COLOR = {
-    "Python": "#ffd43b", "TypeScript": "#4aa8ff", "JavaScript": "#f7df1e",
-    "Java": "#ff7a45", "HTML": "#ff5f87", "C": "#b48cff", "Other": "#9aa4b2",
+    "Python": "#3dffb5", "TypeScript": "#38d9ff", "JavaScript": "#ffc94d",
+    "Java": "#ff6b8b", "HTML": "#ff5fd0", "C": "#8b7bff", "Other": "#8493b8",
 }
 
 
@@ -123,8 +123,8 @@ def main():
     add(f"<desc>{desc}</desc>")
     add(f"""<defs>
 <filter id="glow" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="2.6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-<radialGradient id="disc"><stop offset="0" stop-color="#06210f"/><stop offset="1" stop-color="#050b08"/></radialGradient>
-<style>text{{font-family:'Fira Code','Cascadia Code',Consolas,monospace}}</style>
+<radialGradient id="disc"><stop offset="0" stop-color="#0a1a2b"/><stop offset="1" stop-color="#070d18"/></radialGradient>
+<style>text{{font-family:system-ui,-apple-system,'SF Pro Text','Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif}}</style>
 </defs>
 <rect width="{W}" height="{H}" rx="14" fill="{BG}" stroke="{GRID}"/>
 <circle cx="{CX}" cy="{CY}" r="{R}" fill="url(#disc)" stroke="{GREEN}" stroke-opacity=".55"/>""")
@@ -179,23 +179,23 @@ def main():
     langs_n = len(order)
     newest = min(blips, key=lambda b: b["r"]["days"])["r"] if blips else None
     stars = sum(b["r"]["stargazers_count"] for b in blips)
-    add(f'<text x="{px}" y="46" font-size="19" fill="{GREEN}" font-weight="bold">THREAT RADAR // {escape(USER.upper())}</text>')
-    add(f'<text x="{px}" y="64" font-size="12" fill="#7d8590">live scan · auto-rebuilt · {now:%m-%d %H:%M} UTC</text>')
+    add(f'<text x="{px}" y="46" font-size="19" fill="{GREEN}" font-weight="bold">REPO RADAR</text>')
+    add(f'<text x="{px}" y="64" font-size="12" fill="#8493b8">live scan · auto-rebuilt · {now:%m-%d %H:%M} UTC</text>')
     add(f'<line x1="{px}" y1="76" x2="{W-30}" y2="76" stroke="{GRID}"/>')
     stats = [("CONTACTS", str(len(blips))), ("LANGUAGES", str(langs_n)), ("STARS EARNED", str(stars)),
              ("HOT (30d)", str(sum(1 for b in blips if b["r"]["days"] <= 30))),
              ("LAST CONTACT", f'{newest["name"][:20]} ({newest["days"]}d)' if newest else "-")]
     for i, (k, v) in enumerate(stats):
         y = 100 + i * 21
-        add(f'<text x="{px}" y="{y}" font-size="13" fill="#7d8590">{k}</text>')
-        add(f'<text x="{px+150}" y="{y}" font-size="13" fill="#e6edf3">{escape(v)}</text>')
+        add(f'<text x="{px}" y="{y}" font-size="13" fill="#8493b8">{k}</text>')
+        add(f'<text x="{px+150}" y="{y}" font-size="13" fill="#e8edf7">{escape(v)}</text>')
     add(f'<line x1="{px}" y1="214" x2="{W-30}" y2="214" stroke="{GRID}"/>')
     add(f'<text x="{px}" y="234" font-size="12" fill="{GREEN}" fill-opacity=".8">SECTORS</text>')
     for i, k in enumerate(order):
         col, row = i % 2, i // 2
         x, y = px + col * 190, 254 + row * 20
         add(f'<circle cx="{x+4}" cy="{y-3}" r="4" fill="{LANG_COLOR[k]}"/>')
-        add(f'<text x="{x+18}" y="{y}" font-size="13" fill="#e6edf3">{k} <tspan fill="#7d8590">x{len(groups[k])}</tspan></text>')
+        add(f'<text x="{x+18}" y="{y}" font-size="13" fill="#e8edf7">{k} <tspan fill="#8493b8">x{len(groups[k])}</tspan></text>')
     hot = sorted(blips, key=lambda b: b["r"]["days"])[:5]
     add(f'<line x1="{px}" y1="352" x2="{W-30}" y2="352" stroke="{GRID}"/>')
     add(f'<text x="{px}" y="372" font-size="12" fill="{GREEN}" fill-opacity=".8">LATEST ACTIVITY</text>')
@@ -203,8 +203,8 @@ def main():
         y = 392 + i * 20
         d = b["r"]["days"]
         add(f'<circle cx="{px+4}" cy="{y-3}" r="3.5" fill="{b["color"]}"/>')
-        add(f'<text x="{px+18}" y="{y}" font-size="13" fill="#e6edf3">{escape(b["r"]["name"][:24])}</text>')
-        add(f'<text x="{W-30}" y="{y}" font-size="13" fill="#7d8590" text-anchor="end">{"today" if d == 0 else f"{d}d ago"}</text>')
+        add(f'<text x="{px+18}" y="{y}" font-size="13" fill="#e8edf7">{escape(b["r"]["name"][:24])}</text>')
+        add(f'<text x="{W-30}" y="{y}" font-size="13" fill="#8493b8" text-anchor="end">{"today" if d == 0 else f"{d}d ago"}</text>')
     add("</svg>")
 
     os.makedirs(os.path.dirname(OUT) or ".", exist_ok=True)

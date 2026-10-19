@@ -1,138 +1,131 @@
 #!/usr/bin/env python3
-"""assets/header.svg + assets/div-*.svg: the profile header and section dividers.
+"""assets/header.svg + assets/div-*.svg: the Aurora hero and section dividers.
 
-Header: glyph rain, a glitching name, cycling role lines, a live "last seen"
-readout and an ECG pulse. Everything is SMIL, so it animates inside <img>.
+Hero: drifting aurora mesh, a gradient name, rotating role line, live status
+chips and a faint wave of your real weekly contribution totals along the base.
 """
-import random
 import sys
 from datetime import datetime, timezone
 from xml.sax.saxutils import escape
 
 import common
+import theme as t
 
 USER = sys.argv[1] if len(sys.argv) > 1 else "Kaushik2210"
 OUTDIR = sys.argv[2] if len(sys.argv) > 2 else "assets"
 W = 830
-GREEN, CYAN, MAG = "#00ff41", "#19f9ff", "#ff2bd6"
-FONT = "ui-monospace,SFMono-Regular,Menlo,Consolas,'DejaVu Sans Mono',monospace"
-GLYPHS = "01ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄ{}<>/\\|=+*#$%&"
+NAME = "Kaushik"
+ROLES = ["Full-stack developer.", "Security tinkerer.", "I build things, then I break them."]
 
 DIVIDERS = [  # (file, number, label)
-    ("div-dossier", "01", "OPERATOR.DOSSIER"),
-    ("div-radar", "02", "THREAT.RADAR"),
-    ("div-skyline", "03", "CONTRIBUTION.SKYLINE"),
-    ("div-galaxy", "04", "CONTRIBUTION.GALAXY"),
-    ("div-ops", "05", "ACTIVE.OPS"),
-    ("div-ctf", "06", "INTERCEPTED.TRANSMISSION"),
-    ("div-arsenal", "07", "ARSENAL"),
+    ("div-dossier", "01", "Operator dossier"),
+    ("div-vitals", "02", "Vitals"),
+    ("div-skyline", "03", "Contribution skyline"),
+    ("div-radar", "04", "Repo radar"),
+    ("div-galaxy", "05", "Contribution galaxy"),
+    ("div-ops", "06", "Active ops"),
+    ("div-ctf", "07", "Intercepted transmission"),
+    ("div-arsenal", "08", "Arsenal"),
 ]
 
 
-def header(last):
-    H = 300
-    rnd = random.Random(2210)
+def smooth(pts):
+    """Catmull-Rom spline through pts as cubic bezier path data."""
+    d = f"M{pts[0][0]:.1f},{pts[0][1]:.1f}"
+    for i in range(len(pts) - 1):
+        p0, p1, p2, p3 = pts[max(0, i - 1)], pts[i], pts[i + 1], pts[min(len(pts) - 1, i + 2)]
+        c1 = (p1[0] + (p2[0] - p0[0]) / 6, p1[1] + (p2[1] - p0[1]) / 6)
+        c2 = (p2[0] - (p3[0] - p1[0]) / 6, p2[1] - (p3[1] - p1[1]) / 6)
+        d += f" C{c1[0]:.1f},{c1[1]:.1f} {c2[0]:.1f},{c2[1]:.1f} {p2[0]:.1f},{p2[1]:.1f}"
+    return d
+
+
+def header(last, streak, weekly):
+    H = 330
+    mx = max(weekly) or 1
+    base, amp = H - 14, 74
+    pts = [(i * W / (len(weekly) - 1), base - amp * (v / mx) ** 0.7) for i, v in enumerate(weekly)]
+    line = smooth(pts)
+    area = f"{line} L{W},{H} L0,{H} Z"
     o = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" role="img" '
-         f'aria-label="{escape(USER)}: developer and security tinkerer">',
+         f'aria-label="{escape(USER)}: full-stack developer and security tinkerer">',
          f"<title>{escape(USER)}</title>",
-         f"""<defs>
-<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#050a07"/><stop offset=".55" stop-color="#06180d"/><stop offset="1" stop-color="#050a07"/></linearGradient>
-<linearGradient id="fade" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#050a07" stop-opacity="1"/><stop offset=".35" stop-color="#050a07" stop-opacity="0"/><stop offset=".7" stop-color="#050a07" stop-opacity="0"/><stop offset="1" stop-color="#050a07" stop-opacity="1"/></linearGradient>
-<filter id="glow" x="-20%" y="-50%" width="140%" height="200%"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-<clipPath id="clip"><rect width="{W}" height="{H}" rx="16"/></clipPath>
-<style>text{{font-family:{FONT}}}</style></defs>
-<g clip-path="url(#clip)"><rect width="{W}" height="{H}" fill="url(#bg)"/>"""]
+         t.defs(f"""
+<radialGradient id="bm"><stop offset="0" stop-color="{t.MINT}" stop-opacity=".55"/><stop offset="1" stop-color="{t.MINT}" stop-opacity="0"/></radialGradient>
+<radialGradient id="bv"><stop offset="0" stop-color="{t.VIOLET}" stop-opacity=".6"/><stop offset="1" stop-color="{t.VIOLET}" stop-opacity="0"/></radialGradient>
+<radialGradient id="bc"><stop offset="0" stop-color="{t.CYAN}" stop-opacity=".45"/><stop offset="1" stop-color="{t.CYAN}" stop-opacity="0"/></radialGradient>
+<linearGradient id="wavefill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="{t.CYAN}" stop-opacity=".32"/><stop offset="1" stop-color="{t.CYAN}" stop-opacity="0"/></linearGradient>
+<pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="#ffffff" fill-opacity=".09"/></pattern>
+<clipPath id="card"><rect width="{W}" height="{H}" rx="18"/></clipPath>"""),
+         '<g clip-path="url(#card)">',
+         f'<rect width="{W}" height="{H}" fill="{t.CANVAS}"/>']
+    # drifting aurora blobs
+    for cx, cy, r, fill, dx, dy, dur in ((170, 110, 300, "bm", 60, 30, 19), (660, 40, 320, "bv", -70, 40, 23), (470, 300, 280, "bc", 50, -50, 27)):
+        o.append(f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="url(#{fill})"><animateTransform attributeName="transform" type="translate" '
+                 f'values="0 0;{dx} {dy};0 0" dur="{dur}s" repeatCount="indefinite" calcMode="spline" keyTimes="0;.5;1" keySplines=".45 0 .55 1;.45 0 .55 1"/></circle>')
+    o.append(f'<rect width="{W}" height="{H}" fill="url(#dots)"/>')
 
-    # faint grid
-    for x in range(0, W, 40):
-        o.append(f'<line x1="{x}" y1="0" x2="{x}" y2="{H}" stroke="#0f3d22" stroke-opacity=".35"/>')
-    for y in range(0, H, 40):
-        o.append(f'<line x1="0" y1="{y}" x2="{W}" y2="{y}" stroke="#0f3d22" stroke-opacity=".35"/>')
+    # wave of real weekly totals
+    o.append(f'<path d="{area}" fill="url(#wavefill)"/>')
+    o.append(f'<path d="{line}" fill="none" stroke="url(#aurora)" stroke-width="2.2" stroke-linecap="round" pathLength="1" '
+             f'stroke-dasharray="1" stroke-dashoffset="1"><animate attributeName="stroke-dashoffset" values="1;0;0;1" keyTimes="0;.18;.9;1" '
+             f'dur="16s" repeatCount="indefinite"/></path>')
 
-    # glyph rain: one falling column per slot
-    for i in range(0, W, 18):
-        n = rnd.randint(8, 16)
-        dur = rnd.uniform(5, 11)
-        off = rnd.uniform(0, dur)
-        chars = [rnd.choice(GLYPHS) for _ in range(n)]
-        tsp = "".join(
-            f'<tspan x="{i + 6}" dy="14" fill="{"#d6ffe0" if k == n - 1 else GREEN}" '
-            f'fill-opacity="{0.08 + 0.55 * (k / n) ** 2:.2f}">{escape(c)}</tspan>' for k, c in enumerate(chars))
-        o.append(f'<text font-size="13" y="-{n * 14}">{tsp}'
-                 f'<animateTransform attributeName="transform" type="translate" values="0 0;0 {H + n * 14 + 20}" '
-                 f'dur="{dur:.1f}s" begin="-{off:.1f}s" repeatCount="indefinite"/></text>')
-    o.append(f'<rect width="{W}" height="{H}" fill="url(#fade)"/>')
-
-    # name with chromatic glitch
-    name = USER.upper().rstrip("0123456789")
-    cx, y = W / 2, 150
-    for col, dx, delay, op in ((MAG, 4, "0", .8), (CYAN, -4, ".15", .8)):
-        o.append(f'<text x="{cx}" y="{y}" font-size="92" font-weight="bold" fill="{col}" fill-opacity="{op}" '
-                 f'text-anchor="middle" textLength="560" lengthAdjust="spacingAndGlyphs">{name}'
-                 f'<animateTransform attributeName="transform" type="translate" '
-                 f'values="0 0;0 0;{dx} 0;{-dx} -2;{dx*2} 1;0 0;0 0" keyTimes="0;.88;.89;.91;.93;.95;1" dur="6s" '
-                 f'begin="{delay}s" repeatCount="indefinite"/></text>')
-    o.append(f'<text x="{cx}" y="{y}" font-size="92" font-weight="bold" fill="#eafff0" text-anchor="middle" '
-             f'textLength="560" lengthAdjust="spacingAndGlyphs" filter="url(#glow)">{name}</text>')
-    o.append(f'<text x="{cx + 290}" y="{y - 56}" font-size="20" fill="{GREEN}" font-weight="bold">2210</text>')
-
-    # cycling roles
-    roles = ["FULL-STACK DEVELOPER", "SECURITY TINKERER", "I BUILD THINGS. THEN I BREAK THEM."]
-    cyc = 4.0 * len(roles)
-    for i, r in enumerate(roles):
-        a, b = i / len(roles), (i + 1) / len(roles)
-        kt = f"0;{a:.3f};{a + .02:.3f};{b - .03:.3f};{b - .01:.3f};1" if i else f"0;0;.02;{b - .03:.3f};{b - .01:.3f};1"
-        o.append(f'<text x="{cx}" y="198" font-size="19" fill="{GREEN}" text-anchor="middle" letter-spacing="4" opacity="0">'
-                 f'&#9656; {escape(r)} <tspan fill="#eafff0">_</tspan>'
+    # copy
+    o.append(f'<text x="50" y="92" class="mono" font-size="12" letter-spacing="3" fill="{t.MINT}">FULL-STACK  &#183;  SECURITY  &#183;  BANGALORE</text>')
+    o.append(f'<text x="44" y="186" font-size="104" font-weight="800" letter-spacing="-4" fill="url(#aurora)">{NAME}</text>')
+    cyc = 4.2 * len(ROLES)
+    for i, r in enumerate(ROLES):
+        a, b = i / len(ROLES), (i + 1) / len(ROLES)
+        kt = f"0;{a:.3f};{a + .03:.3f};{b - .04:.3f};{b - .01:.3f};1" if i else f"0;0;.03;{b - .04:.3f};{b - .01:.3f};1"
+        o.append(f'<text x="50" y="228" font-size="{t.T_TITLE + 2}" fill="{t.TEXT}" opacity="0">{escape(r)}'
                  f'<animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="{kt}" dur="{cyc}s" repeatCount="indefinite"/></text>')
 
-    # ECG pulse along the bottom
-    ecg = "M0,252 L220,252 L240,252 L252,230 L264,276 L278,214 L292,252 L330,252 L560,252 L580,252 L592,236 L604,268 L616,252 L830,252"
-    o.append(f'<path d="{ecg}" fill="none" stroke="#0f5d2c" stroke-width="1.5"/>')
-    o.append(f'<path d="{ecg}" fill="none" stroke="{GREEN}" stroke-width="2" filter="url(#glow)" pathLength="100" '
-             f'stroke-dasharray="9 91" stroke-linecap="round"><animate attributeName="stroke-dashoffset" '
-             f'from="100" to="0" dur="3.2s" repeatCount="indefinite"/></path>')
-
-    # status bar
-    o.append(f'<rect x="0" y="268" width="{W}" height="32" fill="#04120a" fill-opacity=".9"/>')
-    o.append(f'<line x1="0" y1="268" x2="{W}" y2="268" stroke="#0f5d2c"/>')
-    o.append(f'<circle cx="24" cy="284" r="4" fill="{GREEN}"><animate attributeName="opacity" values="1;.2;1" dur="1.6s" repeatCount="indefinite"/></circle>')
-    o.append(f'<text x="38" y="288" font-size="12" fill="#c9d1d9">ONLINE &#183; <tspan fill="{GREEN}">@{escape(USER)}</tspan> &#183; Bangalore, IN</text>')
-    o.append(f'<text x="{W - 20}" y="288" font-size="12" fill="#7d8590" text-anchor="end">LAST SEEN: '
-             f'<tspan fill="#c9d1d9">{escape(last)}</tspan></text>')
+    # glass status chips (right)
+    chips = [("STATUS", "Online", t.MINT), ("LAST PUSH", last, t.CYAN), ("STREAK", f"{streak} days", t.AMBER)]
+    for i, (k, v, c) in enumerate(chips):
+        y = 56 + i * 52
+        o.append(f'<g><rect x="560" y="{y}" width="228" height="44" rx="12" fill="{t.RAISED}" fill-opacity=".72" stroke="{t.HAIRLINE}"/>'
+                 f'<circle cx="580" cy="{y + 22}" r="4" fill="{c}"><animate attributeName="opacity" values="1;.3;1" dur="{2 + i * .6:.1f}s" repeatCount="indefinite"/></circle>'
+                 f'<text x="594" y="{y + 19}" class="label">{k}</text>'
+                 f'<text x="594" y="{y + 36}" font-size="14" font-weight="600" fill="{t.TEXT}">{escape(v)}</text></g>')
     o.append("</g>")
-    o.append(f'<rect x=".5" y=".5" width="{W - 1}" height="{H - 1}" rx="16" fill="none" stroke="#0f5d2c"/>')
+    o.append(t.card_border(W, H, 18))
     o.append("</svg>")
     return "\n".join(o)
 
 
 def divider(num, label):
-    H = 56
-    o = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" role="img" aria-label="{escape(label)}">',
-         f"<title>{escape(label)}</title>",
-         f'<defs><filter id="g" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3" result="b"/>'
-         f'<feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter><style>text{{font-family:{FONT}}}</style></defs>',
-         f'<text x="2" y="26" font-size="13" fill="#0f8f3f">{num} //</text>',
-         f'<text x="40" y="27" font-size="21" font-weight="bold" fill="{GREEN}" filter="url(#g)">{escape(label)}</text>',
-         f'<line x1="0" y1="42" x2="{W}" y2="42" stroke="#0f3d22"/>',
-         f'<line x1="0" y1="42" x2="{W}" y2="42" stroke="{GREEN}" stroke-width="2" stroke-dasharray="60 {W}" filter="url(#g)">'
-         f'<animate attributeName="stroke-dashoffset" from="60" to="{-W}" dur="4s" repeatCount="indefinite"/></line>',
-         f'<rect x="0" y="39" width="6" height="6" fill="{GREEN}"/><rect x="{W - 6}" y="39" width="6" height="6" fill="{GREEN}"/>',
-         "</svg>"]
-    return "\n".join(o)
+    H = 44
+    return "\n".join([
+        f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" role="img" aria-label="{escape(label)}">',
+        f"<title>{escape(label)}</title>",
+        t.defs('<clipPath id="bar"><rect width="830" height="44" rx="12"/></clipPath>'),
+        f'<g clip-path="url(#bar)"><rect width="{W}" height="{H}" fill="{t.SURFACE}"/>',
+        f'<rect width="{W}" height="{H}" fill="url(#aurora)" opacity=".07"/>',
+        f'<rect width="4" height="{H}" fill="url(#auroraV)"/>',
+        f'<rect x="-120" width="120" height="{H}" fill="url(#aurora)" opacity=".16"><animate attributeName="x" values="-120;{W};{W}" keyTimes="0;.55;1" dur="9s" repeatCount="indefinite"/></rect></g>',
+        f'<text x="24" y="27" class="mono" font-size="12" fill="{t.MINT}">{num}</text>',
+        f'<text x="54" y="28" font-size="{t.T_HEAD + 2}" font-weight="600" fill="{t.TEXT}">{escape(label)}</text>',
+        t.card_border(W, H, 12),
+        "</svg>"])
 
 
 def main():
+    u = common.user_graph(USER)
+    weeks = u["contributionsCollection"]["contributionCalendar"]["weeks"]
+    weekly = [sum(d["contributionCount"] for d in w["contributionDays"]) for w in weeks]
+    cur, _ = common.streaks(common.days(u))
     rp = sorted(common.repos(USER), key=lambda r: r["pushed_at"], reverse=True)
     now = datetime.now(timezone.utc)
     d = (now - datetime.fromisoformat(rp[0]["pushed_at"].replace("Z", "+00:00"))).days
-    last = f'{rp[0]["name"][:22]} ({"today" if d == 0 else f"{d}d ago"})'
+    last = f'{rp[0]["name"][:20]} ({"today" if d == 0 else f"{d}d ago"})'
     with open(f"{OUTDIR}/header.svg", "w", encoding="utf-8") as f:
-        f.write(header(last))
+        f.write(header(last, cur, weekly))
     for fn, num, label in DIVIDERS:
         with open(f"{OUTDIR}/{fn}.svg", "w", encoding="utf-8") as f:
             f.write(divider(num, label))
-    print("wrote header + dividers; last seen:", last)
+    print("wrote header + dividers; last push:", last, "| streak", cur)
 
 
 if __name__ == "__main__":

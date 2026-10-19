@@ -24,8 +24,8 @@ V = (-6.5, 6.6)  # one weekday step
 F = 0.80  # footprint fraction of a cell
 MAXH = 128.0
 DUR, HOLD = 22.0, 18.6
-GREEN = "#00ff41"
-BASE = ["#18261f", "#0e7a35", "#14b04a", "#26e366", "#a6ffc4"]  # level 0..4 top colours
+GREEN = "#3dffb5"
+BASE = ["#16233b", "#1a6f8f", "#2bb6d1", "#3dffb5", "#eafff6"]  # level 0..4 top colours
 MONTHS = "JAN FEB MAR APR MAY JUN JUL AUG SEP OCT NOV DEC".split()
 FONT = "ui-monospace,SFMono-Regular,Menlo,Consolas,'DejaVu Sans Mono',monospace"
 
@@ -92,7 +92,7 @@ def main():
 <radialGradient id="halo"><stop offset="0" stop-color="#26e366" stop-opacity=".35"/><stop offset="1" stop-color="#26e366" stop-opacity="0"/></radialGradient>
 <filter id="gs" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
 <clipPath id="card"><rect width="{W}" height="{H}" rx="14"/></clipPath>
-<style>text{{font-family:{FONT}}}</style></defs>
+<style>text{{font-family:system-ui,-apple-system,'SF Pro Text','Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif}}</style></defs>
 <g clip-path="url(#card)"><rect width="{W}" height="{H}" fill="url(#sky)"/>"""]
 
     for i in range(90):  # stars
@@ -105,14 +105,14 @@ def main():
                  f'<animateTransform attributeName="transform" type="translate" values="{sx} {sy};{sx} {sy};{sx + 150} {sy + 52};{sx + 150} {sy + 52}" keyTimes="0;{a:.4f};{a + .035:.4f};1" dur="{DUR}s" repeatCount="indefinite"/>'
                  f'<animate attributeName="opacity" values="0;0;1;0;0" keyTimes="0;{a:.4f};{a + .012:.4f};{a + .035:.4f};1" dur="{DUR}s" repeatCount="indefinite"/></line>')
 
-    o.append(f'<text x="30" y="38" font-size="13" fill="{GREEN}">&#9608; SKYLINE.render()</text>')
-    o.append(f'<text x="{W - 24}" y="38" font-size="11" fill="#7d8590" text-anchor="end">'
+    o.append(f'<text x="30" y="38" font-size="13" fill="{GREEN}">&#9608; CONTRIBUTION SKYLINE</text>')
+    o.append(f'<text x="{W - 24}" y="38" font-size="11" fill="#8493b8" text-anchor="end">'
              f'{len(cells)} days &#183; {total} contributions &#183; peak {peak[2]} on {peak[3]}</text>')
 
     o.append(f'<g transform="translate({tx:.1f},{ty:.1f}) scale({sc:.4f})">')
     # ground plane
     g = [P(-0.6, -0.6), P(nw + .6, -0.6), P(nw + .6, 7.6), P(-0.6, 7.6)]
-    o.append(f'<polygon points="{poly(g)}" fill="#0a1226" stroke="#1d2a5a" stroke-width="1"/>')
+    o.append(f'<polygon points="{poly(g)}" fill="#0a1226" stroke="#1d2845" stroke-width="1"/>')
     for r in range(0, 8):
         a, b = P(-0.6, r - .1), P(nw + .6, r - .1)
         o.append(f'<line x1="{a[0]:.1f}" y1="{a[1]:.1f}" x2="{b[0]:.1f}" y2="{b[1]:.1f}" stroke="#16224a" stroke-width=".6"/>')
@@ -121,7 +121,7 @@ def main():
         d = date.fromisoformat(wk["contributionDays"][0]["date"])
         if d.month != last:
             x, y = P(ci, 7.9)
-            o.append(f'<text x="{x:.0f}" y="{y + 10:.0f}" font-size="{9 / sc:.1f}" fill="#7480b8">{MONTHS[d.month - 1]}</text>')
+            o.append(f'<text x="{x:.0f}" y="{y + 10:.0f}" font-size="{9 / sc:.1f}" fill="#8493b8">{MONTHS[d.month - 1]}</text>')
             last = d.month
 
     # buildings, far to near (painter's algorithm)
@@ -201,15 +201,15 @@ def main():
                  f'<polygon points="0,0 -26,-300 26,-300" fill="url(#beam)"/></g></g>')
 
     # bottom bar: legend + caption
-    o.append(f'<rect x="0" y="{H - 38}" width="{W}" height="38" fill="#070b18" opacity=".9"/><line x1="0" y1="{H - 38}" x2="{W}" y2="{H - 38}" stroke="#1d2a5a"/>')
-    o.append(f'<text x="30" y="{H - 14}" font-size="10" fill="#7480b8">quiet</text>')
+    o.append(f'<rect x="0" y="{H - 38}" width="{W}" height="38" fill="#070b18" opacity=".9"/><line x1="0" y1="{H - 38}" x2="{W}" y2="{H - 38}" stroke="#1d2845"/>')
+    o.append(f'<text x="30" y="{H - 14}" font-size="10" fill="#8493b8">quiet</text>')
     for i, cc in enumerate(BASE):
         o.append(f'<rect x="{66 + i * 18}" y="{H - 25}" width="12" height="12" rx="2" fill="{cc}"/>')
-    o.append(f'<text x="164" y="{H - 14}" font-size="10" fill="#7480b8">busy</text>')
-    o.append(f'<text x="{W - 24}" y="{H - 14}" font-size="10" fill="#7480b8" text-anchor="end">'
+    o.append(f'<text x="164" y="{H - 14}" font-size="10" fill="#8493b8">busy</text>')
+    o.append(f'<text x="{W - 24}" y="{H - 14}" font-size="10" fill="#8493b8" text-anchor="end">'
              f'1 building = 1 day &#183; taller = more commits &#183; lit windows = active &#183; {datetime.now(timezone.utc):%Y-%m-%d} UTC</text>')
     o.append("</g>")
-    o.append(f'<rect x=".5" y=".5" width="{W - 1}" height="{H - 1}" rx="14" fill="none" stroke="#1d2a5a"/>')
+    o.append(f'<rect x=".5" y=".5" width="{W - 1}" height="{H - 1}" rx="14" fill="none" stroke="#1d2845"/>')
     o.append("</svg>")
     with open(OUT, "w", encoding="utf-8") as f:
         f.write("\n".join(o))

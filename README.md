@@ -1,64 +1,44 @@
 <div align="center">
 
-<img src="assets/header.svg" alt="Kaushik2210: developer and security tinkerer" width="100%"/>
+<img src="assets/header.svg" alt="Kaushik: full-stack developer and security tinkerer. Online, last push today, 44 day streak." width="100%"/>
 
-</div>
-
-<br/>
-
-<div align="center">
-
-<img src="assets/div-dossier.svg" alt="OPERATOR.DOSSIER" width="100%"/>
-
-<a href="https://github.com/Kaushik2210?tab=repositories"><img src="assets/dossier.svg" alt="My GitHub avatar rendered as animated colour ASCII art, next to live stats: repos, followers, streak and language mix" width="100%"/></a>
-
-<sub>🧬 that's me, rebuilt from my avatar into glyphs on every run. the stats beside it are live from the GitHub API, no third-party widgets.</sub>
-
-</div>
+<a href="https://portfolio-general-ten.vercel.app">Portfolio</a> &nbsp;·&nbsp; <a href="https://www.linkedin.com/in/sodagum-venkata-kaushik-3497a4248/">LinkedIn</a> &nbsp;·&nbsp; <a href="https://x.com/svKaushik2210">X</a> &nbsp;·&nbsp; <a href="https://github.com/Kaushik2210?tab=repositories">Repositories</a>
 
 <br/>
 
-<div align="center">
+<img src="assets/div-dossier.svg" alt="" width="100%"/>
 
-<img src="assets/div-radar.svg" alt="THREAT.RADAR" width="100%"/>
+<a href="https://github.com/Kaushik2210?tab=repositories"><img src="assets/dossier.svg" alt="Halftone portrait of me next to live GitHub stats: repositories, followers, streak and language mix" width="100%"/></a>
 
-<a href="https://github.com/Kaushik2210?tab=repositories&sort=updated"><img src="assets/radar.svg" alt="Animated radar: every repo is a blip. Bearing is language, distance from centre is how recently I pushed to it." width="100%"/></a>
+<sub>Rebuilt from my avatar on every run. The numbers beside it come straight from the GitHub API.</sub>
 
-<sub>🛰️ not a screenshot: a live scan of my repos, regenerated every 6 hours by <code>scripts/radar.py</code>.<br/>closer to the centre = pushed more recently · each blip flashes when the sweep passes it</sub>
+<img src="assets/div-vitals.svg" alt="" width="100%"/>
 
-</div>
+<img src="assets/vitals.svg" alt="Activity rings for streak, consistency and momentum; a 24-hour clock of when I push code; and a 26-week momentum chart" width="100%"/>
 
-<br/>
+<sub>Three live gauges: how consistent I am, when in the day I ship, and how this quarter compares to the last.</sub>
 
-<div align="center">
+<img src="assets/div-skyline.svg" alt="" width="100%"/>
 
-<img src="assets/div-skyline.svg" alt="CONTRIBUTION.SKYLINE" width="100%"/>
+<a href="https://github.com/Kaushik2210#js-contribution-activity"><img src="assets/skyline.svg" alt="My last year of contributions as an animated isometric city: one building per day, taller means more commits" width="100%"/></a>
 
-<a href="https://github.com/Kaushik2210#js-contribution-activity"><img src="assets/skyline.svg" alt="My last year of contributions as an animated isometric night city: every day is a building, taller means more commits, lit windows mean activity" width="100%"/></a>
+<sub>One building per day. Height is commits, lit windows mean activity, the red beacon marks my busiest day.</sub>
 
-<sub>🏙️ my contribution graph, extruded into a city. one building per day, height = commits, windows light up as it rises. the beacon marks my busiest day.</sub>
+<img src="assets/div-radar.svg" alt="" width="100%"/>
 
-</div>
+<a href="https://github.com/Kaushik2210?tab=repositories&sort=updated"><img src="assets/radar.svg" alt="Animated radar: every repository is a blip. Bearing is language, distance from the centre is how recently I pushed." width="100%"/></a>
 
-<br/>
+<sub>Every repo is a blip. Closer to the centre means pushed more recently; the sweep makes each one flash.</sub>
 
-<div align="center">
+<img src="assets/div-galaxy.svg" alt="" width="100%"/>
 
-<img src="assets/div-galaxy.svg" alt="CONTRIBUTION.GALAXY" width="100%"/>
+<a href="https://github.com/Kaushik2210/issues/new?template=star.yml"><img src="assets/galaxy.svg" alt="My last 365 days of contributions as a spiral galaxy, one star per day, with visitor stars orbiting" width="100%"/></a>
 
-<a href="https://github.com/Kaushik2210/Kaushik2210/issues/new?template=star.yml"><img src="assets/galaxy.svg" alt="My last 365 days of contributions drawn as a spiral galaxy, one star per day, newest at the core" width="100%"/></a>
+<sub>One star per day for the last year; the core is today.<br/><b><a href="https://github.com/Kaushik2210/issues/new?template=star.yml">Add your own star</a></b>: pick a colour and your handle orbits here too.</sub>
 
-<sub>🌌 one star per day for the last year, laid out on a golden-angle spiral. the glowing core is today.<br/><br/><b>✨ <a href="https://github.com/Kaushik2210/Kaushik2210/issues/new?template=star.yml">add your own star to this galaxy</a></b>: open the form, pick a colour, and your handle orbits here too.</sub>
+<img src="assets/div-ops.svg" alt="" width="100%"/>
 
-</div>
-
-<br/>
-
-<div align="center">
-
-<img src="assets/div-ops.svg" alt="ACTIVE.OPS" width="100%"/>
-
-<sub>🗂️ what I'm shipping right now, newest first. click a card to expand it. rebuilt automatically every few hours.</sub>
+<sub>What I'm shipping right now, newest first. Tap a card to expand it.</sub>
 
 </div>
 
@@ -142,9 +122,9 @@
 
 <div align="center">
 
-<img src="assets/div-ctf.svg" alt="INTERCEPTED.TRANSMISSION" width="100%"/>
+<img src="assets/div-ctf.svg" alt="" width="100%"/>
 
-**A 3-stage CTF hidden in this profile. Crack it and your name goes in the Hall of Fame below, automatically.**
+**A three-stage CTF is hidden in this profile.** Crack it and you join the Hall of Fame below, automatically.
 
 </div>
 
@@ -154,24 +134,24 @@ U1RBR0UgMS8zIDo6IG5pY2UsIHlvdSBkZWNvZGVkIGJhc2U2NC4gdGhlIHJhZGFyIGlzIG1vcmUgdGhh
 ```
 
 <details>
-<summary><b>📜 rules + how to submit</b></summary>
+<summary><b>Rules and how to submit</b></summary>
 
 <br/>
 
 - Each stage leads to the next. The final answer is a flag shaped like `KAUSHIK{...}`.
-- **Don't post the flag.** Issues are public. Instead, submit a *proof* bound to your login:
+- **Don't post the flag.** Issues are public. Submit a *proof* bound to your login instead:
   ```bash
   echo -n "KAUSHIK{the_flag_you_found}:your-github-login" | sha256sum | cut -c1-12
   ```
   (login in lowercase, 12 hex characters out.) A leaked proof is useless to anyone else.
-- 👉 [**Submit your proof**](https://github.com/Kaushik2210/Kaushik2210/issues/new?template=ctf.yml). A GitHub Action checks it and, if it's right, adds you below within a minute.
+- [**Submit your proof**](https://github.com/Kaushik2210/issues/new?template=ctf.yml). An Action checks it and, if it's right, adds you below within a minute.
 - No brute force needed. Everything you need is in this repo and my other repos' names.
 
 </details>
 
 <div align="center">
 
-### `[ HALL.OF.FAME ]`
+**Hall of Fame**
 
 </div>
 
@@ -183,24 +163,20 @@ _no one has cracked it yet. first blood is up for grabs._
 
 <div align="center">
 
-<img src="assets/div-arsenal.svg" alt="ARSENAL.list" width="100%"/>
+<img src="assets/div-arsenal.svg" alt="" width="100%"/>
 
-<img src="https://skillicons.dev/icons?i=py,js,ts,react,nodejs,linux,bash,docker,git,github,vscode,c,java,mysql,postgres,mongodb,aws&theme=dark" />
+<img src="https://skillicons.dev/icons?i=py,js,ts,react,nodejs,linux,bash,docker,git,github,vscode,c,java,mysql,postgres,mongodb,aws&theme=dark" alt="Languages and tools: Python, JavaScript, TypeScript, React, Node.js, Linux, Bash, Docker, Git, GitHub, VS Code, C, Java, MySQL, Postgres, MongoDB, AWS" />
 
 <br/><br/>
 
-![Kali Linux](https://img.shields.io/badge/Kali_Linux-557C94?style=for-the-badge&logo=kalilinux&logoColor=00ff41&labelColor=0d1117)
-![Wireshark](https://img.shields.io/badge/Wireshark-1679A7?style=for-the-badge&logo=wireshark&logoColor=00ff41&labelColor=0d1117)
-![Burp Suite](https://img.shields.io/badge/Burp_Suite-FF6633?style=for-the-badge&logo=burpsuite&logoColor=00ff41&labelColor=0d1117)
-![Nmap](https://img.shields.io/badge/Nmap-000000?style=for-the-badge&logo=nmap&logoColor=00ff41&labelColor=0d1117)
-![Metasploit](https://img.shields.io/badge/Metasploit-2596CD?style=for-the-badge&logo=metasploit&logoColor=00ff41&labelColor=0d1117)
+<img src="https://img.shields.io/badge/Kali_Linux-557C94?style=for-the-badge&logo=kalilinux&logoColor=3dffb5&labelColor=0c1322" alt="Kali Linux"/>
+<img src="https://img.shields.io/badge/Wireshark-1679A7?style=for-the-badge&logo=wireshark&logoColor=3dffb5&labelColor=0c1322" alt="Wireshark"/>
+<img src="https://img.shields.io/badge/Burp_Suite-FF6633?style=for-the-badge&logo=burpsuite&logoColor=3dffb5&labelColor=0c1322" alt="Burp Suite"/>
+<img src="https://img.shields.io/badge/Nmap-000000?style=for-the-badge&logo=nmap&logoColor=3dffb5&labelColor=0c1322" alt="Nmap"/>
+<img src="https://img.shields.io/badge/Metasploit-2596CD?style=for-the-badge&logo=metasploit&logoColor=3dffb5&labelColor=0c1322" alt="Metasploit"/>
 
-</div>
+<br/><br/>
 
-<br/>
-
-<div align="center">
-
-<sub>🔒 connection encrypted // session terminated gracefully</sub>
+<sub>Every chart above is generated from my GitHub data by scripts in this repo and rebuilt every six hours.</sub>
 
 </div>

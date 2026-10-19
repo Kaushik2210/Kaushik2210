@@ -20,7 +20,7 @@ OUT = sys.argv[2] if len(sys.argv) > 2 else "assets/galaxy.svg"
 W, H, CX, CY, R = 830, 480, 222, 240, 192
 GOLDEN = math.radians(137.50776)
 STARS_DB = os.environ.get("STARS_DB") or os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "stars", "visitors.json")
-VISITOR_COLORS = {"cyan": "#19f9ff", "pink": "#ff5fd0", "gold": "#ffd43b", "green": "#00ff41", "violet": "#b48cff"}
+VISITOR_COLORS = {"cyan": "#19f9ff", "pink": "#ff5fd0", "gold": "#ffc94d", "green": "#3dffb5", "violet": "#b48cff"}
 
 
 def load_visitors():
@@ -75,8 +75,8 @@ def main():
 <radialGradient id="core"><stop offset="0" stop-color="#fff6c0" stop-opacity=".95"/><stop offset=".25" stop-color="#ffcf4a" stop-opacity=".45"/><stop offset="1" stop-color="#ffcf4a" stop-opacity="0"/></radialGradient>
 <radialGradient id="halo"><stop offset="0" stop-color="#3a63ff" stop-opacity=".22"/><stop offset=".6" stop-color="#6a3aff" stop-opacity=".08"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient>
 <filter id="g" x="-200%" y="-200%" width="500%" height="500%"><feGaussianBlur stdDeviation="1.6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-<style>text{{font-family:'Fira Code','Cascadia Code',Consolas,monospace}}</style></defs>
-<rect width="{W}" height="{H}" rx="14" fill="#05060f" stroke="#1b2147"/>""")
+<style>text{{font-family:system-ui,-apple-system,'SF Pro Text','Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif}}</style></defs>
+<rect width="{W}" height="{H}" rx="14" fill="#070b14" stroke="#1d2845"/>""")
     for i in range(110):  # deterministic background stars
         x, y = (i * 7919) % W, (i * 104729) % H
         o.append(f'<circle cx="{x}" cy="{y}" r="{0.4 + (i % 3) * 0.3:.1f}" fill="#9fb4ff" opacity="{0.15 + (i % 5) * 0.07:.2f}"/>')
@@ -102,7 +102,7 @@ def main():
         flt = ' filter="url(#g)"' if c >= 2 else ""
         o.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="{rad:.1f}" fill="{color(c, mx)}" opacity="{op}"{flt}>{twinkle}</circle>')
         if i == best:
-            o.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="9" fill="none" stroke="#ffeb78" stroke-width="1">'
+            o.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="9" fill="none" stroke="#ffc94d" stroke-width="1">'
                      f'<animate attributeName="r" values="6;16;6" dur="3s" repeatCount="indefinite"/>'
                      f'<animate attributeName="opacity" values=".9;0;.9" dur="3s" repeatCount="indefinite"/></circle>')
     visitors = load_visitors()
@@ -117,37 +117,37 @@ def main():
         o.append(f'<polygon points="{star_points(x, y)}" fill="{col}" filter="url(#g)"/>')
     o.append("</g>")
     o.append(f'<circle cx="{CX}" cy="{CY}" r="38" fill="url(#core)"/>')
-    o.append(f'<text x="{CX}" y="{CY+4}" font-size="9" fill="#05060f" text-anchor="middle" font-weight="bold">NOW</text>')
+    o.append(f'<text x="{CX}" y="{CY+4}" font-size="9" fill="#070b14" text-anchor="middle" font-weight="bold">NOW</text>')
 
     px = 452
     bd = ds[best]
-    o.append(f'<text x="{px}" y="52" font-size="19" fill="#ffeb78" font-weight="bold">CONTRIBUTION GALAXY</text>')
-    o.append(f'<text x="{px}" y="70" font-size="12" fill="#7d8590">1 star per day · {datetime.now(timezone.utc):%Y-%m-%d}</text>')
-    o.append(f'<line x1="{px}" y1="84" x2="{W-30}" y2="84" stroke="#1b2147"/>')
+    o.append(f'<text x="{px}" y="52" font-size="20" fill="#e8edf7" font-weight="700">Contribution galaxy</text>')
+    o.append(f'<text x="{px}" y="70" font-size="12" fill="#8493b8">1 star per day · {datetime.now(timezone.utc):%Y-%m-%d}</text>')
+    o.append(f'<line x1="{px}" y1="84" x2="{W-30}" y2="84" stroke="#1d2845"/>')
     rows = [("CONTRIBUTIONS", f"{total}"), ("ACTIVE DAYS", f"{active} / {n}"),
             ("CURRENT STREAK", f"{cur} days"), ("LONGEST STREAK", f"{longest} days"),
             ("BRIGHTEST STAR", f"{bd[1]} on {bd[0]}")]
     for i, (k, v) in enumerate(rows):
         y = 110 + i * 26
-        o.append(f'<text x="{px}" y="{y}" font-size="13" fill="#7d8590">{k}</text>')
-        o.append(f'<text x="{px+158}" y="{y}" font-size="14" fill="#e6edf3">{escape(v)}</text>')
-    o.append(f'<line x1="{px}" y1="236" x2="{W-30}" y2="236" stroke="#1b2147"/>')
-    o.append(f'<text x="{px}" y="258" font-size="12" fill="#ffeb78">&#9733; VISITOR STARS <tspan fill="#7d8590">({len(visitors)})</tspan></text>')
+        o.append(f'<text x="{px}" y="{y}" font-size="13" fill="#8493b8">{k}</text>')
+        o.append(f'<text x="{px+158}" y="{y}" font-size="14" fill="#e8edf7">{escape(v)}</text>')
+    o.append(f'<line x1="{px}" y1="236" x2="{W-30}" y2="236" stroke="#1d2845"/>')
+    o.append(f'<text x="{px}" y="258" font-size="12" fill="#ffc94d">&#9733; VISITOR STARS <tspan fill="#8493b8">({len(visitors)})</tspan></text>')
     if visitors:
         for i, v in enumerate(reversed(visitors[-5:])):
             col = VISITOR_COLORS.get(v.get("color"), "#19f9ff")
             y = 284 + i * 22
             o.append(f'<polygon points="{star_points(px + 6, y - 4, 6, 2.6)}" fill="{col}"/>')
-            o.append(f'<text x="{px + 20}" y="{y}" font-size="12" fill="#e6edf3">@{escape(v["login"][:18])} '
-                     f'<tspan fill="#7d8590">{escape(v["msg"][:26])}</tspan></text>')
+            o.append(f'<text x="{px + 20}" y="{y}" font-size="12" fill="#e8edf7">@{escape(v["login"][:18])} '
+                     f'<tspan fill="#8493b8">{escape(v["msg"][:26])}</tspan></text>')
     else:
         for i, t in enumerate(["the sky is empty. be the first.", "click this galaxy to add your own star,", "it stays here and keeps orbiting."]):
-            o.append(f'<text x="{px}" y="{286 + i * 22}" font-size="12" fill="#c9d1d9">&#8250; {t}</text>')
-    o.append(f'<text x="{px}" y="{H-66}" font-size="11" fill="#586069">centre = today · rim = a year ago · warmer = busier</text>')
-    o.append(f'<text x="{px}" y="{H-42}" font-size="11" fill="#7d8590">quiet</text>')
+            o.append(f'<text x="{px}" y="{286 + i * 22}" font-size="12" fill="#e8edf7">&#8250; {t}</text>')
+    o.append(f'<text x="{px}" y="{H-66}" font-size="11" fill="#8493b8">centre = today · rim = a year ago · warmer = busier</text>')
+    o.append(f'<text x="{px}" y="{H-42}" font-size="11" fill="#8493b8">quiet</text>')
     for i in range(8):
         o.append(f'<circle cx="{px+42+i*18}" cy="{H-45}" r="{2+i*0.6:.1f}" fill="{color(round(mx*(i/7)**2), mx)}"/>')
-    o.append(f'<text x="{px+196}" y="{H-42}" font-size="11" fill="#7d8590">busy</text>')
+    o.append(f'<text x="{px+196}" y="{H-42}" font-size="11" fill="#8493b8">busy</text>')
     o.append("</svg>")
     with open(OUT, "w", encoding="utf-8") as f:
         f.write("\n".join(o))
