@@ -51,10 +51,10 @@ def header(last, streak, weekly):
          f'aria-label="{escape(USER)}: full-stack developer and security tinkerer">',
          f"<title>{escape(USER)}</title>",
          t.defs(f"""
-<radialGradient id="bm"><stop offset="0" stop-color="{t.MINT}" stop-opacity=".55"/><stop offset="1" stop-color="{t.MINT}" stop-opacity="0"/></radialGradient>
-<radialGradient id="bv"><stop offset="0" stop-color="{t.VIOLET}" stop-opacity=".6"/><stop offset="1" stop-color="{t.VIOLET}" stop-opacity="0"/></radialGradient>
-<radialGradient id="bc"><stop offset="0" stop-color="{t.CYAN}" stop-opacity=".45"/><stop offset="1" stop-color="{t.CYAN}" stop-opacity="0"/></radialGradient>
-<linearGradient id="wavefill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="{t.CYAN}" stop-opacity=".32"/><stop offset="1" stop-color="{t.CYAN}" stop-opacity="0"/></linearGradient>
+<radialGradient id="bm"><stop offset="0" stop-color="{t.VIOLET}" stop-opacity=".58"/><stop offset="1" stop-color="{t.VIOLET}" stop-opacity="0"/></radialGradient>
+<radialGradient id="bv"><stop offset="0" stop-color="{t.PINK}" stop-opacity=".46"/><stop offset="1" stop-color="{t.PINK}" stop-opacity="0"/></radialGradient>
+<radialGradient id="bc"><stop offset="0" stop-color="{t.ORANGE}" stop-opacity=".40"/><stop offset="1" stop-color="{t.ORANGE}" stop-opacity="0"/></radialGradient>
+<linearGradient id="wavefill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="{t.PINK}" stop-opacity=".34"/><stop offset="1" stop-color="{t.PINK}" stop-opacity="0"/></linearGradient>
 <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="#ffffff" fill-opacity=".09"/></pattern>
 <clipPath id="card"><rect width="{W}" height="{H}" rx="18"/></clipPath>"""),
          '<g clip-path="url(#card)">',
@@ -72,7 +72,7 @@ def header(last, streak, weekly):
              f'dur="16s" repeatCount="indefinite"/></path>')
 
     # copy
-    o.append(f'<text x="50" y="92" class="mono" font-size="12" letter-spacing="3" fill="{t.MINT}">FULL-STACK  &#183;  SECURITY  &#183;  BANGALORE</text>')
+    o.append(f'<text x="50" y="92" class="mono" font-size="12" letter-spacing="3" fill="{t.ORANGE}">FULL-STACK  &#183;  SECURITY  &#183;  BANGALORE</text>')
     o.append(f'<text x="44" y="186" font-size="104" font-weight="800" letter-spacing="-4" fill="url(#aurora)">{NAME}</text>')
     cyc = 4.2 * len(ROLES)
     for i, r in enumerate(ROLES):
@@ -82,7 +82,7 @@ def header(last, streak, weekly):
                  f'<animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="{kt}" dur="{cyc}s" repeatCount="indefinite"/></text>')
 
     # glass status chips (right)
-    chips = [("STATUS", "Online", t.MINT), ("LAST PUSH", last, t.CYAN), ("STREAK", f"{streak} days", t.AMBER)]
+    chips = [("STATUS", "Online", t.GREEN), ("LAST PUSH", last, t.PINK), ("STREAK", f"{streak} days", t.ORANGE)]
     for i, (k, v, c) in enumerate(chips):
         y = 56 + i * 52
         o.append(f'<g><rect x="560" y="{y}" width="228" height="44" rx="12" fill="{t.RAISED}" fill-opacity=".72" stroke="{t.HAIRLINE}"/>'
@@ -105,7 +105,7 @@ def divider(num, label):
         f'<rect width="{W}" height="{H}" fill="url(#aurora)" opacity=".07"/>',
         f'<rect width="4" height="{H}" fill="url(#auroraV)"/>',
         f'<rect x="-120" width="120" height="{H}" fill="url(#aurora)" opacity=".16"><animate attributeName="x" values="-120;{W};{W}" keyTimes="0;.55;1" dur="9s" repeatCount="indefinite"/></rect></g>',
-        f'<text x="24" y="27" class="mono" font-size="12" fill="{t.MINT}">{num}</text>',
+        f'<text x="24" y="27" class="mono" font-size="12" fill="{t.PINK}">{num}</text>',
         f'<text x="54" y="28" font-size="{t.T_HEAD + 2}" font-weight="600" fill="{t.TEXT}">{escape(label)}</text>',
         t.card_border(W, H, 12),
         "</svg>"])

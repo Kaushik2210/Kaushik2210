@@ -112,11 +112,11 @@ _no one has cracked it yet. first blood is up for grabs._
 
 <br/><br/>
 
-<img src="https://img.shields.io/badge/Kali_Linux-557C94?style=for-the-badge&logo=kalilinux&logoColor=3dffb5&labelColor=0c1322" alt="Kali Linux"/>
-<img src="https://img.shields.io/badge/Wireshark-1679A7?style=for-the-badge&logo=wireshark&logoColor=3dffb5&labelColor=0c1322" alt="Wireshark"/>
-<img src="https://img.shields.io/badge/Burp_Suite-FF6633?style=for-the-badge&logo=burpsuite&logoColor=3dffb5&labelColor=0c1322" alt="Burp Suite"/>
-<img src="https://img.shields.io/badge/Nmap-000000?style=for-the-badge&logo=nmap&logoColor=3dffb5&labelColor=0c1322" alt="Nmap"/>
-<img src="https://img.shields.io/badge/Metasploit-2596CD?style=for-the-badge&logo=metasploit&logoColor=3dffb5&labelColor=0c1322" alt="Metasploit"/>
+<img src="https://img.shields.io/badge/Kali_Linux-557C94?style=for-the-badge&logo=kalilinux&logoColor=ff4fa3&labelColor=0f0b21" alt="Kali Linux"/>
+<img src="https://img.shields.io/badge/Wireshark-1679A7?style=for-the-badge&logo=wireshark&logoColor=ff4fa3&labelColor=0f0b21" alt="Wireshark"/>
+<img src="https://img.shields.io/badge/Burp_Suite-FF6633?style=for-the-badge&logo=burpsuite&logoColor=ff4fa3&labelColor=0f0b21" alt="Burp Suite"/>
+<img src="https://img.shields.io/badge/Nmap-000000?style=for-the-badge&logo=nmap&logoColor=ff4fa3&labelColor=0f0b21" alt="Nmap"/>
+<img src="https://img.shields.io/badge/Metasploit-2596CD?style=for-the-badge&logo=metasploit&logoColor=ff4fa3&labelColor=0f0b21" alt="Metasploit"/>
 
 <br/><br/>
 

@@ -113,11 +113,11 @@ def main():
     # scanner + now line
     y0, y1 = TOPY - 20, TOPY + len(names) * PITCH - 6
     k = ";".join(f"{v:.4f}" for v in (0, .8 / DUR, 8.0 / DUR, 1))
-    o.append(f'<rect x="{LX}" y="{y0}" width="2" height="{y1 - y0}" fill="{t.MINT}" filter="url(#glow)" opacity="0">'
+    o.append(f'<rect x="{LX}" y="{y0}" width="2" height="{y1 - y0}" fill="{t.PINK}" filter="url(#glow)" opacity="0">'
              f'<animate attributeName="x" values="{LX};{LX};{RX};{RX}" keyTimes="{k}" dur="{DUR}s" repeatCount="indefinite"/>'
              f'<animate attributeName="opacity" values="0;1;1;0" keyTimes="{k}" dur="{DUR}s" repeatCount="indefinite"/></rect>')
-    o.append(f'<line x1="{RX}" y1="{y0}" x2="{RX}" y2="{y1}" stroke="{t.MINT}" stroke-width="1.2" stroke-dasharray="3 3"><animate attributeName="opacity" values="1;.3;1" dur="1.6s" repeatCount="indefinite"/></line>')
-    o.append(f'<text x="{RX}" y="{y1 + 14}" class="label" text-anchor="middle" style="fill:{t.MINT}">NOW</text>')
+    o.append(f'<line x1="{RX}" y1="{y0}" x2="{RX}" y2="{y1}" stroke="{t.PINK}" stroke-width="1.2" stroke-dasharray="3 3"><animate attributeName="opacity" values="1;.3;1" dur="1.6s" repeatCount="indefinite"/></line>')
+    o.append(f'<text x="{RX}" y="{y1 + 14}" class="label" text-anchor="middle" style="fill:{t.PINK}">NOW</text>')
     o.append(f'<text x="{RX + 36}" y="{TOPY - 26}" class="label" text-anchor="end">PUSHES</text>')
     o.append(f'<text x="28" y="{H - 14}" font-size="{t.T_CAP}" fill="{t.TEXT3}">each bar = pushes in a 6-hour window &#183; taller = busier &#183; glowing bar = latest push &#183; shaded columns = weekends</text>')
     o.append("</g>")

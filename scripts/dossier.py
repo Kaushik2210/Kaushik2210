@@ -24,7 +24,7 @@ CROP = (0.20, 0.40, 0.82, 1.0)  # head + shoulders
 COLS, PITCH = 58, 6.6
 W = 830
 CYCLE = 24.0
-GREEN = "#3dffb5"
+GREEN = "#ff4fa3"
 FONT = "ui-monospace,SFMono-Regular,Menlo,Consolas,'DejaVu Sans Mono',monospace"
 
 
@@ -52,7 +52,7 @@ def portrait():
     return im, rows
 
 
-DUOTONE = [(0.00, (26, 36, 71)), (0.30, (84, 72, 214)), (0.55, (56, 217, 255)), (0.80, (61, 255, 181)), (1.00, (234, 255, 246))]
+DUOTONE = [(0.00, (22, 14, 48)), (0.30, (96, 52, 200)), (0.55, (212, 66, 160)), (0.80, (255, 150, 78)), (1.00, (255, 241, 214))]
 
 
 def duotone(l):
@@ -116,22 +116,22 @@ def main():
     o = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" role="img" '
          f'aria-label="Halftone portrait of {escape(USER)} with live GitHub stats">',
          f"<title>OPERATOR DOSSIER // {escape(USER)}</title>",
-         f"""<defs><filter id="g" x="-20%" y="-300%" width="140%" height="700%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+         f"""<defs><linearGradient id="bdr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9d7bff" stop-opacity=".55"/><stop offset=".5" stop-color="#ff4fa3" stop-opacity=".28"/><stop offset="1" stop-color="#ff9a3c" stop-opacity=".55"/></linearGradient><filter id="g" x="-20%" y="-300%" width="140%" height="700%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
 <style>text{{font-family:system-ui,-apple-system,'SF Pro Text','Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif}}</style></defs>
-<rect width="{W}" height="{H}" rx="14" fill="#0c1322" stroke="#1d2845"/>
+<rect width="{W}" height="{H}" rx="14" fill="#0f0b21" stroke="url(#bdr)" stroke-width="1.2"/>
 <text x="{px0}" y="36" font-size="13" fill="{GREEN}">&#9608; OPERATOR</text>"""]
     # corner brackets around the portrait
     bx0, by0, bx1, by1 = px0 - 8, py0 - 8, px0 + COLS * PITCH + 8, py0 + ph + 8
     for (x, y, sx, sy) in ((bx0, by0, 1, 1), (bx1, by0, -1, 1), (bx0, by1, 1, -1), (bx1, by1, -1, -1)):
         o.append(f'<path d="M{x},{y + 16 * sy} L{x},{y} L{x + 16 * sx},{y}" fill="none" stroke="{GREEN}" stroke-width="2"/>')
     o.append(portrait_svg(im, rows, px0, py0))
-    o.append(f'<text x="{px0}" y="{py0 + ph + 34:.0f}" font-size="12" fill="#8493b8">SUBJECT_ID <tspan fill="#e8edf7">{u["id"] if "id" in u else "83902056"}</tspan>'
-             f' &#183; MATCH <tspan fill="{GREEN}">99.7%</tspan> &#183; STATUS <tspan fill="{GREEN}">ONLINE</tspan></text>')
+    o.append(f'<text x="{px0}" y="{py0 + ph + 34:.0f}" font-size="12" fill="#948ac0">SUBJECT_ID <tspan fill="#f3efff">{u["id"] if "id" in u else "83902056"}</tspan>'
+             f' &#183; MATCH <tspan fill="{GREEN}">99.7%</tspan> &#183; STATUS <tspan fill="#34d399">ONLINE</tspan></text>')
     f = (rows * 0.06) / CYCLE
     o.append(f'<rect x="{px0 - 4}" y="{py0}" width="{COLS * PITCH + 8:.0f}" height="3" fill="{GREEN}" opacity="0" filter="url(#g)">'
              f'<animate attributeName="y" values="{py0};{py0 + ph:.0f};{py0 + ph:.0f}" keyTimes="0;{f:.4f};1" dur="{CYCLE}s" repeatCount="indefinite"/>'
              f'<animate attributeName="opacity" values=".95;.95;0;0" keyTimes="0;{f:.4f};{f + .004:.4f};1" dur="{CYCLE}s" repeatCount="indefinite"/></rect>')
-    o.append(f'<line x1="{tx - 22}" y1="24" x2="{tx - 22}" y2="{H - 24}" stroke="#1d2845"/>')
+    o.append(f'<line x1="{tx - 22}" y1="24" x2="{tx - 22}" y2="{H - 24}" stroke="#2c2455"/>')
 
     lines = [
         ("h", f"{USER.lower()}@github"),
@@ -158,21 +158,21 @@ def main():
             o.append(f'<text x="{tx}" y="{y}" font-size="21" fill="{GREEN}" font-weight="bold" opacity="0">{escape(val)}{anim}</text>')
         elif kind == "r":
             if val:
-                o.append(f'<text x="{tx}" y="{y}" font-size="14" fill="#1d2845" opacity="0">{val}{anim}</text>')
+                o.append(f'<text x="{tx}" y="{y}" font-size="14" fill="#2c2455" opacity="0">{val}{anim}</text>')
         elif kind == "s":
             o.append(f'<text x="{tx}" y="{y}" font-size="13" fill="{GREEN}" opacity="0">&#9656; {val}{anim}</text>')
         elif kind == "kv":
             k, v = val
             o.append(f'<text x="{tx}" y="{y}" font-size="14" opacity="0"><tspan fill="{GREEN}">{k}</tspan>'
-                     f'<tspan x="{tx + 118}" fill="#e8edf7">{escape(v)}</tspan>{anim}</text>')
+                     f'<tspan x="{tx + 118}" fill="#f3efff">{escape(v)}</tspan>{anim}</text>')
         else:
             lang, fr = val
-            o.append(f'<text x="{tx}" y="{y}" font-size="14" opacity="0"><tspan fill="#e8edf7">{escape(lang)}</tspan>'
+            o.append(f'<text x="{tx}" y="{y}" font-size="14" opacity="0"><tspan fill="#f3efff">{escape(lang)}</tspan>'
                      f'<tspan x="{tx + 118}" fill="{GREEN}">{bar(fr)}</tspan>'
-                     f'<tspan fill="#8493b8"> {fr * 100:.0f}%</tspan>{anim}</text>')
+                     f'<tspan fill="#948ac0"> {fr * 100:.0f}%</tspan>{anim}</text>')
         y += 14 if kind == "r" else 26 if kind != "h" else 30
     o.append(f'<rect x="{tx}" y="{y - 4}" width="10" height="17" fill="{GREEN}"><animate attributeName="opacity" values="1;1;0;0" keyTimes="0;.5;.5;1" dur="1s" repeatCount="indefinite"/></rect>')
-    o.append(f'<text x="{W - 24}" y="{H - 16}" font-size="10" fill="#8493b8" text-anchor="end">rendered {datetime.now(timezone.utc):%Y-%m-%d %H:%M} UTC &#183; scripts/dossier.py</text>')
+    o.append(f'<text x="{W - 24}" y="{H - 16}" font-size="10" fill="#948ac0" text-anchor="end">rendered {datetime.now(timezone.utc):%Y-%m-%d %H:%M} UTC &#183; scripts/dossier.py</text>')
     o.append("</svg>")
     with open(OUT, "w", encoding="utf-8") as fh:
         fh.write("\n".join(o))

@@ -54,8 +54,8 @@ def main():
     # ---------- 1. activity rings ----------
     cx, cy = 150, 176
     rings = [
-        ("STREAK", min(1, cur / 30), t.MINT, 80, f"{cur} days", "goal 30"),
-        ("CONSISTENCY", active90 / 90, t.CYAN, 60, f"{active90}/90 days", "active"),
+        ("STREAK", min(1, cur / 30), t.ORANGE, 80, f"{cur} days", "goal 30"),
+        ("CONSISTENCY", active90 / 90, t.PINK, 60, f"{active90}/90 days", "active"),
         ("MOMENTUM", min(1, mom / 1.5), t.VIOLET, 40, f"{week} commits", f"{mom:.1f}x avg week"),
     ]
     o.append(f'<text x="28" y="74" class="label">ACTIVITY RINGS</text>')
@@ -100,8 +100,8 @@ def main():
         if h < 12:
             return t.AMBER
         if h < 18:
-            return t.CYAN
-        return t.MINT
+            return t.SKY
+        return t.PINK
 
     for h in range(24):
         a = math.radians(h * 15 - 90)
@@ -120,7 +120,7 @@ def main():
         o.append(f'<text x="{cx2 + (r_max + 20) * math.cos(a):.1f}" y="{cy2 + (r_max + 20) * math.sin(a) + 4:.1f}" class="mono" font-size="10" fill="{t.TEXT3}" text-anchor="middle">{lab}</text>')
     o.append(f'<text x="{cx2}" y="{cy2 - 1}" font-size="10" font-weight="700" fill="{t.TEXT}" text-anchor="middle" letter-spacing=".6">{chrono}</text>')
     o.append(f'<text x="{cx2}" y="{cy2 + 13}" font-size="9" fill="{t.TEXT3}" text-anchor="middle">peak {peak:02d}:00</text>')
-    for i, (lab, col) in enumerate((("night", t.VIOLET), ("morning", t.AMBER), ("day", t.CYAN), ("evening", t.MINT))):
+    for i, (lab, col) in enumerate((("night", t.VIOLET), ("morning", t.AMBER), ("day", t.SKY), ("evening", t.PINK))):
         x = 318 + i * 62
         o.append(f'<circle cx="{x}" cy="{H - 36}" r="4" fill="{col}"/><text x="{x + 9}" y="{H - 32}" font-size="{t.T_CAP}" fill="{t.TEXT2}">{lab}</text>')
 
