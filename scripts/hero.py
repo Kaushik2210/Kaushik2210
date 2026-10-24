@@ -49,7 +49,8 @@ def main():
     mx = max(tot) or 1
     cur, longest = common.streaks(common.days(u))
     streak_txt = f"{cur}-day streak" if cur >= 5 else f"best streak {longest} days"
-    rp = sorted(common.repos(USER), key=lambda r: r["pushed_at"], reverse=True)
+    # the profile repo is excluded: the rebuild itself pushes there every few hours, so it would always read "just now"
+    rp = sorted((r for r in common.repos(USER) if r["name"].lower() != USER.lower()), key=lambda r: r["pushed_at"], reverse=True)
     now = datetime.now(timezone.utc)
     last = rp[0]
     last_ago = ago(now - datetime.fromisoformat(last["pushed_at"].replace("Z", "+00:00")))
