@@ -227,8 +227,8 @@
 <circle cx="194.4" cy="402.6" r="1.1" fill="#26356a" opacity="0.35"></circle>
 <circle cx="351.9" cy="138.9" r="1.1" fill="#26356a" opacity="0.35"></circle>
 <circle cx="58.2" cy="226.8" r="1.1" fill="#26356a" opacity="0.35"></circle>
-<circle cx="333.7" cy="360.1" r="1.1" fill="#26356a" opacity="0.35"></circle>
-<circle cx="220.8" cy="76.3" r="2.8" fill="#6ca7ff" opacity="0.95" filter="url(#g)"><animate attributeName="opacity" values="0.95;.35;0.95" dur="3.7s" begin="-0.6s" repeatCount="indefinite"/></circle>
+<circle cx="333.7" cy="360.1" r="2.4" fill="#598aff" opacity="0.95"></circle>
+<circle cx="220.8" cy="76.3" r="2.7" fill="#649bff" opacity="0.95" filter="url(#g)"></circle>
 <circle cx="112.5" cy="361.3" r="1.1" fill="#26356a" opacity="0.35"></circle>
 <circle cx="384.4" cy="224.6" r="1.1" fill="#26356a" opacity="0.35"></circle>
 <circle cx="92.1" cy="141.9" r="1.1" fill="#26356a" opacity="0.35"></circle>
@@ -498,7 +498,7 @@
 <circle cx="232.5" cy="253.7" r="1.1" fill="#26356a" opacity="0.35"></circle>
 <circle cx="223.2" cy="225.9" r="1.1" fill="#26356a" opacity="0.35"></circle>
 <circle cx="214.6" cy="246.7" r="1.1" fill="#26356a" opacity="0.35"></circle>
-<circle cx="222.0" cy="240.0" r="3.3" fill="#8fbfff" opacity="0.95" filter="url(#g)"><animate attributeName="opacity" values="0.95;.35;0.95" dur="4.9s" begin="-2.1s" repeatCount="indefinite"/></circle>
+<circle cx="222.0" cy="240.0" r="3.3" fill="#96c3ff" opacity="0.95" filter="url(#g)"><animate attributeName="opacity" values="0.95;.35;0.95" dur="4.9s" begin="-2.1s" repeatCount="indefinite"/></circle>
 </g>
 <circle cx="222" cy="240" r="38" fill="url(#core)"/>
 <text x="222" y="244" font-size="9" fill="#040918" text-anchor="middle" font-weight="bold">NOW</text>
@@ -506,9 +506,9 @@
 <text x="452" y="70" font-size="12" fill="#8b9dca">1 star per day · 2026-10-24</text>
 <line x1="452" y1="84" x2="800" y2="84" stroke="#243566"/>
 <text x="452" y="110" font-size="13" fill="#8b9dca">CONTRIBUTIONS</text>
-<text x="610" y="110" font-size="14" fill="#eef4ff">2515</text>
+<text x="610" y="110" font-size="14" fill="#eef4ff">2516</text>
 <text x="452" y="136" font-size="13" fill="#8b9dca">ACTIVE DAYS</text>
-<text x="610" y="136" font-size="14" fill="#eef4ff">143 / 371</text>
+<text x="610" y="136" font-size="14" fill="#eef4ff">144 / 371</text>
 <text x="452" y="162" font-size="13" fill="#8b9dca">CURRENT STREAK</text>
 <text x="610" y="162" font-size="14" fill="#eef4ff">1 days</text>
 <text x="452" y="188" font-size="13" fill="#8b9dca">LONGEST STREAK</text>
