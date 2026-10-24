@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 405 264" width="405" height="264" role="img" aria-label="scam-khel: A private family shield against Indian digital-arrest scams: live detection, a simulated honeypot and family alerts.">
+<title>scam-khel</title>
+<defs>
+<linearGradient id="aurora" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#4f86ff"/><stop offset="50%" stop-color="#f2f7ff"/><stop offset="100%" stop-color="#ffc233"/></linearGradient>
+<linearGradient id="auroraV" x1="0" y1="1" x2="0" y2="0"><stop offset="0%" stop-color="#4f86ff"/><stop offset="50%" stop-color="#f2f7ff"/><stop offset="100%" stop-color="#ffc233"/></linearGradient>
+<linearGradient id="bdr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4f86ff" stop-opacity=".6"/><stop offset=".5" stop-color="#8fc7ff" stop-opacity=".3"/><stop offset="1" stop-color="#ffc233" stop-opacity=".6"/></linearGradient>
+<filter id="glow" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="2.4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+<style>
+text{font-family:system-ui,-apple-system,'SF Pro Text','Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif}
+.mono{font-family:ui-monospace,'SF Mono',SFMono-Regular,Menlo,Consolas,'DejaVu Sans Mono',monospace}
+.label{font-family:ui-monospace,'SF Mono',SFMono-Regular,Menlo,Consolas,'DejaVu Sans Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;fill:#8b9dca}
+</style><clipPath id="card"><rect width="405" height="264" rx="16"/></clipPath><linearGradient id="art" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#111d40"/><stop offset="1" stop-color="#08112b"/></linearGradient><radialGradient id="wash"><stop offset="0" stop-color="#4f86ff" stop-opacity=".42"/><stop offset="1" stop-color="#4f86ff" stop-opacity="0"/></radialGradient></defs>
+<g clip-path="url(#card)">
+<rect width="405" height="264" fill="#08112b"/>
+<rect width="405" height="112" fill="url(#art)"/>
+<ellipse cx="255" cy="59" rx="170" ry="90" fill="url(#wash)"/>
+<circle cx="289" cy="65" r="14" fill="none" stroke="#4f86ff" stroke-opacity=".28"/><circle cx="289" cy="65" r="30" fill="none" stroke="#4f86ff" stroke-opacity=".28"/><circle cx="289" cy="65" r="46" fill="none" stroke="#4f86ff" stroke-opacity=".28"/><circle cx="289" cy="65" r="62" fill="none" stroke="#4f86ff" stroke-opacity=".28"/><circle cx="289" cy="65" r="80" fill="none" stroke="#4f86ff" stroke-opacity=".28"/><line x1="289" y1="65" x2="369" y2="65" stroke="#4f86ff" stroke-opacity=".14"/><line x1="289" y1="65" x2="345" y2="121" stroke="#4f86ff" stroke-opacity=".14"/><line x1="289" y1="65" x2="289" y2="145" stroke="#4f86ff" stroke-opacity=".14"/><line x1="289" y1="65" x2="232" y2="121" stroke="#4f86ff" stroke-opacity=".14"/><line x1="289" y1="65" x2="209" y2="65" stroke="#4f86ff" stroke-opacity=".14"/><line x1="289" y1="65" x2="232" y2="8" stroke="#4f86ff" stroke-opacity=".14"/><line x1="289" y1="65" x2="289" y2="-15" stroke="#4f86ff" stroke-opacity=".14"/><line x1="289" y1="65" x2="345" y2="8" stroke="#4f86ff" stroke-opacity=".14"/><g transform="translate(289,65)"><g><animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="5.7s" repeatCount="indefinite"/><path d="M0,0 L80,0 A80,80 0 0 0 63,-49 Z" fill="#4f86ff" fill-opacity=".22"/><line x1="0" y1="0" x2="80" y2="0" stroke="#4f86ff" stroke-width="1.4"/></g></g><circle cx="259.9" cy="124.0" r="2.4" fill="#8fc7ff"><animate attributeName="opacity" values=".2;1;.2" dur="2.3s" begin="-1.4s" repeatCount="indefinite"/></circle><circle cx="280.9" cy="81.4" r="2.4" fill="#8fc7ff"><animate attributeName="opacity" values=".2;1;.2" dur="2.4s" begin="-2.7s" repeatCount="indefinite"/></circle><circle cx="344.9" cy="65.3" r="2.4" fill="#8fc7ff"><animate attributeName="opacity" values=".2;1;.2" dur="4.0s" begin="-0.8s" repeatCount="indefinite"/></circle><circle cx="345.7" cy="71.8" r="2.4" fill="#8fc7ff"><animate attributeName="opacity" values=".2;1;.2" dur="2.7s" begin="-2.4s" repeatCount="indefinite"/></circle><circle cx="238.5" cy="111.5" r="2.4" fill="#8fc7ff"><animate attributeName="opacity" values=".2;1;.2" dur="2.5s" begin="-1.8s" repeatCount="indefinite"/></circle><circle cx="310.4" cy="70.4" r="2.4" fill="#8fc7ff"><animate attributeName="opacity" values=".2;1;.2" dur="2.6s" begin="-0.7s" repeatCount="indefinite"/></circle>
+<rect y="112" width="405" height="1" fill="#243566"/>
+<rect x="16" y="16" width="73" height="22" rx="11" fill="#08112b" fill-opacity=".78" stroke="#4f86ff" stroke-opacity=".6"/><text x="53" y="31" class="label" text-anchor="middle" style="fill:#4f86ff">SECURITY</text>
+<rect x="321" y="16" width="68" height="22" rx="11" fill="#08112b" fill-opacity=".78" stroke="#b4c4e8" stroke-opacity=".6"/><text x="355" y="31" class="label" text-anchor="middle" style="fill:#b4c4e8">REPO &#8599;</text>
+<text x="20" y="142" font-size="18" font-weight="700" fill="#eef4ff">scam-khel</text>
+<text x="20" y="163" font-size="12" fill="#b4c4e8">A private family shield against Indian digital-arrest scams:</text>
+<text x="20" y="179" font-size="12" fill="#b4c4e8">live detection, a simulated honeypot and family alerts.</text>
+<rect x="20" y="210" width="57" height="20" rx="10" fill="#111d40" stroke="#243566"/><text x="48" y="224" class="mono" font-size="10" fill="#8b9dca" text-anchor="middle">fastapi</text>
+<rect x="83" y="210" width="112" height="20" rx="10" fill="#111d40" stroke="#243566"/><text x="138" y="224" class="mono" font-size="10" fill="#8b9dca" text-anchor="middle">fraud-prevention</text>
+<rect x="200" y="210" width="63" height="20" rx="10" fill="#111d40" stroke="#243566"/><text x="232" y="224" class="mono" font-size="10" fill="#8b9dca" text-anchor="middle">honeypot</text>
+<circle cx="26" cy="247" r="4" fill="#34d399"/><text x="38" y="251" font-size="11" fill="#b4c4e8">Python<tspan fill="#8b9dca">  &#183;  &#9733; 0  &#183;  pushed today</tspan></text>
+</g>
+<rect x=".5" y=".5" width="404" height="263" rx="16" fill="none" stroke="url(#bdr)" stroke-width="1.2"/>
+</svg>

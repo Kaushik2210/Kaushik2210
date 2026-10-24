@@ -1,10 +1,54 @@
 <div align="center">
 
-<img src="assets/header.svg" alt="Kaushik: full-stack developer and security tinkerer. Online, last push today, 44 day streak." width="100%"/>
+<img src="assets/header.svg" alt="Kaushik: full-stack developer and security tinkerer. A night-time city skyline built from my GitHub activity, with a neon name sign." width="100%"/>
+
+**I build security tooling and AI-era developer products, then ship them as live demos.**
 
 <a href="https://portfolio-general-ten.vercel.app">Portfolio</a> &nbsp;·&nbsp; <a href="https://www.linkedin.com/in/sodagum-venkata-kaushik-3497a4248/">LinkedIn</a> &nbsp;·&nbsp; <a href="https://x.com/svKaushik2210">X</a> &nbsp;·&nbsp; <a href="https://github.com/Kaushik2210?tab=repositories">Repositories</a>
 
 <br/>
+
+<img src="assets/div-builds.svg" alt="" width="100%"/>
+
+</div>
+
+<!--BUILDS_START-->
+<div align="center">
+
+<a href="https://github.com/Kaushik2210/Net-Sentinel"><img src="assets/p-net-sentinel.svg" alt="Net-Sentinel, a security project in Python: Explainable network digital twin: detects threats, reconstructs attacks and maps them to MITRE ATT&amp;CK from Zeek and Suricata telemetry. Opens the repository." width="49%"/></a> <a href="https://github.com/Kaushik2210/ORBITAL-SENTINEL"><img src="assets/p-orbital-sentinel.svg" alt="ORBITAL-SENTINEL, a security project in Python: Tells cyberattacks apart from sensor faults and solar weather in spacecraft telemetry, with explainable attribution. Opens the repository." width="49%"/></a> <a href="https://github.com/Kaushik2210/scam-khel"><img src="assets/p-scam-khel.svg" alt="scam-khel, a security project in Python: A private family shield against Indian digital-arrest scams: live detection, a simulated honeypot and family alerts. Opens the repository." width="49%"/></a> <a href="https://github.com/Kaushik2210/Deepfake-Detector"><img src="assets/p-deepfake-detector.svg" alt="Deepfake-Detector, a security project in Python: Synthetic-media detection that returns calibrated probabilities and visual evidence, never a binary verdict. Opens the repository." width="49%"/></a> <a href="https://tapwire-xi.vercel.app"><img src="assets/p-tapwire.svg" alt="tapwire, a dev tool project in TypeScript: Turns every mistake an AI coding agent makes into a permanent, enforced rule, and measures how often it repeats. Opens the live demo." width="49%"/></a> <a href="https://kaushik2210.github.io/gitVisualise/"><img src="assets/p-gitvisualise.svg" alt="gitVisualise, a dev tool project in JavaScript: Paste a GitHub link, get an interactive, narrated architecture tour. Website, CLI and GitHub Action. Opens the live demo." width="49%"/></a> <a href="https://hireos-beryl.vercel.app"><img src="assets/p-hireos.svg" alt="HireOS, a product project in TypeScript: A job-search workspace that shows its evidence: fit scoring, tailored materials without invention, application tracking. Opens the live demo." width="49%"/></a> <a href="https://algoverse-lovat-seven.vercel.app"><img src="assets/p-algoverse.svg" alt="AlgoVerse, a learning project in TypeScript: Data-structure visualisation and interview prep: 25 modules, 13 pattern guides and 635+ explained LeetCode solutions. Opens the live demo." width="49%"/></a>
+
+<sub>Tap a card to open the live demo or the repository. Cover art is generated from each repo's name; language, stars and last push update automatically.</sub>
+
+</div>
+
+<details>
+<summary><b>More builds (18)</b></summary>
+
+| Build | Stack | What it is |
+|:--|:--|:--|
+| [**100-days-of-java**](https://github.com/Kaushik2210/100-days-of-java) | `Java` | Daily Java practice log |
+| [**cp-sysdesign-academy**](https://github.com/Kaushik2210/cp-sysdesign-academy) | `MDX` | Open-source interactive course: competitive programming and system design (static site, runs in the… |
+| [**Overrank**](https://github.com/Kaushik2210/Overrank) · [live](https://overrank.vercel.app) | `TypeScript` | Live house-competition platform for campuses: teams earn points, the leaderboard reacts in real… |
+| [**Learn_python-**](https://github.com/Kaushik2210/Learn_python-) | `Python` | Python course as Jupyter notebooks: explanations, 108 challenge problems, exam prep and projects… |
+| [**learn-os**](https://github.com/Kaushik2210/learn-os) | `TypeScript` | A gamified, interactive Operating Systems learning platform — from first principles to… |
+| [**ATTESTA---AI-powered-SOC-**](https://github.com/Kaushik2210/ATTESTA---AI-powered-SOC-) | `TypeScript` | Multi-tenant Autonomous SOC platform with reproducible, re-adjudicable verdicts — a deterministic… |
+| [**PORTCULLIS**](https://github.com/Kaushik2210/PORTCULLIS) | `Python` | Adversarial prompt injection detection gateway for LLM applications |
+| [**GLYPHFORGE**](https://github.com/Kaushik2210/GLYPHFORGE) · [live](https://glyphforge-web.vercel.app) | `TypeScript` | A GPU-native ASCII art engine for the browser. Converts photos into character grids via perceptual… |
+| [**SCRB-Crime-Intelligence-Analytics-Platform**](https://github.com/Kaushik2210/SCRB-Crime-Intelligence-Analytics-Platform) | `JavaScript` | An AI-driven crime analytics and visualization platform for the Karnataka State Police State Crime… |
+| [**SafeRoute**](https://github.com/Kaushik2210/SafeRoute) | `JavaScript` | Safe Route for women safety |
+| [**SafePath**](https://github.com/Kaushik2210/SafePath) | `TypeScript` | Safe Path detecter for women |
+| [**PowerBI-dashboard**](https://github.com/Kaushik2210/PowerBI-dashboard) | `misc` | PowerBI dashboard |
+| [**Church_Grace**](https://github.com/Kaushik2210/Church_Grace) | `misc` | prototype |
+| [**Research-Visualizer**](https://github.com/Kaushik2210/Research-Visualizer) | `TypeScript` | built a research visualizer with cool visuals and representations from google gemini 3.0 using… |
+| [**Celeb-Bomb**](https://github.com/Kaushik2210/Celeb-Bomb) | `TypeScript` | Created a website that can generate a selfie or an image with a celebrity on random uses nano… |
+| [**Photo-Video-Editor**](https://github.com/Kaushik2210/Photo-Video-Editor) | `TypeScript` | Used google AI studio in order to generate a beautiful webpage for generating editing images and… |
+| [**cybernetics_website**](https://github.com/Kaushik2210/cybernetics_website) | `HTML` | website for the cybernetics association 24-25 |
+| [**website_anime_design**](https://github.com/Kaushik2210/website_anime_design) | `JavaScript` | a fully responsive website featuring a 3D animated male anime character with transitions! |
+
+</details>
+<!--BUILDS_END-->
+
+<div align="center">
 
 <img src="assets/div-dossier.svg" alt="" width="100%"/>
 
@@ -18,27 +62,11 @@
 
 <sub>Three live gauges: how consistent I am, when in the day I ship, and how this quarter compares to the last.</sub>
 
-<img src="assets/div-skyline.svg" alt="" width="100%"/>
-
-<a href="https://github.com/Kaushik2210#js-contribution-activity"><img src="assets/skyline.svg" alt="My last year of contributions as an animated isometric city: one building per day, taller means more commits" width="100%"/></a>
-
-<sub>One building per day. Height is commits, lit windows mean activity, the red beacon marks my busiest day.</sub>
-
 <img src="assets/div-neural.svg" alt="" width="100%"/>
 
 <a href="https://github.com/Kaushik2210?tab=repositories&sort=updated"><img src="assets/neural.svg" alt="Neural map of my repositories: each repo is a neuron, clustered by language and wired to repos that share topics. Recently pushed repos fire rings and signals travel along the wires." width="100%"/></a>
 
 <sub>Every repo is a neuron, wired to the ones it shares topics, a name family or a language with. Rings mark what I pushed this week.</sub>
-
-</div>
-
-<div align="center">
-
-<img src="assets/div-galaxy.svg" alt="" width="100%"/>
-
-<a href="https://github.com/Kaushik2210/Kaushik2210/issues/new?template=star.yml"><img src="assets/galaxy.svg" alt="My last 365 days of contributions as a spiral galaxy, one star per day, with visitor stars orbiting" width="100%"/></a>
-
-<sub>One star per day for the last year; the core is today.<br/><b><a href="https://github.com/Kaushik2210/Kaushik2210/issues/new?template=star.yml">Add your own star</a></b>: pick a colour and your handle orbits here too.</sub>
 
 <img src="assets/div-ops.svg" alt="" width="100%"/>
 
@@ -51,19 +79,23 @@
 <!--OPS_START-->
 | Repo | Stack | Last push | Brief |
 |:--|:--|:--|:--|
+| [**100-days-of-java**](https://github.com/Kaushik2210/100-days-of-java) | `Java` | today | Daily Java practice log |
 | [**scam-khel**](https://github.com/Kaushik2210/scam-khel) | `Python` | today | Private family shield against Indian digital-arrest scams: live detection, simulated honeypot… |
-| [**100-days-of-java**](https://github.com/Kaushik2210/100-days-of-java) | `Java` | 2d ago | Daily Java practice log |
-| [**cp-sysdesign-academy**](https://github.com/Kaushik2210/cp-sysdesign-academy) | `MDX` | 5d ago | Open-source interactive course: competitive programming and system design (static site, runs in… |
+| [**cp-sysdesign-academy**](https://github.com/Kaushik2210/cp-sysdesign-academy) | `MDX` | 6d ago | Open-source interactive course: competitive programming and system design (static site, runs in… |
 | [**Hivora**](https://github.com/Kaushik2210/Hivora) | `misc` | 6d ago | _Still cooking._ |
 | [**tapwire**](https://github.com/Kaushik2210/tapwire) · [live](https://tapwire-xi.vercel.app) | `TypeScript` | 6d ago | Turns every mistake an AI coding agent makes into a permanent, enforced rule, and measures how… |
-| [**HireOS**](https://github.com/Kaushik2210/HireOS) · [live](https://hireos-beryl.vercel.app) | `TypeScript` | 7d ago | Job-search workspace that shows its evidence: fit scoring, tailored materials without… |
+| [**HireOS**](https://github.com/Kaushik2210/HireOS) · [live](https://hireos-beryl.vercel.app) | `TypeScript` | 8d ago | Job-search workspace that shows its evidence: fit scoring, tailored materials without… |
 | [**Voice-Agents-**](https://github.com/Kaushik2210/Voice-Agents-) | `Python` | 8d ago | _Still cooking._ |
 | [**Portfolio_General**](https://github.com/Kaushik2210/Portfolio_General) · [live](https://portfolio-general-ten.vercel.app) | `TypeScript` | 8d ago | _Still cooking._ |
 <!--OPS_END-->
 
-<br/>
-
 <div align="center">
+
+<img src="assets/div-galaxy.svg" alt="" width="100%"/>
+
+<a href="https://github.com/Kaushik2210/Kaushik2210/issues/new?template=star.yml"><img src="assets/galaxy.svg" alt="My last 365 days of contributions as a spiral galaxy, one star per day, with visitor stars orbiting" width="100%"/></a>
+
+<sub>One star per day for the last year; the core is today.<br/><b><a href="https://github.com/Kaushik2210/Kaushik2210/issues/new?template=star.yml">Add your own star</a></b>: pick a colour and your handle orbits here too.</sub>
 
 <img src="assets/div-ctf.svg" alt="" width="100%"/>
 

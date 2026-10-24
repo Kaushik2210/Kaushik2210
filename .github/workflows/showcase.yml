@@ -1,11 +1,11 @@
-name: Update showcase (dossier, galaxy, radar)
+name: Rebuild profile (hero, builds, charts)
 
 on:
   schedule:
     - cron: "17 */6 * * *" # every 6 hours
   workflow_dispatch: {}
   push:
-    paths: ["scripts/**", "ctf/desc.hex"]
+    paths: ["scripts/**", "data/**", "ctf/desc.hex"]
 
 concurrency:
   group: repo-writes
@@ -30,11 +30,12 @@ jobs:
           python banners.py "${{ github.repository_owner }}" ../assets
           python vitals.py  "${{ github.repository_owner }}" ../assets/vitals.svg
           python dossier.py "${{ github.repository_owner }}" ../assets/dossier.svg
-          python skyline.py "${{ github.repository_owner }}" ../assets/skyline.svg
+          python hero.py    "${{ github.repository_owner }}" ../assets/header.svg
           python galaxy.py  "${{ github.repository_owner }}" ../assets/galaxy.svg
           python neural.py  "${{ github.repository_owner }}" ../assets/neural.svg
           python ops.py     "${{ github.repository_owner }}" ../assets/ops.svg
           python explorer.py "${{ github.repository_owner }}" ../README.md
+          python posters.py  "${{ github.repository_owner }}" ../README.md
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Commit if changed

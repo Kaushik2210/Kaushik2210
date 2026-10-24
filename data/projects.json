@@ -1,0 +1,22 @@
+{
+  "featured": [
+    {"repo": "Net-Sentinel", "category": "security",
+     "blurb": "Explainable network digital twin: detects threats, reconstructs attacks and maps them to MITRE ATT&CK from Zeek and Suricata telemetry."},
+    {"repo": "ORBITAL-SENTINEL", "category": "security",
+     "blurb": "Tells cyberattacks apart from sensor faults and solar weather in spacecraft telemetry, with explainable attribution."},
+    {"repo": "scam-khel", "category": "security",
+     "blurb": "A private family shield against Indian digital-arrest scams: live detection, a simulated honeypot and family alerts."},
+    {"repo": "Deepfake-Detector", "category": "security",
+     "blurb": "Synthetic-media detection that returns calibrated probabilities and visual evidence, never a binary verdict."},
+    {"repo": "tapwire", "category": "devtool",
+     "blurb": "Turns every mistake an AI coding agent makes into a permanent, enforced rule, and measures how often it repeats."},
+    {"repo": "gitVisualise", "category": "devtool",
+     "blurb": "Paste a GitHub link, get an interactive, narrated architecture tour. Website, CLI and GitHub Action."},
+    {"repo": "HireOS", "category": "product",
+     "blurb": "A job-search workspace that shows its evidence: fit scoring, tailored materials without invention, application tracking."},
+    {"repo": "AlgoVerse", "category": "learning",
+     "blurb": "Data-structure visualisation and interview prep: 25 modules, 13 pattern guides and 635+ explained LeetCode solutions."}
+  ],
+  "exclude_more": ["Kaushik2210", "Leetcode", "Cybersecurity_Projects", "TryHackMe-Rooms", "Mobile-Application-Programs", "crud-app"],
+  "exclude_prefix_more": ["FSD", "2647151", "HSK", "C-Lab", "Project_BCA", "MY_PORTFOLIO", "Research-Paper"]
+}

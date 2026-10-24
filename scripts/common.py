@@ -69,7 +69,7 @@ def push_hours(login, tz_minutes=330, pages=3):
         except Exception:
             break
         for e in evs:
-            if e.get("type") == "PushEvent":
+            if e.get("type") == "PushEvent" and e["repo"]["name"].lower() != f"{login}/{login}".lower():  # not the profile repo itself
                 d = datetime.fromisoformat(e["created_at"].replace("Z", "+00:00")) + timedelta(minutes=tz_minutes)
                 hist[d.hour] += 1
                 n += 1
@@ -90,7 +90,7 @@ def push_events(login, pages=3):
         if not evs:
             break
         for e in evs:
-            if e.get("type") == "PushEvent":
+            if e.get("type") == "PushEvent" and e["repo"]["name"].lower() != f"{login}/{login}".lower():  # not the profile repo itself
                 name = e["repo"]["name"].split("/", 1)[-1]
                 out.append((name, datetime.fromisoformat(e["created_at"].replace("Z", "+00:00"))))
     return out
