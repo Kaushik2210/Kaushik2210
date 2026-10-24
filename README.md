@@ -51,11 +51,11 @@
 <!--OPS_START-->
 | Repo | Stack | Last push | Brief |
 |:--|:--|:--|:--|
-| [**100-days-of-java**](https://github.com/Kaushik2210/100-days-of-java) | `Java` | yesterday | Daily Java practice log |
-| [**scam-khel**](https://github.com/Kaushik2210/scam-khel) | `Python` | 4d ago | Private family shield against Indian digital-arrest scams: live detection, simulated honeypot… |
+| [**scam-khel**](https://github.com/Kaushik2210/scam-khel) | `Python` | today | Private family shield against Indian digital-arrest scams: live detection, simulated honeypot… |
+| [**100-days-of-java**](https://github.com/Kaushik2210/100-days-of-java) | `Java` | 2d ago | Daily Java practice log |
 | [**cp-sysdesign-academy**](https://github.com/Kaushik2210/cp-sysdesign-academy) | `MDX` | 5d ago | Open-source interactive course: competitive programming and system design (static site, runs in… |
-| [**Hivora**](https://github.com/Kaushik2210/Hivora) | `misc` | 5d ago | _Still cooking._ |
-| [**tapwire**](https://github.com/Kaushik2210/tapwire) · [live](https://tapwire-xi.vercel.app) | `TypeScript` | 5d ago | Turns every mistake an AI coding agent makes into a permanent, enforced rule, and measures how… |
+| [**Hivora**](https://github.com/Kaushik2210/Hivora) | `misc` | 6d ago | _Still cooking._ |
+| [**tapwire**](https://github.com/Kaushik2210/tapwire) · [live](https://tapwire-xi.vercel.app) | `TypeScript` | 6d ago | Turns every mistake an AI coding agent makes into a permanent, enforced rule, and measures how… |
 | [**HireOS**](https://github.com/Kaushik2210/HireOS) · [live](https://hireos-beryl.vercel.app) | `TypeScript` | 7d ago | Job-search workspace that shows its evidence: fit scoring, tailored materials without… |
 | [**Voice-Agents-**](https://github.com/Kaushik2210/Voice-Agents-) | `Python` | 8d ago | _Still cooking._ |
 | [**Portfolio_General**](https://github.com/Kaushik2210/Portfolio_General) · [live](https://portfolio-general-ten.vercel.app) | `TypeScript` | 8d ago | _Still cooking._ |
