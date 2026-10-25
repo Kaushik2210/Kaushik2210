@@ -18,8 +18,9 @@ DIVIDERS = [  # (file, number, label)
     ("div-neural", "04", "Repo neural map"),
     ("div-ops", "05", "Active ops: flight recorder"),
     ("div-galaxy", "06", "Contribution galaxy"),
-    ("div-ctf", "07", "Intercepted transmission"),
-    ("div-arsenal", "08", "Arsenal"),
+    ("div-badge", "07", "My badge"),
+    ("div-ctf", "08", "Intercepted transmission"),
+    ("div-arsenal", "09", "Arsenal"),
 ]
 
 

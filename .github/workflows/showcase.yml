@@ -32,6 +32,7 @@ jobs:
           python dossier.py "${{ github.repository_owner }}" ../assets/dossier.svg
           python hero.py    "${{ github.repository_owner }}" ../assets/header.svg
           python galaxy.py  "${{ github.repository_owner }}" ../assets/galaxy.svg
+          python badge.py   "${{ github.repository_owner }}" ../assets/badge.svg
           python neural.py  "${{ github.repository_owner }}" ../assets/neural.svg
           python ops.py     "${{ github.repository_owner }}" ../assets/ops.svg
           python explorer.py "${{ github.repository_owner }}" ../README.md

@@ -97,6 +97,12 @@
 
 <sub>One star per day for the last year; the core is today.<br/><b><a href="https://github.com/Kaushik2210/Kaushik2210/issues/new?template=star.yml">Add your own star</a></b>: pick a colour and your handle orbits here too.</sub>
 
+<img src="assets/div-badge.svg" alt="" width="100%"/>
+
+<a href="https://badger.github.io/virtual/?u=Kaushik2210"><img src="assets/badge.svg" alt="My custom conference-style badge swinging on a lanyard, with my halftone portrait and live GitHub stats. Opens a virtual badge that runs DOOM with my GitHub avatar." width="100%"/></a>
+
+<sub>My own badge, rebuilt from live data. <b><a href="https://badger.github.io/virtual/?u=Kaushik2210">Open it on the virtual badge</a></b> (GitHub's DOOM-on-a-badge page) to play with my avatar on screen.</sub>
+
 <img src="assets/div-ctf.svg" alt="" width="100%"/>
 
 **A three-stage CTF is hidden in this profile.** Crack it and you join the Hall of Fame below, automatically.

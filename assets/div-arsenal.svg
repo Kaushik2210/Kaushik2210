@@ -14,7 +14,7 @@ text{font-family:system-ui,-apple-system,'SF Pro Text','Segoe UI',Roboto,'Helvet
 <rect width="830" height="44" fill="url(#aurora)" opacity=".07"/>
 <rect width="4" height="44" fill="url(#auroraV)"/>
 <rect x="-120" width="120" height="44" fill="url(#aurora)" opacity=".16"><animate attributeName="x" values="-120;830;830" keyTimes="0;.55;1" dur="9s" repeatCount="indefinite"/></rect></g>
-<text x="24" y="27" class="mono" font-size="12" fill="#8fc7ff">08</text>
+<text x="24" y="27" class="mono" font-size="12" fill="#8fc7ff">09</text>
 <text x="54" y="28" font-size="16" font-weight="600" fill="#eef4ff">Arsenal</text>
 <rect x=".5" y=".5" width="829" height="43" rx="12" fill="none" stroke="url(#bdr)" stroke-width="1.2"/>
 </svg>
