@@ -24,7 +24,7 @@ text{font-family:system-ui,-apple-system,'SF Pro Text','Segoe UI',Roboto,'Helvet
 <rect x="20" y="210" width="75" height="20" rx="10" fill="#111d40" stroke="#243566"/><text x="58" y="224" class="mono" font-size="10" fill="#8b9dca" text-anchor="middle">algorithms</text>
 <rect x="101" y="210" width="106" height="20" rx="10" fill="#111d40" stroke="#243566"/><text x="154" y="224" class="mono" font-size="10" fill="#8b9dca" text-anchor="middle">data-structures</text>
 <rect x="212" y="210" width="32" height="20" rx="10" fill="#111d40" stroke="#243566"/><text x="229" y="224" class="mono" font-size="10" fill="#8b9dca" text-anchor="middle">dsa</text>
-<circle cx="26" cy="247" r="4" fill="#38bdf8"/><text x="38" y="251" font-size="11" fill="#b4c4e8">TypeScript<tspan fill="#8b9dca">  &#183;  &#9733; 0  &#183;  pushed 38d ago</tspan></text>
+<circle cx="26" cy="247" r="4" fill="#38bdf8"/><text x="38" y="251" font-size="11" fill="#b4c4e8">TypeScript<tspan fill="#8b9dca">  &#183;  &#9733; 0  &#183;  pushed 39d ago</tspan></text>
 </g>
 <rect x=".5" y=".5" width="404" height="263" rx="16" fill="none" stroke="url(#bdr)" stroke-width="1.2"/>
 </svg>

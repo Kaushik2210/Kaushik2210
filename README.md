@@ -79,8 +79,8 @@
 <!--OPS_START-->
 | Repo | Stack | Last push | Brief |
 |:--|:--|:--|:--|
-| [**scam-khel**](https://github.com/Kaushik2210/scam-khel) | `Python` | today | Private family shield against Indian digital-arrest scams: live detection, simulated honeypot… |
 | [**100-days-of-java**](https://github.com/Kaushik2210/100-days-of-java) | `Java` | today | Daily Java practice log |
+| [**scam-khel**](https://github.com/Kaushik2210/scam-khel) | `Python` | today | Private family shield against Indian digital-arrest scams: live detection, simulated honeypot… |
 | [**cp-sysdesign-academy**](https://github.com/Kaushik2210/cp-sysdesign-academy) | `MDX` | 6d ago | Open-source interactive course: competitive programming and system design (static site, runs in… |
 | [**Hivora**](https://github.com/Kaushik2210/Hivora) | `misc` | 7d ago | _Still cooking._ |
 | [**tapwire**](https://github.com/Kaushik2210/tapwire) · [live](https://tapwire-xi.vercel.app) | `TypeScript` | 7d ago | Turns every mistake an AI coding agent makes into a permanent, enforced rule, and measures how… |
