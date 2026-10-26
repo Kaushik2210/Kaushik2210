@@ -22,10 +22,11 @@
 </div>
 
 <details>
-<summary><b>More builds (18)</b></summary>
+<summary><b>More builds (19)</b></summary>
 
 | Build | Stack | What it is |
 |:--|:--|:--|
+| [**Ember-Line**](https://github.com/Kaushik2210/Ember-Line) · [live](https://emberline-zeta.vercel.app) | `Python` | One consistent record of fire, from two sensors: harmonized MODIS + VIIRS active-fire calendar with… |
 | [**cp-sysdesign-academy**](https://github.com/Kaushik2210/cp-sysdesign-academy) | `MDX` | Open-source interactive course: competitive programming and system design (static site, runs in the… |
 | [**100-days-of-java**](https://github.com/Kaushik2210/100-days-of-java) | `Java` | Daily Java practice log |
 | [**Overrank**](https://github.com/Kaushik2210/Overrank) · [live](https://overrank.vercel.app) | `TypeScript` | Live house-competition platform for campuses: teams earn points, the leaderboard reacts in real… |
@@ -79,14 +80,14 @@
 <!--OPS_START-->
 | Repo | Stack | Last push | Brief |
 |:--|:--|:--|:--|
-| [**Ember-Line**](https://github.com/Kaushik2210/Ember-Line) | `Python` | today | _Still cooking._ |
+| [**Ember-Line**](https://github.com/Kaushik2210/Ember-Line) · [live](https://emberline-zeta.vercel.app) | `Python` | today | One consistent record of fire, from two sensors: harmonized MODIS + VIIRS active-fire calendar… |
 | [**cp-sysdesign-academy**](https://github.com/Kaushik2210/cp-sysdesign-academy) | `MDX` | today | Open-source interactive course: competitive programming and system design (static site, runs in… |
 | [**100-days-of-java**](https://github.com/Kaushik2210/100-days-of-java) | `Java` | today | Daily Java practice log |
-| [**scam-khel**](https://github.com/Kaushik2210/scam-khel) | `Python` | yesterday | Private family shield against Indian digital-arrest scams: live detection, simulated honeypot… |
+| [**scam-khel**](https://github.com/Kaushik2210/scam-khel) | `Python` | 2d ago | Private family shield against Indian digital-arrest scams: live detection, simulated honeypot… |
 | [**Hivora**](https://github.com/Kaushik2210/Hivora) | `misc` | 8d ago | _Still cooking._ |
 | [**tapwire**](https://github.com/Kaushik2210/tapwire) · [live](https://tapwire-xi.vercel.app) | `TypeScript` | 8d ago | Turns every mistake an AI coding agent makes into a permanent, enforced rule, and measures how… |
-| [**HireOS**](https://github.com/Kaushik2210/HireOS) · [live](https://hireos-beryl.vercel.app) | `TypeScript` | 9d ago | Job-search workspace that shows its evidence: fit scoring, tailored materials without… |
-| [**Voice-Agents-**](https://github.com/Kaushik2210/Voice-Agents-) | `Python` | 10d ago | _Still cooking._ |
+| [**HireOS**](https://github.com/Kaushik2210/HireOS) · [live](https://hireos-beryl.vercel.app) | `TypeScript` | 10d ago | Job-search workspace that shows its evidence: fit scoring, tailored materials without… |
+| [**Voice-Agents-**](https://github.com/Kaushik2210/Voice-Agents-) | `Python` | 11d ago | _Still cooking._ |
 <!--OPS_END-->
 
 <div align="center">
