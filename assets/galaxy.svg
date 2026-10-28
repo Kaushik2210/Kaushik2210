@@ -495,7 +495,7 @@
 <circle cx="232.6" cy="253.8" r="3.2" fill="#88baff" opacity="0.95" filter="url(#g)"><animate attributeName="opacity" values="0.95;.35;0.95" dur="2.5s" begin="-0.3s" repeatCount="indefinite"/></circle>
 <circle cx="223.2" cy="225.9" r="5.5" fill="#fff0c6" opacity="0.95" filter="url(#g)"><animate attributeName="opacity" values="0.95;.35;0.95" dur="2.9s" begin="-0.6s" repeatCount="indefinite"/></circle>
 <circle cx="214.6" cy="246.8" r="4.6" fill="#f8cf6c" opacity="0.95" filter="url(#g)"><animate attributeName="opacity" values="0.95;.35;0.95" dur="3.3s" begin="-0.9s" repeatCount="indefinite"/></circle>
-<circle cx="222.0" cy="240.0" r="1.1" fill="#26356a" opacity="0.35"></circle>
+<circle cx="222.0" cy="240.0" r="3.0" fill="#76afff" opacity="0.95" filter="url(#g)"><animate attributeName="opacity" values="0.95;.35;0.95" dur="3.7s" begin="-1.2s" repeatCount="indefinite"/></circle>
 </g>
 <circle cx="222" cy="240" r="38" fill="url(#core)"/>
 <text x="222" y="244" font-size="9" fill="#040918" text-anchor="middle" font-weight="bold">NOW</text>
@@ -503,11 +503,11 @@
 <text x="452" y="70" font-size="12" fill="#8b9dca">1 star per day · 2026-10-28</text>
 <line x1="452" y1="84" x2="800" y2="84" stroke="#243566"/>
 <text x="452" y="110" font-size="13" fill="#8b9dca">CONTRIBUTIONS</text>
-<text x="610" y="110" font-size="14" fill="#eef4ff">2888</text>
+<text x="610" y="110" font-size="14" fill="#eef4ff">2892</text>
 <text x="452" y="136" font-size="13" fill="#8b9dca">ACTIVE DAYS</text>
-<text x="610" y="136" font-size="14" fill="#eef4ff">147 / 368</text>
+<text x="610" y="136" font-size="14" fill="#eef4ff">148 / 368</text>
 <text x="452" y="162" font-size="13" fill="#8b9dca">CURRENT STREAK</text>
-<text x="610" y="162" font-size="14" fill="#eef4ff">4 days</text>
+<text x="610" y="162" font-size="14" fill="#eef4ff">5 days</text>
 <text x="452" y="188" font-size="13" fill="#8b9dca">LONGEST STREAK</text>
 <text x="610" y="188" font-size="14" fill="#eef4ff">45 days</text>
 <text x="452" y="214" font-size="13" fill="#8b9dca">BRIGHTEST STAR</text>
