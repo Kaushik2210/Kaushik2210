@@ -457,7 +457,7 @@ text{font-family:system-ui,-apple-system,'SF Pro Text','Segoe UI',Roboto,'Helvet
 <circle r="1.9" fill="#38bdf8" opacity="0"><animateMotion path="M570.7,252.1 L326.1,278.2" dur="2.7s" begin="-2.5s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;.95;.95;0" keyTimes="0;.15;.85;1" dur="2.7s" begin="-2.3s" repeatCount="indefinite"/></circle>
 <circle r="1.9" fill="#8b9dca" opacity="0"><animateMotion path="M326.1,278.2 L574.3,220.4" dur="4.7s" begin="-4.5s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;.95;.95;0" keyTimes="0;.15;.85;1" dur="4.7s" begin="-4.3s" repeatCount="indefinite"/></circle>
 <circle r="1.9" fill="#38bdf8" opacity="0"><animateMotion path="M570.7,252.1 L644.3,202.7" dur="6.0s" begin="-4.8s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;.95;.95;0" keyTimes="0;.15;.85;1" dur="6.0s" begin="-6.0s" repeatCount="indefinite"/></circle>
-<circle cx="223.1" cy="160.3" r="7.3" fill="#fb7185" opacity="0" filter="url(#glow)"><animate attributeName="opacity" from="0" to="1.00" begin="0.20s" dur=".7s" fill="freeze"/></circle>
+<circle cx="223.1" cy="160.3" r="7.3" fill="#fb7185" opacity="0" filter="url(#glow)"><animate attributeName="opacity" from="0" to="0.99" begin="0.20s" dur=".7s" fill="freeze"/></circle>
 <circle cx="223.1" cy="160.3" r="7.3" fill="none" stroke="#fb7185" stroke-width="1.3" opacity="0"><animate attributeName="r" values="7.3;20.3" dur="2.8s" begin="1.50s" repeatCount="indefinite"/><animate attributeName="opacity" values=".85;0" dur="2.8s" begin="1.50s" repeatCount="indefinite"/></circle>
 <circle cx="398.4" cy="378.3" r="4.2" fill="#ff8a3d" opacity="0"><animate attributeName="opacity" from="0" to="0.45" begin="0.23s" dur=".7s" fill="freeze"/></circle>
 <circle cx="660.3" cy="248.7" r="6.8" fill="#38bdf8" opacity="0"><animate attributeName="opacity" from="0" to="0.65" begin="0.25s" dur=".7s" fill="freeze"/></circle>
@@ -471,15 +471,15 @@ text{font-family:system-ui,-apple-system,'SF Pro Text','Segoe UI',Roboto,'Helvet
 <circle cx="382.3" cy="159.3" r="8.0" fill="#ffd23f" opacity="0"><animate attributeName="opacity" from="0" to="0.42" begin="0.45s" dur=".7s" fill="freeze"/></circle>
 <circle cx="194.8" cy="317.5" r="7.9" fill="#8b9dca" opacity="0" filter="url(#glow)"><animate attributeName="opacity" from="0" to="1.00" begin="0.48s" dur=".7s" fill="freeze"/></circle>
 <circle cx="194.8" cy="317.5" r="7.9" fill="none" stroke="#8b9dca" stroke-width="1.3" opacity="0"><animate attributeName="r" values="7.9;20.9" dur="2.8s" begin="2.12s" repeatCount="indefinite"/><animate attributeName="opacity" values=".85;0" dur="2.8s" begin="2.12s" repeatCount="indefinite"/></circle>
-<circle cx="416.0" cy="134.5" r="8.0" fill="#ffd23f" opacity="0"><animate attributeName="opacity" from="0" to="0.53" begin="0.50s" dur=".7s" fill="freeze"/></circle>
+<circle cx="416.0" cy="134.5" r="8.0" fill="#ffd23f" opacity="0"><animate attributeName="opacity" from="0" to="0.52" begin="0.50s" dur=".7s" fill="freeze"/></circle>
 <circle cx="374.9" cy="352.7" r="8.0" fill="#ff8a3d" opacity="0"><animate attributeName="opacity" from="0" to="0.42" begin="0.53s" dur=".7s" fill="freeze"/></circle>
 <circle cx="573.5" cy="344.8" r="5.1" fill="#34d399" opacity="0"><animate attributeName="opacity" from="0" to="0.61" begin="0.55s" dur=".7s" fill="freeze"/></circle>
-<circle cx="602.7" cy="351.4" r="6.3" fill="#34d399" opacity="0"><animate attributeName="opacity" from="0" to="0.83" begin="0.57s" dur=".7s" fill="freeze"/></circle>
+<circle cx="602.7" cy="351.4" r="6.3" fill="#34d399" opacity="0"><animate attributeName="opacity" from="0" to="0.82" begin="0.57s" dur=".7s" fill="freeze"/></circle>
 <circle cx="652.1" cy="349.3" r="7.2" fill="#34d399" opacity="0" filter="url(#glow)"><animate attributeName="opacity" from="0" to="1.00" begin="0.60s" dur=".7s" fill="freeze"/></circle>
 <circle cx="652.1" cy="349.3" r="7.2" fill="none" stroke="#34d399" stroke-width="1.3" opacity="0"><animate attributeName="r" values="7.2;20.2" dur="2.8s" begin="3.67s" repeatCount="indefinite"/><animate attributeName="opacity" values=".85;0" dur="2.8s" begin="3.67s" repeatCount="indefinite"/></circle>
 <circle cx="683.2" cy="233.5" r="5.5" fill="#38bdf8" opacity="0"><animate attributeName="opacity" from="0" to="0.42" begin="0.62s" dur=".7s" fill="freeze"/></circle>
 <circle cx="461.0" cy="166.5" r="4.6" fill="#ffd23f" opacity="0"><animate attributeName="opacity" from="0" to="0.53" begin="0.65s" dur=".7s" fill="freeze"/></circle>
-<circle cx="657.9" cy="222.3" r="4.9" fill="#38bdf8" opacity="0"><animate attributeName="opacity" from="0" to="0.55" begin="0.68s" dur=".7s" fill="freeze"/></circle>
+<circle cx="657.9" cy="222.3" r="4.9" fill="#38bdf8" opacity="0"><animate attributeName="opacity" from="0" to="0.54" begin="0.68s" dur=".7s" fill="freeze"/></circle>
 <circle cx="522.8" cy="166.4" r="5.1" fill="#ffd23f" opacity="0"><animate attributeName="opacity" from="0" to="0.55" begin="0.70s" dur=".7s" fill="freeze"/></circle>
 <circle cx="670.2" cy="173.0" r="5.2" fill="#38bdf8" opacity="0"><animate attributeName="opacity" from="0" to="0.54" begin="0.73s" dur=".7s" fill="freeze"/></circle>
 <circle cx="367.1" cy="405.3" r="4.3" fill="#ff8a3d" opacity="0"><animate attributeName="opacity" from="0" to="0.45" begin="0.75s" dur=".7s" fill="freeze"/></circle>
@@ -488,10 +488,10 @@ text{font-family:system-ui,-apple-system,'SF Pro Text','Segoe UI',Roboto,'Helvet
 <circle cx="365.8" cy="432.1" r="3.8" fill="#ff8a3d" opacity="0"><animate attributeName="opacity" from="0" to="0.46" begin="0.82s" dur=".7s" fill="freeze"/></circle>
 <circle cx="427.2" cy="108.7" r="4.7" fill="#ffd23f" opacity="0"><animate attributeName="opacity" from="0" to="0.49" begin="0.85s" dur=".7s" fill="freeze"/></circle>
 <circle cx="473.2" cy="133.1" r="5.2" fill="#ffd23f" opacity="0"><animate attributeName="opacity" from="0" to="0.52" begin="0.88s" dur=".7s" fill="freeze"/></circle>
-<circle cx="511.0" cy="193.9" r="9.6" fill="#ffd23f" opacity="0"><animate attributeName="opacity" from="0" to="0.83" begin="0.90s" dur=".7s" fill="freeze"/></circle>
+<circle cx="511.0" cy="193.9" r="9.6" fill="#ffd23f" opacity="0"><animate attributeName="opacity" from="0" to="0.82" begin="0.90s" dur=".7s" fill="freeze"/></circle>
 <circle cx="685.1" cy="271.8" r="5.7" fill="#38bdf8" opacity="0"><animate attributeName="opacity" from="0" to="0.61" begin="0.93s" dur=".7s" fill="freeze"/></circle>
 <circle cx="679.0" cy="206.8" r="6.8" fill="#38bdf8" opacity="0" filter="url(#glow)"><animate attributeName="opacity" from="0" to="0.87" begin="0.95s" dur=".7s" fill="freeze"/></circle>
-<circle cx="146.1" cy="325.0" r="8.0" fill="#8b9dca" opacity="0" filter="url(#glow)"><animate attributeName="opacity" from="0" to="0.89" begin="0.98s" dur=".7s" fill="freeze"/></circle>
+<circle cx="146.1" cy="325.0" r="8.0" fill="#8b9dca" opacity="0" filter="url(#glow)"><animate attributeName="opacity" from="0" to="0.88" begin="0.98s" dur=".7s" fill="freeze"/></circle>
 <circle cx="526.0" cy="116.4" r="7.0" fill="#ffd23f" opacity="0"><animate attributeName="opacity" from="0" to="0.42" begin="1.00s" dur=".7s" fill="freeze"/></circle>
 <circle cx="607.8" cy="188.5" r="4.2" fill="#38bdf8" opacity="0"><animate attributeName="opacity" from="0" to="0.43" begin="1.03s" dur=".7s" fill="freeze"/></circle>
 <circle cx="484.5" cy="158.6" r="4.9" fill="#ffd23f" opacity="0"><animate attributeName="opacity" from="0" to="0.43" begin="1.05s" dur=".7s" fill="freeze"/></circle>
@@ -525,7 +525,7 @@ text{font-family:system-ui,-apple-system,'SF Pro Text','Segoe UI',Roboto,'Helvet
 <circle cx="647.9" cy="389.2" r="8.2" fill="#34d399" opacity="0" filter="url(#glow)"><animate attributeName="opacity" from="0" to="0.96" begin="1.75s" dur=".7s" fill="freeze"/></circle>
 <circle cx="647.9" cy="389.2" r="8.2" fill="none" stroke="#34d399" stroke-width="1.3" opacity="0"><animate attributeName="r" values="8.2;21.2" dur="2.8s" begin="3.98s" repeatCount="indefinite"/><animate attributeName="opacity" values=".85;0" dur="2.8s" begin="3.98s" repeatCount="indefinite"/></circle>
 <circle cx="434.7" cy="158.7" r="8.0" fill="#ffd23f" opacity="0"><animate attributeName="opacity" from="0" to="0.49" begin="1.78s" dur=".7s" fill="freeze"/></circle>
-<circle cx="639.1" cy="266.2" r="7.3" fill="#38bdf8" opacity="0" filter="url(#glow)"><animate attributeName="opacity" from="0" to="0.89" begin="1.80s" dur=".7s" fill="freeze"/></circle>
+<circle cx="639.1" cy="266.2" r="7.3" fill="#38bdf8" opacity="0" filter="url(#glow)"><animate attributeName="opacity" from="0" to="0.88" begin="1.80s" dur=".7s" fill="freeze"/></circle>
 <circle cx="624.3" cy="364.5" r="4.2" fill="#34d399" opacity="0"><animate attributeName="opacity" from="0" to="0.44" begin="1.82s" dur=".7s" fill="freeze"/></circle>
 <circle cx="339.1" cy="427.0" r="5.5" fill="#ff8a3d" opacity="0"><animate attributeName="opacity" from="0" to="0.59" begin="1.85s" dur=".7s" fill="freeze"/></circle>
 <circle cx="566.4" cy="396.7" r="5.6" fill="#34d399" opacity="0" filter="url(#glow)"><animate attributeName="opacity" from="0" to="0.86" begin="1.88s" dur=".7s" fill="freeze"/></circle>
