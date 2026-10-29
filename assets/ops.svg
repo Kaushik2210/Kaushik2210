@@ -245,8 +245,8 @@ text{font-family:system-ui,-apple-system,'SF Pro Text','Segoe UI',Roboto,'Helvet
 <rect x="350.4" y="254.5" width="8.1" height="2" rx="1" fill="#243566"/>
 <rect x="360.5" y="254.5" width="8.1" height="2" rx="1" fill="#243566"/>
 <rect x="370.6" y="256" width="8.1" height="0" rx="2" fill="#34d399" fill-opacity="0.56"><animate attributeName="height" values="0;0;6.5;6.5;0;0" keyTimes="0.0000;0.1705;0.1987;0.8600;0.9500;1.0000" dur="16.0s" repeatCount="indefinite" calcMode="spline" keySplines="0 0 1 1;.2 .8 .2 1;0 0 1 1;.4 0 .6 1;0 0 1 1"/><animate attributeName="y" values="256;256;249.5;249.5;256;256" keyTimes="0.0000;0.1705;0.1987;0.8600;0.9500;1.0000" dur="16.0s" repeatCount="indefinite" calcMode="spline" keySplines="0 0 1 1;.2 .8 .2 1;0 0 1 1;.4 0 .6 1;0 0 1 1"/></rect>
-<rect x="380.7" y="254.5" width="8.1" height="2" rx="1" fill="#243566"/>
-<rect x="390.8" y="256" width="8.1" height="0" rx="2" fill="#34d399" fill-opacity="0.56" filter="url(#glow)"><animate attributeName="height" values="0;0;7.2;7.2;0;0" keyTimes="0.0000;0.1866;0.2147;0.8600;0.9500;1.0000" dur="16.0s" repeatCount="indefinite" calcMode="spline" keySplines="0 0 1 1;.2 .8 .2 1;0 0 1 1;.4 0 .6 1;0 0 1 1"/><animate attributeName="y" values="256;256;248.8;248.8;256;256" keyTimes="0.0000;0.1866;0.2147;0.8600;0.9500;1.0000" dur="16.0s" repeatCount="indefinite" calcMode="spline" keySplines="0 0 1 1;.2 .8 .2 1;0 0 1 1;.4 0 .6 1;0 0 1 1"/></rect>
+<rect x="380.7" y="256" width="8.1" height="0" rx="2" fill="#34d399" fill-opacity="0.56"><animate attributeName="height" values="0;0;6.5;6.5;0;0" keyTimes="0.0000;0.1786;0.2067;0.8600;0.9500;1.0000" dur="16.0s" repeatCount="indefinite" calcMode="spline" keySplines="0 0 1 1;.2 .8 .2 1;0 0 1 1;.4 0 .6 1;0 0 1 1"/><animate attributeName="y" values="256;256;249.5;249.5;256;256" keyTimes="0.0000;0.1786;0.2067;0.8600;0.9500;1.0000" dur="16.0s" repeatCount="indefinite" calcMode="spline" keySplines="0 0 1 1;.2 .8 .2 1;0 0 1 1;.4 0 .6 1;0 0 1 1"/></rect>
+<rect x="390.8" y="256" width="8.1" height="0" rx="2" fill="#34d399" fill-opacity="0.56" filter="url(#glow)"><animate attributeName="height" values="0;0;6.5;6.5;0;0" keyTimes="0.0000;0.1866;0.2147;0.8600;0.9500;1.0000" dur="16.0s" repeatCount="indefinite" calcMode="spline" keySplines="0 0 1 1;.2 .8 .2 1;0 0 1 1;.4 0 .6 1;0 0 1 1"/><animate attributeName="y" values="256;256;249.5;249.5;256;256" keyTimes="0.0000;0.1866;0.2147;0.8600;0.9500;1.0000" dur="16.0s" repeatCount="indefinite" calcMode="spline" keySplines="0 0 1 1;.2 .8 .2 1;0 0 1 1;.4 0 .6 1;0 0 1 1"/></rect>
 <rect x="400.9" y="254.5" width="8.1" height="2" rx="1" fill="#243566"/>
 <rect x="411.0" y="254.5" width="8.1" height="2" rx="1" fill="#243566"/>
 <rect x="421.1" y="254.5" width="8.1" height="2" rx="1" fill="#243566"/>
@@ -285,7 +285,7 @@ text{font-family:system-ui,-apple-system,'SF Pro Text','Segoe UI',Roboto,'Helvet
 <rect x="754.7" y="254.5" width="8.1" height="2" rx="1" fill="#243566"/>
 <rect x="764.8" y="254.5" width="8.1" height="2" rx="1" fill="#243566"/>
 <rect x="774.9" y="254.5" width="8.1" height="2" rx="1" fill="#243566"/>
-<circle cx="394.9" cy="248.8" r="3" fill="none" stroke="#34d399" stroke-width="1.2" opacity="0"><animate attributeName="r" values="3;12" dur="2.4s" begin="9.05s;25.05s" repeatCount="indefinite"/><animate attributeName="opacity" values=".9;0" dur="2.4s" begin="9.05s;25.05s" repeatCount="indefinite"/></circle>
+<circle cx="394.9" cy="249.5" r="3" fill="none" stroke="#34d399" stroke-width="1.2" opacity="0"><animate attributeName="r" values="3;12" dur="2.4s" begin="9.05s;25.05s" repeatCount="indefinite"/><animate attributeName="opacity" values=".9;0" dur="2.4s" begin="9.05s;25.05s" repeatCount="indefinite"/></circle>
 <line x1="218" y1="300" x2="784" y2="300" stroke="#243566"/>
 <circle cx="34" cy="289" r="4" fill="#38bdf8"/>
 <text x="46" y="292" font-size="14" font-weight="600" fill="#eef4ff">tapwire</text>
