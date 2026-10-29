@@ -84,8 +84,8 @@
 | [**100-days-of-java**](https://github.com/Kaushik2210/100-days-of-java) | `Java` | today | 100 days of Java: from Hello World to data structures, algorithms and interview prep. Daily… |
 | [**cp-sysdesign-academy**](https://github.com/Kaushik2210/cp-sysdesign-academy) | `MDX` | yesterday | Open-source interactive course: competitive programming and system design (static site, runs in… |
 | [**Ember-Line**](https://github.com/Kaushik2210/Ember-Line) · [live](https://emberline-zeta.vercel.app) | `Python` | yesterday | One consistent record of fire, from two sensors: harmonized MODIS + VIIRS active-fire calendar… |
-| [**Hivora**](https://github.com/Kaushik2210/Hivora) | `misc` | 10d ago | _Still cooking._ |
-| [**tapwire**](https://github.com/Kaushik2210/tapwire) · [live](https://tapwire-xi.vercel.app) | `TypeScript` | 10d ago | Turns every mistake an AI coding agent makes into a permanent, enforced rule, and measures how… |
+| [**Hivora**](https://github.com/Kaushik2210/Hivora) | `misc` | 11d ago | _Still cooking._ |
+| [**tapwire**](https://github.com/Kaushik2210/tapwire) · [live](https://tapwire-xi.vercel.app) | `TypeScript` | 11d ago | Turns every mistake an AI coding agent makes into a permanent, enforced rule, and measures how… |
 | [**HireOS**](https://github.com/Kaushik2210/HireOS) · [live](https://hireos-beryl.vercel.app) | `TypeScript` | 12d ago | Job-search workspace that shows its evidence: fit scoring, tailored materials without… |
 | [**Voice-Agents-**](https://github.com/Kaushik2210/Voice-Agents-) | `Python` | 13d ago | _Still cooking._ |
 <!--OPS_END-->
