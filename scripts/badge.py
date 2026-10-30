@@ -10,6 +10,7 @@ import colorsys
 import hashlib
 import io
 import os
+import random
 import sys
 import urllib.request
 from datetime import datetime, timezone
@@ -30,6 +31,8 @@ BX, BY, BW, BH = 100, 92, 240, 340          # badge rect
 PCX, PCY = BX + BW / 2, 60                  # pivot: where the lanyard clips on
 COLS, PITCH = 32, 4.6                       # portrait halftone grid
 CROP = (0.26, 0.34, 0.80, 0.86)             # face + a little shoulder
+SPEC = ("#ff4a2b", "#ff9a3d", "#ffd23f", "#5af0c0", "#5cd0ff", "#b36bff", "#ff5fd0")   # holographic foil spectrum (same in every palette)
+TILE = ("#ff7a3d", "#ffd23f", "#5cd0ff")                                                # per-stat accent colours
 
 
 def portrait():
@@ -82,7 +85,7 @@ def barcode(seed, x0, y, w, h):
     while x < x0 + w - 2 and i < len(bits) - 1:
         bw = 1 + 2 * int(bits[i + 1])
         if bits[i] == "1":
-            out.append(f'<rect x="{x:.1f}" y="{y}" width="{bw:.1f}" height="{h}" fill="{t.TEXT2}"/>')
+            out.append(f'<rect x="{x:.1f}" y="{y}" width="{bw:.1f}" height="{h}" fill="url(#foil)"/>')
         x += bw + 1
         i += 2
     return "".join(out)
@@ -110,7 +113,10 @@ def main():
 <clipPath id="card"><rect width="{W}" height="{H}" rx="16"/></clipPath>
 <clipPath id="bc"><rect x="{BX}" y="{BY}" width="{BW}" height="{BH}" rx="18"/></clipPath>
 <linearGradient id="face" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="{t.RAISED}"/><stop offset="1" stop-color="{t.SURFACE}"/></linearGradient>
-<linearGradient id="holo" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".30"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+<linearGradient id="holo" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".5"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+<linearGradient id="foil" gradientUnits="userSpaceOnUse" x1="{BX}" y1="{BY}" x2="{BX + BW}" y2="{BY + BH * 0.6}" spreadMethod="reflect"><stop offset="0.000" stop-color="#ff4a2b"/><stop offset="0.167" stop-color="#ff9a3d"/><stop offset="0.333" stop-color="#ffd23f"/><stop offset="0.500" stop-color="#5af0c0"/><stop offset="0.667" stop-color="#5cd0ff"/><stop offset="0.833" stop-color="#b36bff"/><stop offset="1.000" stop-color="#ff5fd0"/><animateTransform attributeName="gradientTransform" type="translate" values="0 0;{BW} {BH * 0.6};0 0" dur="6s" repeatCount="indefinite"/></linearGradient>
+<linearGradient id="foilR" gradientUnits="userSpaceOnUse" x1="410" y1="0" x2="640" y2="0" spreadMethod="reflect"><stop offset="0.000" stop-color="#ff4a2b"/><stop offset="0.167" stop-color="#ff9a3d"/><stop offset="0.333" stop-color="#ffd23f"/><stop offset="0.500" stop-color="#5af0c0"/><stop offset="0.667" stop-color="#5cd0ff"/><stop offset="0.833" stop-color="#b36bff"/><stop offset="1.000" stop-color="#ff5fd0"/><animateTransform attributeName="gradientTransform" type="translate" values="0 0;230 0;0 0" dur="7s" repeatCount="indefinite"/></linearGradient>
+<filter id="rim" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="8"/></filter>
 <linearGradient id="strap" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="{t.A1}"/><stop offset="1" stop-color="{t.A3}"/></linearGradient>
 <radialGradient id="glowL"><stop offset="0" stop-color="{t.GLOW[0]}" stop-opacity=".5"/><stop offset="1" stop-color="{t.GLOW[0]}" stop-opacity="0"/></radialGradient>
 <radialGradient id="glowR"><stop offset="0" stop-color="{t.GLOW[2]}" stop-opacity=".30"/><stop offset="1" stop-color="{t.GLOW[2]}" stop-opacity="0"/></radialGradient>"""),
@@ -122,9 +128,21 @@ def main():
         for gy in range(0, H, 28):
             o.append(f'<circle cx="{gx + 6}" cy="{gy + 6}" r=".8" fill="#fff" fill-opacity=".06"/>')
 
+    # ---------------- rising embers ----------------
+    rnd = random.Random(2210)
+    for _ in range(44):
+        ex, dur = rnd.uniform(16, W - 16), rnd.uniform(5, 12)
+        sway, col, r = rnd.uniform(-26, 26), rnd.choice(SPEC), rnd.choice((1, 1.4, 1.9, 2.5))
+        beg = f'{-rnd.uniform(0, dur):.1f}s'
+        o.append(f'<circle r="{r}" fill="{col}" opacity="0"><animateTransform attributeName="transform" type="translate" '
+                 f'values="{ex:.0f} {H + 8};{ex + sway:.0f} -10" dur="{dur:.1f}s" begin="{beg}" repeatCount="indefinite"/>'
+                 f'<animate attributeName="opacity" values="0;.95;.95;0" keyTimes="0;.12;.7;1" dur="{dur:.1f}s" begin="{beg}" repeatCount="indefinite"/></circle>')
+
     # ---------------- swinging badge ----------------
     o.append(f'<g><animateTransform attributeName="transform" type="rotate" values="3.4 {PCX} {PCY};-3.4 {PCX} {PCY};3.4 {PCX} {PCY}" dur="6.4s" '
              f'repeatCount="indefinite" calcMode="spline" keyTimes="0;.5;1" keySplines=".45 0 .55 1;.45 0 .55 1"/>')
+    o.append(f'<rect x="{BX}" y="{BY}" width="{BW}" height="{BH}" rx="18" fill="none" stroke="url(#foil)" stroke-width="7" filter="url(#rim)" opacity=".5">'
+             f'<animate attributeName="opacity" values=".25;.75;.25" dur="3.2s" repeatCount="indefinite"/></rect>')
     # lanyard straps + clip
     o.append(f'<polygon points="{PCX - 62},-4 {PCX - 44},-4 {PCX + 4},{PCY - 6} {PCX - 10},{PCY - 6}" fill="url(#strap)"/>')
     o.append(f'<polygon points="{PCX + 62},-4 {PCX + 44},-4 {PCX - 4},{PCY - 6} {PCX + 10},{PCY - 6}" fill="url(#strap)" opacity=".8"/>')
@@ -132,40 +150,48 @@ def main():
              f'<rect x="{PCX - 6}" y="{PCY + 2}" width="12" height="18" rx="4" fill="{t.TEXT3}"/>')
     # badge body
     o.append(f'<rect x="{BX + 4}" y="{BY + 8}" width="{BW}" height="{BH}" rx="18" fill="#000" opacity=".35"/>')
-    o.append(f'<rect x="{BX}" y="{BY}" width="{BW}" height="{BH}" rx="18" fill="url(#face)" stroke="url(#bdr)" stroke-width="1.6"/>')
+    o.append(f'<rect x="{BX}" y="{BY}" width="{BW}" height="{BH}" rx="18" fill="url(#face)" stroke="url(#foil)" stroke-width="2.4"/>')
     o.append('<g clip-path="url(#bc)">')
-    o.append(f'<rect x="{BX}" y="{BY}" width="{BW}" height="46" fill="url(#aurora)" opacity=".92"/>')
+    o.append(f'<rect x="{BX}" y="{BY}" width="{BW}" height="46" fill="url(#foil)"/>')
     o.append(f'<rect x="{PCX - 22}" y="{BY + 11}" width="44" height="9" rx="4.5" fill="{t.CANVAS}"/>')           # lanyard slot
     o.append(f'<text x="{PCX}" y="{BY + 36}" class="mono" font-size="9" letter-spacing="2.6" text-anchor="middle" fill="{t.CANVAS}" font-weight="700">BUILDER &#183; ALL ACCESS</text>')
     # portrait frame
-    o.append(f'<rect x="{px0 - 6}" y="{py0 - 6}" width="{pw + 12}" height="{ph + 12}" rx="10" fill="{t.SURFACE}" stroke="{t.HAIRLINE}"/>')
+    o.append(f'<rect x="{px0 - 6}" y="{py0 - 6}" width="{pw + 12}" height="{ph + 12}" rx="10" fill="{t.SURFACE}" stroke="url(#foil)" stroke-width="1.6"/>')
     o.append(portrait_dots(im, rows, px0, py0))
     # stats strip
-    o.append(f'<text x="{BX + 18}" y="{sy + 22}" font-size="25" font-weight="800" letter-spacing="-.5" fill="{t.TEXT}">KAUSHIK</text>')
+    o.append(f'<text x="{BX + 18}" y="{sy + 22}" font-size="25" font-weight="800" letter-spacing="-.5" fill="url(#foil)">KAUSHIK</text>')
     o.append(f'<text x="{BX + 18}" y="{sy + 38}" class="mono" font-size="10" fill="{t.A2}">@{escape(USER)}</text>')
     cells = [(str(streak_val) + "d", streak_lab), (str(cc["totalCommitContributions"]), "COMMITS / YR"), (str(len(rp)), "REPOS")]
     cw = (BW - 24) / 3
     for i, (v, l) in enumerate(cells):
-        cx = BX + 12 + i * cw
-        o.append(f'<rect x="{cx:.0f}" y="{sy + 50}" width="{cw - 6:.0f}" height="36" rx="8" fill="{t.RAISED}" stroke="{t.HAIRLINE}"/>'
-                 f'<text x="{cx + (cw - 6) / 2:.0f}" y="{sy + 66}" font-size="14" font-weight="700" fill="{t.A3}" text-anchor="middle">{escape(v)}</text>'
+        cx, col = BX + 12 + i * cw, TILE[i]
+        o.append(f'<rect x="{cx:.0f}" y="{sy + 50}" width="{cw - 6:.0f}" height="36" rx="8" fill="{t.RAISED}" stroke="{col}" stroke-opacity=".6"/>'
+                 f'<rect x="{cx + 8:.0f}" y="{sy + 50}" width="{cw - 22:.0f}" height="2.5" rx="1.2" fill="{col}"/>'
+                 f'<text x="{cx + (cw - 6) / 2:.0f}" y="{sy + 67}" font-size="14" font-weight="700" fill="{col}" text-anchor="middle">{escape(v)}</text>'
                  f'<text x="{cx + (cw - 6) / 2:.0f}" y="{sy + 79}" class="mono" font-size="7" letter-spacing=".9" fill="{t.TEXT3}" text-anchor="middle">{l}</text>')
     o.append(barcode(USER.lower(), BX + 18, sy + 96, BW - 36, 14))
     # holographic sweep
     o.append(f'<rect x="{BX - 90}" y="{BY - 20}" width="70" height="{BH + 40}" fill="url(#holo)" transform="skewX(-18)" opacity="0">'
              f'<animate attributeName="x" values="{BX - 40};{BX + BW + 60};{BX + BW + 60}" keyTimes="0;.32;1" dur="7s" repeatCount="indefinite"/>'
              f'<animate attributeName="opacity" values="0;1;0;0" keyTimes="0;.12;.32;1" dur="7s" repeatCount="indefinite"/></rect>')
-    o.append("</g></g>")
+    o.append("</g>")
+    for sx, sy_, sz, col, dl in ((BX - 8, BY + 52, 9, SPEC[2], 0), (BX + BW + 10, BY + 120, 11, SPEC[4], .9), (BX + BW - 6, BY - 4, 8, SPEC[6], 1.7),
+                                 (BX - 4, BY + BH - 70, 8, SPEC[3], 2.4), (BX + BW + 4, BY + BH - 20, 10, SPEC[1], .5), (BX + 40, BY + BH + 4, 7, SPEC[5], 1.3)):
+        o.append(f'<g transform="translate({sx},{sy_})"><path d="M0,{-sz} Q0,0 {sz},0 Q0,0 0,{sz} Q0,0 {-sz},0 Q0,0 0,{-sz}Z" fill="{col}">'
+                 f'<animateTransform attributeName="transform" type="scale" values="0;1;0" dur="2.6s" begin="{dl}s" repeatCount="indefinite"/>'
+                 f'<animate attributeName="opacity" values="0;1;0" dur="2.6s" begin="{dl}s" repeatCount="indefinite"/></path></g>')
+    o.append("</g>")
 
     # ---------------- right: the invitation ----------------
     rx = 410
     o.append(f'<text x="{rx}" y="104" class="label" style="fill:{t.A3}">VIRTUAL BADGE</text>')
-    o.append(f'<text x="{rx}" y="156" font-size="42" font-weight="800" letter-spacing="-1.5" fill="url(#aurora)">Does my badge</text>')
-    o.append(f'<text x="{rx}" y="204" font-size="42" font-weight="800" letter-spacing="-1.5" fill="url(#aurora)">run DOOM?</text>')
+    o.append(f'<text x="{rx}" y="156" font-size="42" font-weight="800" letter-spacing="-1.5" fill="url(#foilR)">Does my badge</text>')
+    o.append(f'<text x="{rx}" y="204" font-size="42" font-weight="800" letter-spacing="-1.5" fill="url(#foilR)">run DOOM?</text>')
     o.append(f'<text x="{rx}" y="238" font-size="14" fill="{t.TEXT}">Of course it does.</text>')
     o.append(f'<text x="{rx}" y="260" font-size="12" fill="{t.TEXT2}">Open the virtual badge with my GitHub avatar on it and play.</text>')
     # button
-    o.append(f'<g><rect x="{rx}" y="282" width="188" height="42" rx="21" fill="url(#aurora)"/>'
+    o.append(f'<rect x="{rx}" y="282" width="188" height="42" rx="21" fill="url(#foilR)" filter="url(#rim)" opacity=".5"><animate attributeName="opacity" values=".25;.8;.25" dur="2.8s" repeatCount="indefinite"/></rect>')
+    o.append(f'<g><rect x="{rx}" y="282" width="188" height="42" rx="21" fill="url(#foilR)"/>'
              f'<text x="{rx + 94}" y="308" font-size="13" font-weight="700" fill="{t.CANVAS}" text-anchor="middle" letter-spacing=".5">OPEN MY BADGE &#8599;</text>'
              f'<rect x="{rx}" y="282" width="188" height="42" rx="21" fill="none" stroke="#fff" stroke-opacity=".7"><animate attributeName="stroke-opacity" values=".15;.8;.15" dur="2.8s" repeatCount="indefinite"/></rect></g>')
     # controls
