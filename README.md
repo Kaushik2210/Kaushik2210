@@ -81,8 +81,8 @@
 <!--OPS_START-->
 | Repo | Stack | Last push | Brief |
 |:--|:--|:--|:--|
-| [**HireOS**](https://github.com/Kaushik2210/HireOS) · [live](https://hireos-beryl.vercel.app) | `TypeScript` | today | Job-search workspace that shows its evidence: fit scoring, tailored materials without… |
 | [**daily-automation-scripts**](https://github.com/Kaushik2210/daily-automation-scripts) | `Python` | today | 30-day challenge: 300 small, tested, cross-platform automation scripts in Python (files, PDFs… |
+| [**HireOS**](https://github.com/Kaushik2210/HireOS) · [live](https://hireos-beryl.vercel.app) | `TypeScript` | today | Job-search workspace that shows its evidence: fit scoring, tailored materials without… |
 | [**cp-sysdesign-academy**](https://github.com/Kaushik2210/cp-sysdesign-academy) | `MDX` | today | Open-source interactive course: competitive programming and system design (static site, runs in… |
 | [**scam-khel**](https://github.com/Kaushik2210/scam-khel) | `Python` | today | Private family shield against Indian digital-arrest scams: live detection, simulated honeypot… |
 | [**ORBITAL-SENTINEL**](https://github.com/Kaushik2210/ORBITAL-SENTINEL) | `Python` | today | Space-mission cybersecurity & anomaly detection: tell cyberattacks apart from sensor faults… |
