@@ -26,9 +26,9 @@
 
 | Build | Stack | What it is |
 |:--|:--|:--|
-| [**cp-sysdesign-academy**](https://github.com/Kaushik2210/cp-sysdesign-academy) | `MDX` | Open-source interactive course: competitive programming and system design (static site, runs in the… |
 | [**daily-automation-scripts**](https://github.com/Kaushik2210/daily-automation-scripts) | `Python` | 30-day challenge: 300 small, tested, cross-platform automation scripts in Python (files, PDFs… |
 | [**Ember-Line**](https://github.com/Kaushik2210/Ember-Line) · [live](https://emberline-zeta.vercel.app) | `Python` | One consistent record of fire, from two sensors: harmonized MODIS + VIIRS active-fire calendar with… |
+| [**cp-sysdesign-academy**](https://github.com/Kaushik2210/cp-sysdesign-academy) | `MDX` | Open-source interactive course: competitive programming and system design (static site, runs in the… |
 | [**100-days-of-java**](https://github.com/Kaushik2210/100-days-of-java) | `Java` | 100 days of Java: from Hello World to data structures, algorithms and interview prep. Daily notes… |
 | [**Overrank**](https://github.com/Kaushik2210/Overrank) · [live](https://overrank.vercel.app) | `TypeScript` | Live house-competition platform for campuses: teams earn points, the leaderboard reacts in real… |
 | [**Learn_python-**](https://github.com/Kaushik2210/Learn_python-) | `Python` | Python course as Jupyter notebooks: explanations, 108 challenge problems, exam prep and projects… |
@@ -81,14 +81,14 @@
 <!--OPS_START-->
 | Repo | Stack | Last push | Brief |
 |:--|:--|:--|:--|
+| [**daily-automation-scripts**](https://github.com/Kaushik2210/daily-automation-scripts) | `Python` | today | 30-day challenge: 300 small, tested, cross-platform automation scripts in Python (files, PDFs… |
+| [**Ember-Line**](https://github.com/Kaushik2210/Ember-Line) · [live](https://emberline-zeta.vercel.app) | `Python` | today | One consistent record of fire, from two sensors: harmonized MODIS + VIIRS active-fire calendar… |
+| [**Deepfake-Detector**](https://github.com/Kaushik2210/Deepfake-Detector) | `Python` | today | Synthetic-media (deepfake) detection platform — calibrated probabilities and visual evidence… |
 | [**scam-khel**](https://github.com/Kaushik2210/scam-khel) | `Python` | today | Private family shield against Indian digital-arrest scams: live detection, simulated honeypot… |
 | [**cp-sysdesign-academy**](https://github.com/Kaushik2210/cp-sysdesign-academy) | `MDX` | today | Open-source interactive course: competitive programming and system design (static site, runs in… |
-| [**daily-automation-scripts**](https://github.com/Kaushik2210/daily-automation-scripts) | `Python` | today | 30-day challenge: 300 small, tested, cross-platform automation scripts in Python (files, PDFs… |
 | [**HireOS**](https://github.com/Kaushik2210/HireOS) · [live](https://hireos-beryl.vercel.app) | `TypeScript` | today | Job-search workspace that shows its evidence: fit scoring, tailored materials without… |
-| [**ORBITAL-SENTINEL**](https://github.com/Kaushik2210/ORBITAL-SENTINEL) | `Python` | today | Space-mission cybersecurity & anomaly detection: tell cyberattacks apart from sensor faults… |
-| [**Ember-Line**](https://github.com/Kaushik2210/Ember-Line) · [live](https://emberline-zeta.vercel.app) | `Python` | today | One consistent record of fire, from two sensors: harmonized MODIS + VIIRS active-fire calendar… |
-| [**100-days-of-java**](https://github.com/Kaushik2210/100-days-of-java) | `Java` | yesterday | 100 days of Java: from Hello World to data structures, algorithms and interview prep. Daily… |
-| [**Hivora**](https://github.com/Kaushik2210/Hivora) | `misc` | 12d ago | _Still cooking._ |
+| [**ORBITAL-SENTINEL**](https://github.com/Kaushik2210/ORBITAL-SENTINEL) | `Python` | yesterday | Space-mission cybersecurity & anomaly detection: tell cyberattacks apart from sensor faults… |
+| [**100-days-of-java**](https://github.com/Kaushik2210/100-days-of-java) | `Java` | 2d ago | 100 days of Java: from Hello World to data structures, algorithms and interview prep. Daily… |
 <!--OPS_END-->
 
 <div align="center">
