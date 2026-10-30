@@ -9,12 +9,16 @@ Original design, built from the GitHub API on each run. Pure SMIL, no JavaScript
 import colorsys
 import hashlib
 import io
+import os
 import sys
 import urllib.request
 from datetime import datetime, timezone
 from xml.sax.saxutils import escape
 
 from PIL import Image, ImageFilter, ImageOps
+
+# the badge has its own palette, separate from the page's PROFILE_THEME (must be set before theme loads)
+os.environ["PROFILE_THEME"] = os.environ.get("BADGE_THEME", "ember")
 
 import common
 import theme as t
