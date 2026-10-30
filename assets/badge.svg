@@ -561,7 +561,7 @@ text{font-family:system-ui,-apple-system,'SF Pro Text','Segoe UI',Roboto,'Helvet
 <rect x="514" y="346" width="44" height="22" rx="6" fill="#111d40" stroke="#243566"/><text x="536" y="361" class="mono" font-size="10" fill="#eef4ff" text-anchor="middle">CTRL</text><text x="565" y="361" font-size="11" fill="#8b9dca">fire</text>
 <rect x="618" y="346" width="51" height="22" rx="6" fill="#111d40" stroke="#243566"/><text x="644" y="361" class="mono" font-size="10" fill="#eef4ff" text-anchor="middle">SPACE</text><text x="676" y="361" font-size="11" fill="#8b9dca">use</text>
 <text x="410" y="396" font-size="11" fill="#8b9dca">In-game, type @your-username and press Enter to swap in your own avatar.</text>
-<text x="410" y="436" class="mono" font-size="9" fill="#8b9dca">badge built 2026-10-29 from live GitHub data &#183; peak push hour 18:00</text>
+<text x="410" y="436" class="mono" font-size="9" fill="#8b9dca">badge built 2026-10-30 from live GitHub data &#183; peak push hour 18:00</text>
 </g>
 <rect x=".5" y=".5" width="829" height="451" rx="16" fill="none" stroke="url(#bdr)" stroke-width="1.2"/>
 </svg>

@@ -88,7 +88,7 @@
 | [**scam-khel**](https://github.com/Kaushik2210/scam-khel) | `Python` | today | Private family shield against Indian digital-arrest scams: live detection, simulated honeypot… |
 | [**Ember-Line**](https://github.com/Kaushik2210/Ember-Line) · [live](https://emberline-zeta.vercel.app) | `Python` | today | One consistent record of fire, from two sensors: harmonized MODIS + VIIRS active-fire calendar… |
 | [**100-days-of-java**](https://github.com/Kaushik2210/100-days-of-java) | `Java` | yesterday | 100 days of Java: from Hello World to data structures, algorithms and interview prep. Daily… |
-| [**Hivora**](https://github.com/Kaushik2210/Hivora) | `misc` | 11d ago | _Still cooking._ |
+| [**Hivora**](https://github.com/Kaushik2210/Hivora) | `misc` | 12d ago | _Still cooking._ |
 <!--OPS_END-->
 
 <div align="center">
