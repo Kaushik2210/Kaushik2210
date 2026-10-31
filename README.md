@@ -13,7 +13,7 @@
 <img src="assets/proof.svg" alt="Proof strip: live sites, repositories, commits this year, best streak and years building, all counted from the GitHub API." width="100%"/>
 
 <!--NOW_START-->
-**Now:** shipping [Deepfake-Detector](https://github.com/Kaushik2210/Deepfake-Detector) (Python, pushed today). Synthetic-media (deepfake) detection platform — calibrated probabilities and visual evidence, never a binary verdict…
+**Now:** shipping [IntentGuard](https://github.com/Kaushik2210/IntentGuard) (Python, pushed today). Intent-aware and behavioural runtime authorization for autonomous AI agents
 <!--NOW_END-->
 
 </div>
@@ -68,10 +68,11 @@ Things people can open and use today. [HireOS](https://hireos-beryl.vercel.app) 
 </div>
 
 <details>
-<summary><b>More builds (20)</b></summary>
+<summary><b>More builds (21)</b></summary>
 
 | Build | Stack | What it is |
 |:--|:--|:--|
+| [**IntentGuard**](https://github.com/Kaushik2210/IntentGuard) | `Python` | Intent-aware and behavioural runtime authorization for autonomous AI agents |
 | [**daily-automation-scripts**](https://github.com/Kaushik2210/daily-automation-scripts) | `Python` | 30-day challenge: 300 small, tested, cross-platform automation scripts in Python (files, PDFs… |
 | [**Ember-Line**](https://github.com/Kaushik2210/Ember-Line) · [live](https://emberline-zeta.vercel.app) | `Python` | One consistent record of fire, from two sensors: harmonized MODIS + VIIRS active-fire calendar with… |
 | [**cp-sysdesign-academy**](https://github.com/Kaushik2210/cp-sysdesign-academy) | `MDX` | Open-source interactive course: competitive programming and system design (static site, runs in the… |
@@ -129,14 +130,14 @@ Things people can open and use today. [HireOS](https://hireos-beryl.vercel.app) 
 <!--OPS_START-->
 | Repo | Stack | Last push | Brief |
 |:--|:--|:--|:--|
+| [**IntentGuard**](https://github.com/Kaushik2210/IntentGuard) | `Python` | today | Intent-aware and behavioural runtime authorization for autonomous AI agents |
 | [**Deepfake-Detector**](https://github.com/Kaushik2210/Deepfake-Detector) | `Python` | today | Synthetic-media (deepfake) detection platform — calibrated probabilities and visual evidence… |
 | [**scam-khel**](https://github.com/Kaushik2210/scam-khel) | `Python` | today | Private family shield against Indian digital-arrest scams: live detection, simulated honeypot… |
 | [**daily-automation-scripts**](https://github.com/Kaushik2210/daily-automation-scripts) | `Python` | today | 30-day challenge: 300 small, tested, cross-platform automation scripts in Python (files, PDFs… |
-| [**Ember-Line**](https://github.com/Kaushik2210/Ember-Line) · [live](https://emberline-zeta.vercel.app) | `Python` | today | One consistent record of fire, from two sensors: harmonized MODIS + VIIRS active-fire calendar… |
+| [**Ember-Line**](https://github.com/Kaushik2210/Ember-Line) · [live](https://emberline-zeta.vercel.app) | `Python` | yesterday | One consistent record of fire, from two sensors: harmonized MODIS + VIIRS active-fire calendar… |
 | [**cp-sysdesign-academy**](https://github.com/Kaushik2210/cp-sysdesign-academy) | `MDX` | yesterday | Open-source interactive course: competitive programming and system design (static site, runs in… |
 | [**HireOS**](https://github.com/Kaushik2210/HireOS) · [live](https://hireos-beryl.vercel.app) | `TypeScript` | yesterday | Job-search workspace that shows its evidence: fit scoring, tailored materials without… |
-| [**ORBITAL-SENTINEL**](https://github.com/Kaushik2210/ORBITAL-SENTINEL) | `Python` | yesterday | Space-mission cybersecurity & anomaly detection: tell cyberattacks apart from sensor faults… |
-| [**100-days-of-java**](https://github.com/Kaushik2210/100-days-of-java) | `Java` | 2d ago | 100 days of Java: from Hello World to data structures, algorithms and interview prep. Daily… |
+| [**ORBITAL-SENTINEL**](https://github.com/Kaushik2210/ORBITAL-SENTINEL) | `Python` | 2d ago | Space-mission cybersecurity & anomaly detection: tell cyberattacks apart from sensor faults… |
 <!--OPS_END-->
 
 <div align="center">
