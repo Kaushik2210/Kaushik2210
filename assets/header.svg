@@ -173,7 +173,7 @@ text{font-family:system-ui,-apple-system,'SF Pro Text','Segoe UI',Roboto,'Helvet
 <rect x="766.5" y="217.8" width="12.9" height="104.2" fill="#111d40" opacity=".85"/>
 <rect x="781.8" y="228.8" width="12.9" height="93.2" fill="#111d40" opacity=".85"/>
 <rect x="797.1" y="262.9" width="12.9" height="59.1" fill="#111d40" opacity=".85"/>
-<rect x="812.4" y="206.4" width="12.9" height="115.6" fill="#111d40" opacity=".85"/>
+<rect x="812.4" y="206.3" width="12.9" height="115.7" fill="#111d40" opacity=".85"/>
 <rect x="10.0" y="311.0" width="12.9" height="11.0" fill="#08112b"/>
 <rect x="10.0" y="311.0" width="12.9" height="1.6" fill="#4f86ff" opacity=".55"/>
 <rect x="25.3" y="300.5" width="12.9" height="21.5" fill="#08112b"/>
@@ -221,7 +221,7 @@ text{font-family:system-ui,-apple-system,'SF Pro Text','Segoe UI',Roboto,'Helvet
 <rect x="208.7" y="298.6" width="12.9" height="23.4" fill="#08112b"/>
 <rect x="208.7" y="298.6" width="12.9" height="1.6" fill="#4f86ff" opacity=".55"/>
 <rect x="210.9" y="308.8" width="3.2" height="4.2" fill="#ffc233"></rect>
-<rect x="215.7" y="308.8" width="3.2" height="4.2" fill="#243566" opacity=".55"/>
+<rect x="215.7" y="308.8" width="3.2" height="4.2" fill="#ffc233"></rect>
 <rect x="224.0" y="311.0" width="12.9" height="11.0" fill="#08112b"/>
 <rect x="224.0" y="311.0" width="12.9" height="1.6" fill="#4f86ff" opacity=".55"/>
 <rect x="239.2" y="311.0" width="12.9" height="11.0" fill="#08112b"/>
@@ -236,12 +236,12 @@ text{font-family:system-ui,-apple-system,'SF Pro Text','Segoe UI',Roboto,'Helvet
 <rect x="292.1" y="308.8" width="3.2" height="4.2" fill="#ffc233"></rect>
 <rect x="300.4" y="280.6" width="12.9" height="41.4" fill="#08112b"/>
 <rect x="300.4" y="280.6" width="12.9" height="1.6" fill="#4f86ff" opacity=".55"/>
-<rect x="307.4" y="291.8" width="3.2" height="4.2" fill="#ffc233"><animate attributeName="opacity" values="1;.25;1" dur="4.3s" begin="-2.4s" repeatCount="indefinite"/></rect>
-<rect x="302.6" y="308.8" width="3.2" height="4.2" fill="#ffc233"></rect>
-<rect x="302.6" y="291.8" width="3.2" height="4.2" fill="#ffc233"></rect>
 <rect x="307.4" y="308.8" width="3.2" height="4.2" fill="#ffc233"></rect>
-<rect x="302.6" y="300.3" width="3.2" height="4.2" fill="#243566" opacity=".55"/>
-<rect x="307.4" y="300.3" width="3.2" height="4.2" fill="#243566" opacity=".55"/>
+<rect x="302.6" y="300.3" width="3.2" height="4.2" fill="#ffc233"></rect>
+<rect x="307.4" y="300.3" width="3.2" height="4.2" fill="#ffc233"></rect>
+<rect x="302.6" y="308.8" width="3.2" height="4.2" fill="#ffc233"></rect>
+<rect x="307.4" y="291.8" width="3.2" height="4.2" fill="#243566" opacity=".55"/>
+<rect x="302.6" y="291.8" width="3.2" height="4.2" fill="#243566" opacity=".55"/>
 <rect x="315.7" y="287.8" width="12.9" height="34.2" fill="#08112b"/>
 <rect x="315.7" y="287.8" width="12.9" height="1.6" fill="#4f86ff" opacity=".55"/>
 <rect x="322.7" y="300.3" width="3.2" height="4.2" fill="#ffc233"></rect>
@@ -468,10 +468,10 @@ text{font-family:system-ui,-apple-system,'SF Pro Text','Segoe UI',Roboto,'Helvet
 <rect x="796.4" y="300.3" width="3.2" height="4.2" fill="#243566" opacity=".55"/>
 <rect x="791.6" y="308.8" width="3.2" height="4.2" fill="#243566" opacity=".55"/>
 <rect x="796.4" y="291.8" width="3.2" height="4.2" fill="#243566" opacity=".55"/>
-<rect x="804.7" y="150.4" width="12.9" height="171.6" fill="#08112b"/>
-<rect x="804.7" y="150.4" width="12.9" height="1.6" fill="#4f86ff" opacity=".55"/>
-<line x1="811.2" y1="150.4" x2="811.2" y2="135.4" stroke="#243566" stroke-width="1.2"/>
-<circle cx="811.2" cy="134.4" r="1.8" fill="#ff5c6c"><animate attributeName="opacity" values="1;.1;1" dur="1.7s" repeatCount="indefinite"/></circle>
+<rect x="804.7" y="150.2" width="12.9" height="171.8" fill="#08112b"/>
+<rect x="804.7" y="150.2" width="12.9" height="1.6" fill="#4f86ff" opacity=".55"/>
+<line x1="811.2" y1="150.2" x2="811.2" y2="135.2" stroke="#243566" stroke-width="1.2"/>
+<circle cx="811.2" cy="134.2" r="1.8" fill="#ff5c6c"><animate attributeName="opacity" values="1;.1;1" dur="1.7s" repeatCount="indefinite"/></circle>
 <rect x="806.9" y="308.8" width="3.2" height="4.2" fill="#ffc233"><animate attributeName="opacity" values="1;.25;1" dur="5.9s" begin="-2.9s" repeatCount="indefinite"/></rect>
 <rect x="811.7" y="300.3" width="3.2" height="4.2" fill="#ffc233"></rect>
 <rect x="806.9" y="291.8" width="3.2" height="4.2" fill="#ffc233"></rect>
