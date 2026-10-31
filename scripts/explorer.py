@@ -14,6 +14,7 @@ import common
 USER = sys.argv[1] if len(sys.argv) > 1 else "Kaushik2210"
 README = sys.argv[2] if len(sys.argv) > 2 else "README.md"
 START, END = "<!--OPS_START-->", "<!--OPS_END-->"
+NOW_START, NOW_END = "<!--NOW_START-->", "<!--NOW_END-->"
 LIMIT = 8
 
 
@@ -51,6 +52,14 @@ def main():
     text = open(README, encoding="utf-8").read()
     a, b = text.index(START) + len(START), text.index(END)
     new = text[:a] + "\n" + "\n".join(rows) + "\n" + text[b:]
+    # the live "Now" line: whatever I pushed to most recently
+    top = rp[0]
+    d0 = max(0, (now - datetime.fromisoformat(top["pushed_at"].replace("Z", "+00:00"))).days)
+    now_line = (f"**Now:** shipping [{top['name']}]({top['html_url']}) ({top['language'] or 'misc'}, pushed {ago(d0)}). "
+                f"{brief(top['description'], 120)}")
+    if NOW_START in new and NOW_END in new:
+        na, nb = new.index(NOW_START) + len(NOW_START), new.index(NOW_END)
+        new = new[:na] + "\n" + now_line + "\n" + new[nb:]
     if new != text:
         open(README, "w", encoding="utf-8").write(new)
     print(f"explorer: {min(LIMIT, len(rp))} rows, newest {rp[0]['name']}")

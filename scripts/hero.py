@@ -161,7 +161,7 @@ def main():
 
     # status line
     o.append(f'<circle cx="30" cy="{H - 17}" r="3.5" fill="{t.GREEN}"><animate attributeName="opacity" values="1;.25;1" dur="2.4s" repeatCount="indefinite"/></circle>')
-    o.append(f'<text x="42" y="{H - 13}" class="mono" font-size="11" fill="{t.TEXT2}">ONLINE &#183; last push {escape(last["name"][:22])} ({last_ago}) &#183; {streak_txt} &#183; {chrono}, peak {peak:02d}:00</text>')
+    o.append(f'<text x="42" y="{H - 13}" class="mono" font-size="11" fill="{t.TEXT2}">ONLINE &#183; last push {escape(last["name"] if len(last["name"]) <= 30 else last["name"][:29] + "…")} ({last_ago}) &#183; {streak_txt} &#183; {chrono}, peak {peak:02d}:00</text>')
     o.append("</g>")
     o.append(t.card_border(W, H, 18))
     o.append("</svg>")

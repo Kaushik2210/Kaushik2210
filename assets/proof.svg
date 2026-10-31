@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 830 138" width="830" height="138" role="img" aria-label="Proof strip: 18 live sites; 71 repositories; 2,826 commits this year; 45 best streak; 5.5 years building.">
+<title>Kaushik2210: proof</title>
+<defs>
+<linearGradient id="aurora" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#4f86ff"/><stop offset="50%" stop-color="#f2f7ff"/><stop offset="100%" stop-color="#ffc233"/></linearGradient>
+<linearGradient id="auroraV" x1="0" y1="1" x2="0" y2="0"><stop offset="0%" stop-color="#4f86ff"/><stop offset="50%" stop-color="#f2f7ff"/><stop offset="100%" stop-color="#ffc233"/></linearGradient>
+<linearGradient id="bdr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4f86ff" stop-opacity=".6"/><stop offset=".5" stop-color="#8fc7ff" stop-opacity=".3"/><stop offset="1" stop-color="#ffc233" stop-opacity=".6"/></linearGradient>
+<filter id="glow" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="2.4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+<style>
+text{font-family:system-ui,-apple-system,'SF Pro Text','Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif}
+.mono{font-family:ui-monospace,'SF Mono',SFMono-Regular,Menlo,Consolas,'DejaVu Sans Mono',monospace}
+.label{font-family:ui-monospace,'SF Mono',SFMono-Regular,Menlo,Consolas,'DejaVu Sans Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;fill:#8b9dca}
+</style><clipPath id="card"><rect width="830" height="138" rx="16"/></clipPath><linearGradient id="shine" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".10"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient></defs>
+<g clip-path="url(#card)">
+<rect width="830" height="138" fill="#08112b"/>
+<rect width="830" height="138" fill="url(#aurora)" opacity=".05"/>
+<g opacity="0"><animate attributeName="opacity" values="0;1" dur=".6s" begin="0.15s" fill="freeze"/><animateTransform attributeName="transform" type="translate" values="0 10;0 0" dur=".6s" begin="0.15s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines=".2 .8 .2 1"/><text x="96" y="76" font-size="44" font-weight="800" letter-spacing="-1.5" text-anchor="middle" fill="url(#aurora)">18</text><text x="96" y="100" class="label" text-anchor="middle" style="fill:#b4c4e8;font-size:10px">LIVE SITES</text><text x="96" y="116" font-size="11" text-anchor="middle" fill="#8b9dca">deployed and running</text></g>
+<g opacity="0"><animate attributeName="opacity" values="0;1" dur=".6s" begin="0.27s" fill="freeze"/><animateTransform attributeName="transform" type="translate" values="0 10;0 0" dur=".6s" begin="0.27s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines=".2 .8 .2 1"/><text x="255" y="76" font-size="44" font-weight="800" letter-spacing="-1.5" text-anchor="middle" fill="url(#aurora)">71</text><text x="255" y="100" class="label" text-anchor="middle" style="fill:#b4c4e8;font-size:10px">REPOSITORIES</text><text x="255" y="116" font-size="11" text-anchor="middle" fill="#8b9dca">built, not forked</text></g>
+<line x1="176" y1="30" x2="176" y2="108" stroke="#243566"/>
+<g opacity="0"><animate attributeName="opacity" values="0;1" dur=".6s" begin="0.39s" fill="freeze"/><animateTransform attributeName="transform" type="translate" values="0 10;0 0" dur=".6s" begin="0.39s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines=".2 .8 .2 1"/><text x="415" y="76" font-size="44" font-weight="800" letter-spacing="-1.5" text-anchor="middle" fill="url(#aurora)">2,826</text><text x="415" y="100" class="label" text-anchor="middle" style="fill:#b4c4e8;font-size:10px">COMMITS THIS YEAR</text><text x="415" y="116" font-size="11" text-anchor="middle" fill="#8b9dca">last 12 months</text></g>
+<line x1="335" y1="30" x2="335" y2="108" stroke="#243566"/>
+<g opacity="0"><animate attributeName="opacity" values="0;1" dur=".6s" begin="0.51s" fill="freeze"/><animateTransform attributeName="transform" type="translate" values="0 10;0 0" dur=".6s" begin="0.51s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines=".2 .8 .2 1"/><text x="575" y="76" font-size="44" font-weight="800" letter-spacing="-1.5" text-anchor="middle" fill="url(#aurora)">45</text><text x="575" y="100" class="label" text-anchor="middle" style="fill:#b4c4e8;font-size:10px">BEST STREAK</text><text x="575" y="116" font-size="11" text-anchor="middle" fill="#8b9dca">days in a row</text></g>
+<line x1="495" y1="30" x2="495" y2="108" stroke="#243566"/>
+<g opacity="0"><animate attributeName="opacity" values="0;1" dur=".6s" begin="0.63s" fill="freeze"/><animateTransform attributeName="transform" type="translate" values="0 10;0 0" dur=".6s" begin="0.63s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines=".2 .8 .2 1"/><text x="734" y="76" font-size="44" font-weight="800" letter-spacing="-1.5" text-anchor="middle" fill="url(#aurora)">5.5</text><text x="734" y="100" class="label" text-anchor="middle" style="fill:#b4c4e8;font-size:10px">YEARS BUILDING</text><text x="734" y="116" font-size="11" text-anchor="middle" fill="#8b9dca">on GitHub</text></g>
+<line x1="654" y1="30" x2="654" y2="108" stroke="#243566"/>
+<rect x="-160" y="0" width="160" height="138" fill="url(#shine)" transform="skewX(-16)"><animate attributeName="x" values="-200;910;910" keyTimes="0;.35;1" dur="9s" begin="1s" repeatCount="indefinite"/></rect>
+<rect x="0" y="0" width="830" height="3" fill="url(#aurora)"/>
+</g>
+<rect x=".5" y=".5" width="829" height="137" rx="16" fill="none" stroke="url(#bdr)" stroke-width="1.2"/>
+</svg>

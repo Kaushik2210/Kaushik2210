@@ -6,9 +6,55 @@
 
 <a href="https://portfolio-general-ten.vercel.app">Portfolio</a> &nbsp;·&nbsp; <a href="https://www.linkedin.com/in/sodagum-venkata-kaushik-3497a4248/">LinkedIn</a> &nbsp;·&nbsp; <a href="https://x.com/svKaushik2210">X</a> &nbsp;·&nbsp; <a href="https://github.com/Kaushik2210?tab=repositories">Repositories</a>
 
+<sub><a href="#work">Work</a> &nbsp;›&nbsp; <a href="#pulse">Pulse</a> &nbsp;›&nbsp; <a href="#play">Play</a> &nbsp;›&nbsp; <a href="#stack">Stack</a></sub>
+
 <br/>
 
-<img src="assets/div-builds.svg" alt="" width="100%"/>
+<img src="assets/proof.svg" alt="Proof strip: live sites, repositories, commits this year, best streak and years building, all counted from the GitHub API." width="100%"/>
+
+<!--NOW_START-->
+**Now:** shipping [daily-automation-scripts](https://github.com/Kaushik2210/daily-automation-scripts) (Python, pushed today). 30-day challenge: 300 small, tested, cross-platform automation scripts in Python (files, PDFs, GitHub, email, scraping…
+<!--NOW_END-->
+
+</div>
+
+<a name="work"></a>
+
+<div align="center">
+
+<img src="assets/div-pillars.svg" alt="What I build" width="100%"/>
+
+</div>
+
+<table width="100%">
+<tr>
+<td width="33%" valign="top">
+
+**Security that shows its work**
+
+Detection systems that explain themselves. [Net-Sentinel](https://github.com/Kaushik2210/Net-Sentinel) maps attacks to MITRE ATT&CK, [ORBITAL-SENTINEL](https://github.com/Kaushik2210/ORBITAL-SENTINEL) tells cyberattacks from sensor faults in spacecraft telemetry, [Deepfake-Detector](https://github.com/Kaushik2210/Deepfake-Detector) returns calibrated probabilities instead of a verdict, and [scam-khel](https://github.com/Kaushik2210/scam-khel) shields families from digital-arrest scams.
+
+</td>
+<td width="33%" valign="top">
+
+**Tools for the AI-agent era**
+
+Guardrails and visibility for people building with agents. [tapwire](https://github.com/Kaushik2210/tapwire) turns an agent's mistakes into enforced rules and measures how often they repeat, [gitVisualise](https://github.com/Kaushik2210/gitVisualise) turns any repo into a narrated architecture tour (site, CLI and GitHub Action), and [PORTCULLIS](https://github.com/Kaushik2210/PORTCULLIS) screens LLM apps for prompt injection.
+
+</td>
+<td width="33%" valign="top">
+
+**Products that ship**
+
+Things people can open and use today. [HireOS](https://hireos-beryl.vercel.app) is a job-search workspace that shows its evidence, [AlgoVerse](https://algoverse-lovat-seven.vercel.app) is interview prep with 635+ explained solutions, and [Overrank](https://overrank.vercel.app) runs a live campus leaderboard.
+
+</td>
+</tr>
+</table>
+
+<div align="center">
+
+<img src="assets/div-builds.svg" alt="Featured builds" width="100%"/>
 
 </div>
 
@@ -50,27 +96,29 @@
 </details>
 <!--BUILDS_END-->
 
+<a name="pulse"></a>
+
 <div align="center">
 
-<img src="assets/div-dossier.svg" alt="" width="100%"/>
+<img src="assets/div-dossier.svg" alt="Operator dossier" width="100%"/>
 
 <a href="https://github.com/Kaushik2210?tab=repositories"><img src="assets/dossier.svg" alt="Halftone portrait of me next to live GitHub stats: repositories, followers, streak and language mix" width="100%"/></a>
 
 <sub>Rebuilt from my avatar on every run. The numbers beside it come straight from the GitHub API.</sub>
 
-<img src="assets/div-vitals.svg" alt="" width="100%"/>
+<img src="assets/div-vitals.svg" alt="Vitals" width="100%"/>
 
 <img src="assets/vitals.svg" alt="Activity rings for streak, consistency and momentum; a 24-hour clock of when I push code; and a 26-week momentum chart" width="100%"/>
 
 <sub>Three live gauges: how consistent I am, when in the day I ship, and how this quarter compares to the last.</sub>
 
-<img src="assets/div-neural.svg" alt="" width="100%"/>
+<img src="assets/div-neural.svg" alt="Repo neural map" width="100%"/>
 
 <a href="https://github.com/Kaushik2210?tab=repositories&sort=updated"><img src="assets/neural.svg" alt="Neural map of my repositories: each repo is a neuron, clustered by language and wired to repos that share topics. Recently pushed repos fire rings and signals travel along the wires." width="100%"/></a>
 
 <sub>Every repo is a neuron, wired to the ones it shares topics, a name family or a language with. Rings mark what I pushed this week.</sub>
 
-<img src="assets/div-ops.svg" alt="" width="100%"/>
+<img src="assets/div-ops.svg" alt="Active ops: flight recorder" width="100%"/>
 
 <img src="assets/ops.svg" alt="Flight recorder: push activity per repo over the last two weeks as 6-hour bars. The table below lists the same repos in text." width="100%"/>
 
@@ -91,21 +139,23 @@
 | [**100-days-of-java**](https://github.com/Kaushik2210/100-days-of-java) | `Java` | 2d ago | 100 days of Java: from Hello World to data structures, algorithms and interview prep. Daily… |
 <!--OPS_END-->
 
+<a name="play"></a>
+
 <div align="center">
 
-<img src="assets/div-galaxy.svg" alt="" width="100%"/>
+<img src="assets/div-galaxy.svg" alt="Contribution galaxy" width="100%"/>
 
 <a href="https://github.com/Kaushik2210/Kaushik2210/issues/new?template=star.yml"><img src="assets/galaxy.svg" alt="My last 365 days of contributions as a spiral galaxy, one star per day, with visitor stars orbiting" width="100%"/></a>
 
 <sub>One star per day for the last year; the core is today.<br/><b><a href="https://github.com/Kaushik2210/Kaushik2210/issues/new?template=star.yml">Add your own star</a></b>: pick a colour and your handle orbits here too.</sub>
 
-<img src="assets/div-badge.svg" alt="" width="100%"/>
+<img src="assets/div-badge.svg" alt="My badge" width="100%"/>
 
 <a href="https://badger.github.io/virtual/?u=Kaushik2210"><img src="assets/badge.svg" alt="My custom conference-style badge swinging on a lanyard, with my halftone portrait and live GitHub stats. Opens a virtual badge that runs DOOM with my GitHub avatar." width="100%"/></a>
 
 <sub>My own badge, rebuilt from live data. <b><a href="https://badger.github.io/virtual/?u=Kaushik2210">Open it on the virtual badge</a></b> (GitHub's DOOM-on-a-badge page) to play with my avatar on screen.</sub>
 
-<img src="assets/div-ctf.svg" alt="" width="100%"/>
+<img src="assets/div-ctf.svg" alt="Intercepted transmission" width="100%"/>
 
 **A three-stage CTF is hidden in this profile.** Crack it and you join the Hall of Fame below, automatically.
 
@@ -144,24 +194,16 @@ U1RBR0UgMS8zIDo6IG5pY2UsIHlvdSBkZWNvZGVkIGJhc2U2NC4gdGhlIHJlcG8gbWFwIGlzIG1vcmUg
 | 🥇 | [@renuthomas](https://github.com/renuthomas) | 2026-10-29 |
 <!--HOF_END-->
 
-<br/>
+<a name="stack"></a>
 
 <div align="center">
 
-<img src="assets/div-arsenal.svg" alt="" width="100%"/>
+<img src="assets/div-arsenal.svg" alt="The stack" width="100%"/>
 
-<img src="https://skillicons.dev/icons?i=py,js,ts,react,nodejs,linux,bash,docker,git,github,vscode,c,java,mysql,postgres,mongodb,aws&theme=dark" alt="Languages and tools: Python, JavaScript, TypeScript, React, Node.js, Linux, Bash, Docker, Git, GitHub, VS Code, C, Java, MySQL, Postgres, MongoDB, AWS" />
+<img src="assets/stack.svg" alt="The stack as evidenced by my repositories: security, AI and ML, backend and frontend technologies ranked by how many repos use them, a language mix across all repos, and my security toolkit of Kali Linux, Wireshark, Burp Suite, Nmap and Metasploit." width="100%"/>
 
-<br/><br/>
+<br/>
 
-<img src="https://img.shields.io/badge/Kali_Linux-557C94?style=for-the-badge&logo=kalilinux&logoColor=ffc233&labelColor=08112b" alt="Kali Linux"/>
-<img src="https://img.shields.io/badge/Wireshark-1679A7?style=for-the-badge&logo=wireshark&logoColor=ffc233&labelColor=08112b" alt="Wireshark"/>
-<img src="https://img.shields.io/badge/Burp_Suite-FF6633?style=for-the-badge&logo=burpsuite&logoColor=ffc233&labelColor=08112b" alt="Burp Suite"/>
-<img src="https://img.shields.io/badge/Nmap-000000?style=for-the-badge&logo=nmap&logoColor=ffc233&labelColor=08112b" alt="Nmap"/>
-<img src="https://img.shields.io/badge/Metasploit-2596CD?style=for-the-badge&logo=metasploit&logoColor=ffc233&labelColor=08112b" alt="Metasploit"/>
-
-<br/><br/>
-
-<sub>Every chart above is generated from my GitHub data by scripts in this repo and rebuilt every six hours.</sub>
+<sub>Every chart on this page is generated from my GitHub data by scripts in this repo and rebuilt every six hours.</sub>
 
 </div>
