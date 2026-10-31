@@ -18,9 +18,9 @@
 
 </div>
 
-<a name="work"></a>
-
 <div align="center">
+
+## Work
 
 <img src="assets/div-pillars.svg" alt="What I build" width="100%"/>
 
@@ -96,9 +96,9 @@ Things people can open and use today. [HireOS](https://hireos-beryl.vercel.app) 
 </details>
 <!--BUILDS_END-->
 
-<a name="pulse"></a>
-
 <div align="center">
+
+## Pulse
 
 <img src="assets/div-dossier.svg" alt="Operator dossier" width="100%"/>
 
@@ -139,9 +139,9 @@ Things people can open and use today. [HireOS](https://hireos-beryl.vercel.app) 
 | [**100-days-of-java**](https://github.com/Kaushik2210/100-days-of-java) | `Java` | 2d ago | 100 days of Java: from Hello World to data structures, algorithms and interview prep. Daily… |
 <!--OPS_END-->
 
-<a name="play"></a>
-
 <div align="center">
+
+## Play
 
 <img src="assets/div-galaxy.svg" alt="Contribution galaxy" width="100%"/>
 
@@ -194,9 +194,9 @@ U1RBR0UgMS8zIDo6IG5pY2UsIHlvdSBkZWNvZGVkIGJhc2U2NC4gdGhlIHJlcG8gbWFwIGlzIG1vcmUg
 | 🥇 | [@renuthomas](https://github.com/renuthomas) | 2026-10-29 |
 <!--HOF_END-->
 
-<a name="stack"></a>
-
 <div align="center">
+
+## Stack
 
 <img src="assets/div-arsenal.svg" alt="The stack" width="100%"/>
 
