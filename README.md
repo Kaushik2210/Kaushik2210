@@ -13,7 +13,7 @@
 <img src="assets/proof.svg" alt="Proof strip: live sites, repositories, commits this year, best streak and years building, all counted from the GitHub API." width="100%"/>
 
 <!--NOW_START-->
-**Now:** shipping [scam-khel](https://github.com/Kaushik2210/scam-khel) (Python, pushed today). Private family shield against Indian digital-arrest scams: live detection, simulated honeypot, family alerts, complaint…
+**Now:** shipping [Deepfake-Detector](https://github.com/Kaushik2210/Deepfake-Detector) (Python, pushed today). Synthetic-media (deepfake) detection platform — calibrated probabilities and visual evidence, never a binary verdict…
 <!--NOW_END-->
 
 </div>
@@ -129,12 +129,12 @@ Things people can open and use today. [HireOS](https://hireos-beryl.vercel.app) 
 <!--OPS_START-->
 | Repo | Stack | Last push | Brief |
 |:--|:--|:--|:--|
+| [**Deepfake-Detector**](https://github.com/Kaushik2210/Deepfake-Detector) | `Python` | today | Synthetic-media (deepfake) detection platform — calibrated probabilities and visual evidence… |
 | [**scam-khel**](https://github.com/Kaushik2210/scam-khel) | `Python` | today | Private family shield against Indian digital-arrest scams: live detection, simulated honeypot… |
 | [**daily-automation-scripts**](https://github.com/Kaushik2210/daily-automation-scripts) | `Python` | today | 30-day challenge: 300 small, tested, cross-platform automation scripts in Python (files, PDFs… |
 | [**Ember-Line**](https://github.com/Kaushik2210/Ember-Line) · [live](https://emberline-zeta.vercel.app) | `Python` | today | One consistent record of fire, from two sensors: harmonized MODIS + VIIRS active-fire calendar… |
-| [**Deepfake-Detector**](https://github.com/Kaushik2210/Deepfake-Detector) | `Python` | today | Synthetic-media (deepfake) detection platform — calibrated probabilities and visual evidence… |
-| [**cp-sysdesign-academy**](https://github.com/Kaushik2210/cp-sysdesign-academy) | `MDX` | today | Open-source interactive course: competitive programming and system design (static site, runs in… |
-| [**HireOS**](https://github.com/Kaushik2210/HireOS) · [live](https://hireos-beryl.vercel.app) | `TypeScript` | today | Job-search workspace that shows its evidence: fit scoring, tailored materials without… |
+| [**cp-sysdesign-academy**](https://github.com/Kaushik2210/cp-sysdesign-academy) | `MDX` | yesterday | Open-source interactive course: competitive programming and system design (static site, runs in… |
+| [**HireOS**](https://github.com/Kaushik2210/HireOS) · [live](https://hireos-beryl.vercel.app) | `TypeScript` | yesterday | Job-search workspace that shows its evidence: fit scoring, tailored materials without… |
 | [**ORBITAL-SENTINEL**](https://github.com/Kaushik2210/ORBITAL-SENTINEL) | `Python` | yesterday | Space-mission cybersecurity & anomaly detection: tell cyberattacks apart from sensor faults… |
 | [**100-days-of-java**](https://github.com/Kaushik2210/100-days-of-java) | `Java` | 2d ago | 100 days of Java: from Hello World to data structures, algorithms and interview prep. Daily… |
 <!--OPS_END-->
