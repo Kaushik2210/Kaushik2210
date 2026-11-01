@@ -4,13 +4,15 @@
 
 **I build security tooling and AI-era developer products, then ship them as live demos.**
 
-<a href="https://portfolio-general-ten.vercel.app">Portfolio</a> &nbsp;·&nbsp; <a href="https://www.linkedin.com/in/sodagum-venkata-kaushik-3497a4248/">LinkedIn</a> &nbsp;·&nbsp; <a href="https://x.com/svKaushik2210">X</a> &nbsp;·&nbsp; <a href="https://github.com/Kaushik2210?tab=repositories">Repositories</a>
+<a href="https://portfolio-general-ten.vercel.app">Portfolio</a> &nbsp;·&nbsp; <a href="https://www.linkedin.com/in/sodagum-venkata-kaushik-3497a4248/">LinkedIn</a> &nbsp;·&nbsp; <a href="https://x.com/svKaushik2210">X</a> &nbsp;·&nbsp; <a href="https://github.com/Kaushik2210?tab=repositories">Repositories</a> &nbsp;·&nbsp; <a href="https://github.com/Kaushik2210/Kaushik2210/issues/new?template=hello.yml">Say hello</a>
 
-<sub><a href="#work">Work</a> &nbsp;›&nbsp; <a href="#pulse">Pulse</a> &nbsp;›&nbsp; <a href="#play">Play</a> &nbsp;›&nbsp; <a href="#stack">Stack</a></sub>
+<sub><a href="#work">Work</a> &nbsp;›&nbsp; <a href="#activity">Activity</a> &nbsp;›&nbsp; <a href="#interactive">Interactive</a> &nbsp;›&nbsp; <a href="#stack">Stack</a></sub>
+
+<sub>Try it: <a href="https://github.com/Kaushik2210/Kaushik2210/issues/new?template=star.yml">add your star</a> &nbsp;·&nbsp; <a href="https://badger.github.io/virtual/?u=Kaushik2210">play on my badge</a> &nbsp;·&nbsp; <a href="#interactive">crack the CTF</a> &nbsp;·&nbsp; <a href="https://github.com/Kaushik2210/Kaushik2210/issues/new?template=hello.yml">say hello</a></sub>
 
 <br/>
 
-<img src="assets/proof.svg" alt="Proof strip: live sites, repositories, commits this year, best streak and years building, all counted from the GitHub API." width="100%"/>
+<a href="https://github.com/Kaushik2210?tab=repositories"><img src="assets/proof.svg" alt="Proof strip: live sites, repositories, commits this year, best streak and years building, all counted from the GitHub API." width="100%"/></a>
 
 <!--NOW_START-->
 **Now:** shipping [daily-automation-scripts](https://github.com/Kaushik2210/daily-automation-scripts) (Python, pushed today). 30-day challenge: 300 small, tested, cross-platform automation scripts in Python (files, PDFs, GitHub, email, scraping…
@@ -61,45 +63,53 @@ Things people can open and use today. [HireOS](https://hireos-beryl.vercel.app) 
 <!--BUILDS_START-->
 <div align="center">
 
-<a href="https://github.com/Kaushik2210/Net-Sentinel"><img src="assets/p-net-sentinel.svg" alt="Net-Sentinel, a security project in Python: Explainable network digital twin: detects threats, reconstructs attacks and maps them to MITRE ATT&amp;CK from Zeek and Suricata telemetry. Opens the repository." width="49%"/></a> <a href="https://github.com/Kaushik2210/ORBITAL-SENTINEL"><img src="assets/p-orbital-sentinel.svg" alt="ORBITAL-SENTINEL, a security project in Python: Tells cyberattacks apart from sensor faults and solar weather in spacecraft telemetry, with explainable attribution. Opens the repository." width="49%"/></a> <a href="https://github.com/Kaushik2210/scam-khel"><img src="assets/p-scam-khel.svg" alt="scam-khel, a security project in Python: A private family shield against Indian digital-arrest scams: live detection, a simulated honeypot and family alerts. Opens the repository." width="49%"/></a> <a href="https://github.com/Kaushik2210/Deepfake-Detector"><img src="assets/p-deepfake-detector.svg" alt="Deepfake-Detector, a security project in Python: Synthetic-media detection that returns calibrated probabilities and visual evidence, never a binary verdict. Opens the repository." width="49%"/></a> <a href="https://tapwire-xi.vercel.app"><img src="assets/p-tapwire.svg" alt="tapwire, a dev tool project in TypeScript: Turns every mistake an AI coding agent makes into a permanent, enforced rule, and measures how often it repeats. Opens the live demo." width="49%"/></a> <a href="https://kaushik2210.github.io/gitVisualise/"><img src="assets/p-gitvisualise.svg" alt="gitVisualise, a dev tool project in JavaScript: Paste a GitHub link, get an interactive, narrated architecture tour. Website, CLI and GitHub Action. Opens the live demo." width="49%"/></a> <a href="https://hireos-beryl.vercel.app"><img src="assets/p-hireos.svg" alt="HireOS, a product project in TypeScript: A job-search workspace that shows its evidence: fit scoring, tailored materials without invention, application tracking. Opens the live demo." width="49%"/></a> <a href="https://algoverse-lovat-seven.vercel.app"><img src="assets/p-algoverse.svg" alt="AlgoVerse, a learning project in TypeScript: Data-structure visualisation and interview prep: 25 modules, 13 pattern guides and 635+ explained LeetCode solutions. Opens the live demo." width="49%"/></a>
+<a href="https://github.com/Kaushik2210/Net-Sentinel"><img src="assets/p-net-sentinel.svg" alt="Net-Sentinel, a security project in Python: Explainable network digital twin: detects threats, reconstructs attacks and maps them to MITRE ATT&amp;CK from Zeek and Suricata telemetry. Opens the repository." width="49%"/></a> <a href="https://github.com/Kaushik2210/ORBITAL-SENTINEL"><img src="assets/p-orbital-sentinel.svg" alt="ORBITAL-SENTINEL, a security project in Python: Tells cyberattacks apart from sensor faults and solar weather in spacecraft telemetry, with explainable attribution. Opens the repository." width="49%"/></a> <a href="https://github.com/Kaushik2210/scam-khel"><img src="assets/p-scam-khel.svg" alt="scam-khel, a security project in Python: A private family shield against Indian digital-arrest scams: live detection, a simulated honeypot and family alerts. Opens the repository." width="49%"/></a> <a href="https://github.com/Kaushik2210/Deepfake-Detector"><img src="assets/p-deepfake-detector.svg" alt="Deepfake-Detector, a security project in Python: Synthetic-media detection that returns calibrated probabilities and visual evidence, never a binary verdict. Opens the repository." width="49%"/></a> <a href="https://github.com/Kaushik2210/IntentGuard"><img src="assets/p-intentguard.svg" alt="IntentGuard, a security project in Python: Intent-aware, behavioural runtime authorization for autonomous AI agents. Opens the repository." width="49%"/></a> <a href="https://tapwire-xi.vercel.app"><img src="assets/p-tapwire.svg" alt="tapwire, a dev tool project in TypeScript: Turns every mistake an AI coding agent makes into a permanent, enforced rule, and measures how often it repeats. Opens the live demo." width="49%"/></a> <a href="https://kaushik2210.github.io/gitVisualise/"><img src="assets/p-gitvisualise.svg" alt="gitVisualise, a dev tool project in JavaScript: Paste a GitHub link, get an interactive, narrated architecture tour. Website, CLI and GitHub Action. Opens the live demo." width="49%"/></a> <a href="https://hireos-beryl.vercel.app"><img src="assets/p-hireos.svg" alt="HireOS, a product project in TypeScript: A job-search workspace that shows its evidence: fit scoring, tailored materials without invention, application tracking. Opens the live demo." width="49%"/></a> <a href="https://algoverse-lovat-seven.vercel.app"><img src="assets/p-algoverse.svg" alt="AlgoVerse, a learning project in TypeScript: Data-structure visualisation and interview prep: 25 modules, 13 pattern guides and 635+ explained LeetCode solutions. Opens the live demo." width="49%"/></a> <a href="https://emberline-zeta.vercel.app"><img src="assets/p-ember-line.svg" alt="Ember-Line, a product project in Python: One consistent record of wildfire: a harmonized MODIS + VIIRS active-fire calendar with uncertainty, built for NASA Space Apps 2026. Opens the live demo." width="49%"/></a>
 
 <sub>Tap a card to open the live demo or the repository. Cover art is generated from each repo's name; language, stars and last push update automatically.</sub>
 
 </div>
 
 <details>
-<summary><b>More builds (21)</b></summary>
+<summary><b>More builds (17)</b></summary>
+
+**Security & AI**
 
 | Build | Stack | What it is |
 |:--|:--|:--|
-| [**daily-automation-scripts**](https://github.com/Kaushik2210/daily-automation-scripts) | `Python` | 30-day challenge: 300 small, tested, cross-platform automation scripts in Python (files, PDFs… |
-| [**IntentGuard**](https://github.com/Kaushik2210/IntentGuard) | `Python` | Intent-aware and behavioural runtime authorization for autonomous AI agents |
-| [**Ember-Line**](https://github.com/Kaushik2210/Ember-Line) · [live](https://emberline-zeta.vercel.app) | `Python` | One consistent record of fire, from two sensors: harmonized MODIS + VIIRS active-fire calendar with… |
-| [**cp-sysdesign-academy**](https://github.com/Kaushik2210/cp-sysdesign-academy) | `MDX` | Open-source interactive course: competitive programming and system design (static site, runs in the… |
-| [**100-days-of-java**](https://github.com/Kaushik2210/100-days-of-java) | `Java` | 100 days of Java: from Hello World to data structures, algorithms and interview prep. Daily notes… |
-| [**Overrank**](https://github.com/Kaushik2210/Overrank) · [live](https://overrank.vercel.app) | `TypeScript` | Live house-competition platform for campuses: teams earn points, the leaderboard reacts in real… |
-| [**Learn_python-**](https://github.com/Kaushik2210/Learn_python-) | `Python` | Python course as Jupyter notebooks: explanations, 108 challenge problems, exam prep and projects… |
-| [**learn-os**](https://github.com/Kaushik2210/learn-os) | `TypeScript` | A gamified, interactive Operating Systems learning platform — from first principles to… |
-| [**ATTESTA---AI-powered-SOC-**](https://github.com/Kaushik2210/ATTESTA---AI-powered-SOC-) | `TypeScript` | Multi-tenant Autonomous SOC platform with reproducible, re-adjudicable verdicts — a deterministic… |
 | [**PORTCULLIS**](https://github.com/Kaushik2210/PORTCULLIS) | `Python` | Adversarial prompt injection detection gateway for LLM applications |
+| [**ATTESTA**](https://github.com/Kaushik2210/ATTESTA---AI-powered-SOC-) | `TypeScript` | Multi-tenant Autonomous SOC platform with reproducible, re-adjudicable verdicts — a deterministic… |
+| [**SCRB Crime Intelligence Analytics**](https://github.com/Kaushik2210/SCRB-Crime-Intelligence-Analytics-Platform) | `JavaScript` | An AI-driven crime analytics and visualization platform for the Karnataka State Police State Crime Records… |
+| [**SafeRoute**](https://github.com/Kaushik2210/SafeRoute) | `JavaScript` | Safe-route app for women's safety. |
+| [**SafePath**](https://github.com/Kaushik2210/SafePath) | `TypeScript` | Safe-path detector for women. |
+
+**Web & product experiments**
+
+| Build | Stack | What it is |
+|:--|:--|:--|
+| [**Overrank**](https://github.com/Kaushik2210/Overrank) · [live](https://overrank.vercel.app) | `TypeScript` | Live house-competition platform for campuses: teams earn points, the leaderboard reacts in real time, faculty… |
 | [**GLYPHFORGE**](https://github.com/Kaushik2210/GLYPHFORGE) · [live](https://glyphforge-web.vercel.app) | `TypeScript` | A GPU-native ASCII art engine for the browser. Converts photos into character grids via perceptual… |
-| [**SCRB-Crime-Intelligence-Analytics-Platform**](https://github.com/Kaushik2210/SCRB-Crime-Intelligence-Analytics-Platform) | `JavaScript` | An AI-driven crime analytics and visualization platform for the Karnataka State Police State Crime… |
-| [**SafeRoute**](https://github.com/Kaushik2210/SafeRoute) | `JavaScript` | Safe Route for women safety |
-| [**SafePath**](https://github.com/Kaushik2210/SafePath) | `TypeScript` | Safe Path detecter for women |
-| [**PowerBI-dashboard**](https://github.com/Kaushik2210/PowerBI-dashboard) | `misc` | PowerBI dashboard |
-| [**Church_Grace**](https://github.com/Kaushik2210/Church_Grace) | `misc` | prototype |
-| [**Research-Visualizer**](https://github.com/Kaushik2210/Research-Visualizer) | `TypeScript` | built a research visualizer with cool visuals and representations from google gemini 3.0 using… |
-| [**Celeb-Bomb**](https://github.com/Kaushik2210/Celeb-Bomb) | `TypeScript` | Created a website that can generate a selfie or an image with a celebrity on random uses nano… |
-| [**Photo-Video-Editor**](https://github.com/Kaushik2210/Photo-Video-Editor) | `TypeScript` | Used google AI studio in order to generate a beautiful webpage for generating editing images and… |
-| [**cybernetics_website**](https://github.com/Kaushik2210/cybernetics_website) | `HTML` | website for the cybernetics association 24-25 |
-| [**website_anime_design**](https://github.com/Kaushik2210/website_anime_design) | `JavaScript` | a fully responsive website featuring a 3D animated male anime character with transitions! |
+| [**Research-Visualizer**](https://github.com/Kaushik2210/Research-Visualizer) | `TypeScript` | Research-paper visualiser with rich visual representations, built with Google AI Studio and Gemini 3.0. |
+| [**Celeb-Bomb**](https://github.com/Kaushik2210/Celeb-Bomb) | `TypeScript` | Website that generates a selfie or image with a celebrity at random, using Gemini 3.0 and image-generation… |
+| [**Photo-Video-Editor**](https://github.com/Kaushik2210/Photo-Video-Editor) | `TypeScript` | Web app for editing images and videos, generated with Google AI Studio on Gemini 3.0. |
+| [**cybernetics_website**](https://github.com/Kaushik2210/cybernetics_website) | `HTML` | Website for the Cybernetics Association, 2024-25. |
+| [**website_anime_design**](https://github.com/Kaushik2210/website_anime_design) | `JavaScript` | Fully responsive website featuring a 3D animated anime character with transitions. |
+
+**Learning & practice**
+
+| Build | Stack | What it is |
+|:--|:--|:--|
+| [**daily-automation-scripts**](https://github.com/Kaushik2210/daily-automation-scripts) | `Python` | 30-day challenge: 300 small, tested, cross-platform automation scripts in Python (files, PDFs, GitHub, email… |
+| [**100-days-of-java**](https://github.com/Kaushik2210/100-days-of-java) | `Java` | 100 days of Java: from Hello World to data structures, algorithms and interview prep. Daily notes plus… |
+| [**Learn Python**](https://github.com/Kaushik2210/Learn_python-) | `Python` | Python course as Jupyter notebooks: explanations, 108 challenge problems, exam prep and projects, from zero… |
+| [**learn-os**](https://github.com/Kaushik2210/learn-os) | `TypeScript` | A gamified, interactive Operating Systems learning platform — from first principles to interview-ready… |
+| [**cp-sysdesign-academy**](https://github.com/Kaushik2210/cp-sysdesign-academy) | `MDX` | Open-source interactive course: competitive programming and system design (static site, runs in the browser) |
 
 </details>
 <!--BUILDS_END-->
 
 <div align="center">
 
-## Pulse
+## Activity
 
 <img src="assets/div-dossier.svg" alt="Operator dossier" width="100%"/>
 
@@ -135,14 +145,14 @@ Things people can open and use today. [HireOS](https://hireos-beryl.vercel.app) 
 | [**Deepfake-Detector**](https://github.com/Kaushik2210/Deepfake-Detector) | `Python` | today | Synthetic-media (deepfake) detection platform — calibrated probabilities and visual evidence… |
 | [**scam-khel**](https://github.com/Kaushik2210/scam-khel) | `Python` | yesterday | Private family shield against Indian digital-arrest scams: live detection, simulated honeypot… |
 | [**Ember-Line**](https://github.com/Kaushik2210/Ember-Line) · [live](https://emberline-zeta.vercel.app) | `Python` | yesterday | One consistent record of fire, from two sensors: harmonized MODIS + VIIRS active-fire calendar… |
-| [**cp-sysdesign-academy**](https://github.com/Kaushik2210/cp-sysdesign-academy) | `MDX` | yesterday | Open-source interactive course: competitive programming and system design (static site, runs in… |
-| [**HireOS**](https://github.com/Kaushik2210/HireOS) · [live](https://hireos-beryl.vercel.app) | `TypeScript` | yesterday | Job-search workspace that shows its evidence: fit scoring, tailored materials without… |
+| [**cp-sysdesign-academy**](https://github.com/Kaushik2210/cp-sysdesign-academy) | `MDX` | 2d ago | Open-source interactive course: competitive programming and system design (static site, runs in… |
+| [**HireOS**](https://github.com/Kaushik2210/HireOS) · [live](https://hireos-beryl.vercel.app) | `TypeScript` | 2d ago | Job-search workspace that shows its evidence: fit scoring, tailored materials without… |
 | [**ORBITAL-SENTINEL**](https://github.com/Kaushik2210/ORBITAL-SENTINEL) | `Python` | 2d ago | Space-mission cybersecurity & anomaly detection: tell cyberattacks apart from sensor faults… |
 <!--OPS_END-->
 
 <div align="center">
 
-## Play
+## Interactive
 
 <img src="assets/div-galaxy.svg" alt="Contribution galaxy" width="100%"/>
 

@@ -194,26 +194,44 @@ def main():
         open(os.path.join(ASSETS, fn), "w", encoding="utf-8").write(svg)
         used.add(r["name"])
         cells.append(f'<a href="{escape(href, {chr(34): "&quot;"})}"><img src="assets/{fn}" alt="{escape(alt, {chr(34): "&quot;"})}" width="49%"/></a>')
-    # "more builds": everything else with a description, newest first
-    ex, exp = set(cfg.get("exclude_more", [])), tuple(cfg.get("exclude_prefix_more", []))
+    # "more builds": everything else with a description, grouped; names, wording and hidden repos are curated in data/projects.json
+    mc = cfg.get("more", {})
+    ex = set(cfg.get("exclude_more", [])) | set(mc.get("hide", []))
+    exp = tuple(cfg.get("exclude_prefix_more", []))
+    names, descs = mc.get("names", {}), mc.get("desc", {})
     more = [r for r in sorted(repos.values(), key=lambda r: r["pushed_at"], reverse=True)
-            if r["name"] not in used and r["name"] not in ex and not r["name"].startswith(exp) and (r.get("description") or "").strip()]
-    rows = ["| Build | Stack | What it is |", "|:--|:--|:--|"]
-    for r in more[:24]:
-        d = re.sub(r"\s+", " ", r["description"]).replace("|", "/").strip()
-        d = d if len(d) <= 100 else d[:100].rsplit(" ", 1)[0].rstrip(",.;:-") + "…"
-        link = f"[**{r['name']}**]({r['html_url']})" + (f" · [live]({r['homepage']})" if r.get("homepage") else "")
-        rows.append(f"| {link} | `{r['language'] or 'misc'}` | {d} |")
+            if r["name"] not in used and r["name"] not in ex and not r["name"].startswith(exp) and (r.get("description") or "").strip()][:30]
+    by_name = {r["name"]: r for r in more}
+    groups = [(g["title"], list(g["repos"])) for g in mc.get("groups", [])]
+    placed = {n for _, rs in groups for n in rs}
+    rest = [r["name"] for r in more if r["name"] not in placed]
+    if rest:  # new repos never vanish: they land in a catch-all group until they are curated
+        groups.append(("More", rest))
+
+    def row(r):
+        d = re.sub(r"\s+", " ", descs.get(r["name"]) or r["description"]).replace("|", "/").strip()
+        d = d[:1].upper() + d[1:]
+        d = d if len(d) <= 110 else d[:110].rsplit(" ", 1)[0].rstrip(",.;:-") + "…"
+        label = names.get(r["name"]) or r["name"].strip("-_")
+        link = f"[**{label}**]({r['html_url']})" + (f" · [live]({r['homepage']})" if r.get("homepage") else "")
+        return f"| {link} | `{r['language'] or 'misc'}` | {d} |"
+
+    sections, shown = [], 0
+    for title, rs in groups:
+        members = [by_name[n] for n in rs if n in by_name]
+        if members:
+            shown += len(members)
+            sections.append(f"**{title}**\n\n| Build | Stack | What it is |\n|:--|:--|:--|\n" + "\n".join(row(r) for r in members))
     caption = ("<sub>Tap a card to open the live demo or the repository. Cover art is generated from each repo's name; "
                "language, stars and last push update automatically.</sub>")
     block = ('<div align="center">\n\n' + " ".join(cells) + f"\n\n{caption}\n\n</div>\n\n"
-             f"<details>\n<summary><b>More builds ({len(more[:24])})</b></summary>\n\n" + "\n".join(rows) + "\n\n</details>")
+             f"<details>\n<summary><b>More builds ({shown})</b></summary>\n\n" + "\n\n".join(sections) + "\n\n</details>")
     text = open(README, encoding="utf-8").read()
     a, b = text.index(START) + len(START), text.index(END)
     new = text[:a] + "\n" + block + "\n" + text[b:]
     if new != text:
         open(README, "w", encoding="utf-8").write(new)
-    print(f"posters: {len(cells)} featured, {len(more[:24])} in 'more builds'")
+    print(f"posters: {len(cells)} featured, {shown} in 'more builds' across {len(sections)} groups")
 
 
 if __name__ == "__main__":

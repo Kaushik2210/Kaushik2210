@@ -1,22 +1,125 @@
 {
   "featured": [
-    {"repo": "Net-Sentinel", "category": "security",
-     "blurb": "Explainable network digital twin: detects threats, reconstructs attacks and maps them to MITRE ATT&CK from Zeek and Suricata telemetry."},
-    {"repo": "ORBITAL-SENTINEL", "category": "security",
-     "blurb": "Tells cyberattacks apart from sensor faults and solar weather in spacecraft telemetry, with explainable attribution."},
-    {"repo": "scam-khel", "category": "security",
-     "blurb": "A private family shield against Indian digital-arrest scams: live detection, a simulated honeypot and family alerts."},
-    {"repo": "Deepfake-Detector", "category": "security",
-     "blurb": "Synthetic-media detection that returns calibrated probabilities and visual evidence, never a binary verdict."},
-    {"repo": "tapwire", "category": "devtool",
-     "blurb": "Turns every mistake an AI coding agent makes into a permanent, enforced rule, and measures how often it repeats."},
-    {"repo": "gitVisualise", "category": "devtool",
-     "blurb": "Paste a GitHub link, get an interactive, narrated architecture tour. Website, CLI and GitHub Action."},
-    {"repo": "HireOS", "category": "product",
-     "blurb": "A job-search workspace that shows its evidence: fit scoring, tailored materials without invention, application tracking."},
-    {"repo": "AlgoVerse", "category": "learning",
-     "blurb": "Data-structure visualisation and interview prep: 25 modules, 13 pattern guides and 635+ explained LeetCode solutions."}
+    {
+      "repo": "Net-Sentinel",
+      "category": "security",
+      "blurb": "Explainable network digital twin: detects threats, reconstructs attacks and maps them to MITRE ATT&CK from Zeek and Suricata telemetry."
+    },
+    {
+      "repo": "ORBITAL-SENTINEL",
+      "category": "security",
+      "blurb": "Tells cyberattacks apart from sensor faults and solar weather in spacecraft telemetry, with explainable attribution."
+    },
+    {
+      "repo": "scam-khel",
+      "category": "security",
+      "blurb": "A private family shield against Indian digital-arrest scams: live detection, a simulated honeypot and family alerts."
+    },
+    {
+      "repo": "Deepfake-Detector",
+      "category": "security",
+      "blurb": "Synthetic-media detection that returns calibrated probabilities and visual evidence, never a binary verdict."
+    },
+    {
+      "repo": "IntentGuard",
+      "category": "security",
+      "blurb": "Intent-aware, behavioural runtime authorization for autonomous AI agents."
+    },
+    {
+      "repo": "tapwire",
+      "category": "devtool",
+      "blurb": "Turns every mistake an AI coding agent makes into a permanent, enforced rule, and measures how often it repeats."
+    },
+    {
+      "repo": "gitVisualise",
+      "category": "devtool",
+      "blurb": "Paste a GitHub link, get an interactive, narrated architecture tour. Website, CLI and GitHub Action."
+    },
+    {
+      "repo": "HireOS",
+      "category": "product",
+      "blurb": "A job-search workspace that shows its evidence: fit scoring, tailored materials without invention, application tracking."
+    },
+    {
+      "repo": "AlgoVerse",
+      "category": "learning",
+      "blurb": "Data-structure visualisation and interview prep: 25 modules, 13 pattern guides and 635+ explained LeetCode solutions."
+    },
+    {
+      "repo": "Ember-Line",
+      "category": "product",
+      "blurb": "One consistent record of wildfire: a harmonized MODIS + VIIRS active-fire calendar with uncertainty, built for NASA Space Apps 2026."
+    }
   ],
-  "exclude_more": ["Kaushik2210", "Leetcode", "Cybersecurity_Projects", "TryHackMe-Rooms", "Mobile-Application-Programs", "crud-app"],
-  "exclude_prefix_more": ["FSD", "2647151", "HSK", "C-Lab", "Project_BCA", "MY_PORTFOLIO", "Research-Paper"]
+  "exclude_more": [
+    "Kaushik2210",
+    "Leetcode",
+    "Cybersecurity_Projects",
+    "TryHackMe-Rooms",
+    "Mobile-Application-Programs",
+    "crud-app"
+  ],
+  "exclude_prefix_more": [
+    "FSD",
+    "2647151",
+    "HSK",
+    "C-Lab",
+    "Project_BCA",
+    "MY_PORTFOLIO",
+    "Research-Paper"
+  ],
+  "more": {
+    "hide": [
+      "PowerBI-dashboard",
+      "Church_Grace"
+    ],
+    "names": {
+      "ATTESTA---AI-powered-SOC-": "ATTESTA",
+      "Learn_python-": "Learn Python",
+      "SCRB-Crime-Intelligence-Analytics-Platform": "SCRB Crime Intelligence Analytics"
+    },
+    "desc": {
+      "SafeRoute": "Safe-route app for women's safety.",
+      "SafePath": "Safe-path detector for women.",
+      "Research-Visualizer": "Research-paper visualiser with rich visual representations, built with Google AI Studio and Gemini 3.0.",
+      "Celeb-Bomb": "Website that generates a selfie or image with a celebrity at random, using Gemini 3.0 and image-generation tools.",
+      "Photo-Video-Editor": "Web app for editing images and videos, generated with Google AI Studio on Gemini 3.0.",
+      "cybernetics_website": "Website for the Cybernetics Association, 2024-25.",
+      "website_anime_design": "Fully responsive website featuring a 3D animated anime character with transitions."
+    },
+    "groups": [
+      {
+        "title": "Security & AI",
+        "repos": [
+          "PORTCULLIS",
+          "ATTESTA---AI-powered-SOC-",
+          "SCRB-Crime-Intelligence-Analytics-Platform",
+          "SafeRoute",
+          "SafePath"
+        ]
+      },
+      {
+        "title": "Web & product experiments",
+        "repos": [
+          "Overrank",
+          "GLYPHFORGE",
+          "Research-Visualizer",
+          "Celeb-Bomb",
+          "Photo-Video-Editor",
+          "cybernetics_website",
+          "website_anime_design"
+        ]
+      },
+      {
+        "title": "Learning & practice",
+        "repos": [
+          "daily-automation-scripts",
+          "100-days-of-java",
+          "Learn_python-",
+          "learn-os",
+          "cp-sysdesign-academy"
+        ]
+      }
+    ]
+  }
 }
