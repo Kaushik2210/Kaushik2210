@@ -70,7 +70,7 @@ Things people can open and use today. [HireOS](https://hireos-beryl.vercel.app) 
 </div>
 
 <details>
-<summary><b>More builds (17)</b></summary>
+<summary><b>More builds (18)</b></summary>
 
 **Security & AI**
 
@@ -79,8 +79,8 @@ Things people can open and use today. [HireOS](https://hireos-beryl.vercel.app) 
 | [**PORTCULLIS**](https://github.com/Kaushik2210/PORTCULLIS) | `Python` | Adversarial prompt injection detection gateway for LLM applications |
 | [**ATTESTA**](https://github.com/Kaushik2210/ATTESTA---AI-powered-SOC-) | `TypeScript` | Multi-tenant Autonomous SOC platform with reproducible, re-adjudicable verdicts — a deterministic… |
 | [**SCRB Crime Intelligence Analytics**](https://github.com/Kaushik2210/SCRB-Crime-Intelligence-Analytics-Platform) | `JavaScript` | An AI-driven crime analytics and visualization platform for the Karnataka State Police State Crime Records… |
-| [**SafeRoute**](https://github.com/Kaushik2210/SafeRoute) | `JavaScript` | Safe-route app for women's safety. |
-| [**SafePath**](https://github.com/Kaushik2210/SafePath) | `TypeScript` | Safe-path detector for women. |
+| [**SafeRoute**](https://github.com/Kaushik2210/SafeRoute) | `JavaScript` | Safe-route app for women's safety, built with React and Vite. |
+| [**SafePath**](https://github.com/Kaushik2210/SafePath) | `TypeScript` | Safe-path detector for women's safety, built in Google AI Studio with Firebase and TypeScript. |
 
 **Web & product experiments**
 
@@ -89,8 +89,8 @@ Things people can open and use today. [HireOS](https://hireos-beryl.vercel.app) 
 | [**Overrank**](https://github.com/Kaushik2210/Overrank) · [live](https://overrank.vercel.app) | `TypeScript` | Live house-competition platform for campuses: teams earn points, the leaderboard reacts in real time, faculty… |
 | [**GLYPHFORGE**](https://github.com/Kaushik2210/GLYPHFORGE) · [live](https://glyphforge-web.vercel.app) | `TypeScript` | A GPU-native ASCII art engine for the browser. Converts photos into character grids via perceptual… |
 | [**Research-Visualizer**](https://github.com/Kaushik2210/Research-Visualizer) | `TypeScript` | Research-paper visualiser with rich visual representations, built with Google AI Studio and Gemini 3.0. |
-| [**Celeb-Bomb**](https://github.com/Kaushik2210/Celeb-Bomb) | `TypeScript` | Website that generates a selfie or image with a celebrity at random, using Gemini 3.0 and image-generation… |
-| [**Photo-Video-Editor**](https://github.com/Kaushik2210/Photo-Video-Editor) | `TypeScript` | Web app for editing images and videos, generated with Google AI Studio on Gemini 3.0. |
+| [**Celeb-Bomb**](https://github.com/Kaushik2210/Celeb-Bomb) | `TypeScript` | Web app that generates a selfie or image with a celebrity at random, built with Google AI Studio and Gemini… |
+| [**Photo-Video-Editor**](https://github.com/Kaushik2210/Photo-Video-Editor) | `TypeScript` | Web app for editing images and videos, built with Google AI Studio and Gemini 3.0. |
 | [**cybernetics_website**](https://github.com/Kaushik2210/cybernetics_website) | `HTML` | Website for the Cybernetics Association, 2024-25. |
 | [**website_anime_design**](https://github.com/Kaushik2210/website_anime_design) | `JavaScript` | Fully responsive website featuring a 3D animated anime character with transitions. |
 
@@ -103,6 +103,7 @@ Things people can open and use today. [HireOS](https://hireos-beryl.vercel.app) 
 | [**Learn Python**](https://github.com/Kaushik2210/Learn_python-) | `Python` | Python course as Jupyter notebooks: explanations, 108 challenge problems, exam prep and projects, from zero… |
 | [**learn-os**](https://github.com/Kaushik2210/learn-os) | `TypeScript` | A gamified, interactive Operating Systems learning platform — from first principles to interview-ready… |
 | [**cp-sysdesign-academy**](https://github.com/Kaushik2210/cp-sysdesign-academy) | `MDX` | Open-source interactive course: competitive programming and system design (static site, runs in the browser) |
+| [**PowerBI-dashboard**](https://github.com/Kaushik2210/PowerBI-dashboard) | `misc` | Power BI dashboard for class attendance reporting. |
 
 </details>
 <!--BUILDS_END-->

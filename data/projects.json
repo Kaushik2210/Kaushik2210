@@ -70,7 +70,6 @@
   ],
   "more": {
     "hide": [
-      "PowerBI-dashboard",
       "Church_Grace"
     ],
     "names": {
@@ -78,15 +77,7 @@
       "Learn_python-": "Learn Python",
       "SCRB-Crime-Intelligence-Analytics-Platform": "SCRB Crime Intelligence Analytics"
     },
-    "desc": {
-      "SafeRoute": "Safe-route app for women's safety.",
-      "SafePath": "Safe-path detector for women.",
-      "Research-Visualizer": "Research-paper visualiser with rich visual representations, built with Google AI Studio and Gemini 3.0.",
-      "Celeb-Bomb": "Website that generates a selfie or image with a celebrity at random, using Gemini 3.0 and image-generation tools.",
-      "Photo-Video-Editor": "Web app for editing images and videos, generated with Google AI Studio on Gemini 3.0.",
-      "cybernetics_website": "Website for the Cybernetics Association, 2024-25.",
-      "website_anime_design": "Fully responsive website featuring a 3D animated anime character with transitions."
-    },
+    "desc": {},
     "groups": [
       {
         "title": "Security & AI",
@@ -117,7 +108,8 @@
           "100-days-of-java",
           "Learn_python-",
           "learn-os",
-          "cp-sysdesign-academy"
+          "cp-sysdesign-academy",
+          "PowerBI-dashboard"
         ]
       }
     ]
