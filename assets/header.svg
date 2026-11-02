@@ -173,7 +173,7 @@ text{font-family:system-ui,-apple-system,'SF Pro Text','Segoe UI',Roboto,'Helvet
 <rect x="766.5" y="222.8" width="12.9" height="99.2" fill="#111d40" opacity=".85"/>
 <rect x="781.8" y="252.6" width="12.9" height="69.4" fill="#111d40" opacity=".85"/>
 <rect x="797.1" y="202.4" width="12.9" height="119.6" fill="#111d40" opacity=".85"/>
-<rect x="812.4" y="274.9" width="12.9" height="47.1" fill="#111d40" opacity=".85"/>
+<rect x="812.4" y="274.3" width="12.9" height="47.7" fill="#111d40" opacity=".85"/>
 <rect x="10.0" y="300.5" width="12.9" height="21.5" fill="#08112b"/>
 <rect x="10.0" y="300.5" width="12.9" height="1.6" fill="#4f86ff" opacity=".55"/>
 <rect x="17.0" y="308.8" width="3.2" height="4.2" fill="#ffc233"><animate attributeName="opacity" values="1;.25;1" dur="3.7s" begin="-4.4s" repeatCount="indefinite"/></rect>
@@ -478,8 +478,8 @@ text{font-family:system-ui,-apple-system,'SF Pro Text','Segoe UI',Roboto,'Helvet
 <rect x="796.4" y="291.8" width="3.2" height="4.2" fill="#ffc233"></rect>
 <rect x="791.6" y="283.3" width="3.2" height="4.2" fill="#ffc233"><animate attributeName="opacity" values="1;.25;1" dur="3.3s" begin="-1.6s" repeatCount="indefinite"/></rect>
 <rect x="791.6" y="300.3" width="3.2" height="4.2" fill="#243566" opacity=".55"/>
-<rect x="804.7" y="259.6" width="12.9" height="62.4" fill="#08112b"/>
-<rect x="804.7" y="259.6" width="12.9" height="1.6" fill="#4f86ff" opacity=".55"/>
+<rect x="804.7" y="258.7" width="12.9" height="63.3" fill="#08112b"/>
+<rect x="804.7" y="258.7" width="12.9" height="1.6" fill="#4f86ff" opacity=".55"/>
 <rect x="811.7" y="291.8" width="3.2" height="4.2" fill="#ffc233"></rect>
 <rect x="811.7" y="300.3" width="3.2" height="4.2" fill="#ffc233"><animate attributeName="opacity" values="1;.25;1" dur="5.2s" begin="-4.0s" repeatCount="indefinite"/></rect>
 <rect x="806.9" y="300.3" width="3.2" height="4.2" fill="#243566" opacity=".55"/>
