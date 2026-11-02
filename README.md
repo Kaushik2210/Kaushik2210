@@ -15,7 +15,7 @@
 <a href="https://github.com/Kaushik2210?tab=repositories"><img src="assets/proof.svg" alt="Proof strip: live sites, repositories, commits this year, best streak and years building, all counted from the GitHub API." width="100%"/></a>
 
 <!--NOW_START-->
-**Now:** shipping [gitVisualise](https://github.com/Kaushik2210/gitVisualise) (JavaScript, pushed today). Paste a GitHub link, get an interactive, narrated architecture tour. Website, CLI, Claude Code skill and GitHub Action…
+**Now:** shipping [cp-sysdesign-academy](https://github.com/Kaushik2210/cp-sysdesign-academy) (MDX, pushed today). Open-source interactive course: competitive programming and system design (static site, runs in the browser)
 <!--NOW_END-->
 
 </div>
@@ -141,14 +141,14 @@ Things people can open and use today. [HireOS](https://hireos-beryl.vercel.app) 
 <!--OPS_START-->
 | Repo | Stack | Last push | Brief |
 |:--|:--|:--|:--|
-| [**gitVisualise**](https://github.com/Kaushik2210/gitVisualise) · [live](https://kaushik2210.github.io/gitVisualise/) | `JavaScript` | today | Paste a GitHub link, get an interactive, narrated architecture tour. Website, CLI, Claude Code… |
 | [**cp-sysdesign-academy**](https://github.com/Kaushik2210/cp-sysdesign-academy) | `MDX` | today | Open-source interactive course: competitive programming and system design (static site, runs in… |
-| [**Voice-Agents-**](https://github.com/Kaushik2210/Voice-Agents-) | `JavaScript` | today | _Still cooking._ |
-| [**IntentGuard**](https://github.com/Kaushik2210/IntentGuard) | `Python` | today | Intent-aware and behavioural runtime authorization for autonomous AI agents |
+| [**Ember-Line**](https://github.com/Kaushik2210/Ember-Line) · [live](https://emberline-zeta.vercel.app) | `Python` | today | One consistent record of fire, from two sensors: harmonized MODIS + VIIRS active-fire calendar… |
 | [**daily-automation-scripts**](https://github.com/Kaushik2210/daily-automation-scripts) | `Python` | today | 30-day challenge: 300 small, tested, cross-platform automation scripts in Python (files, PDFs… |
+| [**IntentGuard**](https://github.com/Kaushik2210/IntentGuard) | `Python` | today | Intent-aware and behavioural runtime authorization for autonomous AI agents |
+| [**gitVisualise**](https://github.com/Kaushik2210/gitVisualise) · [live](https://kaushik2210.github.io/gitVisualise/) | `JavaScript` | today | Paste a GitHub link, get an interactive, narrated architecture tour. Website, CLI, Claude Code… |
+| [**Voice-Agents-**](https://github.com/Kaushik2210/Voice-Agents-) | `JavaScript` | today | _Still cooking._ |
 | [**Deepfake-Detector**](https://github.com/Kaushik2210/Deepfake-Detector) | `Python` | yesterday | Synthetic-media (deepfake) detection platform — calibrated probabilities and visual evidence… |
-| [**scam-khel**](https://github.com/Kaushik2210/scam-khel) | `Python` | yesterday | Private family shield against Indian digital-arrest scams: live detection, simulated honeypot… |
-| [**Ember-Line**](https://github.com/Kaushik2210/Ember-Line) · [live](https://emberline-zeta.vercel.app) | `Python` | 2d ago | One consistent record of fire, from two sensors: harmonized MODIS + VIIRS active-fire calendar… |
+| [**scam-khel**](https://github.com/Kaushik2210/scam-khel) | `Python` | 2d ago | Private family shield against Indian digital-arrest scams: live detection, simulated honeypot… |
 <!--OPS_END-->
 
 <div align="center">
