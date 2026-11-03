@@ -146,8 +146,8 @@ Things people can open and use today. [HireOS](https://hireos-beryl.vercel.app) 
 | [**HireOS**](https://github.com/Kaushik2210/HireOS) · [live](https://hireos-beryl.vercel.app) | `TypeScript` | today | Job-search workspace that shows its evidence: fit scoring, tailored materials without… |
 | [**daily-automation-scripts**](https://github.com/Kaushik2210/daily-automation-scripts) | `Python` | today | 30-day challenge: 300 small, tested, cross-platform automation scripts in Python (files, PDFs… |
 | [**IntentGuard**](https://github.com/Kaushik2210/IntentGuard) | `Python` | today | Intent-aware and behavioural runtime authorization for autonomous AI agents |
-| [**gitVisualise**](https://github.com/Kaushik2210/gitVisualise) · [live](https://kaushik2210.github.io/gitVisualise/) | `JavaScript` | today | Paste a GitHub link, get an interactive, narrated architecture tour. Website, CLI, Claude Code… |
-| [**Voice-Agents-**](https://github.com/Kaushik2210/Voice-Agents-) | `JavaScript` | today | _Still cooking._ |
+| [**gitVisualise**](https://github.com/Kaushik2210/gitVisualise) · [live](https://kaushik2210.github.io/gitVisualise/) | `JavaScript` | yesterday | Paste a GitHub link, get an interactive, narrated architecture tour. Website, CLI, Claude Code… |
+| [**Voice-Agents-**](https://github.com/Kaushik2210/Voice-Agents-) | `JavaScript` | yesterday | _Still cooking._ |
 | [**Deepfake-Detector**](https://github.com/Kaushik2210/Deepfake-Detector) | `Python` | 2d ago | Synthetic-media (deepfake) detection platform — calibrated probabilities and visual evidence… |
 <!--OPS_END-->
 
