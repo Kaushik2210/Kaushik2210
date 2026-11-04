@@ -15,7 +15,7 @@
 <a href="https://github.com/Kaushik2210?tab=repositories"><img src="assets/proof.svg" alt="Proof strip: live sites, repositories, commits this year, best streak and years building, all counted from the GitHub API." width="100%"/></a>
 
 <!--NOW_START-->
-**Now:** shipping [daily-automation-scripts](https://github.com/Kaushik2210/daily-automation-scripts) (Python, pushed today). 30-day challenge: 300 small, tested, cross-platform automation scripts in Python (files, PDFs, GitHub, email, scraping…
+**Now:** shipping [cp-sysdesign-academy](https://github.com/Kaushik2210/cp-sysdesign-academy) (MDX, pushed today). Open-source interactive course: competitive programming and system design (static site, runs in the browser)
 <!--NOW_END-->
 
 </div>
@@ -141,14 +141,14 @@ Things people can open and use today. [HireOS](https://hireos-beryl.vercel.app) 
 <!--OPS_START-->
 | Repo | Stack | Last push | Brief |
 |:--|:--|:--|:--|
+| [**cp-sysdesign-academy**](https://github.com/Kaushik2210/cp-sysdesign-academy) | `MDX` | today | Open-source interactive course: competitive programming and system design (static site, runs in… |
 | [**daily-automation-scripts**](https://github.com/Kaushik2210/daily-automation-scripts) | `Python` | today | 30-day challenge: 300 small, tested, cross-platform automation scripts in Python (files, PDFs… |
-| [**cp-sysdesign-academy**](https://github.com/Kaushik2210/cp-sysdesign-academy) | `MDX` | yesterday | Open-source interactive course: competitive programming and system design (static site, runs in… |
-| [**Ember-Line**](https://github.com/Kaushik2210/Ember-Line) · [live](https://emberline-zeta.vercel.app) | `Python` | yesterday | One consistent record of fire, from two sensors: harmonized MODIS + VIIRS active-fire calendar… |
+| [**Ember-Line**](https://github.com/Kaushik2210/Ember-Line) · [live](https://emberline-zeta.vercel.app) | `Python` | 2d ago | One consistent record of fire, from two sensors: harmonized MODIS + VIIRS active-fire calendar… |
 | [**HireOS**](https://github.com/Kaushik2210/HireOS) · [live](https://hireos-beryl.vercel.app) | `TypeScript` | 2d ago | Job-search workspace that shows its evidence: fit scoring, tailored materials without… |
 | [**IntentGuard**](https://github.com/Kaushik2210/IntentGuard) | `Python` | 2d ago | Intent-aware and behavioural runtime authorization for autonomous AI agents |
-| [**gitVisualise**](https://github.com/Kaushik2210/gitVisualise) · [live](https://kaushik2210.github.io/gitVisualise/) | `JavaScript` | 2d ago | Paste a GitHub link, get an interactive, narrated architecture tour. Website, CLI, Claude Code… |
-| [**Voice-Agents-**](https://github.com/Kaushik2210/Voice-Agents-) | `JavaScript` | 2d ago | _Still cooking._ |
-| [**Deepfake-Detector**](https://github.com/Kaushik2210/Deepfake-Detector) | `Python` | 3d ago | Synthetic-media (deepfake) detection platform — calibrated probabilities and visual evidence… |
+| [**gitVisualise**](https://github.com/Kaushik2210/gitVisualise) · [live](https://kaushik2210.github.io/gitVisualise/) | `JavaScript` | 3d ago | Paste a GitHub link, get an interactive, narrated architecture tour. Website, CLI, Claude Code… |
+| [**Voice-Agents-**](https://github.com/Kaushik2210/Voice-Agents-) | `JavaScript` | 3d ago | _Still cooking._ |
+| [**Deepfake-Detector**](https://github.com/Kaushik2210/Deepfake-Detector) | `Python` | 4d ago | Synthetic-media (deepfake) detection platform — calibrated probabilities and visual evidence… |
 <!--OPS_END-->
 
 <div align="center">
