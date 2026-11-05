@@ -21,7 +21,7 @@ text{font-family:system-ui,-apple-system,'SF Pro Text','Segoe UI',Roboto,'Helvet
 <text x="20" y="142" font-size="18" font-weight="700" fill="#eef4ff">IntentGuard</text>
 <text x="20" y="163" font-size="12" fill="#b4c4e8">Intent-aware, behavioural runtime authorization for</text>
 <text x="20" y="179" font-size="12" fill="#b4c4e8">autonomous AI agents.</text>
-<circle cx="26" cy="247" r="4" fill="#34d399"/><text x="38" y="251" font-size="11" fill="#b4c4e8">Python<tspan fill="#8b9dca">  &#183;  &#9733; 0  &#183;  pushed 2d ago</tspan></text>
+<circle cx="26" cy="247" r="4" fill="#34d399"/><text x="38" y="251" font-size="11" fill="#b4c4e8">Python<tspan fill="#8b9dca">  &#183;  &#9733; 0  &#183;  pushed 3d ago</tspan></text>
 </g>
 <rect x=".5" y=".5" width="404" height="263" rx="16" fill="none" stroke="url(#bdr)" stroke-width="1.2"/>
 </svg>
