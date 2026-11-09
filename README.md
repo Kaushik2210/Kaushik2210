@@ -15,7 +15,7 @@
 <a href="https://github.com/Kaushik2210?tab=repositories"><img src="assets/proof.svg" alt="Proof strip: live sites, repositories, commits this year, best streak and years building, all counted from the GitHub API." width="100%"/></a>
 
 <!--NOW_START-->
-**Now:** shipping [daily-automation-scripts](https://github.com/Kaushik2210/daily-automation-scripts) (Python, pushed today). 30-day challenge: 300 small, tested, cross-platform automation scripts in Python (files, PDFs, GitHub, email, scraping…
+**Now:** shipping [HireOS](https://github.com/Kaushik2210/HireOS) (TypeScript, pushed today). Job-search workspace that shows its evidence: fit scoring, tailored materials without invention, and application…
 <!--NOW_END-->
 
 </div>
@@ -141,14 +141,14 @@ Things people can open and use today. [HireOS](https://hireos-beryl.vercel.app) 
 <!--OPS_START-->
 | Repo | Stack | Last push | Brief |
 |:--|:--|:--|:--|
+| [**HireOS**](https://github.com/Kaushik2210/HireOS) · [live](https://hireos-beryl.vercel.app) | `TypeScript` | today | Job-search workspace that shows its evidence: fit scoring, tailored materials without… |
 | [**daily-automation-scripts**](https://github.com/Kaushik2210/daily-automation-scripts) | `Python` | today | 30-day challenge: 300 small, tested, cross-platform automation scripts in Python (files, PDFs… |
-| [**IntentGuard**](https://github.com/Kaushik2210/IntentGuard) · [live](https://kaushik2210.github.io/IntentGuard/) | `Python` | today | Intent-aware and behavioural runtime authorization for autonomous AI agents |
+| [**IntentGuard**](https://github.com/Kaushik2210/IntentGuard) · [live](https://kaushik2210.github.io/IntentGuard/) | `Python` | yesterday | Intent-aware and behavioural runtime authorization for autonomous AI agents |
 | [**scam-khel**](https://github.com/Kaushik2210/scam-khel) | `Python` | 2d ago | Private family shield against Indian digital-arrest scams: live detection, simulated honeypot… |
-| [**Overrank**](https://github.com/Kaushik2210/Overrank) · [live](https://overrank.vercel.app) | `TypeScript` | 3d ago | Live house-competition platform for campuses: teams earn points, the leaderboard reacts in real… |
-| [**cp-sysdesign-academy**](https://github.com/Kaushik2210/cp-sysdesign-academy) | `MDX` | 4d ago | Open-source interactive course: competitive programming and system design (static site, runs in… |
-| [**HireOS**](https://github.com/Kaushik2210/HireOS) · [live](https://hireos-beryl.vercel.app) | `TypeScript` | 6d ago | Job-search workspace that shows its evidence: fit scoring, tailored materials without… |
-| [**gitVisualise**](https://github.com/Kaushik2210/gitVisualise) · [live](https://kaushik2210.github.io/gitVisualise/) | `JavaScript` | 7d ago | Paste a GitHub link, get an interactive, narrated architecture tour. Website, CLI, Claude Code… |
-| [**Voice-Agents-**](https://github.com/Kaushik2210/Voice-Agents-) | `JavaScript` | 7d ago | _Still cooking._ |
+| [**Overrank**](https://github.com/Kaushik2210/Overrank) · [live](https://overrank.vercel.app) | `TypeScript` | 4d ago | Live house-competition platform for campuses: teams earn points, the leaderboard reacts in real… |
+| [**cp-sysdesign-academy**](https://github.com/Kaushik2210/cp-sysdesign-academy) | `MDX` | 5d ago | Open-source interactive course: competitive programming and system design (static site, runs in… |
+| [**gitVisualise**](https://github.com/Kaushik2210/gitVisualise) · [live](https://kaushik2210.github.io/gitVisualise/) | `JavaScript` | 8d ago | Paste a GitHub link, get an interactive, narrated architecture tour. Website, CLI, Claude Code… |
+| [**Voice-Agents-**](https://github.com/Kaushik2210/Voice-Agents-) | `JavaScript` | 8d ago | _Still cooking._ |
 <!--OPS_END-->
 
 <div align="center">
