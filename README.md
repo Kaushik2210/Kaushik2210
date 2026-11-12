@@ -151,7 +151,7 @@ Things people can open and use today. [HireOS](https://hireos-beryl.vercel.app) 
 | [**aiforge**](https://github.com/Kaushik2210/aiforge) | `TypeScript` | today | Open-source, gamified academy for becoming a production-ready AI engineer |
 | [**daily-automation-scripts**](https://github.com/Kaushik2210/daily-automation-scripts) | `Python` | today | 30-day challenge: 300 small, tested, cross-platform automation scripts in Python (files, PDFs… |
 | [**HireOS**](https://github.com/Kaushik2210/HireOS) · [live](https://hireos-beryl.vercel.app) | `TypeScript` | 3d ago | Job-search workspace that shows its evidence: fit scoring, tailored materials without… |
-| [**IntentGuard**](https://github.com/Kaushik2210/IntentGuard) · [live](https://kaushik2210.github.io/IntentGuard/) | `Python` | 3d ago | Intent-aware and behavioural runtime authorization for autonomous AI agents |
+| [**IntentGuard**](https://github.com/Kaushik2210/IntentGuard) · [live](https://kaushik2210.github.io/IntentGuard/) | `Python` | 4d ago | Intent-aware and behavioural runtime authorization for autonomous AI agents |
 | [**scam-khel**](https://github.com/Kaushik2210/scam-khel) | `Python` | 5d ago | Private family shield against Indian digital-arrest scams: live detection, simulated honeypot… |
 | [**leetcode-study-studio**](https://github.com/Kaushik2210/leetcode-study-studio) | `JavaScript` | 7d ago | Chrome extension: LeetCode themes plus a learning layer (blind mode, hint ladder, spaced… |
 | [**Overrank**](https://github.com/Kaushik2210/Overrank) · [live](https://overrank.vercel.app) | `TypeScript` | 7d ago | Live house-competition platform for campuses: teams earn points, the leaderboard reacts in real… |
