@@ -15,7 +15,7 @@
 <a href="https://github.com/Kaushik2210?tab=repositories"><img src="assets/proof.svg" alt="Proof strip: live sites, repositories, commits this year, best streak and years building, all counted from the GitHub API." width="100%"/></a>
 
 <!--NOW_START-->
-**Now:** shipping [aiforge](https://github.com/Kaushik2210/aiforge) (TypeScript, pushed today). Open-source, gamified academy for becoming a production-ready AI engineer
+**Now:** shipping [scam-khel](https://github.com/Kaushik2210/scam-khel) (Python, pushed today). Private family shield against Indian digital-arrest scams: live detection, simulated honeypot, family alerts, complaint…
 <!--NOW_END-->
 
 </div>
@@ -148,11 +148,11 @@ Things people can open and use today. [HireOS](https://hireos-beryl.vercel.app) 
 <!--OPS_START-->
 | Repo | Stack | Last push | Brief |
 |:--|:--|:--|:--|
-| [**aiforge**](https://github.com/Kaushik2210/aiforge) | `TypeScript` | today | Open-source, gamified academy for becoming a production-ready AI engineer |
-| [**daily-automation-scripts**](https://github.com/Kaushik2210/daily-automation-scripts) | `Python` | today | 30-day challenge: 300 small, tested, cross-platform automation scripts in Python (files, PDFs… |
+| [**scam-khel**](https://github.com/Kaushik2210/scam-khel) | `Python` | today | Private family shield against Indian digital-arrest scams: live detection, simulated honeypot… |
+| [**aiforge**](https://github.com/Kaushik2210/aiforge) | `TypeScript` | yesterday | Open-source, gamified academy for becoming a production-ready AI engineer |
+| [**daily-automation-scripts**](https://github.com/Kaushik2210/daily-automation-scripts) | `Python` | yesterday | 30-day challenge: 300 small, tested, cross-platform automation scripts in Python (files, PDFs… |
 | [**HireOS**](https://github.com/Kaushik2210/HireOS) · [live](https://hireos-beryl.vercel.app) | `TypeScript` | 4d ago | Job-search workspace that shows its evidence: fit scoring, tailored materials without… |
 | [**IntentGuard**](https://github.com/Kaushik2210/IntentGuard) · [live](https://kaushik2210.github.io/IntentGuard/) | `Python` | 5d ago | Intent-aware and behavioural runtime authorization for autonomous AI agents |
-| [**scam-khel**](https://github.com/Kaushik2210/scam-khel) | `Python` | 6d ago | Private family shield against Indian digital-arrest scams: live detection, simulated honeypot… |
 | [**leetcode-study-studio**](https://github.com/Kaushik2210/leetcode-study-studio) | `JavaScript` | 8d ago | Chrome extension: LeetCode themes plus a learning layer (blind mode, hint ladder, spaced… |
 | [**Overrank**](https://github.com/Kaushik2210/Overrank) · [live](https://overrank.vercel.app) | `TypeScript` | 8d ago | Live house-competition platform for campuses: teams earn points, the leaderboard reacts in real… |
 | [**cp-sysdesign-academy**](https://github.com/Kaushik2210/cp-sysdesign-academy) | `MDX` | 9d ago | Open-source interactive course: competitive programming and system design (static site, runs in… |
