@@ -149,8 +149,8 @@ Things people can open and use today. [HireOS](https://hireos-beryl.vercel.app) 
 | Repo | Stack | Last push | Brief |
 |:--|:--|:--|:--|
 | [**daily-automation-scripts**](https://github.com/Kaushik2210/daily-automation-scripts) | `Python` | today | 30-day challenge: 300 small, tested, cross-platform automation scripts in Python (files, PDFs… |
-| [**scam-khel**](https://github.com/Kaushik2210/scam-khel) | `Python` | today | Private family shield against Indian digital-arrest scams: live detection, simulated honeypot… |
-| [**aiforge**](https://github.com/Kaushik2210/aiforge) | `TypeScript` | yesterday | Open-source, gamified academy for becoming a production-ready AI engineer |
+| [**scam-khel**](https://github.com/Kaushik2210/scam-khel) | `Python` | yesterday | Private family shield against Indian digital-arrest scams: live detection, simulated honeypot… |
+| [**aiforge**](https://github.com/Kaushik2210/aiforge) | `TypeScript` | 2d ago | Open-source, gamified academy for becoming a production-ready AI engineer |
 | [**HireOS**](https://github.com/Kaushik2210/HireOS) · [live](https://hireos-beryl.vercel.app) | `TypeScript` | 5d ago | Job-search workspace that shows its evidence: fit scoring, tailored materials without… |
 | [**IntentGuard**](https://github.com/Kaushik2210/IntentGuard) · [live](https://kaushik2210.github.io/IntentGuard/) | `Python` | 6d ago | Intent-aware and behavioural runtime authorization for autonomous AI agents |
 | [**leetcode-study-studio**](https://github.com/Kaushik2210/leetcode-study-studio) | `JavaScript` | 9d ago | Chrome extension: LeetCode themes plus a learning layer (blind mode, hint ladder, spaced… |
