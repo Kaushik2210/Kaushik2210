@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
-"""assets/header.svg: the Night Shift. Your contribution year as a city skyline at night.
+"""assets/header.svg: the Night Shift. Your contribution year as a city skyline under Bangalore's real sky.
 
   one building per week     height = that week's commits
   lit windows               = days you were active that week
   cars on the street        = your recent pushes
   neon sign                 = the name, flickering
   wet-street reflection     = the whole city mirrored and faded
+  the sky                   = Bangalore right now: real time of day and live weather (sky.py)
 
 The skyline grows toward "now": quiet early weeks are low, recent weeks are towers.
 Everything is built from the GitHub API on each run. Pure SMIL, no JavaScript.
@@ -16,7 +17,10 @@ import sys
 from datetime import datetime, timezone
 from xml.sax.saxutils import escape
 
+import os
+
 import common
+import sky
 import theme as t
 
 USER = sys.argv[1] if len(sys.argv) > 1 else "Kaushik2210"
@@ -57,6 +61,15 @@ def main():
     hist, npush = common.push_hours(USER)
     chrono, peak = chronotype(hist)
 
+    s = sky.state()
+    if os.environ.get("SKY_TEST"):  # e.g. SKY_TEST=day:63:90 -> phase, weather code, cloud cover (local previews)
+        ph, code, cc = os.environ["SKY_TEST"].split(":")
+        s.update(phase=ph, code=int(code), cloud=int(cc), desc=sky.WMO.get(int(code), "clear"))
+        s.update(rain=51 <= s["code"] <= 67 or 80 <= s["code"] <= 82 or s["code"] >= 95, storm=s["code"] >= 95,
+                 fog=s["code"] in (45, 48), clouds=s["cloud"] >= 35 or s["code"] in (2, 3))
+    ph = s["phase"]
+    sg = sky.gradient(s, t.SKY_GRAD)
+    ink = "#0b1638" if ph == "day" else t.TEXT  # copy colour that stays readable on a bright sky
     rnd = random.Random(2210)
     pitch = (W - 20) / nw
     bw = pitch - 2.4
@@ -64,33 +77,46 @@ def main():
     tallest = sorted(range(nw), key=lambda i: heights[i], reverse=True)[:3]
 
     alt = (f"A night-time city skyline built from my last {nw} weeks of GitHub activity: one building per week, "
-           f"taller means more commits, lit windows are active days. {streak_txt}, {chrono}, last push {last['name']} {last_ago}.")
+           f"taller means more commits, lit windows are active days. The sky is Bangalore right now ({s['time']} IST, {s['desc']}). {streak_txt}, {chrono}, last push {last['name']} {last_ago}.")
     o = [f'<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 {W} {H}" width="{W}" height="{H}" role="img" aria-label="{escape(alt)}">',
          f"<title>{escape(USER)}: the night shift</title>",
          t.defs(f"""
-<linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="{t.SKY_GRAD[0]}"/><stop offset=".6" stop-color="{t.SKY_GRAD[1]}"/><stop offset="1" stop-color="{t.SKY_GRAD[2]}"/></linearGradient>
+<linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="{sg[0]}"/><stop offset=".6" stop-color="{sg[1]}"/><stop offset="1" stop-color="{sg[2]}"/></linearGradient>
 <radialGradient id="hz"><stop offset="0" stop-color="{t.GLOW[2]}" stop-opacity=".5"/><stop offset="1" stop-color="{t.GLOW[2]}" stop-opacity="0"/></radialGradient>
 <radialGradient id="hb"><stop offset="0" stop-color="{t.GLOW[0]}" stop-opacity=".45"/><stop offset="1" stop-color="{t.GLOW[0]}" stop-opacity="0"/></radialGradient>
 <linearGradient id="beam" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="{t.BEAM}" stop-opacity=".30"/><stop offset="1" stop-color="{t.BEAM}" stop-opacity="0"/></linearGradient>
 <linearGradient id="rf" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".9"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
 <mask id="rm"><rect x="0" y="{STREET + 28}" width="{W}" height="{H - STREET - 28}" fill="url(#rf)"/></mask>
 <mask id="moonm"><rect width="{W}" height="{H}" fill="#fff"/><circle cx="742" cy="62" r="18" fill="#000"/></mask>
+<radialGradient id="sunglow"><stop offset="0" stop-color="#ffd27a" stop-opacity=".75"/><stop offset="1" stop-color="#ffb347" stop-opacity="0"/></radialGradient>
+<linearGradient id="sunfill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff2b8"/><stop offset="1" stop-color="#ff9a4a"/></linearGradient>
 <clipPath id="card"><rect width="{W}" height="{H}" rx="18"/></clipPath>"""),
          '<g clip-path="url(#card)">',
          f'<rect width="{W}" height="{H}" fill="url(#sky)"/>',
          f'<ellipse cx="{W * .62:.0f}" cy="{STREET}" rx="380" ry="150" fill="url(#hz)"/>',
          f'<ellipse cx="170" cy="120" rx="300" ry="170" fill="url(#hb)"><animateTransform attributeName="transform" type="translate" values="0 0;40 14;0 0" dur="22s" repeatCount="indefinite" calcMode="spline" keyTimes="0;.5;1" keySplines=".45 0 .55 1;.45 0 .55 1"/></ellipse>']
 
-    # stars + moon + shooting stars
-    for _ in range(95):
+    # sky: stars + moon at night, sun by day / low sun at dawn and dusk, clouds from real cloud cover
+    nstars = {"night": 95, "dawn": 25, "dusk": 30}.get(ph, 0)
+    nstars = int(nstars * (1 - min(s["cloud"], 95) / 120))
+    for _ in range(nstars):
         o.append(f'<circle cx="{rnd.randint(0, W)}" cy="{rnd.randint(0, 210)}" r="{rnd.choice([.5, .8, 1.1])}" fill="{t.STAR_BG}" opacity="{rnd.uniform(.25, .85):.2f}">'
                  f'<animate attributeName="opacity" values=".2;.95;.2" dur="{rnd.uniform(2.5, 7):.1f}s" begin="-{rnd.uniform(0, 6):.1f}s" repeatCount="indefinite"/></circle>')
-    o.append(f'<circle cx="730" cy="68" r="22" fill="#f4f8ff" mask="url(#moonm)" opacity=".95"/>')
-    for sx, sy, dly in ((140, 54, 4), (520, 36, 12.5)):
-        a = dly / 18
-        o.append(f'<line x1="0" y1="0" x2="-34" y2="-12" stroke="#fff" stroke-width="1.4" stroke-linecap="round" opacity="0">'
-                 f'<animateTransform attributeName="transform" type="translate" values="{sx} {sy};{sx} {sy};{sx + 160} {sy + 56};{sx + 160} {sy + 56}" keyTimes="0;{a:.4f};{a + .04:.4f};1" dur="18s" repeatCount="indefinite"/>'
-                 f'<animate attributeName="opacity" values="0;0;1;0;0" keyTimes="0;{a:.4f};{a + .012:.4f};{a + .04:.4f};1" dur="18s" repeatCount="indefinite"/></line>')
+    if ph == "night":
+        o.append(f'<circle cx="730" cy="68" r="22" fill="#f4f8ff" mask="url(#moonm)" opacity=".95"/>')
+        for sx, sy, dly in ((140, 54, 4), (520, 36, 12.5)):
+            a = dly / 18
+            o.append(f'<line x1="0" y1="0" x2="-34" y2="-12" stroke="#fff" stroke-width="1.4" stroke-linecap="round" opacity="0">'
+                     f'<animateTransform attributeName="transform" type="translate" values="{sx} {sy};{sx} {sy};{sx + 160} {sy + 56};{sx + 160} {sy + 56}" keyTimes="0;{a:.4f};{a + .04:.4f};1" dur="18s" repeatCount="indefinite"/>'
+                     f'<animate attributeName="opacity" values="0;0;1;0;0" keyTimes="0;{a:.4f};{a + .012:.4f};{a + .04:.4f};1" dur="18s" repeatCount="indefinite"/></line>')
+    elif ph == "day":
+        o.append('<circle cx="712" cy="78" r="70" fill="url(#sunglow)"/><circle cx="712" cy="78" r="24" fill="#fff6cf">'
+                 '<animate attributeName="r" values="24;25.5;24" dur="5s" repeatCount="indefinite"/></circle>')
+    else:  # dawn / dusk: a big low sun sitting behind the city
+        sx_ = 300 if ph == "dawn" else 600
+        o.append(f'<circle cx="{sx_}" cy="{STREET - 20}" r="150" fill="url(#sunglow)"/>'
+                 f'<circle cx="{sx_}" cy="{STREET - 20}" r="52" fill="url(#sunfill)" opacity=".95"/>')
+    o.append(sky.clouds(s, W))
 
     # ---------------- the city (one group, reused for the reflection) ----------------
     c = [f'<g id="city">']
@@ -147,8 +173,14 @@ def main():
     o.append(f'<g mask="url(#rm)"><use href="#city" xlink:href="#city" transform="translate(0,{2 * STREET + 28}) scale(1,-1)" opacity=".34"/></g>')
     o.append(f'<rect x="0" y="{STREET + 28}" width="{W}" height="1" fill="{t.A1}" opacity=".25"/>')
 
+    # live weather over the city
+    o.append(sky.fog(s, W, STREET))
+    o.append(sky.rain(s, W, H))
+
     # neon name + copy
     o.append(f'<text x="50" y="82" class="mono" font-size="12" letter-spacing="3" fill="{t.A3}">FULL-STACK  &#183;  SECURITY  &#183;  BANGALORE</text>')
+    if ph == "day":
+        o.append(f'<text x="47" y="182" font-size="104" font-weight="800" letter-spacing="-4" fill="#071233" opacity=".35">{NAME}</text>')
     o.append(f'<g><text x="44" y="178" font-size="104" font-weight="800" letter-spacing="-4" fill="url(#aurora)" filter="url(#glow)" opacity=".75">{NAME}</text>'
              f'<text x="44" y="178" font-size="104" font-weight="800" letter-spacing="-4" fill="url(#aurora)">{NAME}</text>'
              f'<animate attributeName="opacity" values="1;1;.55;1;.72;1;.9;1" keyTimes="0;.5;.52;.54;.56;.58;.6;1" dur="9s" repeatCount="indefinite"/></g>')
@@ -156,8 +188,12 @@ def main():
     for i, r in enumerate(ROLES):
         a, b = i / len(ROLES), (i + 1) / len(ROLES)
         kt = f"0;{a:.3f};{a + .03:.3f};{b - .04:.3f};{b - .01:.3f};1" if i else f"0;0;.03;{b - .04:.3f};{b - .01:.3f};1"
-        o.append(f'<text x="50" y="216" font-size="{t.T_TITLE + 2}" fill="{t.TEXT}" opacity="0">{escape(r)}'
+        o.append(f'<text x="50" y="216" font-size="{t.T_TITLE + 2}" fill="{ink}" opacity="0">{escape(r)}'
                  f'<animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="{kt}" dur="{cyc}s" repeatCount="indefinite"/></text>')
+
+    # live sky chip
+    o.append(f'<text x="{W - 26}" y="34" class="mono" font-size="10.5" letter-spacing="1.5" text-anchor="end" fill="{ink}" opacity=".85">'
+             f'<tspan fill="{t.GREEN}">●</tspan> {escape(sky.label(s))}</text>')
 
     # status line
     o.append(f'<circle cx="30" cy="{H - 17}" r="3.5" fill="{t.GREEN}"><animate attributeName="opacity" values="1;.25;1" dur="2.4s" repeatCount="indefinite"/></circle>')
@@ -167,7 +203,7 @@ def main():
     o.append("</svg>")
     with open(OUT, "w", encoding="utf-8") as f:
         f.write("\n".join(o))
-    print(f"wrote {OUT}: {nw} buildings, tallest {max(tot)} commits/wk, {ncars} cars, {chrono} peak {peak}h, streak {cur}, {sum(len(x) for x in o) // 1024} KB")
+    print(f"wrote {OUT}: sky {ph}/{s['desc']}, {nw} buildings, tallest {max(tot)} commits/wk, {ncars} cars, {chrono} peak {peak}h, streak {cur}, {sum(len(x) for x in o) // 1024} KB")
 
 
 if __name__ == "__main__":
