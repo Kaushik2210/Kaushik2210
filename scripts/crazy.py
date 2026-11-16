@@ -1,4 +1,4 @@
-"""The loud parts: the neon heatmap city, the boot terminal, the square wall and the CTF banner."""
+"""The loud parts: the synthwave city, the square wall and the CTF banner."""
 
 import json
 import math
@@ -6,13 +6,11 @@ import random
 from html import escape
 from pathlib import Path
 
-from build import FONT, MONO, THEMES, ago, cell, streaks, svg
+import palette as P
+from build import FONT, cell, streaks, svg
 
 ROOT = Path(__file__).resolve().parent.parent
-DARK = THEMES["dark"]
-G = DARK["lv"]
-NEON = "#39d353"
-CITY = ["#1b222c", "#1a7f37", "#2ea043", "#3fb950", "#56d364"]
+TOWER = ["#241a4d", "#4c1d95", "#a21caf", "#ff2a6d", "#05d9e8"]
 
 
 def shade(hex_color, k):
@@ -36,57 +34,108 @@ def pixel_word(word, x0, y0, px, gap, fill, cls=""):
 
 
 def city(data):
-    W, H = 1200, 600
+    W, H = 1200, 660
     weeks = data["weeks"]
     cols = len(weeks)
     rnd = random.Random(7)
     hi = max((d[1] for w in weeks for d in w), default=1) or 1
     best, cur, active, top = streaks(weeks)
+    base = 480          # front row baseline = horizon of the grid floor
+    sun_cx, sun_cy, sun_r = 640, 400, 170
 
     defs = (
         '<defs>'
         '<linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">'
-        '<stop offset="0" stop-color="#010409"/><stop offset=".62" stop-color="#0b1a12"/>'
-        '<stop offset="1" stop-color="#0d1117"/></linearGradient>'
-        '<radialGradient id="glow" cx=".5" cy=".86" r=".6">'
-        f'<stop offset="0" stop-color="{NEON}" stop-opacity=".28"/><stop offset="1" stop-color="{NEON}" stop-opacity="0"/>'
+        '<stop offset="0" stop-color="#05010f"/><stop offset=".45" stop-color="#1a0638"/>'
+        '<stop offset=".72" stop-color="#4a0b5e"/><stop offset=".73" stop-color="#0b0221"/>'
+        '<stop offset="1" stop-color="#0b0221"/></linearGradient>'
+        '<linearGradient id="sun" x1="0" y1="0" x2="0" y2="1">'
+        f'<stop offset="0" stop-color="{P.YELLOW}"/><stop offset=".55" stop-color="{P.ORANGE}"/>'
+        f'<stop offset="1" stop-color="{P.PINK}"/></linearGradient>'
+        '<linearGradient id="sign" gradientUnits="userSpaceOnUse" x1="64" y1="0" x2="640" y2="0">'
+        f'<stop offset="0" stop-color="{P.PINK}"/><stop offset=".5" stop-color="#ff6ad5"/>'
+        f'<stop offset="1" stop-color="{P.CYAN}"/></linearGradient>'
+        '<radialGradient id="haze" cx=".53" cy=".72" r=".55">'
+        f'<stop offset="0" stop-color="{P.PINK}" stop-opacity=".45"/><stop offset="1" stop-color="{P.PINK}" stop-opacity="0"/>'
         '</radialGradient>'
         '<linearGradient id="beam" x1="0" y1="0" x2="1" y2="0">'
-        f'<stop offset="0" stop-color="{NEON}" stop-opacity="0"/><stop offset=".5" stop-color="{NEON}" stop-opacity=".22"/>'
-        f'<stop offset="1" stop-color="{NEON}" stop-opacity="0"/></linearGradient>'
+        f'<stop offset="0" stop-color="{P.CYAN}" stop-opacity="0"/><stop offset=".5" stop-color="{P.CYAN}" stop-opacity=".2"/>'
+        f'<stop offset="1" stop-color="{P.CYAN}" stop-opacity="0"/></linearGradient>'
         '<linearGradient id="up" x1="0" y1="1" x2="0" y2="0">'
-        f'<stop offset="0" stop-color="{NEON}" stop-opacity=".9"/><stop offset="1" stop-color="{NEON}" stop-opacity="0"/>'
+        f'<stop offset="0" stop-color="{P.CYAN}" stop-opacity=".95"/><stop offset="1" stop-color="{P.CYAN}" stop-opacity="0"/>'
         '</linearGradient>'
-        '<filter id="neon" x="-20%" y="-40%" width="140%" height="180%">'
-        '<feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="b"/>'
+        '<linearGradient id="fade" x1="0" y1="0" x2="0" y2="1">'
+        '<stop offset="0" stop-color="#fff" stop-opacity=".15"/><stop offset="1" stop-color="#fff"/></linearGradient>'
+        f'<mask id="floorfade"><rect x="0" y="{base}" width="{W}" height="{H - base}" fill="url(#fade)"/></mask>'
+        f'<clipPath id="floor"><rect x="0" y="{base + 2}" width="{W}" height="{H - base}"/></clipPath>'
+        f'<clipPath id="above"><rect width="{W}" height="{base}"/></clipPath>'
+        f'<clipPath id="card"><rect width="{W}" height="{H}" rx="14"/></clipPath>'
+        '<filter id="glow" x="-20%" y="-40%" width="140%" height="180%">'
+        '<feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="b"/>'
         '<feMergeNode in="SourceGraphic"/></feMerge></filter>'
+        '<filter id="soft"><feGaussianBlur stdDeviation="2.2"/></filter>'
         '</defs>')
-    out = [defs, f'<rect width="{W}" height="{H}" rx="14" fill="url(#sky)"/>',
-           f'<rect width="{W}" height="{H}" rx="14" fill="url(#glow)"/>']
+    out = [defs, '<g clip-path="url(#card)">', f'<rect width="{W}" height="{H}" fill="url(#sky)"/>']
 
-    for _ in range(90):  # stars
-        x, y = rnd.uniform(10, W - 10), rnd.uniform(10, 260)
-        out.append(f'<circle class="tw" cx="{x:.0f}" cy="{y:.0f}" r="{rnd.choice((0.6, 0.9, 1.2))}" fill="#c9d1d9" '
+    for _ in range(110):  # stars, only in the upper sky
+        x, y = rnd.uniform(10, W - 10), rnd.uniform(10, 300)
+        out.append(f'<circle class="tw" cx="{x:.0f}" cy="{y:.0f}" r="{rnd.choice((0.6, 0.9, 1.3))}" fill="#fff" '
                    f'style="animation-delay:{rnd.uniform(0, 4):.1f}s"/>')
 
+    # Striped sunset sun
+    out.append('<g clip-path="url(#above)">')
+    out.append(f'<circle cx="{sun_cx}" cy="{sun_cy}" r="{sun_r + 30}" fill="{P.PINK}" opacity=".18" filter="url(#soft)"/>')
+    stripes = []
+    for i in range(9):
+        y = sun_cy + 10 + i * 17
+        stripes.append(f'<rect x="{sun_cx - sun_r}" y="{y}" width="{sun_r * 2}" height="{2 + i * 1.3:.1f}" fill="#000"/>')
+    out.append(f'<mask id="sunmask"><rect x="0" y="0" width="{W}" height="{H}" fill="#fff"/>{"".join(stripes)}</mask>'
+               f'<circle cx="{sun_cx}" cy="{sun_cy}" r="{sun_r}" fill="url(#sun)" mask="url(#sunmask)" class="sunp"/></g>')
+
+    # Wireframe mountains on the horizon
+    for layer, (amp, col, op) in enumerate(((95, P.PURPLE, .55), (60, "#5b1a8f", .9))):
+        pts, x = [], -20
+        r2 = random.Random(layer + 3)
+        while x <= W + 20:
+            pts.append(f"{x},{base - 4 - r2.uniform(0.2, 1) * amp * (0.55 + 0.45 * math.sin(x / 140 + layer)):.1f}")
+            x += r2.randint(40, 90)
+        out.append(f'<polygon points="-20,{base} {" ".join(pts)} {W + 20},{base}" fill="#12052e" '
+                   f'stroke="{col}" stroke-width="1.5" stroke-opacity="{op}"/>')
+    out.append(f'<rect width="{W}" height="{H}" fill="url(#haze)"/>')
+
     # Neon sign
-    out.append(f'<g filter="url(#neon)">{pixel_word("KAUSHIK", 64, 54, 11, 3, NEON, "sign")}</g>')
-    out.append(f'<text class="m" x="64" y="178" font-size="15" fill="{G[3]}" letter-spacing="1">'
+    out.append(f'<g filter="url(#glow)">{pixel_word("KAUSHIK", 64, 52, 11, 3, "url(#sign)", "sign")}</g>')
+    out.append(f'<text class="m" x="64" y="176" font-size="15" fill="{P.CYAN}" letter-spacing="1.5">'
                '&gt; full-stack + security engineer // blank repo to live demo</text>')
 
     # HUD
     hud = [("COMMITS", f"{data['total']:,}"), ("BEST STREAK", f"{best}d"),
            ("ACTIVE DAYS", f"{active}"), ("REPOS", f"{data['repos']}")]
     for i, (k, v) in enumerate(hud):
-        x, y = 860 + (i % 2) * 150, 50 + (i // 2) * 66
-        out.append(f'<rect x="{x}" y="{y}" width="138" height="54" rx="6" fill="#0d1117" fill-opacity=".7" '
-                   f'stroke="{G[2]}"/><text class="m" x="{x + 12}" y="{y + 19}" font-size="10" '
-                   f'letter-spacing="1.5" fill="{G[3]}">{k}</text><text class="m" x="{x + 12}" y="{y + 43}" '
-                   f'font-size="20" font-weight="700" fill="#e6edf3">{v}</text>')
+        x, y = 860 + (i % 2) * 150, 48 + (i // 2) * 66
+        out.append(f'<rect x="{x}" y="{y}" width="138" height="54" rx="6" fill="{P.BG}" fill-opacity=".75" '
+                   f'stroke="{P.PINK}" stroke-opacity=".7"/><text class="m" x="{x + 12}" y="{y + 19}" font-size="10" '
+                   f'letter-spacing="1.5" fill="{P.CYAN}">{k}</text><text class="m" x="{x + 12}" y="{y + 43}" '
+                   f'font-size="20" font-weight="700" fill="{P.TEXT}">{v}</text>')
 
-    # Towers: oblique projection, back rows first.
+    # Grid floor: converging verticals + horizontals that roll toward the viewer
+    vx, vy = sun_cx, base - 60
+    floor = [f'<rect x="0" y="{base}" width="{W}" height="{H - base}" fill="#0b0221"/>']
+    for i in range(-24, 25):
+        x2 = vx + i * 70
+        floor.append(f'<path d="M{vx} {vy}L{x2 * 3 - vx * 2} {H + (H - vy) * 2}" stroke="{P.PINK}" stroke-width="1.2"/>')
+    rows_ = []
+    for k in range(14):
+        y = base + 4 + (k ** 1.85) * 2.6
+        rows_.append(f'<path d="M0 {y:.1f}H{W}" stroke="{P.CYAN}" stroke-width="{0.8 + k * 0.12:.2f}"/>')
+    floor.append(f'<g class="roll">{"".join(rows_)}</g>')
+    out.append(f'<g clip-path="url(#floor)" mask="url(#floorfade)" opacity=".85">{"".join(floor)}</g>')
+    out.append(f'<path d="M0 {base + 1}H{W}" stroke="{P.PINK}" stroke-width="2" filter="url(#glow)"/>')
+
+    # Towers: oblique projection, back rows first
     dx, bw, sx, sy, dz = 19.2, 13, 7, 8, 6
-    ox, base = 74, 540
+    ox = 74
+    last_day = max(dd[0] for w in weeks for dd in w)
     today = None
     for r in range(6, -1, -1):
         for c in range(cols):
@@ -95,120 +144,71 @@ def city(data):
                 continue
             d, n, lv = day
             x0, y0 = ox + c * dx + r * sx, base - r * sy
-            h = 3 if n == 0 else 12 + 150 * math.sqrt(n / hi)
-            topc = CITY[lv] if n else "#1b222c"
+            h = 3 if n == 0 else 12 + 160 * math.sqrt(n / hi)
+            topc = TOWER[lv] if n else "#1a1236"
             parts = [
-                f'<rect x="{x0:.1f}" y="{y0 - h:.1f}" width="{bw}" height="{h:.1f}" fill="{shade(topc, .72)}"/>',
-                f'<path d="M{x0 + bw:.1f} {y0:.1f}V{y0 - h:.1f}l{dz} {-dz}V{y0 - dz:.1f}z" fill="{shade(topc, .48)}"/>',
+                f'<rect x="{x0:.1f}" y="{y0 - h:.1f}" width="{bw}" height="{h:.1f}" fill="{shade(topc, .55)}"/>',
+                f'<path d="M{x0 + bw:.1f} {y0:.1f}V{y0 - h:.1f}l{dz} {-dz}V{y0 - dz:.1f}z" fill="{shade(topc, .32)}"/>',
                 f'<path d="M{x0:.1f} {y0 - h:.1f}h{bw}l{dz} {-dz}h{-bw}z" fill="{topc}"/>',
             ]
+            if n and h > 30:  # neon edge on the front-left
+                parts.append(f'<path d="M{x0:.1f} {y0:.1f}V{y0 - h:.1f}" stroke="{topc}" stroke-width="1" opacity=".9"/>')
             if lv >= 3 and h > 40:  # lit windows
                 for wy in range(int(y0 - h + 7), int(y0 - 6), 9):
                     for wx in (x0 + 3, x0 + 8):
                         if rnd.random() < 0.55:
                             cls = ' class="win"' if rnd.random() < 0.12 else ""
-                            parts.append(f'<rect{cls} x="{wx:.1f}" y="{wy}" width="2.4" height="3.2" fill="#d2ffd9" '
-                                         f'opacity=".75" style="animation-delay:{rnd.uniform(0, 5):.1f}s"/>')
+                            wc = "#ffe3f1" if lv == 3 else "#d9fbff"
+                            parts.append(f'<rect{cls} x="{wx:.1f}" y="{wy}" width="2.4" height="3.2" fill="{wc}" '
+                                         f'opacity=".8" style="animation-delay:{rnd.uniform(0, 5):.1f}s"/>')
             delay = c * 0.025 + (6 - r) * 0.04
             out.append(f'<g class="t" style="animation-delay:{delay:.2f}s">{"".join(parts)}</g>')
-            if d == max(dd[0] for w in weeks for dd in w):
+            if d == last_day:
                 today = (x0 + bw / 2 + dz / 2, y0 - h - dz / 2)
 
-    # Ground line and month labels
-    out.append(f'<path d="M40 {base + 4}H{W - 40}" stroke="{G[2]}" stroke-opacity=".6"/>')
     last = None
     for c, wk in enumerate(weeks):
         dd = wk[0][0]
         if dd.month != last and dd.day <= 7:
-            out.append(f'<text class="m" x="{ox + c * dx}" y="{base + 22}" font-size="11" fill="{G[3]}">'
-                       f'{dd.strftime("%b").upper()}</text>')
+            out.append(f'<text class="m" x="{ox + c * dx}" y="{base + 20}" font-size="11" fill="{P.TEXT}" '
+                       f'opacity=".85">{dd.strftime("%b").upper()}</text>')
         last = dd.month
 
     if today:
         tx, ty = today
         out.append(f'<rect x="{tx - 1.5:.1f}" y="{ty - 150:.1f}" width="3" height="150" fill="url(#up)" class="beacon"/>'
-                   f'<circle cx="{tx:.1f}" cy="{ty:.1f}" r="4" fill="{NEON}"><animate attributeName="r" values="3;10;3" '
+                   f'<circle cx="{tx:.1f}" cy="{ty:.1f}" r="4" fill="{P.CYAN}"><animate attributeName="r" values="3;10;3" '
                    f'dur="1.6s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;.2;1" dur="1.6s" '
                    f'repeatCount="indefinite"/></circle>'
-                   f'<text class="m" x="{tx - 10:.1f}" y="{ty - 158:.1f}" font-size="11" fill="{NEON}" text-anchor="end">'
+                   f'<text class="m" x="{tx - 10:.1f}" y="{ty - 158:.1f}" font-size="11" fill="{P.CYAN}" text-anchor="end">'
                    'TODAY ▸</text>')
 
-    out.append(f'<rect class="sweep" x="-160" y="190" width="160" height="{base - 180}" fill="url(#beam)"/>')
-    out.append(f'<text class="m" x="64" y="{H - 18}" font-size="11" fill="#8b949e">'
+    out.append(f'<rect class="sweep" x="-160" y="190" width="160" height="{base - 190}" fill="url(#beam)"/>')
+    out.append(f'<rect x="0" y="{H - 34}" width="{W}" height="34" fill="{P.BG}" opacity=".7"/>'
+               f'<text class="m" x="64" y="{H - 13}" font-size="11" fill="{P.MUTED}">'
                f'one tower = one day of my last year · height = commits · peak {top[1]} on '
                f'{top[0].strftime("%d %b %Y")}</text>')
+    out.append("</g>")
 
     desc_file = ROOT / "ctf" / "desc.hex"
     desc = desc_file.read_text().strip() if desc_file.exists() else ""
-
+    step = (base + 4 + 13 ** 1.85 * 2.6) - (base + 4 + 12 ** 1.85 * 2.6)
     css = (
         "@keyframes rise{from{transform:scaleY(.02)}to{transform:scaleY(1)}}"
         ".t{transform-box:fill-box;transform-origin:50% 100%;animation:rise 1.3s cubic-bezier(.2,.9,.25,1) both}"
         "@keyframes tw{0%,100%{opacity:.9}50%{opacity:.15}}.tw{animation:tw 3.5s ease-in-out infinite}"
-        "@keyframes flick{0%,17%,21%,24%,52%,56%,100%{opacity:1}19%,23%,54%{opacity:.25}}"
+        "@keyframes flick{0%,17%,21%,24%,52%,56%,100%{opacity:1}19%,23%,54%{opacity:.3}}"
         ".sign{animation:flick 6s linear infinite}"
-        "@keyframes win{0%,100%{opacity:.8}50%{opacity:.05}}.win{animation:win 2.8s steps(2) infinite}"
+        "@keyframes win{0%,100%{opacity:.85}50%{opacity:.05}}.win{animation:win 2.8s steps(2) infinite}"
         f"@keyframes sweep{{from{{transform:translateX(0)}}to{{transform:translateX({W + 160}px)}}}}"
         ".sweep{animation:sweep 7s linear infinite}"
+        "@keyframes roll{from{transform:translateY(0)}to{transform:translateY(" + f"{step:.1f}" + "px)}}"
+        ".roll{animation:roll 1.2s linear infinite}"
+        "@keyframes sunp{0%,100%{opacity:1}50%{opacity:.86}}.sunp{animation:sunp 4s ease-in-out infinite}"
         "@keyframes beacon{0%,100%{opacity:.9}50%{opacity:.3}}.beacon{animation:beacon 1.6s ease-in-out infinite}")
     body = f"<desc>{desc}</desc>" + "".join(out)
-    return svg(W, H, body, f"A neon city built from my contribution calendar: one tower per day, "
-               f"{data['total']:,} contributions in the last year, with KAUSHIK on a flickering sign.", css)
-
-
-# ---------------------------------------------------------------- boot terminal
-
-
-def terminal(data):
-    W, pad, lh = 1000, 26, 26
-    latest = data["latest"]
-    names = "  ".join(p["name"] for p in data["projects"][:6])
-    lines = [
-        ("cmd", "whoami"),
-        ("out", "kaushik · full-stack + security engineer · bangalore, IN"),
-        ("cmd", "git log --author=kaushik --since=1.year --oneline | wc -l"),
-        ("out", f"{data['total']}"),
-        ("cmd", "ls ~/shipped"),
-        ("out", names + "  ..."),
-        ("cmd", "git log -1 --format='%s'  # what I'm building right now"),
-        ("out", f"{latest['name']} · {ago((latest.get('pushed_at') or '')[:10])}"),
-        ("cmd", "cat ./status"),
-        ("hot", "OPEN TO → internships · freelance · project-based roles"),
-    ]
-    H = 58 + len(lines) * lh + 34
-    out = [f'<rect width="{W}" height="{H}" rx="12" fill="#010409" stroke="#30363d"/>',
-           f'<path d="M0 12a12 12 0 0 1 12-12h{W - 24}a12 12 0 0 1 12 12v22H0z" fill="#161b22"/>']
-    for i, col in enumerate(("#ff5f57", "#febc2e", "#28c840")):
-        out.append(f'<circle cx="{22 + i * 20}" cy="17" r="6" fill="{col}"/>')
-    out.append(f'<text class="m" x="{W / 2}" y="22" font-size="12" fill="#8b949e" text-anchor="middle">'
-               'kaushik@github: ~ — zsh</text>')
-    t, cw = 0.6, 9.03
-    for i, (kind, text) in enumerate(lines):
-        y = 62 + i * lh
-        if kind == "cmd":
-            out.append(f'<g opacity="0"><set attributeName="opacity" to="1" begin="{t:.2f}s" fill="freeze"/>'
-                       f'<text class="m" x="{pad}" y="{y}" font-size="15" fill="{NEON}">❯</text></g>')
-            width = len(text) * cw + 4
-            dur = max(0.4, len(text) * 0.035)
-            out.append(f'<clipPath id="c{i}"><rect x="{pad + 20}" y="{y - 16}" height="22" width="0">'
-                       f'<animate attributeName="width" from="0" to="{width:.0f}" begin="{t:.2f}s" dur="{dur:.2f}s" '
-                       f'fill="freeze"/></rect></clipPath>'
-                       f'<text class="m" x="{pad + 20}" y="{y}" font-size="15" fill="#e6edf3" clip-path="url(#c{i})">'
-                       f'{escape(text)}</text>')
-            t += dur + 0.25
-        else:
-            fill = {"out": "#8b949e", "hot": NEON}[kind]
-            weight = ' font-weight="700"' if kind == "hot" else ""
-            out.append(f'<text class="m" x="{pad + 20}" y="{y}" font-size="15" fill="{fill}"{weight} opacity="0">'
-                       f'{escape(text)}<set attributeName="opacity" to="1" begin="{t:.2f}s" fill="freeze"/></text>')
-            t += 0.45
-    y = 62 + len(lines) * lh
-    out.append(f'<g opacity="0"><set attributeName="opacity" to="1" begin="{t:.2f}s" fill="freeze"/>'
-               f'<text class="m" x="{pad}" y="{y}" font-size="15" fill="{NEON}">❯</text>'
-               f'<rect class="cur" x="{pad + 20}" y="{y - 14}" width="9" height="18" fill="{NEON}"/></g>')
-    css = "@keyframes cur{0%,49%{opacity:1}50%,100%{opacity:0}}.cur{animation:cur 1s steps(1) infinite}"
-    return svg(W, H, "".join(out), "Terminal: kaushik, full-stack and security engineer in Bangalore. "
-               f"{data['total']} contributions this year. Open to internships, freelance and project-based roles.", css)
+    return svg(W, H, body, f"A synthwave city built from my contribution calendar: one neon tower per day under a "
+               f"striped sunset, {data['total']:,} contributions in the last year, with KAUSHIK on a flickering sign.", css)
 
 
 # ---------------------------------------------------------------- square wall
@@ -236,11 +236,11 @@ def wall(t, visitors):
             out.append(cell(x, y, size, t["lv"][lv], cls))
         elif i == n:
             out.append(f'<rect class="slot" x="{x + 1}" y="{y + 1}" width="{size - 2}" height="{size - 2}" rx="2" '
-                       f'fill="none" stroke="{t["lv"][4]}" stroke-width="1.6"/>')
+                       f'fill="none" stroke="{P.CYAN}" stroke-width="1.6"/>')
         else:
             out.append(cell(x, y, size, t["lv"][0]))
     lx = gx + cols * pitch + 24
-    out.append(f'<text class="m" x="{lx}" y="{gy + 10}" font-size="11" letter-spacing="1.5" fill="{t["lv"][3]}">LATEST</text>')
+    out.append(f'<text class="m" x="{lx}" y="{gy + 10}" font-size="11" letter-spacing="1.5" fill="{P.PINK}">LATEST</text>')
     for j, v in enumerate(reversed(visitors[-5:])):
         y = gy + 34 + j * 20
         out.append(cell(lx, y - 11, 11, t["lv"][max(1, min(4, int(v.get("level", 3))))]))
@@ -248,7 +248,7 @@ def wall(t, visitors):
                    f'<tspan font-weight="600">@{escape(v["login"])}</tspan>'
                    f'<tspan fill="{t["muted"]}">  {escape(v["msg"][:28])}</tspan></text>')
     H = gy + rows * pitch + 18
-    out[0] = f'<rect width="{W}" height="{H}" rx="12" fill="{t["bg"]}"/>'
+    out[0] = f'<rect width="{W}" height="{H}" rx="12" fill="{t["bg"]}" stroke="{P.BORDER}"/>'
     css = ("@keyframes new{0%,100%{opacity:1}50%{opacity:.4}}.new{animation:new 1.6s ease-in-out infinite}"
            "@keyframes slot{0%,100%{opacity:1}50%{opacity:.2}}.slot{animation:slot 1s steps(2) infinite}")
     return svg(W, H, "".join(out), f"The square wall: {n} lit square{'' if n == 1 else 's'} so far. "
@@ -263,19 +263,22 @@ def ctf_banner(stage1, solved):
     bits = "".join(f"{ord(ch):08b}" for ch in stage1)
     rnd = random.Random(31)
     ox = (W - cols * pitch) / 2 + 2
-    out = [f'<rect width="{W}" height="230" rx="12" fill="#010409" stroke="#30363d"/>']
+    out = ['<defs><linearGradient id="t" x1="0" y1="0" x2="1" y2="0">'
+           f'<stop offset="0" stop-color="{P.PINK}"/><stop offset="1" stop-color="{P.CYAN}"/></linearGradient></defs>',
+           f'<rect width="{W}" height="230" rx="12" fill="{P.BG}" stroke="{P.BORDER}"/>']
     for i in range(cols * rows):
         b = bits[i % len(bits)]
         x, y = ox + (i % cols) * pitch, 22 + (i // cols) * pitch
         lv = rnd.choice((3, 4)) if b == "1" else rnd.choice((0, 0, 1))
         cls = ' class="fl"' if rnd.random() < 0.08 else ""
-        out.append(cell(x, y, size, G[lv], cls + f' style="animation-delay:{rnd.uniform(0, 3):.1f}s"'))
-    out.append(f'<rect x="{W / 2 - 250}" y="58" width="500" height="64" rx="8" fill="#010409" fill-opacity=".88" stroke="{NEON}"/>'
-               f'<text class="m g" x="{W / 2}" y="98" font-size="22" font-weight="700" fill="{NEON}" text-anchor="middle" '
+        out.append(cell(x, y, size, P.LV[lv], cls + f' style="animation-delay:{rnd.uniform(0, 3):.1f}s"'))
+    out.append(f'<rect x="{W / 2 - 250}" y="58" width="500" height="64" rx="8" fill="{P.BG}" fill-opacity=".9" '
+               'stroke="url(#t)" stroke-width="2"/>'
+               f'<text class="m g" x="{W / 2}" y="98" font-size="22" font-weight="700" fill="url(#t)" text-anchor="middle" '
                'letter-spacing="4">INTERCEPTED TRANSMISSION</text>')
-    out.append(f'<text class="m" x="{W / 2}" y="180" font-size="13" fill="#8b949e" text-anchor="middle">'
+    out.append(f'<text class="m" x="{W / 2}" y="180" font-size="13" fill="{P.MUTED}" text-anchor="middle">'
                'bright square = 1, dark square = 0 · three stages · one flag · a Hall of Fame</text>'
-               f'<text class="m" x="{W / 2}" y="204" font-size="13" fill="{G[3]}" text-anchor="middle">'
+               f'<text class="m" x="{W / 2}" y="204" font-size="13" fill="{P.CYAN}" text-anchor="middle">'
                f'{solved} operator{"s" if solved != 1 else ""} cracked it so far. you could be next.</text>')
     css = ("@keyframes fl{0%,100%{opacity:1}50%{opacity:.1}}.fl{animation:fl .9s steps(2) infinite}"
            "@keyframes g{0%,92%,100%{transform:none}94%{transform:translateX(-3px)}96%{transform:translateX(3px)}}"

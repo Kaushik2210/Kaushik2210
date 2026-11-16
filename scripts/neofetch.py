@@ -6,10 +6,11 @@ import random
 import urllib.request
 from html import escape
 
+import palette as P
 from build import MONO, ago, streaks, svg
 
-G = ["#161b22", "#0e4429", "#006d32", "#26a641", "#39d353"]
-NEON = "#39d353"
+G = P.LV
+NEON = P.CYAN
 
 # 5x7 pixel font
 F = {
@@ -46,8 +47,10 @@ def pixels(text, x0, y0, px, gap, colors, rnd):
 def banner(text, sub=""):
     W, H = 1000, 100
     rnd = random.Random(text)
-    body, end = pixels(text, 4, 14, 7, 2, [G[3], G[4], G[4]], rnd)
-    out = [f'<g class="p">{body}</g>']
+    body, end = pixels(text, 4, 14, 7, 2, ["url(#bt)"], rnd)
+    out = [f'<defs><linearGradient id="bt" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="{end}" y2="0">'
+           f'<stop offset="0" stop-color="{P.PINK}"/><stop offset=".55" stop-color="#ff6ad5"/>'
+           f'<stop offset="1" stop-color="{P.CYAN}"/></linearGradient></defs>', f'<g class="p">{body}</g>']
     # trailing contribution strip, a wave runs through it
     x, i = end + 14, 0
     while x < W - 10:
@@ -59,7 +62,7 @@ def banner(text, sub=""):
         i += 1
     if sub:
         out.append(f'<rect x="{W - len(sub) * 7.3 - 26}" y="{H - 24}" width="{len(sub) * 7.3 + 22}" height="20" rx="4" '
-                   f'fill="#0d1117"/><text class="m" x="{W - 15}" y="{H - 8}" font-size="12" fill="#8b949e" '
+                   f'fill="{P.BG}"/><text class="m" x="{W - 15}" y="{H - 8}" font-size="12" fill="{P.MUTED}" '
                    f'text-anchor="end">{escape(sub)}</text>')
     css = ("@keyframes w{0%,100%{opacity:1}50%{opacity:.25}}.w{animation:w 2.6s ease-in-out infinite}"
            "@keyframes p{0%,94%,100%{opacity:1}96%{opacity:.4}}.p{animation:p 5s linear infinite}")
@@ -92,11 +95,11 @@ def neofetch(data):
     lv = avatar_levels(data["avatar"])
     n = len(lv)
     pitch, size, ox, oy = 14, 12, 34, 62
-    out = [f'<rect width="{W}" height="{H}" rx="12" fill="#010409" stroke="#30363d"/>',
-           f'<path d="M0 12a12 12 0 0 1 12-12h{W - 24}a12 12 0 0 1 12 12v22H0z" fill="#161b22"/>']
+    out = [f'<rect width="{W}" height="{H}" rx="12" fill="{P.BG}" stroke="{P.BORDER}"/>',
+           f'<path d="M0 12a12 12 0 0 1 12-12h{W - 24}a12 12 0 0 1 12 12v22H0z" fill="#1a0b3d"/>']
     for i, col in enumerate(("#ff5f57", "#febc2e", "#28c840")):
         out.append(f'<circle cx="{22 + i * 20}" cy="17" r="6" fill="{col}"/>')
-    out.append(f'<text class="m" x="{W / 2}" y="22" font-size="12" fill="#8b949e" text-anchor="middle">'
+    out.append(f'<text class="m" x="{W / 2}" y="22" font-size="12" fill="{P.MUTED}" text-anchor="middle">'
                'kaushik@github: ~ — neofetch</text>')
     for r in range(n):
         for c in range(n):
@@ -130,15 +133,15 @@ def neofetch(data):
         d = f' style="animation-delay:{0.4 + i * 0.12:.2f}s"'
         if k == "title":
             out.append(f'<text class="m l" x="{tx}" y="{y}" font-size="17" font-weight="700"{d}>'
-                       f'<tspan fill="{NEON}">kaushik</tspan><tspan fill="#e6edf3">@</tspan>'
+                       f'<tspan fill="{P.PINK}">kaushik</tspan><tspan fill="{P.TEXT}">@</tspan>'
                        f'<tspan fill="{NEON}">github</tspan></text>')
         elif k == "rule":
-            out.append(f'<text class="m l" x="{tx}" y="{y - 6}" font-size="15" fill="#30363d"{d}>{"─" * 46}</text>')
+            out.append(f'<text class="m l" x="{tx}" y="{y - 6}" font-size="15" fill="{P.BORDER}"{d}>{"─" * 46}</text>')
         else:
             dots = "." * max(2, 11 - len(k))
-            vfill = NEON if k == "Status" else "#e6edf3"
-            out.append(f'<text class="m l" x="{tx}" y="{y}" font-size="14"{d}><tspan fill="{G[3]}" '
-                       f'font-weight="700">{k}</tspan><tspan fill="#3d444d"> {dots} </tspan>'
+            vfill = NEON if k == "Status" else P.TEXT
+            out.append(f'<text class="m l" x="{tx}" y="{y}" font-size="14"{d}><tspan fill="{P.PINK}" '
+                       f'font-weight="700">{k}</tspan><tspan fill="{P.FAINT}"> {dots} </tspan>'
                        f'<tspan fill="{vfill}">{escape(v)}</tspan></text>')
     py = ty + len(rows) * 24 + 2
     for i in range(5):

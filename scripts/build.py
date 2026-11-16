@@ -16,26 +16,21 @@ import urllib.request
 from html import escape
 from pathlib import Path
 
+import palette as P
+
 OWNER = sys.argv[1] if len(sys.argv) > 1 else "Kaushik2210"
 ROOT = Path(__file__).resolve().parent.parent
 ASSETS = ROOT / "assets"
 TOKEN = os.environ.get("GITHUB_TOKEN") or os.environ.get("GH_TOKEN")
 TODAY = dt.date.today()
 
-THEMES = {
-    "dark": {
-        "bg": "#0d1117", "panel": "#0d1117", "border": "#30363d",
-        "text": "#e6edf3", "muted": "#8b949e", "faint": "#6e7681",
-        "lv": ["#161b22", "#0e4429", "#006d32", "#26a641", "#39d353"],
-        "tip_bg": "#e6edf3", "tip_fg": "#0d1117",
-    },
-    "light": {
-        "bg": "#ffffff", "panel": "#ffffff", "border": "#d1d9e0",
-        "text": "#1f2328", "muted": "#59636e", "faint": "#818b98",
-        "lv": ["#ebedf0", "#9be9a8", "#40c463", "#30a14e", "#216e39"],
-        "tip_bg": "#25292e", "tip_fg": "#ffffff",
-    },
+_SYNTH = {
+    "bg": P.BG, "panel": P.PANEL, "border": P.BORDER,
+    "text": P.TEXT, "muted": P.MUTED, "faint": P.FAINT,
+    "lv": P.LV, "tip_bg": P.CYAN, "tip_fg": P.BG,
 }
+# Synthwave is a night look, so both GitHub themes get the same palette.
+THEMES = {"dark": _SYNTH, "light": _SYNTH}
 
 SANS = "-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans',Helvetica,Arial,sans-serif"
 MONO = "ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,'Liberation Mono',monospace"
@@ -232,7 +227,10 @@ FONT = {
 def project_card(t, p):
     w, h = 480, 250
     pad = 22
-    out = [f'<rect x="0.5" y="0.5" width="{w - 1}" height="{h - 1}" rx="10" fill="{t["panel"]}" stroke="{t["border"]}"/>']
+    out = [f'<defs><linearGradient id="cg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="{P.PINK}"/>'
+           f'<stop offset=".5" stop-color="{P.PURPLE}" stop-opacity=".5"/><stop offset="1" stop-color="{P.CYAN}"/>'
+           '</linearGradient></defs>',
+           f'<rect x="1" y="1" width="{w - 2}" height="{h - 2}" rx="10" fill="{t["panel"]}" stroke="url(#cg)" stroke-width="1.5"/>']
     out.append(f'<text class="m" x="{pad}" y="{pad + 10}" font-size="11" letter-spacing="1.2" fill="{t["lv"][3]}">'
                f"{escape(p['tag'].upper())}</text>")
     if p["live"]:

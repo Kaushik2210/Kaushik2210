@@ -33,7 +33,8 @@ START, END = "<!--SWEEP_START-->", "<!--SWEEP_END-->"
 LOGIN_RE = re.compile(r"^[A-Za-z0-9](?:[A-Za-z0-9-]{0,38})$")
 MOVE_RE = re.compile(r"^\[SWEEP\]\s*([A-Pa-p])\s*([1-8])\s*$")
 
-HEAT = ["#0e4429", "#006d32", "#26a641", "#39d353"]
+# synthwave ramp for revealed squares: 1 bug -> 4+ bugs
+HEAT = ["#4c1d95", "#a21caf", "#ff2a6d", "#05d9e8"]
 
 
 # ---------------------------------------------------------------- state
@@ -158,13 +159,13 @@ def write_cells():
     for r in range(ROWS):
         for c in range(COLS):
             (CELLS / f"h-{label(r, c)}.svg").write_text(
-                cell_svg("#161b22", label(r, c), "#3d444d", "#30363d"), encoding="utf-8")
+                cell_svg("#1e1538", label(r, c), "#6f63a3", "#3b2a80"), encoding="utf-8")
     for n in range(9):
-        fill = HEAT[min(3, (n + 1) // 2)] if n else "#0e4429"
-        (CELLS / f"o{n}.svg").write_text(cell_svg(fill, str(n) if n else "", "#ffffff" if n < 3 else "#0d1117"),
+        fill = HEAT[min(3, n - 1)] if n else "#2a1a57"
+        (CELLS / f"o{n}.svg").write_text(cell_svg(fill, str(n) if n else "", "#0b0221" if n >= 4 else "#ffffff"),
                                          encoding="utf-8")
-    (CELLS / "bug.svg").write_text(cell_svg("#161b22", stroke="#30363d", extra=bug_art("#8b949e")), encoding="utf-8")
-    (CELLS / "boom.svg").write_text(cell_svg("#f85149", extra=bug_art("#0d1117")), encoding="utf-8")
+    (CELLS / "bug.svg").write_text(cell_svg("#1e1538", stroke="#3b2a80", extra=bug_art("#ff2a6d")), encoding="utf-8")
+    (CELLS / "boom.svg").write_text(cell_svg("#ffd319", extra=bug_art("#0b0221")), encoding="utf-8")
 
 
 def move_link(r, c):
