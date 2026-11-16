@@ -47,7 +47,9 @@ Security tooling, AI-agent infrastructure and full-stack products. Each card sho
 
 </details>
 
-<sub>**Toolbox:** React · Next.js · Node · FastAPI · Supabase · Tailwind · Docker · Zeek & Suricata · MITRE ATT&CK · LLM agents & tool calling · Chrome extensions · GitHub Actions</sub>
+<p align="center"><img src="https://skillicons.dev/icons?i=py,ts,js,java,react,nextjs,nodejs,fastapi,supabase,tailwind,docker,linux,git,githubactions&perline=14" alt="Toolbox: Python, TypeScript, JavaScript, Java, React, Next.js, Node, FastAPI, Supabase, Tailwind, Docker, Linux, Git, GitHub Actions"></p>
+
+<sub>Also: Zeek & Suricata · MITRE ATT&CK · LLM agents & tool calling · Chrome extensions</sub>
 
 ## Guestbook
 
