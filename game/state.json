@@ -1,0 +1,13 @@
+{
+ "current": {
+  "game": 1,
+  "status": "playing",
+  "bugs": null,
+  "open": [],
+  "boom": null,
+  "moves": [],
+  "started": "2026-11-16 04:28"
+ },
+ "history": [],
+ "players": {}
+}

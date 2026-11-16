@@ -109,7 +109,7 @@ def graphql(query):
 
 
 def fetch():
-    q = """query{user(login:"%s"){name followers{totalCount}
+    q = """query{user(login:"%s"){name createdAt avatarUrl followers{totalCount}
       contributionsCollection{contributionCalendar{totalContributions
         weeks{contributionDays{date contributionCount contributionLevel}}}}}}""" % OWNER
     user = graphql(q)["user"]
@@ -147,7 +147,9 @@ def fetch():
             langs[lang] = langs.get(lang, 0) + n
     return {"weeks": weeks, "total": user["contributionsCollection"]["contributionCalendar"]["totalContributions"],
             "followers": user["followers"]["totalCount"], "repos": len(repos),
-            "projects": projects, "langs": langs,
+            "projects": projects, "langs": langs, "created": user["createdAt"], "avatar": user["avatarUrl"],
+            "stars": sum(r.get("stargazers_count", 0) for r in repos),
+            "live": sum(1 for f in FEATURED if f[2]),
             "latest": max((r for r in repos if r["name"] != OWNER and not r.get("private")),
                           key=lambda r: r.get("pushed_at") or "")}
 
@@ -455,6 +457,18 @@ STAGE1 = base64.b64encode(b"STAGE 1/3 :: nice, you decoded base64. the city is m
                         b"open assets/city.svg as raw text and read its <desc> element. it is hex.").decode()
 
 
+BANNERS = [
+    ("whoami", "WHOAMI", "$ neofetch"),
+    ("shipped", "SHIPPED", "10 projects · one heatmap each"),
+    ("play", "BUGSWEEPER", "a game you play by opening issues"),
+    ("alive", "ALIVE", "my year, run through Conway's rules"),
+    ("wall", "THE WALL", "leave a square"),
+    ("ctf", "CTF", "three stages · one flag"),
+    ("stack", "STACK", "bytes by language"),
+    ("hire", "HIRE ME", "the empty square is yours"),
+]
+
+
 def draw_wall():
     import crazy
     visitors = crazy.load_wall()
@@ -469,7 +483,10 @@ def main():
     import crazy
     data = fetch()
     (ASSETS / "city.svg").write_text(crazy.city(data), encoding="utf-8")
-    (ASSETS / "terminal.svg").write_text(crazy.terminal(data), encoding="utf-8")
+    import neofetch
+    (ASSETS / "neofetch.svg").write_text(neofetch.neofetch(data), encoding="utf-8")
+    for slug_, text, sub in BANNERS:
+        (ASSETS / f"b-{slug_}.svg").write_text(neofetch.banner(text, sub), encoding="utf-8")
     solvers = ROOT / "ctf" / "solvers.json"
     solved = len(json.loads(solvers.read_text())) if solvers.exists() else 0
     (ASSETS / "ctf.svg").write_text(crazy.ctf_banner(STAGE1, solved), encoding="utf-8")
