@@ -24,7 +24,7 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install --quiet pillow
-      - name: Render header, vitals, dossier, neural map, ops, skyline and galaxy
+      - name: Render header, vitals, dossier, neural map, skyline, galaxy and vote cards
         working-directory: scripts
         run: |
           python banners.py "${{ github.repository_owner }}" ../assets
@@ -34,11 +34,9 @@ jobs:
           python galaxy.py  "${{ github.repository_owner }}" ../assets/galaxy.svg
           python badge.py   "${{ github.repository_owner }}" ../assets/badge.svg
           python proof.py   "${{ github.repository_owner }}" ../assets/proof.svg
-          python stack.py   "${{ github.repository_owner }}" ../assets/stack.svg
           python neural.py  "${{ github.repository_owner }}" ../assets/neural.svg
-          python ops.py     "${{ github.repository_owner }}" ../assets/ops.svg
-          python explorer.py "${{ github.repository_owner }}" ../README.md
           python posters.py  "${{ github.repository_owner }}" ../README.md
+          python poll.py --render
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Commit if changed

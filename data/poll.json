@@ -1,0 +1,11 @@
+{
+  "question": "What should I build next?",
+  "options": [
+    {"id": "jailbreak-arena", "title": "Jailbreak Arena", "desc": "A CTF where you try to talk guarded AI agents into breaking their rules. Leaderboard included."},
+    {"id": "cve-radar", "title": "CVE Radar", "desc": "Tells you which CVEs in your dependencies are actually reachable from your code."},
+    {"id": "phish-lens", "title": "Phish Lens", "desc": "A browser extension that explains, in plain words, why an email or link is a phishing attempt."},
+    {"id": "pr-sentinel", "title": "PR Sentinel", "desc": "A GitHub App that reviews every pull request for security smells and leaked secrets."},
+    {"id": "honeypot-map", "title": "Honeypot Live Map", "desc": "A world map of real attacks hitting my honeypots, streamed live and explained."},
+    {"id": "mock-interviewer", "title": "Voice Mock Interviewer", "desc": "An AI interviewer you talk to for DSA and system design, with honest feedback."}
+  ]
+}

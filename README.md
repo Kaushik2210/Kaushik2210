@@ -6,9 +6,9 @@
 
 <a href="https://portfolio-general-ten.vercel.app">Portfolio</a> &nbsp;·&nbsp; <a href="https://www.linkedin.com/in/sodagum-venkata-kaushik-3497a4248/">LinkedIn</a> &nbsp;·&nbsp; <a href="https://x.com/svKaushik2210">X</a> &nbsp;·&nbsp; <a href="https://github.com/Kaushik2210?tab=repositories">Repositories</a> &nbsp;·&nbsp; <a href="https://github.com/Kaushik2210/Kaushik2210/issues/new?template=hello.yml">Say hello</a>
 
-<sub><a href="#work">Work</a> &nbsp;›&nbsp; <a href="#activity">Activity</a> &nbsp;›&nbsp; <a href="#interactive">Interactive</a> &nbsp;›&nbsp; <a href="#stack">Stack</a></sub>
+<sub><a href="#work">Work</a> &nbsp;›&nbsp; <a href="#activity">Activity</a> &nbsp;›&nbsp; <a href="#interactive">Interactive</a> &nbsp;›&nbsp; <a href="#vote">Vote</a></sub>
 
-<sub>Try it: <a href="https://github.com/Kaushik2210/Kaushik2210/issues/new?template=star.yml">add your star</a> &nbsp;·&nbsp; <a href="https://badger.github.io/virtual/?u=Kaushik2210">play on my badge</a> &nbsp;·&nbsp; <a href="#interactive">crack the CTF</a> &nbsp;·&nbsp; <a href="https://github.com/Kaushik2210/Kaushik2210/issues/new?template=hello.yml">say hello</a></sub>
+<sub>Try it: <a href="#vote">vote on my next build</a> &nbsp;·&nbsp; <a href="https://github.com/Kaushik2210/Kaushik2210/issues/new?template=star.yml">add your star</a> &nbsp;·&nbsp; <a href="https://badger.github.io/virtual/?u=Kaushik2210">play on my badge</a> &nbsp;·&nbsp; <a href="#interactive">crack the CTF</a> &nbsp;·&nbsp; <a href="https://github.com/Kaushik2210/Kaushik2210/issues/new?template=hello.yml">say hello</a></sub>
 
 <br/>
 
@@ -137,30 +137,29 @@ Things people can open and use today. [HireOS](https://hireos-beryl.vercel.app) 
 
 <sub>Every repo is a neuron, wired to the ones it shares topics, a name family or a language with. Rings mark what I pushed this week.</sub>
 
-<img src="assets/div-ops.svg" alt="Active ops: flight recorder" width="100%"/>
-
-<img src="assets/ops.svg" alt="Flight recorder: push activity per repo over the last two weeks as 6-hour bars. The table below lists the same repos in text." width="100%"/>
-
-<sub>My last two weeks of pushes, one lane per repo. Taller bar, busier window. The table below has the details.</sub>
-
-</div>
-
-<!--OPS_START-->
-| Repo | Stack | Last push | Brief |
-|:--|:--|:--|:--|
-| [**aiforge**](https://github.com/Kaushik2210/aiforge) | `TypeScript` | today | Open-source, gamified academy for becoming a production-ready AI engineer |
-| [**daily-automation-scripts**](https://github.com/Kaushik2210/daily-automation-scripts) | `Python` | today | 30-day challenge: 300 small, tested, cross-platform automation scripts in Python (files, PDFs… |
-| [**scam-khel**](https://github.com/Kaushik2210/scam-khel) | `Python` | 2d ago | Private family shield against Indian digital-arrest scams: live detection, simulated honeypot… |
-| [**HireOS**](https://github.com/Kaushik2210/HireOS) · [live](https://hireos-beryl.vercel.app) | `TypeScript` | 7d ago | Job-search workspace that shows its evidence: fit scoring, tailored materials without… |
-| [**IntentGuard**](https://github.com/Kaushik2210/IntentGuard) · [live](https://kaushik2210.github.io/IntentGuard/) | `Python` | 8d ago | Intent-aware and behavioural runtime authorization for autonomous AI agents |
-| [**leetcode-study-studio**](https://github.com/Kaushik2210/leetcode-study-studio) | `JavaScript` | 11d ago | Chrome extension: LeetCode themes plus a learning layer (blind mode, hint ladder, spaced… |
-| [**Overrank**](https://github.com/Kaushik2210/Overrank) · [live](https://overrank.vercel.app) | `TypeScript` | 11d ago | Live house-competition platform for campuses: teams earn points, the leaderboard reacts in real… |
-| [**cp-sysdesign-academy**](https://github.com/Kaushik2210/cp-sysdesign-academy) | `MDX` | 12d ago | Open-source interactive course: competitive programming and system design (static site, runs in… |
-<!--OPS_END-->
-
 <div align="center">
 
 ## Interactive
+
+<a name="vote"></a>
+
+<img src="assets/div-vote.svg" alt="You decide: what I build next" width="100%"/>
+
+</div>
+
+<!--POLL_START-->
+<div align="center">
+
+**What should I build next?** Click an idea to vote. One vote each; vote again to switch.
+
+<a href="https://github.com/Kaushik2210/Kaushik2210/issues/new?title=%5BVOTE%5D%20jailbreak-arena&body=Voting%20for%20%2A%2AJailbreak%20Arena%2A%2A.%20Just%20press%20%2A%2ACreate%2A%2A%3B%20a%20bot%20counts%20it%20and%20replies%20within%20a%20minute.%20Vote%20again%20any%20time%20to%20switch."><img src="assets/vote-jailbreak-arena.svg" alt="Jailbreak Arena: 0 votes. Click to vote." width="49%"></a> <a href="https://github.com/Kaushik2210/Kaushik2210/issues/new?title=%5BVOTE%5D%20cve-radar&body=Voting%20for%20%2A%2ACVE%20Radar%2A%2A.%20Just%20press%20%2A%2ACreate%2A%2A%3B%20a%20bot%20counts%20it%20and%20replies%20within%20a%20minute.%20Vote%20again%20any%20time%20to%20switch."><img src="assets/vote-cve-radar.svg" alt="CVE Radar: 0 votes. Click to vote." width="49%"></a><br><a href="https://github.com/Kaushik2210/Kaushik2210/issues/new?title=%5BVOTE%5D%20phish-lens&body=Voting%20for%20%2A%2APhish%20Lens%2A%2A.%20Just%20press%20%2A%2ACreate%2A%2A%3B%20a%20bot%20counts%20it%20and%20replies%20within%20a%20minute.%20Vote%20again%20any%20time%20to%20switch."><img src="assets/vote-phish-lens.svg" alt="Phish Lens: 0 votes. Click to vote." width="49%"></a> <a href="https://github.com/Kaushik2210/Kaushik2210/issues/new?title=%5BVOTE%5D%20pr-sentinel&body=Voting%20for%20%2A%2APR%20Sentinel%2A%2A.%20Just%20press%20%2A%2ACreate%2A%2A%3B%20a%20bot%20counts%20it%20and%20replies%20within%20a%20minute.%20Vote%20again%20any%20time%20to%20switch."><img src="assets/vote-pr-sentinel.svg" alt="PR Sentinel: 0 votes. Click to vote." width="49%"></a><br><a href="https://github.com/Kaushik2210/Kaushik2210/issues/new?title=%5BVOTE%5D%20honeypot-map&body=Voting%20for%20%2A%2AHoneypot%20Live%20Map%2A%2A.%20Just%20press%20%2A%2ACreate%2A%2A%3B%20a%20bot%20counts%20it%20and%20replies%20within%20a%20minute.%20Vote%20again%20any%20time%20to%20switch."><img src="assets/vote-honeypot-map.svg" alt="Honeypot Live Map: 0 votes. Click to vote." width="49%"></a> <a href="https://github.com/Kaushik2210/Kaushik2210/issues/new?title=%5BVOTE%5D%20mock-interviewer&body=Voting%20for%20%2A%2AVoice%20Mock%20Interviewer%2A%2A.%20Just%20press%20%2A%2ACreate%2A%2A%3B%20a%20bot%20counts%20it%20and%20replies%20within%20a%20minute.%20Vote%20again%20any%20time%20to%20switch."><img src="assets/vote-mock-interviewer.svg" alt="Voice Mock Interviewer: 0 votes. Click to vote." width="49%"></a>
+
+<sub>0 votes so far · latest: _no votes yet. yours could be the first._</sub>
+
+</div>
+<!--POLL_END-->
+
+<div align="center">
 
 <img src="assets/div-galaxy.svg" alt="Contribution galaxy" width="100%"/>
 
@@ -214,14 +213,6 @@ U1RBR0UgMS8zIDo6IG5pY2UsIHlvdSBkZWNvZGVkIGJhc2U2NC4gdGhlIHJlcG8gbWFwIGlzIG1vcmUg
 <!--HOF_END-->
 
 <div align="center">
-
-## Stack
-
-<img src="assets/div-arsenal.svg" alt="The stack" width="100%"/>
-
-<img src="assets/stack.svg" alt="The stack as evidenced by my repositories: security, AI and ML, backend and frontend technologies ranked by how many repos use them, a language mix across all repos, and my security toolkit of Kali Linux, Wireshark, Burp Suite, Nmap and Metasploit." width="100%"/>
-
-<br/>
 
 <sub>Every chart on this page is generated from my GitHub data by scripts in this repo and rebuilt every six hours.</sub>
 
