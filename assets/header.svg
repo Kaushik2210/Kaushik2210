@@ -213,7 +213,7 @@ text{font-family:system-ui,-apple-system,'SF Pro Text','Segoe UI',Roboto,'Helvet
 <rect x="162.8" y="298.6" width="12.9" height="23.4" fill="#08112b"/>
 <rect x="162.8" y="298.6" width="12.9" height="1.6" fill="#4f86ff" opacity=".55"/>
 <rect x="165.0" y="308.8" width="3.2" height="4.2" fill="#ffc233"></rect>
-<rect x="169.8" y="308.8" width="3.2" height="4.2" fill="#243566" opacity=".55"/>
+<rect x="169.8" y="308.8" width="3.2" height="4.2" fill="#ffc233"></rect>
 <rect x="178.1" y="311.0" width="12.9" height="11.0" fill="#08112b"/>
 <rect x="178.1" y="311.0" width="12.9" height="1.6" fill="#4f86ff" opacity=".55"/>
 <rect x="193.4" y="311.0" width="12.9" height="11.0" fill="#08112b"/>
@@ -228,12 +228,12 @@ text{font-family:system-ui,-apple-system,'SF Pro Text','Segoe UI',Roboto,'Helvet
 <rect x="246.2" y="308.8" width="3.2" height="4.2" fill="#ffc233"></rect>
 <rect x="254.5" y="280.6" width="12.9" height="41.4" fill="#08112b"/>
 <rect x="254.5" y="280.6" width="12.9" height="1.6" fill="#4f86ff" opacity=".55"/>
-<rect x="261.5" y="291.8" width="3.2" height="4.2" fill="#ffc233"><animate attributeName="opacity" values="1;.25;1" dur="4.3s" begin="-2.4s" repeatCount="indefinite"/></rect>
-<rect x="256.7" y="308.8" width="3.2" height="4.2" fill="#ffc233"></rect>
-<rect x="256.7" y="291.8" width="3.2" height="4.2" fill="#ffc233"></rect>
 <rect x="261.5" y="308.8" width="3.2" height="4.2" fill="#ffc233"></rect>
-<rect x="256.7" y="300.3" width="3.2" height="4.2" fill="#243566" opacity=".55"/>
-<rect x="261.5" y="300.3" width="3.2" height="4.2" fill="#243566" opacity=".55"/>
+<rect x="256.7" y="300.3" width="3.2" height="4.2" fill="#ffc233"></rect>
+<rect x="261.5" y="300.3" width="3.2" height="4.2" fill="#ffc233"></rect>
+<rect x="256.7" y="308.8" width="3.2" height="4.2" fill="#ffc233"></rect>
+<rect x="261.5" y="291.8" width="3.2" height="4.2" fill="#243566" opacity=".55"/>
+<rect x="256.7" y="291.8" width="3.2" height="4.2" fill="#243566" opacity=".55"/>
 <rect x="269.8" y="287.8" width="12.9" height="34.2" fill="#08112b"/>
 <rect x="269.8" y="287.8" width="12.9" height="1.6" fill="#4f86ff" opacity=".55"/>
 <rect x="276.8" y="300.3" width="3.2" height="4.2" fill="#ffc233"></rect>
