@@ -457,7 +457,7 @@ STAGE1 = base64.b64encode(b"STAGE 1/3 :: nice, you decoded base64. the city is m
 
 BANNERS = [
     ("whoami", "WHOAMI", "$ neofetch"),
-    ("shipped", "SHIPPED", "10 projects · one heatmap each"),
+    ("shipped", "SHIPPED", "10 projects · one neon grid each"),
     ("play", "BUGSWEEPER", "a game you play by opening issues"),
     ("alive", "ALIVE", "my year, run through Conway's rules"),
     ("wall", "THE WALL", "leave a square"),

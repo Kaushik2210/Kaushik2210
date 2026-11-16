@@ -159,12 +159,12 @@ def write_cells():
     for r in range(ROWS):
         for c in range(COLS):
             (CELLS / f"h-{label(r, c)}.svg").write_text(
-                cell_svg("#1e1538", label(r, c), "#6f63a3", "#3b2a80"), encoding="utf-8")
+                cell_svg("#2b1d63", label(r, c), "#9a8fd0", "#5a46b8"), encoding="utf-8")
     for n in range(9):
-        fill = HEAT[min(3, n - 1)] if n else "#2a1a57"
+        fill = HEAT[min(3, n - 1)] if n else "#0e0428"
         (CELLS / f"o{n}.svg").write_text(cell_svg(fill, str(n) if n else "", "#0b0221" if n >= 4 else "#ffffff"),
                                          encoding="utf-8")
-    (CELLS / "bug.svg").write_text(cell_svg("#1e1538", stroke="#3b2a80", extra=bug_art("#ff2a6d")), encoding="utf-8")
+    (CELLS / "bug.svg").write_text(cell_svg("#2b1d63", stroke="#5a46b8", extra=bug_art("#ff2a6d")), encoding="utf-8")
     (CELLS / "boom.svg").write_text(cell_svg("#ffd319", extra=bug_art("#0b0221")), encoding="utf-8")
 
 
