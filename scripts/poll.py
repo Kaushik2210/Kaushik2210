@@ -70,7 +70,7 @@ def card(i, opt, n, total, leader):
     fill = t.A3 if lead else "url(#aurora)"
     out = [
         f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" role="img" '
-        f'aria-label="{escape(opt["title"])}: {n} votes. Click to vote.">',
+        f'aria-label="{escape(opt["title"])}: {n} vote{"s" if n != 1 else ""}. Click to vote.">',
         f'<title>{escape(opt["title"])}: {n} vote{"s" if n != 1 else ""} ({pct:.0f}%). Click to vote.</title>',
         t.defs('<style>@keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}'
                '.bar{transform-box:fill-box;transform-origin:0 50%;animation:grow 1s cubic-bezier(.2,.8,.2,1) both}'
@@ -115,7 +115,7 @@ def render(poll, votes):
         (ASSETS / f"vote-{o['id']}.svg").write_text(
             card(i, o, counts[o["id"]], total, counts[o["id"]] == top), encoding="utf-8")
         cells.append(f'<a href="{vote_link(o)}"><img src="assets/vote-{o["id"]}.svg" '
-                     f'alt="{escape(o["title"])}: {counts[o["id"]]} votes. Click to vote." width="49%"></a>')
+                     f'alt="{escape(o["title"])}: {counts[o["id"]]} vote{"s" if counts[o["id"]] != 1 else ""}. Click to vote." width="49%"></a>')
     rows = [" ".join(cells[k:k + 2]) for k in range(0, len(cells), 2)]
     recent = sorted(votes.items(), key=lambda kv: kv[1]["at"], reverse=True)[:6]
     names = {o["id"]: o["title"] for o in poll["options"]}
