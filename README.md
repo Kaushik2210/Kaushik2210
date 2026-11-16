@@ -1,77 +1,228 @@
 <div align="center">
 
-<img src="assets/city.svg" alt="A night city built from my GitHub contribution calendar: one tower per day, height is commits, with my name on a neon sign and live stats" width="100%">
+<img src="assets/header.svg" alt="Kaushik: full-stack developer and security tinkerer. A night-time city skyline built from my GitHub activity, with a neon name sign." width="100%"/>
 
-[About](#about) · [Selected work](#selected-work) · [Activity](#activity) · [Guestbook](#guestbook) · [Work with me](#work-with-me)
+**I build security tooling and AI-era developer products, then ship them as live demos.**
+
+<a href="https://portfolio-general-ten.vercel.app">Portfolio</a> &nbsp;·&nbsp; <a href="https://www.linkedin.com/in/sodagum-venkata-kaushik-3497a4248/">LinkedIn</a> &nbsp;·&nbsp; <a href="https://x.com/svKaushik2210">X</a> &nbsp;·&nbsp; <a href="https://github.com/Kaushik2210?tab=repositories">Repositories</a> &nbsp;·&nbsp; <a href="https://github.com/Kaushik2210/Kaushik2210/issues/new?template=hello.yml">Say hello</a>
+
+<sub><a href="#work">Work</a> &nbsp;›&nbsp; <a href="#activity">Activity</a> &nbsp;›&nbsp; <a href="#interactive">Interactive</a> &nbsp;›&nbsp; <a href="#stack">Stack</a></sub>
+
+<sub>Try it: <a href="https://github.com/Kaushik2210/Kaushik2210/issues/new?template=star.yml">add your star</a> &nbsp;·&nbsp; <a href="https://badger.github.io/virtual/?u=Kaushik2210">play on my badge</a> &nbsp;·&nbsp; <a href="#interactive">crack the CTF</a> &nbsp;·&nbsp; <a href="https://github.com/Kaushik2210/Kaushik2210/issues/new?template=hello.yml">say hello</a></sub>
+
+<br/>
+
+<a href="https://github.com/Kaushik2210?tab=repositories"><img src="assets/proof.svg" alt="Proof strip: live sites, repositories, commits this year, best streak and years building, all counted from the GitHub API." width="100%"/></a>
+
+<!--NOW_START-->
+**Now:** shipping [aiforge](https://github.com/Kaushik2210/aiforge) (TypeScript, pushed today). Open-source, gamified academy for becoming a production-ready AI engineer
+<!--NOW_END-->
 
 </div>
-
-## About
-
-<img src="assets/neofetch.svg" alt="Profile card: my avatar drawn in squares next to my stats: full-stack and security engineer in Bangalore, repos, live demos, commits, streaks, what I'm building now, and open to internships, freelance and project work" width="100%">
 
 <div align="center">
 
-[**Portfolio**](https://portfolio-general-ten.vercel.app) · [**LinkedIn**](https://www.linkedin.com/in/sodagum-venkata-kaushik-3497a4248/) · [**X**](https://x.com/svKaushik2210) · [**All repos**](https://github.com/Kaushik2210?tab=repositories)
+## Work
+
+<img src="assets/div-pillars.svg" alt="What I build" width="100%"/>
 
 </div>
 
-## Selected work
+<table width="100%">
+<tr>
+<td width="33%" valign="top">
 
-Security tooling, AI-agent infrastructure and full-stack products. Each card shows that repo's commits over the last 26 weeks, one square per day. Tap a card for the live demo or the source.
+**Security that shows its work**
 
-<table>
-<tr><td width="50%" valign="top"><a href="https://kaushik2210.github.io/IntentGuard/"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/p-intentguard-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/p-intentguard-light.svg"><img src="assets/p-intentguard-dark.svg" alt="IntentGuard: project card with its 26-week commit grid" width="100%"></picture></a><br><sub><a href="https://github.com/Kaushik2210/IntentGuard">source</a> · <a href="https://kaushik2210.github.io/IntentGuard/"><b>live demo</b></a></sub></td><td width="50%" valign="top"><a href="https://github.com/Kaushik2210/Net-Sentinel"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/p-net-sentinel-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/p-net-sentinel-light.svg"><img src="assets/p-net-sentinel-dark.svg" alt="Net-Sentinel: project card with its 26-week commit grid" width="100%"></picture></a><br><sub><a href="https://github.com/Kaushik2210/Net-Sentinel">source</a></sub></td></tr>
-<tr><td width="50%" valign="top"><a href="https://github.com/Kaushik2210/ORBITAL-SENTINEL"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/p-orbital-sentinel-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/p-orbital-sentinel-light.svg"><img src="assets/p-orbital-sentinel-dark.svg" alt="ORBITAL-SENTINEL: project card with its 26-week commit grid" width="100%"></picture></a><br><sub><a href="https://github.com/Kaushik2210/ORBITAL-SENTINEL">source</a></sub></td><td width="50%" valign="top"><a href="https://github.com/Kaushik2210/Deepfake-Detector"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/p-deepfake-detector-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/p-deepfake-detector-light.svg"><img src="assets/p-deepfake-detector-dark.svg" alt="Deepfake-Detector: project card with its 26-week commit grid" width="100%"></picture></a><br><sub><a href="https://github.com/Kaushik2210/Deepfake-Detector">source</a></sub></td></tr>
-<tr><td width="50%" valign="top"><a href="https://tapwire-xi.vercel.app"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/p-tapwire-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/p-tapwire-light.svg"><img src="assets/p-tapwire-dark.svg" alt="tapwire: project card with its 26-week commit grid" width="100%"></picture></a><br><sub><a href="https://github.com/Kaushik2210/tapwire">source</a> · <a href="https://tapwire-xi.vercel.app"><b>live demo</b></a></sub></td><td width="50%" valign="top"><a href="https://kaushik2210.github.io/gitVisualise/"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/p-gitvisualise-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/p-gitvisualise-light.svg"><img src="assets/p-gitvisualise-dark.svg" alt="gitVisualise: project card with its 26-week commit grid" width="100%"></picture></a><br><sub><a href="https://github.com/Kaushik2210/gitVisualise">source</a> · <a href="https://kaushik2210.github.io/gitVisualise/"><b>live demo</b></a></sub></td></tr>
-<tr><td width="50%" valign="top"><a href="https://hireos-beryl.vercel.app"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/p-hireos-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/p-hireos-light.svg"><img src="assets/p-hireos-dark.svg" alt="HireOS: project card with its 26-week commit grid" width="100%"></picture></a><br><sub><a href="https://github.com/Kaushik2210/HireOS">source</a> · <a href="https://hireos-beryl.vercel.app"><b>live demo</b></a></sub></td><td width="50%" valign="top"><a href="https://algoverse-lovat-seven.vercel.app"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/p-algoverse-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/p-algoverse-light.svg"><img src="assets/p-algoverse-dark.svg" alt="AlgoVerse: project card with its 26-week commit grid" width="100%"></picture></a><br><sub><a href="https://github.com/Kaushik2210/AlgoVerse">source</a> · <a href="https://algoverse-lovat-seven.vercel.app"><b>live demo</b></a></sub></td></tr>
-<tr><td width="50%" valign="top"><a href="https://github.com/Kaushik2210/scam-khel"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/p-scam-khel-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/p-scam-khel-light.svg"><img src="assets/p-scam-khel-dark.svg" alt="scam-khel: project card with its 26-week commit grid" width="100%"></picture></a><br><sub><a href="https://github.com/Kaushik2210/scam-khel">source</a></sub></td><td width="50%" valign="top"><a href="https://github.com/Kaushik2210/aiforge"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/p-aiforge-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/p-aiforge-light.svg"><img src="assets/p-aiforge-dark.svg" alt="aiforge: project card with its 26-week commit grid" width="100%"></picture></a><br><sub><a href="https://github.com/Kaushik2210/aiforge">source</a></sub></td></tr>
+Detection systems that explain themselves. [Net-Sentinel](https://github.com/Kaushik2210/Net-Sentinel) maps attacks to MITRE ATT&CK, [ORBITAL-SENTINEL](https://github.com/Kaushik2210/ORBITAL-SENTINEL) tells cyberattacks from sensor faults in spacecraft telemetry, [Deepfake-Detector](https://github.com/Kaushik2210/Deepfake-Detector) returns calibrated probabilities instead of a verdict, and [scam-khel](https://github.com/Kaushik2210/scam-khel) shields families from digital-arrest scams.
+
+</td>
+<td width="33%" valign="top">
+
+**Tools for the AI-agent era**
+
+Guardrails and visibility for people building with agents. [tapwire](https://github.com/Kaushik2210/tapwire) turns an agent's mistakes into enforced rules and measures how often they repeat, [gitVisualise](https://github.com/Kaushik2210/gitVisualise) turns any repo into a narrated architecture tour (site, CLI and GitHub Action), and [PORTCULLIS](https://github.com/Kaushik2210/PORTCULLIS) screens LLM apps for prompt injection.
+
+</td>
+<td width="33%" valign="top">
+
+**Products that ship**
+
+Things people can open and use today. [HireOS](https://hireos-beryl.vercel.app) is a job-search workspace that shows its evidence, [AlgoVerse](https://algoverse-lovat-seven.vercel.app) is interview prep with 635+ explained solutions, and [Overrank](https://overrank.vercel.app) runs a live campus leaderboard.
+
+</td>
+</tr>
 </table>
+
+<div align="center">
+
+<img src="assets/div-builds.svg" alt="Featured builds" width="100%"/>
+
+</div>
+
+<!--BUILDS_START-->
+<div align="center">
+
+<a href="https://github.com/Kaushik2210/Net-Sentinel"><img src="assets/p-net-sentinel.svg" alt="Net-Sentinel, a security project in Python: Explainable network digital twin: detects threats, reconstructs attacks and maps them to MITRE ATT&amp;CK from Zeek and Suricata telemetry. Opens the repository." width="49%"/></a> <a href="https://github.com/Kaushik2210/ORBITAL-SENTINEL"><img src="assets/p-orbital-sentinel.svg" alt="ORBITAL-SENTINEL, a security project in Python: Tells cyberattacks apart from sensor faults and solar weather in spacecraft telemetry, with explainable attribution. Opens the repository." width="49%"/></a> <a href="https://github.com/Kaushik2210/scam-khel"><img src="assets/p-scam-khel.svg" alt="scam-khel, a security project in Python: A private family shield against Indian digital-arrest scams: live detection, a simulated honeypot and family alerts. Opens the repository." width="49%"/></a> <a href="https://github.com/Kaushik2210/Deepfake-Detector"><img src="assets/p-deepfake-detector.svg" alt="Deepfake-Detector, a security project in Python: Synthetic-media detection that returns calibrated probabilities and visual evidence, never a binary verdict. Opens the repository." width="49%"/></a> <a href="https://kaushik2210.github.io/IntentGuard/"><img src="assets/p-intentguard.svg" alt="IntentGuard, a security project in Python: Intent-aware, behavioural runtime authorization for autonomous AI agents. Opens the live demo." width="49%"/></a> <a href="https://tapwire-xi.vercel.app"><img src="assets/p-tapwire.svg" alt="tapwire, a dev tool project in TypeScript: Turns every mistake an AI coding agent makes into a permanent, enforced rule, and measures how often it repeats. Opens the live demo." width="49%"/></a> <a href="https://kaushik2210.github.io/gitVisualise/"><img src="assets/p-gitvisualise.svg" alt="gitVisualise, a dev tool project in JavaScript: Paste a GitHub link, get an interactive, narrated architecture tour. Website, CLI and GitHub Action. Opens the live demo." width="49%"/></a> <a href="https://hireos-beryl.vercel.app"><img src="assets/p-hireos.svg" alt="HireOS, a product project in TypeScript: A job-search workspace that shows its evidence: fit scoring, tailored materials without invention, application tracking. Opens the live demo." width="49%"/></a> <a href="https://algoverse-lovat-seven.vercel.app"><img src="assets/p-algoverse.svg" alt="AlgoVerse, a learning project in TypeScript: Data-structure visualisation and interview prep: 25 modules, 13 pattern guides and 635+ explained LeetCode solutions. Opens the live demo." width="49%"/></a>
+
+<sub>Tap a card to open the live demo or the repository. Cover art is generated from each repo's name; language, stars and last push update automatically.</sub>
+
+</div>
+
+<details>
+<summary><b>More builds (20)</b></summary>
+
+**Security & AI**
+
+| Build | Stack | What it is |
+|:--|:--|:--|
+| [**PORTCULLIS**](https://github.com/Kaushik2210/PORTCULLIS) | `Python` | Adversarial prompt injection detection gateway for LLM applications |
+| [**ATTESTA**](https://github.com/Kaushik2210/ATTESTA---AI-powered-SOC-) | `TypeScript` | Multi-tenant Autonomous SOC platform with reproducible, re-adjudicable verdicts — a deterministic… |
+| [**SCRB Crime Intelligence Analytics**](https://github.com/Kaushik2210/SCRB-Crime-Intelligence-Analytics-Platform) | `JavaScript` | An AI-driven crime analytics and visualization platform for the Karnataka State Police State Crime Records… |
+| [**SafeRoute**](https://github.com/Kaushik2210/SafeRoute) | `JavaScript` | Safe-route app for women's safety, built with React and Vite. |
+| [**SafePath**](https://github.com/Kaushik2210/SafePath) | `TypeScript` | Safe-path detector for women's safety, built in Google AI Studio with Firebase and TypeScript. |
+
+**Web & product experiments**
+
+| Build | Stack | What it is |
+|:--|:--|:--|
+| [**Overrank**](https://github.com/Kaushik2210/Overrank) · [live](https://overrank.vercel.app) | `TypeScript` | Live house-competition platform for campuses: teams earn points, the leaderboard reacts in real time, faculty… |
+| [**GLYPHFORGE**](https://github.com/Kaushik2210/GLYPHFORGE) · [live](https://glyphforge-web.vercel.app) | `TypeScript` | A GPU-native ASCII art engine for the browser. Converts photos into character grids via perceptual… |
+| [**Research-Visualizer**](https://github.com/Kaushik2210/Research-Visualizer) | `TypeScript` | Research-paper visualiser with rich visual representations, built with Google AI Studio and Gemini 3.0. |
+| [**Celeb-Bomb**](https://github.com/Kaushik2210/Celeb-Bomb) | `TypeScript` | Web app that generates a selfie or image with a celebrity at random, built with Google AI Studio and Gemini… |
+| [**Photo-Video-Editor**](https://github.com/Kaushik2210/Photo-Video-Editor) | `TypeScript` | Web app for editing images and videos, built with Google AI Studio and Gemini 3.0. |
+| [**cybernetics_website**](https://github.com/Kaushik2210/cybernetics_website) | `HTML` | Website for the Cybernetics Association, 2024-25. |
+| [**website_anime_design**](https://github.com/Kaushik2210/website_anime_design) | `JavaScript` | Fully responsive website featuring a 3D animated anime character with transitions. |
+
+**Learning & practice**
+
+| Build | Stack | What it is |
+|:--|:--|:--|
+| [**daily-automation-scripts**](https://github.com/Kaushik2210/daily-automation-scripts) | `Python` | 30-day challenge: 300 small, tested, cross-platform automation scripts in Python (files, PDFs, GitHub, email… |
+| [**100-days-of-java**](https://github.com/Kaushik2210/100-days-of-java) | `Java` | 100 days of Java: from Hello World to data structures, algorithms and interview prep. Daily notes plus… |
+| [**Learn Python**](https://github.com/Kaushik2210/Learn_python-) | `Python` | Python course as Jupyter notebooks: explanations, 108 challenge problems, exam prep and projects, from zero… |
+| [**learn-os**](https://github.com/Kaushik2210/learn-os) | `TypeScript` | A gamified, interactive Operating Systems learning platform — from first principles to interview-ready… |
+| [**cp-sysdesign-academy**](https://github.com/Kaushik2210/cp-sysdesign-academy) | `MDX` | Open-source interactive course: competitive programming and system design (static site, runs in the browser) |
+| [**PowerBI-dashboard**](https://github.com/Kaushik2210/PowerBI-dashboard) | `misc` | Power BI dashboard for class attendance reporting. |
+
+**More**
+
+| Build | Stack | What it is |
+|:--|:--|:--|
+| [**aiforge**](https://github.com/Kaushik2210/aiforge) | `TypeScript` | Open-source, gamified academy for becoming a production-ready AI engineer |
+| [**leetcode-study-studio**](https://github.com/Kaushik2210/leetcode-study-studio) | `JavaScript` | Chrome extension: LeetCode themes plus a learning layer (blind mode, hint ladder, spaced repetition, mistake… |
+
+</details>
+<!--BUILDS_END-->
+
+<div align="center">
 
 ## Activity
 
-<img src="assets/chart-monthly.svg" alt="Bar chart of my contributions per month over the last 12 months, with the busiest month highlighted in gold" width="100%">
+<img src="assets/div-dossier.svg" alt="Operator dossier" width="100%"/>
 
-<img src="assets/chart-hours.svg" alt="Punch card of when I commit, by weekday and hour in Indian Standard Time" width="100%">
+<a href="https://github.com/Kaushik2210?tab=repositories"><img src="assets/dossier.svg" alt="Halftone portrait of me next to live GitHub stats: repositories, followers, streak and language mix" width="100%"/></a>
 
-<p align="center"><img src="assets/chart-projects.svg" alt="Horizontal bar chart of my top projects by commits in the last 12 months" width="49%"> <img src="assets/chart-languages.svg" alt="Donut chart of my code by language across public repositories" width="49%"></p>
+<sub>Rebuilt from my avatar on every run. The numbers beside it come straight from the GitHub API.</sub>
 
-<details>
-<summary><b>My year, as a Game of Life</b></summary>
+<img src="assets/div-vitals.svg" alt="Vitals" width="100%"/>
 
-<br>
+<img src="assets/vitals.svg" alt="Activity rings for streak, consistency and momentum; a 24-hour clock of when I push code; and a 26-week momentum chart" width="100%"/>
 
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/year-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/year-light.svg"><img src="assets/year-dark.svg" alt="My contribution calendar for the last 12 months, which then evolves under Conway's Game of Life and loops" width="100%"></picture>
+<sub>Three live gauges: how consistent I am, when in the day I ship, and how this quarter compares to the last.</sub>
 
-<sub>Frame 0 is my real calendar. Then Conway's Game of Life takes over and loops back.</sub>
+<img src="assets/div-neural.svg" alt="Repo neural map" width="100%"/>
 
-</details>
+<a href="https://github.com/Kaushik2210?tab=repositories&sort=updated"><img src="assets/neural.svg" alt="Neural map of my repositories: each repo is a neuron, clustered by language and wired to repos that share topics. Recently pushed repos fire rings and signals travel along the wires." width="100%"/></a>
 
-<p align="center"><img src="https://skillicons.dev/icons?i=py,ts,js,java,react,nextjs,nodejs,fastapi,supabase,tailwind,docker,linux,git,githubactions&perline=14" alt="Toolbox: Python, TypeScript, JavaScript, Java, React, Next.js, Node, FastAPI, Supabase, Tailwind, Docker, Linux, Git, GitHub Actions"></p>
+<sub>Every repo is a neuron, wired to the ones it shares topics, a name family or a language with. Rings mark what I pushed this week.</sub>
 
-<sub>Also: Zeek & Suricata · MITRE ATT&CK · LLM agents & tool calling · Chrome extensions</sub>
+<img src="assets/div-ops.svg" alt="Active ops: flight recorder" width="100%"/>
 
-## Guestbook
+<img src="assets/ops.svg" alt="Flight recorder: push activity per repo over the last two weeks as 6-hour bars. The table below lists the same repos in text." width="100%"/>
 
-<a href="https://github.com/Kaushik2210/Kaushik2210/issues/new?template=square.yml"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/wall-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/wall-light.svg"><img src="assets/wall-dark.svg" alt="Guestbook wall: each lit square is a visitor who signed it" width="100%"></picture></a>
-
-<div align="center">
-
-[**Sign the guestbook →**](https://github.com/Kaushik2210/Kaushik2210/issues/new?template=square.yml) &nbsp; Pick a shade, leave a short message, and a bot adds your square within a minute.
+<sub>My last two weeks of pushes, one lane per repo. Taller bar, busier window. The table below has the details.</sub>
 
 </div>
 
-## Work with me
-
-<a href="https://www.linkedin.com/in/sodagum-venkata-kaushik-3497a4248/"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/hire-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/hire-light.svg"><img src="assets/hire-dark.svg" alt="This square is empty, it's for your project. Open to internships, freelance and project-based roles. How I work: scope, build, ship, hand off." width="100%"></picture></a>
+<!--OPS_START-->
+| Repo | Stack | Last push | Brief |
+|:--|:--|:--|:--|
+| [**aiforge**](https://github.com/Kaushik2210/aiforge) | `TypeScript` | today | Open-source, gamified academy for becoming a production-ready AI engineer |
+| [**daily-automation-scripts**](https://github.com/Kaushik2210/daily-automation-scripts) | `Python` | today | 30-day challenge: 300 small, tested, cross-platform automation scripts in Python (files, PDFs… |
+| [**scam-khel**](https://github.com/Kaushik2210/scam-khel) | `Python` | 2d ago | Private family shield against Indian digital-arrest scams: live detection, simulated honeypot… |
+| [**HireOS**](https://github.com/Kaushik2210/HireOS) · [live](https://hireos-beryl.vercel.app) | `TypeScript` | 7d ago | Job-search workspace that shows its evidence: fit scoring, tailored materials without… |
+| [**IntentGuard**](https://github.com/Kaushik2210/IntentGuard) · [live](https://kaushik2210.github.io/IntentGuard/) | `Python` | 8d ago | Intent-aware and behavioural runtime authorization for autonomous AI agents |
+| [**leetcode-study-studio**](https://github.com/Kaushik2210/leetcode-study-studio) | `JavaScript` | 11d ago | Chrome extension: LeetCode themes plus a learning layer (blind mode, hint ladder, spaced… |
+| [**Overrank**](https://github.com/Kaushik2210/Overrank) · [live](https://overrank.vercel.app) | `TypeScript` | 11d ago | Live house-competition platform for campuses: teams earn points, the leaderboard reacts in real… |
+| [**cp-sysdesign-academy**](https://github.com/Kaushik2210/cp-sysdesign-academy) | `MDX` | 12d ago | Open-source interactive course: competitive programming and system design (static site, runs in… |
+<!--OPS_END-->
 
 <div align="center">
 
-**Have a project?** [Message me on LinkedIn](https://www.linkedin.com/in/sodagum-venkata-kaushik-3497a4248/) · [open a hello issue](https://github.com/Kaushik2210/Kaushik2210/issues/new?template=hello.yml) · [see the portfolio](https://portfolio-general-ten.vercel.app)
+## Interactive
 
-<br>
+<img src="assets/div-galaxy.svg" alt="Contribution galaxy" width="100%"/>
 
-<sub>Every chart here is drawn from live GitHub data by <a href="scripts">a few Python scripts</a> and redrawn every 6 hours.<br>
-Inspired by <a href="https://github.com/Andrew6rant">Andrew6rant</a>'s profile card, <a href="https://github.com/jasonlong">jasonlong</a>'s isometric graph and <a href="https://github.com/kautukkundan">kautukkundan</a>'s Game of Life.</sub>
+<a href="https://github.com/Kaushik2210/Kaushik2210/issues/new?template=star.yml"><img src="assets/galaxy.svg" alt="My last 365 days of contributions as a spiral galaxy, one star per day, with visitor stars orbiting" width="100%"/></a>
+
+<sub>One star per day for the last year; the core is today.<br/><b><a href="https://github.com/Kaushik2210/Kaushik2210/issues/new?template=star.yml">Add your own star</a></b>: pick a colour and your handle orbits here too.</sub>
+
+<img src="assets/div-badge.svg" alt="My badge" width="100%"/>
+
+<a href="https://badger.github.io/virtual/?u=Kaushik2210"><img src="assets/badge.svg" alt="My custom conference-style badge swinging on a lanyard, with my halftone portrait and live GitHub stats. Opens a virtual badge that runs DOOM with my GitHub avatar." width="100%"/></a>
+
+<sub>My own badge, rebuilt from live data. <b><a href="https://badger.github.io/virtual/?u=Kaushik2210">Open it on the virtual badge</a></b> (GitHub's DOOM-on-a-badge page) to play with my avatar on screen.</sub>
+
+<img src="assets/div-ctf.svg" alt="Intercepted transmission" width="100%"/>
+
+**A three-stage CTF is hidden in this profile.** Crack it and you join the Hall of Fame below, automatically.
+
+</div>
+
+```text
+STAGE 1 / 3   (base64)
+U1RBR0UgMS8zIDo6IG5pY2UsIHlvdSBkZWNvZGVkIGJhc2U2NC4gdGhlIHJlcG8gbWFwIGlzIG1vcmUgdGhhbiBhIHBpY3R1cmU6IG9wZW4gYXNzZXRzL25ldXJhbC5zdmcgYXMgcmF3IHRleHQgYW5kIHJlYWQgaXRzIDxkZXNjPiBlbGVtZW50LiBpdCBpcyBoZXgu
+```
+
+<details>
+<summary><b>Rules and how to submit</b></summary>
+
+<br/>
+
+- Each stage leads to the next. The final answer is a flag shaped like `KAUSHIK{...}`.
+- **Don't post the flag.** Issues are public. Submit a *proof* bound to your login instead:
+  ```bash
+  echo -n "KAUSHIK{the_flag_you_found}:your-github-login" | sha256sum | cut -c1-12
+  ```
+  (login in lowercase, 12 hex characters out.) A leaked proof is useless to anyone else.
+- [**Submit your proof**](https://github.com/Kaushik2210/Kaushik2210/issues/new?template=ctf.yml). An Action checks it and, if it's right, adds you below within a minute.
+- No brute force needed. Everything you need is in this repo and my other repos' names.
+
+</details>
+
+<div align="center">
+
+**Hall of Fame**
+
+</div>
+
+<!--HOF_START-->
+| # | operator | cracked on |
+|:-:|:--|:--|
+| 🥇 | [@renuthomas](https://github.com/renuthomas) | 2026-10-29 |
+<!--HOF_END-->
+
+<div align="center">
+
+## Stack
+
+<img src="assets/div-arsenal.svg" alt="The stack" width="100%"/>
+
+<img src="assets/stack.svg" alt="The stack as evidenced by my repositories: security, AI and ML, backend and frontend technologies ranked by how many repos use them, a language mix across all repos, and my security toolkit of Kali Linux, Wireshark, Burp Suite, Nmap and Metasploit." width="100%"/>
+
+<br/>
+
+<sub>Every chart on this page is generated from my GitHub data by scripts in this repo and rebuilt every six hours.</sub>
 
 </div>
