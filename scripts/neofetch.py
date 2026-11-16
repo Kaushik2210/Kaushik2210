@@ -10,7 +10,7 @@ import palette as P
 from build import MONO, ago, streaks, svg
 
 G = P.LV
-NEON = P.CYAN
+NEON = P.GOLD
 
 # 5x7 pixel font
 F = {
@@ -49,8 +49,8 @@ def banner(text, sub=""):
     rnd = random.Random(text)
     body, end = pixels(text, 4, 14, 7, 2, ["url(#bt)"], rnd)
     out = [f'<defs><linearGradient id="bt" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="{end}" y2="0">'
-           f'<stop offset="0" stop-color="{P.PINK}"/><stop offset=".55" stop-color="#ff6ad5"/>'
-           f'<stop offset="1" stop-color="{P.CYAN}"/></linearGradient></defs>', f'<g class="p">{body}</g>']
+           f'<stop offset="0" stop-color="{P.BLUE}"/><stop offset=".55" stop-color="#f2f7ff"/>'
+           f'<stop offset="1" stop-color="{P.GOLD}"/></linearGradient></defs>', f'<g class="p">{body}</g>']
     # trailing contribution strip, a wave runs through it
     x, i = end + 14, 0
     while x < W - 10:
@@ -96,7 +96,7 @@ def neofetch(data):
     n = len(lv)
     pitch, size, ox, oy = 14, 12, 34, 62
     out = [f'<rect width="{W}" height="{H}" rx="12" fill="{P.BG}" stroke="{P.BORDER}"/>',
-           f'<path d="M0 12a12 12 0 0 1 12-12h{W - 24}a12 12 0 0 1 12 12v22H0z" fill="#1a0b3d"/>']
+           f'<path d="M0 12a12 12 0 0 1 12-12h{W - 24}a12 12 0 0 1 12 12v22H0z" fill="#111d40"/>']
     for i, col in enumerate(("#ff5f57", "#febc2e", "#28c840")):
         out.append(f'<circle cx="{22 + i * 20}" cy="17" r="6" fill="{col}"/>')
     out.append(f'<text class="m" x="{W / 2}" y="22" font-size="12" fill="{P.MUTED}" text-anchor="middle">'
@@ -133,14 +133,14 @@ def neofetch(data):
         d = f' style="animation-delay:{0.4 + i * 0.12:.2f}s"'
         if k == "title":
             out.append(f'<text class="m l" x="{tx}" y="{y}" font-size="17" font-weight="700"{d}>'
-                       f'<tspan fill="{P.PINK}">kaushik</tspan><tspan fill="{P.TEXT}">@</tspan>'
+                       f'<tspan fill="{P.BLUE}">kaushik</tspan><tspan fill="{P.TEXT}">@</tspan>'
                        f'<tspan fill="{NEON}">github</tspan></text>')
         elif k == "rule":
             out.append(f'<text class="m l" x="{tx}" y="{y - 6}" font-size="15" fill="{P.BORDER}"{d}>{"─" * 46}</text>')
         else:
             dots = "." * max(2, 11 - len(k))
             vfill = NEON if k == "Status" else P.TEXT
-            out.append(f'<text class="m l" x="{tx}" y="{y}" font-size="14"{d}><tspan fill="{P.PINK}" '
+            out.append(f'<text class="m l" x="{tx}" y="{y}" font-size="14"{d}><tspan fill="{P.BLUE}" '
                        f'font-weight="700">{k}</tspan><tspan fill="{P.FAINT}"> {dots} </tspan>'
                        f'<tspan fill="{vfill}">{escape(v)}</tspan></text>')
     py = ty + len(rows) * 24 + 2

@@ -6,11 +6,13 @@ Usage: python scripts/build.py [owner]
 
 import base64
 import datetime as dt
+import http.client
 import json
 import math
 import os
 import random
 import sys
+import time
 import urllib.error
 import urllib.request
 from html import escape
@@ -27,9 +29,9 @@ TODAY = dt.date.today()
 _SYNTH = {
     "bg": P.BG, "panel": P.PANEL, "border": P.BORDER,
     "text": P.TEXT, "muted": P.MUTED, "faint": P.FAINT,
-    "lv": P.LV, "tip_bg": P.CYAN, "tip_fg": P.BG,
+    "lv": P.LV, "tip_bg": P.GOLD, "tip_fg": P.BG,
 }
-# Synthwave is a night look, so both GitHub themes get the same palette.
+# Cards are self-contained dark surfaces, so both GitHub themes get the same palette.
 THEMES = {"dark": _SYNTH, "light": _SYNTH}
 
 SANS = "-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans',Helvetica,Arial,sans-serif"
@@ -58,10 +60,7 @@ FEATURED = [
      "Open-source, gamified academy for becoming a production-ready AI engineer."),
 ]
 
-LANG_COLORS = {
-    "Python": "#3572A5", "TypeScript": "#3178c6", "JavaScript": "#f1e05a", "Java": "#b07219",
-    "HTML": "#e34c26", "CSS": "#663399", "MDX": "#fcb32c", "Shell": "#89e051", "C": "#555555",
-}
+LANG_COLORS = P.LANG
 
 # ---------------------------------------------------------------- GitHub API
 
@@ -72,8 +71,16 @@ def _request(url, body=None):
         headers["Authorization"] = f"Bearer {TOKEN}"
     data = json.dumps(body).encode() if body is not None else None
     req = urllib.request.Request(url, data=data, headers=headers)
-    with urllib.request.urlopen(req, timeout=30) as r:
-        return json.loads(r.read() or b"null"), r.headers.get("Link", "")
+    for attempt in range(4):  # the API occasionally drops a connection mid-response
+        try:
+            with urllib.request.urlopen(req, timeout=30) as r:
+                return json.loads(r.read() or b"null"), r.headers.get("Link", "")
+        except urllib.error.HTTPError:
+            raise
+        except (OSError, http.client.HTTPException, json.JSONDecodeError):
+            if attempt == 3:
+                raise
+            time.sleep(2 * (attempt + 1))
 
 
 def rest(path):
@@ -142,7 +149,7 @@ def fetch():
             langs[lang] = langs.get(lang, 0) + n
     return {"weeks": weeks, "total": user["contributionsCollection"]["contributionCalendar"]["totalContributions"],
             "followers": user["followers"]["totalCount"], "repos": len(repos),
-            "projects": projects, "langs": langs, "created": user["createdAt"], "avatar": user["avatarUrl"],
+            "projects": projects, "langs": langs, "repo_list": repos, "created": user["createdAt"], "avatar": user["avatarUrl"],
             "stars": sum(r.get("stargazers_count", 0) for r in repos),
             "live": sum(1 for f in FEATURED if f[2]),
             "latest": max((r for r in repos if r["name"] != OWNER and not r.get("private")),
@@ -227,18 +234,17 @@ FONT = {
 def project_card(t, p):
     w, h = 480, 250
     pad = 22
-    out = [f'<defs><linearGradient id="cg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="{P.PINK}"/>'
-           f'<stop offset=".5" stop-color="{P.PURPLE}" stop-opacity=".5"/><stop offset="1" stop-color="{P.CYAN}"/>'
+    out = [f'<defs><linearGradient id="cg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="{P.BLUE}"/>'
+           f'<stop offset=".5" stop-color="{P.SKY}" stop-opacity=".5"/><stop offset="1" stop-color="{P.GOLD}"/>'
            '</linearGradient></defs>',
            f'<rect x="1" y="1" width="{w - 2}" height="{h - 2}" rx="10" fill="{t["panel"]}" stroke="url(#cg)" stroke-width="1.5"/>']
     out.append(f'<text class="m" x="{pad}" y="{pad + 10}" font-size="11" letter-spacing="1.2" fill="{t["lv"][3]}">'
                f"{escape(p['tag'].upper())}</text>")
     if p["live"]:
         lx = pad + len(p["tag"]) * 7.9 + 14
-        out.append(f'<g class="live"><rect x="{lx}" y="{pad}" width="46" height="14" rx="7" fill="{t["lv"][4]}"/>'
+        out.append(f'<g class="live"><rect x="{lx}" y="{pad}" width="46" height="14" rx="7" fill="{P.LIVE}"/>'
                    f'<text class="m" x="{lx + 23}" y="{pad + 10.5}" font-size="9" font-weight="700" fill="{t["bg"]}" '
                    'text-anchor="middle" letter-spacing="1">● LIVE</text></g>')
-    out.append(f'<rect class="scan" x="1" y="0" width="{w - 2}" height="2" fill="{t["lv"][4]}" opacity=".18"/>')
     out.append(f'<text x="{pad}" y="{pad + 38}" font-size="22" font-weight="700" fill="{t["text"]}">{escape(p["name"])}</text>')
     if p["lang"]:
         lc = LANG_COLORS.get(p["lang"], t["muted"])
@@ -273,8 +279,8 @@ def project_card(t, p):
            "@keyframes wave{0%,80%,100%{opacity:1}88%{opacity:.35}}"
            "@keyframes scan{from{transform:translateY(0)}to{transform:translateY(" + str(h) + "px)}}"
            "@keyframes blink{0%,100%{opacity:1}50%{opacity:.45}}"
-           ".c{animation:in .4s ease-out both,wave 3.6s ease-in-out infinite}"
-           ".scan{animation:scan 4.5s linear infinite}.live{animation:blink 1.4s steps(2) infinite}")
+           ".c{animation:in .4s ease-out both}"
+           ".live{animation:blink 2.4s ease-in-out infinite}")
     return svg(w, h, "".join(out), f"{p['name']}: {p['blurb']} {total} commits in the last 26 weeks.", css)
 
 
@@ -451,22 +457,6 @@ def slug(name):
     return name.lower().replace("_", "-")
 
 
-STAGE1 = base64.b64encode(b"STAGE 1/3 :: nice, you decoded base64. the city is more than a picture: "
-                        b"open assets/city.svg as raw text and read its <desc> element. it is hex.").decode()
-
-
-BANNERS = [
-    ("whoami", "WHOAMI", "$ neofetch"),
-    ("shipped", "SHIPPED", "10 projects · one neon grid each"),
-    ("play", "BUGSWEEPER", "a game you play by opening issues"),
-    ("alive", "ALIVE", "my year, run through Conway's rules"),
-    ("wall", "THE WALL", "leave a square"),
-    ("ctf", "CTF", "three stages · one flag"),
-    ("stack", "STACK", "bytes by language"),
-    ("hire", "HIRE ME", "the empty square is yours"),
-]
-
-
 def draw_wall():
     import crazy
     visitors = crazy.load_wall()
@@ -478,24 +468,25 @@ def main():
     ASSETS.mkdir(exist_ok=True)
     if "--wall" in sys.argv:
         return draw_wall()
+    import charts
     import crazy
-    data = fetch()
-    (ASSETS / "city.svg").write_text(crazy.city(data), encoding="utf-8")
     import neofetch
+    data = fetch()
+    act = charts.fetch_activity(data)
+    (ASSETS / "city.svg").write_text(crazy.city(data), encoding="utf-8")
     (ASSETS / "neofetch.svg").write_text(neofetch.neofetch(data), encoding="utf-8")
-    for slug_, text, sub in BANNERS:
-        (ASSETS / f"b-{slug_}.svg").write_text(neofetch.banner(text, sub), encoding="utf-8")
-    solvers = ROOT / "ctf" / "solvers.json"
-    solved = len(json.loads(solvers.read_text())) if solvers.exists() else 0
-    (ASSETS / "ctf.svg").write_text(crazy.ctf_banner(STAGE1, solved), encoding="utf-8")
+    (ASSETS / "chart-monthly.svg").write_text(charts.monthly(data), encoding="utf-8")
+    (ASSETS / "chart-hours.svg").write_text(charts.punchcard(act), encoding="utf-8")
+    (ASSETS / "chart-projects.svg").write_text(charts.top_projects(act), encoding="utf-8")
+    (ASSETS / "chart-languages.svg").write_text(charts.donut(data), encoding="utf-8")
     draw_wall()
     for mode, t in THEMES.items():
         (ASSETS / f"year-{mode}.svg").write_text(year(t, data), encoding="utf-8")
-        (ASSETS / f"stack-{mode}.svg").write_text(stack(t, data), encoding="utf-8")
         (ASSETS / f"hire-{mode}.svg").write_text(hire(t, data), encoding="utf-8")
         for p in data["projects"]:
             (ASSETS / f"p-{slug(p['name'])}-{mode}.svg").write_text(project_card(t, p), encoding="utf-8")
-    print(f"drew {len(list(ASSETS.glob('*.svg')))} images, {data['total']} contributions")
+    print(f"drew {len(list(ASSETS.glob('*.svg')))} images, {data['total']} contributions, "
+          f"{sum(act['repos'].values())} commits scanned")
 
 
 if __name__ == "__main__":
