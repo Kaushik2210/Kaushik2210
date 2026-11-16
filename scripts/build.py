@@ -4,6 +4,7 @@ Standard library only. Needs GITHUB_TOKEN (or GH_TOKEN) in the environment.
 Usage: python scripts/build.py [owner]
 """
 
+import base64
 import datetime as dt
 import json
 import math
@@ -146,7 +147,9 @@ def fetch():
             langs[lang] = langs.get(lang, 0) + n
     return {"weeks": weeks, "total": user["contributionsCollection"]["contributionCalendar"]["totalContributions"],
             "followers": user["followers"]["totalCount"], "repos": len(repos),
-            "projects": projects, "langs": langs}
+            "projects": projects, "langs": langs,
+            "latest": max((r for r in repos if r["name"] != OWNER and not r.get("private")),
+                          key=lambda r: r.get("pushed_at") or "")}
 
 
 # ---------------------------------------------------------------- helpers
@@ -220,73 +223,6 @@ FONT = {
 }
 
 
-def hero(t, data):
-    word, cols, rows, pitch, size = "KAUSHIK", 64, 13, 18, 14
-    ox, oy = 28, 28
-    letters = set()
-    start_c = (cols - (len(word) * 6 - 1)) // 2
-    for i, ch in enumerate(word):
-        for r, bits in enumerate(FONT[ch]):
-            for c, b in enumerate(bits):
-                if b == "1":
-                    letters.add((start_c + i * 6 + c, 3 + r))
-
-    rnd = random.Random(2210)
-    # Background is the real year, folded into the grid, then dimmed so the name reads first.
-    flat = [d[2] for w in data["weeks"] for d in w]
-    body, css = [], []
-    for c in range(cols):
-        for r in range(rows):
-            near = any((c + dc, r + dr) in letters for dc in (-1, 0, 1) for dr in (-1, 0, 1))
-            if (c, r) in letters:
-                lv = 4
-            elif near or 2 <= r <= 10 and start_c - 2 <= c <= start_c + len(word) * 6:
-                lv = 0  # dark moat so the name reads
-            else:
-                real = flat[(c * rows + r) % len(flat)] if flat else 0
-                lv = min(real, 3) if rnd.random() < 0.7 else 0
-            delay = c * 0.03 + rnd.random() * 0.15
-            cls = "n" if lv == 4 else "b"
-            body.append(cell(ox + c * pitch, oy + r * pitch, size, t["lv"][lv],
-                             f' class="{cls}" style="animation-delay:{delay:.2f}s,{2.2 + c * 0.05:.2f}s"'))
-
-    grid_w = cols * pitch - (pitch - size)
-    w = ox * 2 + grid_w
-    y = oy + rows * pitch + 46
-    best, cur, active, _ = streaks(data["weeks"])
-
-    # GitHub-style tooltip over today's square.
-    tx, ty = ox + (cols - 1) * pitch + size / 2, oy + (rows - 1) * pitch
-    tip = f"{data['total']:,} contributions in the last year"
-    tw = len(tip) * 7.4 + 24
-    tip_svg = (f'<g class="tip"><rect x="{tx - tw + 18:.0f}" y="{ty - 40}" width="{tw:.0f}" height="28" rx="6" '
-               f'fill="{t["tip_bg"]}"/><path d="M{tx - 6} {ty - 12}l6 6 6-6z" fill="{t["tip_bg"]}"/>'
-               f'<text x="{tx - tw + 30:.0f}" y="{ty - 21}" font-size="13" fill="{t["tip_fg"]}">'
-               f'<tspan font-weight="600">{data["total"]:,} contributions</tspan> in the last year</text></g>')
-
-    text = (f'<text x="{ox}" y="{y}" font-size="30" font-weight="700" fill="{t["text"]}">S V Kaushik</text>'
-            f'<text x="{ox}" y="{y + 30}" font-size="17" fill="{t["muted"]}">'
-            "Full-stack and security engineer. I take a project from blank repo to live demo.</text>"
-            f'<text class="m" x="{ox}" y="{y + 60}" font-size="13" fill="{t["faint"]}">'
-            f"Bangalore  /  {data['repos']} repos  /  {active} active days  /  best streak {best}d</text>")
-
-    lx = w - ox - 5 * 18 - 108
-    legend = [f'<text class="m" x="{lx - 8}" y="{y + 56}" font-size="12" fill="{t["muted"]}" text-anchor="end">idea</text>']
-    for i in range(5):
-        legend.append(cell(lx + i * 18, y + 44, 14, t["lv"][i]))
-    legend.append(f'<text class="m" x="{lx + 5 * 18 + 4}" y="{y + 56}" font-size="12" fill="{t["muted"]}">shipped</text>')
-
-    css = ("@keyframes in{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}"
-           "@keyframes pulse{0%,100%{opacity:1}50%{opacity:.55}}"
-           "@keyframes pop{0%,70%{opacity:0;transform:translateY(6px)}100%{opacity:1;transform:none}}"
-           ".b{animation:in .5s ease-out both}"
-           ".n{animation:in .5s ease-out both,pulse 3.2s ease-in-out infinite}"
-           ".tip{animation:pop 3s ease-out both}")
-    h = y + 84
-    return svg(w, h, f'<rect width="{w}" height="{h}" rx="12" fill="{t["bg"]}"/>'
-               + "".join(body) + tip_svg + text + "".join(legend),
-               f"KAUSHIK spelled in contribution squares. {data['total']:,} contributions in the last year.", css)
-
 
 # ---------------------------------------------------------------- project cards
 
@@ -297,6 +233,12 @@ def project_card(t, p):
     out = [f'<rect x="0.5" y="0.5" width="{w - 1}" height="{h - 1}" rx="10" fill="{t["panel"]}" stroke="{t["border"]}"/>']
     out.append(f'<text class="m" x="{pad}" y="{pad + 10}" font-size="11" letter-spacing="1.2" fill="{t["lv"][3]}">'
                f"{escape(p['tag'].upper())}</text>")
+    if p["live"]:
+        lx = pad + len(p["tag"]) * 7.9 + 14
+        out.append(f'<g class="live"><rect x="{lx}" y="{pad}" width="46" height="14" rx="7" fill="{t["lv"][4]}"/>'
+                   f'<text class="m" x="{lx + 23}" y="{pad + 10.5}" font-size="9" font-weight="700" fill="{t["bg"]}" '
+                   'text-anchor="middle" letter-spacing="1">● LIVE</text></g>')
+    out.append(f'<rect class="scan" x="1" y="0" width="{w - 2}" height="2" fill="{t["lv"][4]}" opacity=".18"/>')
     out.append(f'<text x="{pad}" y="{pad + 38}" font-size="22" font-weight="700" fill="{t["text"]}">{escape(p["name"])}</text>')
     if p["lang"]:
         lc = LANG_COLORS.get(p["lang"], t["muted"])
@@ -318,7 +260,7 @@ def project_card(t, p):
             n = p["days"].get(d, 0)
             lv = 0 if n == 0 else min(4, 1 + int(3 * math.log1p(n) / math.log1p(hi)))
             out.append(f'<rect x="{gx + c * pitch:.1f}" y="{gy + r * pitch:.1f}" width="{size}" height="{size}" '
-                       f'rx="1.5" fill="{t["lv"][lv]}" class="c" style="animation-delay:{c * 0.025:.2f}s"/>')
+                       f'rx="1.5" fill="{t["lv"][lv]}" class="c" style="animation-delay:{c * 0.025:.2f}s,{c * 0.07:.2f}s"/>')
 
     total = sum(counts)
     sx = w - pad
@@ -327,7 +269,12 @@ def project_card(t, p):
     link = "live demo" if p["live"] else "source"
     out.append(f'<text class="m" x="{sx}" y="{h - pad - 2}" font-size="12" font-weight="600" fill="{t["lv"][3]}" text-anchor="end">'
                f"{ago(p['pushed'])}  ·  {link} ↗</text>")
-    css = "@keyframes in{from{opacity:0}to{opacity:1}}.c{animation:in .4s ease-out both}"
+    css = ("@keyframes in{from{opacity:0}to{opacity:1}}"
+           "@keyframes wave{0%,80%,100%{opacity:1}88%{opacity:.35}}"
+           "@keyframes scan{from{transform:translateY(0)}to{transform:translateY(" + str(h) + "px)}}"
+           "@keyframes blink{0%,100%{opacity:1}50%{opacity:.45}}"
+           ".c{animation:in .4s ease-out both,wave 3.6s ease-in-out infinite}"
+           ".scan{animation:scan 4.5s linear infinite}.live{animation:blink 1.4s steps(2) infinite}")
     return svg(w, h, "".join(out), f"{p['name']}: {p['blurb']} {total} commits in the last 26 weeks.", css)
 
 
@@ -504,11 +451,30 @@ def slug(name):
     return name.lower().replace("_", "-")
 
 
-def main():
-    data = fetch()
-    ASSETS.mkdir(exist_ok=True)
+STAGE1 = base64.b64encode(b"STAGE 1/3 :: nice, you decoded base64. the city is more than a picture: "
+                        b"open assets/city.svg as raw text and read its <desc> element. it is hex.").decode()
+
+
+def draw_wall():
+    import crazy
+    visitors = crazy.load_wall()
     for mode, t in THEMES.items():
-        (ASSETS / f"hero-{mode}.svg").write_text(hero(t, data), encoding="utf-8")
+        (ASSETS / f"wall-{mode}.svg").write_text(crazy.wall(t, visitors), encoding="utf-8")
+
+
+def main():
+    ASSETS.mkdir(exist_ok=True)
+    if "--wall" in sys.argv:
+        return draw_wall()
+    import crazy
+    data = fetch()
+    (ASSETS / "city.svg").write_text(crazy.city(data), encoding="utf-8")
+    (ASSETS / "terminal.svg").write_text(crazy.terminal(data), encoding="utf-8")
+    solvers = ROOT / "ctf" / "solvers.json"
+    solved = len(json.loads(solvers.read_text())) if solvers.exists() else 0
+    (ASSETS / "ctf.svg").write_text(crazy.ctf_banner(STAGE1, solved), encoding="utf-8")
+    draw_wall()
+    for mode, t in THEMES.items():
         (ASSETS / f"year-{mode}.svg").write_text(year(t, data), encoding="utf-8")
         (ASSETS / f"stack-{mode}.svg").write_text(stack(t, data), encoding="utf-8")
         (ASSETS / f"hire-{mode}.svg").write_text(hire(t, data), encoding="utf-8")

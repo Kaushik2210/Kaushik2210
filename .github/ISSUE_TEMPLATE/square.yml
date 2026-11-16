@@ -1,0 +1,25 @@
+name: "🟩 Light a square"
+description: "Put your handle on the square wall of my profile. It stays."
+title: "[SQUARE] light my square"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Your GitHub handle becomes a lit square on my profile's **square wall**, with a short message beside it.
+        One square per person (submit again to change it). Letters, numbers and `! ? ' , -` only, 28 characters max. Abusive messages are filtered out.
+  - type: input
+    id: message
+    attributes:
+      label: Message
+      description: Up to 28 characters
+      placeholder: "hello from Berlin!"
+    validations:
+      required: true
+  - type: dropdown
+    id: shade
+    attributes:
+      label: Shade
+      description: "1 = faint green, 4 = brightest"
+      options: ["4", "3", "2", "1"]
+    validations:
+      required: true

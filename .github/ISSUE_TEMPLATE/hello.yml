@@ -1,0 +1,31 @@
+name: "Say hello"
+description: "Collaboration, an opportunity, feedback on a project, or just hello."
+title: "[HELLO] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reaching out. **This is a public GitHub issue**, so please don't include a phone number, private email or anything sensitive. I'll reply here.
+  - type: dropdown
+    id: topic
+    attributes:
+      label: What's this about?
+      options:
+        - Collaboration
+        - An opportunity
+        - Feedback on a project
+        - Just saying hello
+    validations:
+      required: true
+  - type: input
+    id: name
+    attributes:
+      label: Your name (optional)
+      placeholder: "Ada Lovelace"
+  - type: textarea
+    id: message
+    attributes:
+      label: Message
+      placeholder: "A line or two is plenty."
+    validations:
+      required: true
