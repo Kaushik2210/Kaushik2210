@@ -59,6 +59,10 @@ def save(db):
     STATE.write_text(json.dumps(db, indent=1), encoding="utf-8")
 
 
+def many(n, word):
+    return f"{n} {word}{'' if n == 1 else 's'}"
+
+
 def label(r, c):
     return f"{LETTERS[c]}{r + 1}"
 
@@ -103,7 +107,7 @@ def play(db, login, r, c):
         p["booms"] += 1
         db["history"].append({"game": g["game"], "result": "lost", "by": login,
                               "moves": len(g["moves"]), "at": now()})
-        return (f"\U0001F4A5 **{sq} was a bug.** Game {g['game']} is over after {len(g['moves'])} moves. "
+        return (f"\U0001F4A5 **{sq} was a bug.** Game {g['game']} is over after {many(len(g['moves']), 'move')}. "
                 "Click any square on the board to start the next game.")
 
     stack = [(r, c)]  # flood-fill zeros
@@ -127,7 +131,7 @@ def play(db, login, r, c):
         return (f"\U0001F3C6 **Board cleared!** {sq} was the last safe square. Everyone who played game "
                 f"{g['game']} gets a win: " + ", ".join(f"@{t}" for t in team))
     n = count(bugs, r, c)
-    return f"\U0001F7E9 **{sq} is safe** ({n} bug{'s' if n != 1 else ''} next to it). {left} safe squares left."
+    return f"\U0001F7E9 **{sq} is safe** ({n} bug{'s' if n != 1 else ''} next to it). {many(left, 'safe square')} left."
 
 
 # ---------------------------------------------------------------- rendering
@@ -195,12 +199,12 @@ def render(db):
     opened = len(g["open"])
     left = ROWS * COLS - BUGS - opened
     if g["status"] == "playing":
-        head = (f"**Game {g['game']}** · {BUGS} bugs hidden · **{left}** safe squares left · "
-                f"{len(g['moves'])} moves so far")
+        head = (f"**Game {g['game']}** · {BUGS} bugs hidden · **{many(left, 'safe square')}** left · "
+                f"{many(len(g['moves']), 'move')} so far")
         if not g["moves"]:
             head += " · _first click is always safe_"
     elif g["status"] == "won":
-        head = f"🏆 **Game {g['game']} cleared** in {len(g['moves'])} moves. Click any square to start game {g['game'] + 1}."
+        head = f"🏆 **Game {g['game']} cleared** in {many(len(g['moves']), 'move')}. Click any square to start game {g['game'] + 1}."
     else:
         last = g["moves"][-1]["by"]
         head = (f"💥 **Game {g['game']} lost** when @{last} hit a bug on move {len(g['moves'])}. "
@@ -232,7 +236,7 @@ def render(db):
 </div>
 
 <details>
-<summary><b>How to play · leaderboard</b> ({games} games finished, {won} cleared)</summary>
+<summary><b>How to play · leaderboard</b> ({many(games, 'game')} finished, {won} cleared)</summary>
 
 <br>
 
