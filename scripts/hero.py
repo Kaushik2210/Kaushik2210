@@ -6,6 +6,7 @@
   cars on the street        = your recent pushes
   neon sign                 = the name, flickering
   wet-street reflection     = the whole city mirrored and faded
+  on-air sign               = am I coding right now? (last push < 90 min, < 12 h, or offline)
   the sky                   = Bangalore right now: real time of day and live weather (sky.py)
 
 The skyline grows toward "now": quiet early weeks are low, recent weeks are towers.
@@ -57,7 +58,19 @@ def main():
     rp = sorted((r for r in common.repos(USER) if r["name"].lower() != USER.lower()), key=lambda r: r["pushed_at"], reverse=True)
     now = datetime.now(timezone.utc)
     last = rp[0]
-    last_ago = ago(now - datetime.fromisoformat(last["pushed_at"].replace("Z", "+00:00")))
+    last_age = now - datetime.fromisoformat(last["pushed_at"].replace("Z", "+00:00"))
+    last_ago = ago(last_age)
+    mins = last_age.total_seconds() / 60
+    if os.environ.get("ONAIR_TEST"):  # minutes since last push, for local previews
+        mins = float(os.environ["ONAIR_TEST"])
+    repo_short = last["name"] if len(last["name"]) <= 22 else last["name"][:21] + "…"
+    if mins < 90:
+        onair = ("live", f"● CODING NOW · {repo_short}")
+    elif mins < 12 * 60:
+        onair = ("warm", f"◐ LAST COMMIT {int(mins // 60)}h AGO · {repo_short}")
+    else:
+        asleep = (now.hour * 60 + now.minute + 330) % 1440 < 7 * 60  # midnight to 7 am in Bangalore
+        onair = ("off", "○ OFFLINE · ASLEEP IN BANGALORE" if asleep else "○ OFFLINE")
     hist, npush = common.push_hours(USER)
     chrono, peak = chronotype(hist)
 
@@ -77,7 +90,7 @@ def main():
     tallest = sorted(range(nw), key=lambda i: heights[i], reverse=True)[:3]
 
     alt = (f"A night-time city skyline built from my last {nw} weeks of GitHub activity: one building per week, "
-           f"taller means more commits, lit windows are active days. The sky is Bangalore right now ({s['time']} IST, {s['desc']}). {streak_txt}, {chrono}, last push {last['name']} {last_ago}.")
+           f"taller means more commits, lit windows are active days. {"Coding right now on " + last["name"] + ". " if onair[0] == "live" else ""}The sky is Bangalore right now ({s['time']} IST, {s['desc']}). {streak_txt}, {chrono}, last push {last['name']} {last_ago}.")
     o = [f'<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 {W} {H}" width="{W}" height="{H}" role="img" aria-label="{escape(alt)}">',
          f"<title>{escape(USER)}: the night shift</title>",
          t.defs(f"""
@@ -191,6 +204,17 @@ def main():
         o.append(f'<text x="50" y="216" font-size="{t.T_TITLE + 2}" fill="{ink}" opacity="0">{escape(r)}'
                  f'<animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="{kt}" dur="{cyc}s" repeatCount="indefinite"/></text>')
 
+    # on-air sign: am I coding right now?
+    kind, txt = onair
+    sw = len(txt) * 7.4 + 26
+    col = {"live": t.BEACON[0], "warm": t.A3, "off": t.TEXT3}[kind]
+    o.append(f'<g transform="translate(50,234)">'
+             f'<rect width="{sw:.0f}" height="24" rx="12" fill="{t.CANVAS}" fill-opacity=".72" stroke="{col}" stroke-width="1.4"'
+             + (' filter="url(#glow)"' if kind == "live" else "") + '/>'
+             f'<text x="13" y="16.5" class="mono" font-size="11.5" font-weight="700" letter-spacing="1" fill="{col}">{escape(txt)}</text>'
+             + ('<animate attributeName="opacity" values="1;.55;1" dur="1.6s" repeatCount="indefinite"/>' if kind == "live" else "")
+             + '</g>')
+
     # live sky chip
     o.append(f'<text x="{W - 26}" y="34" class="mono" font-size="10.5" letter-spacing="1.5" text-anchor="end" fill="{ink}" opacity=".85">'
              f'<tspan fill="{t.GREEN}">●</tspan> {escape(sky.label(s))}</text>')
@@ -203,7 +227,7 @@ def main():
     o.append("</svg>")
     with open(OUT, "w", encoding="utf-8") as f:
         f.write("\n".join(o))
-    print(f"wrote {OUT}: sky {ph}/{s['desc']}, {nw} buildings, tallest {max(tot)} commits/wk, {ncars} cars, {chrono} peak {peak}h, streak {cur}, {sum(len(x) for x in o) // 1024} KB")
+    print(f"wrote {OUT}: sky {ph}/{s['desc']}, on-air {onair[0]}, {nw} buildings, tallest {max(tot)} commits/wk, {ncars} cars, {chrono} peak {peak}h, streak {cur}, {sum(len(x) for x in o) // 1024} KB")
 
 
 if __name__ == "__main__":
