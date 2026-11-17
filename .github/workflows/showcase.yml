@@ -2,7 +2,7 @@ name: Rebuild profile (hero, builds, charts)
 
 on:
   schedule:
-    - cron: "17 */2 * * *" # every 2 hours, so the header sky follows Bangalore through the day
+    - cron: "17 * * * *" # hourly: GitHub drops some scheduled runs, so ask often to keep the header sky current
   workflow_dispatch: {}
   push:
     paths: ["scripts/**", "data/**", "ctf/desc.hex"]
