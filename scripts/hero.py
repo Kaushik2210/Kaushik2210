@@ -82,7 +82,7 @@ def main():
                  fog=s["code"] in (45, 48), clouds=s["cloud"] >= 35 or s["code"] in (2, 3))
     ph = s["phase"]
     sg = sky.gradient(s, t.SKY_GRAD)
-    ink = "#0b1638" if ph == "day" else t.TEXT  # copy colour that stays readable on a bright sky
+    ink = t.TEXT
     rnd = random.Random(2210)
     pitch = (W - 20) / nw
     bw = pitch - 2.4
@@ -123,12 +123,12 @@ def main():
                      f'<animateTransform attributeName="transform" type="translate" values="{sx} {sy};{sx} {sy};{sx + 160} {sy + 56};{sx + 160} {sy + 56}" keyTimes="0;{a:.4f};{a + .04:.4f};1" dur="18s" repeatCount="indefinite"/>'
                      f'<animate attributeName="opacity" values="0;0;1;0;0" keyTimes="0;{a:.4f};{a + .012:.4f};{a + .04:.4f};1" dur="18s" repeatCount="indefinite"/></line>')
     elif ph == "day":
-        o.append('<circle cx="712" cy="78" r="70" fill="url(#sunglow)"/><circle cx="712" cy="78" r="24" fill="#fff6cf">'
+        o.append('<circle cx="712" cy="78" r="70" fill="url(#sunglow)" opacity=".55"/><circle cx="712" cy="78" r="22" fill="#ffe9a8" opacity=".9">'
                  '<animate attributeName="r" values="24;25.5;24" dur="5s" repeatCount="indefinite"/></circle>')
     else:  # dawn / dusk: a big low sun sitting behind the city
         sx_ = 300 if ph == "dawn" else 600
         o.append(f'<circle cx="{sx_}" cy="{STREET - 20}" r="150" fill="url(#sunglow)"/>'
-                 f'<circle cx="{sx_}" cy="{STREET - 20}" r="52" fill="url(#sunfill)" opacity=".95"/>')
+                 f'<circle cx="{sx_}" cy="{STREET - 20}" r="46" fill="url(#sunfill)" opacity=".7"/>')
     o.append(sky.clouds(s, W))
 
     # ---------------- the city (one group, reused for the reflection) ----------------
@@ -192,8 +192,6 @@ def main():
 
     # neon name + copy
     o.append(f'<text x="50" y="82" class="mono" font-size="12" letter-spacing="3" fill="{t.A3}">FULL-STACK  &#183;  SECURITY  &#183;  BANGALORE</text>')
-    if ph == "day":
-        o.append(f'<text x="47" y="182" font-size="104" font-weight="800" letter-spacing="-4" fill="#071233" opacity=".35">{NAME}</text>')
     o.append(f'<g><text x="44" y="178" font-size="104" font-weight="800" letter-spacing="-4" fill="url(#aurora)" filter="url(#glow)" opacity=".75">{NAME}</text>'
              f'<text x="44" y="178" font-size="104" font-weight="800" letter-spacing="-4" fill="url(#aurora)">{NAME}</text>'
              f'<animate attributeName="opacity" values="1;1;.55;1;.72;1;.9;1" keyTimes="0;.5;.52;.54;.56;.58;.6;1" dur="9s" repeatCount="indefinite"/></g>')

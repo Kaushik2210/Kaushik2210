@@ -24,6 +24,12 @@ STARS_DB = os.environ.get("STARS_DB") or os.path.join(os.path.dirname(os.path.ab
 VISITOR_COLORS = thm.VISITOR
 
 
+def _ctf_desc():
+    import os
+    f = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "ctf", "desc.hex")
+    return open(f, encoding="utf-8").read().strip() if os.path.exists(f) else ""
+
+
 def load_visitors():
     try:
         with open(STARS_DB, encoding="utf-8") as f:
@@ -71,7 +77,8 @@ def main():
 
     o = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" role="img" '
          f'aria-label="Contribution galaxy: each star is one day of commits">',
-         f"<title>CONTRIBUTION GALAXY // {escape(USER)}</title>"]
+         f"<title>CONTRIBUTION GALAXY // {escape(USER)}</title>",
+         f"<desc>{_ctf_desc()}</desc>"]  # CTF stage 2 lives here (hex, from ctf/desc.hex)
     o.append(f"""<defs>
 {thm.BDR}
 <radialGradient id="core"><stop offset="0" stop-color="#fff6c0" stop-opacity=".95"/><stop offset=".25" stop-color="#ffcf4a" stop-opacity=".45"/><stop offset="1" stop-color="#ffcf4a" stop-opacity="0"/></radialGradient>

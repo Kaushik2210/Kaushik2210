@@ -15,12 +15,11 @@ DIVIDERS = [  # (file, number, label, act)
     ("div-pillars", "01", "What I build", "WORK"),
     ("div-builds", "02", "Featured builds", "WORK"),
     ("div-dossier", "03", "Operator dossier", "ACTIVITY"),
-    ("div-vitals", "04", "Vitals", "ACTIVITY"),
-    ("div-neural", "05", "Repo neural map", "ACTIVITY"),
-    ("div-vote", "06", "You decide: what I build next", "INTERACTIVE"),
-    ("div-galaxy", "07", "Contribution galaxy", "INTERACTIVE"),
-    ("div-badge", "08", "My badge", "INTERACTIVE"),
-    ("div-ctf", "09", "Intercepted transmission", "INTERACTIVE"),
+    ("div-launch", "04", "Launch log", "ACTIVITY"),
+    ("div-vote", "05", "You decide: what I build next", "INTERACTIVE"),
+    ("div-galaxy", "06", "Contribution galaxy", "INTERACTIVE"),
+    ("div-badge", "07", "My badge", "INTERACTIVE"),
+    ("div-ctf", "08", "Intercepted transmission", "INTERACTIVE"),
 ]
 
 

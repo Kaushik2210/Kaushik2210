@@ -127,17 +127,11 @@ Things people can open and use today. [HireOS](https://hireos-beryl.vercel.app) 
 
 <sub>Rebuilt from my avatar on every run. The numbers beside it come straight from the GitHub API.</sub>
 
-<img src="assets/div-vitals.svg" alt="Vitals" width="100%"/>
+<img src="assets/div-launch.svg" alt="Launch log" width="100%"/>
 
-<img src="assets/vitals.svg" alt="Activity rings for streak, consistency and momentum; a 24-hour clock of when I push code; and a 26-week momentum chart" width="100%"/>
+<a href="https://github.com/Kaushik2210?tab=repositories&sort=created"><img src="assets/launch.svg" alt="Launch log: every project I started in the last 12 months, plotted by launch date. Altitude is how long I kept building it; green rings are live demos, gold ones are still in active development." width="100%"/></a>
 
-<sub>Three live gauges: how consistent I am, when in the day I ship, and how this quarter compares to the last.</sub>
-
-<img src="assets/div-neural.svg" alt="Repo neural map" width="100%"/>
-
-<a href="https://github.com/Kaushik2210?tab=repositories&sort=updated"><img src="assets/neural.svg" alt="Neural map of my repositories: each repo is a neuron, clustered by language and wired to repos that share topics. Recently pushed repos fire rings and signals travel along the wires." width="100%"/></a>
-
-<sub>Every repo is a neuron, wired to the ones it shares topics, a name family or a language with. Rings mark what I pushed this week.</sub>
+<sub>Every project I started this year, plotted like a launch. The higher it flies, the longer I kept building it. Green rings are live, gold is still in orbit.</sub>
 
 <div align="center">
 
@@ -183,7 +177,7 @@ Things people can open and use today. [HireOS](https://hireos-beryl.vercel.app) 
 
 ```text
 STAGE 1 / 3   (base64)
-U1RBR0UgMS8zIDo6IG5pY2UsIHlvdSBkZWNvZGVkIGJhc2U2NC4gdGhlIHJlcG8gbWFwIGlzIG1vcmUgdGhhbiBhIHBpY3R1cmU6IG9wZW4gYXNzZXRzL25ldXJhbC5zdmcgYXMgcmF3IHRleHQgYW5kIHJlYWQgaXRzIDxkZXNjPiBlbGVtZW50LiBpdCBpcyBoZXgu
+U1RBR0UgMS8zIDo6IG5pY2UsIHlvdSBkZWNvZGVkIGJhc2U2NC4gdGhlIGdhbGF4eSBpcyBtb3JlIHRoYW4gYSBwaWN0dXJlOiBvcGVuIGFzc2V0cy9nYWxheHkuc3ZnIGFzIHJhdyB0ZXh0IGFuZCByZWFkIGl0cyA8ZGVzYz4gZWxlbWVudC4gaXQgaXMgaGV4Lg==
 ```
 
 <details>
