@@ -209,6 +209,14 @@ def poster(cfg, r, now, idx=1):
              f'<text x="{W - 50}" y="31" class="label" text-anchor="middle" style="fill:{dc}">{dest}</text>')
     # text
     o.append(_title(title, idx, top + 30))
+    if live:  # a rubber stamp that slams onto shipped projects
+        sx, sy = W - 70, top + 22
+        o.append(f'<g transform="translate({sx},{sy}) rotate(-8)"><g opacity=".9">'
+                 f'<animateTransform attributeName="transform" type="scale" values="2.4;.92;1;1" keyTimes="0;.06;.09;1" dur="8s" begin="{idx * .5:.1f}s" repeatCount="indefinite"/>'
+                 f'<animate attributeName="opacity" values="0;.9;.9;.9" keyTimes="0;.05;.06;1" dur="8s" begin="{idx * .5:.1f}s" repeatCount="indefinite"/>'
+                 f'<rect x="-46" y="-12" width="92" height="24" rx="4" fill="none" stroke="{t.GREEN}" stroke-width="2"/>'
+                 f'<rect x="-42" y="-8" width="84" height="16" rx="2" fill="none" stroke="{t.GREEN}" stroke-width=".8"/>'
+                 f'<text y="4" class="mono" font-size="10.5" font-weight="700" fill="{t.GREEN}" text-anchor="middle" letter-spacing="2">SHIPPED</text></g></g>')
     for i, line in enumerate(wrap(blurb, 60, 3)):
         o.append(f'<text x="20" y="{top + 51 + i * 16}" font-size="12" fill="{t.TEXT2}">{escape(line)}</text>')
     # chips

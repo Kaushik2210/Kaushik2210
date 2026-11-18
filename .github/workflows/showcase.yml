@@ -33,6 +33,7 @@ jobs:
           python badge.py   "${{ github.repository_owner }}" ../assets/badge.svg
           python proof.py   "${{ github.repository_owner }}" ../assets/proof.svg
           python launch.py  "${{ github.repository_owner }}" ../assets/launch.svg
+          python missionmap.py "${{ github.repository_owner }}" ../assets/missions.svg
           python posters.py  "${{ github.repository_owner }}" ../README.md
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

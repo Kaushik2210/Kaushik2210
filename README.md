@@ -60,6 +60,8 @@ Things people can open and use today. [HireOS](https://hireos-beryl.vercel.app) 
 
 <img src="assets/div-builds.svg" alt="Mission select: every project, in action" width="100%"/>
 
+<img src="assets/missions.svg" alt="Mission map: a ship flies between my nine featured projects and shows a briefing for each, with its animated scene, objective and live GitHub stats." width="100%"/>
+
 </div>
 
 <!--BUILDS_START-->
