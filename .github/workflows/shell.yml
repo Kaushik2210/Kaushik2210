@@ -26,12 +26,18 @@ jobs:
         run: python scripts/shell.py
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
+      - name: Redraw the header so the rooftop billboard shows this command
+        working-directory: scripts
+        run: python hero.py "${{ github.repository_owner }}" ../assets/header.svg || echo "header redraw skipped"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Commit
         run: |
           git config user.name "shell-bot"
           git config user.email "shell-bot@users.noreply.github.com"
-          git add README.md shell/ assets/shell.svg
+          git add README.md shell/ assets/shell.svg assets/header.svg
           git diff --cached --quiet && exit 0
           git commit -m "kaushik.sh: new command"
           git pull --rebase -q

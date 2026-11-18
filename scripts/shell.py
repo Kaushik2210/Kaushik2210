@@ -53,7 +53,44 @@ FORTUNES = [
     "there are two hard things: cache invalidation, naming things, and off-by-one errors.",
     "AI agents need guardrails. so do the people building them.",
 ]
-CHIPS = ["help", "whoami", "ls", "cat IntentGuard", "stack", "fortune", "sudo hire kaushik"]
+CHIPS = ["help", "whoami", "ping kaushik", "git log", "weather", "cat IntentGuard", "fortune", "sudo hire kaushik"]
+
+
+# ---------------------------------------------------------------- live lookups (read-only GitHub + weather)
+
+
+def _latest_repo():
+    import common
+    rs = [r for r in common.repos(OWNER) if r["name"].lower() != OWNER.lower() and not r.get("private")]
+    return max(rs, key=lambda r: r["pushed_at"])
+
+
+def _ago(iso):
+    mins = (datetime.now(timezone.utc) - datetime.fromisoformat(iso.replace("Z", "+00:00"))).total_seconds() / 60
+    return mins, ("just now" if mins < 2 else f"{int(mins)} min ago" if mins < 90 else
+                  f"{int(mins // 60)}h ago" if mins < 48 * 60 else f"{int(mins // 1440)} days ago")
+
+
+def live(head):
+    try:
+        if head == "weather":
+            import sky
+            st = sky.state()
+            return [sky.label(st).lower(), f"sky over my skyline: {st['phase']}, clouds {st['cloud']}%"]
+        if head == "ping":
+            r = _latest_repo()
+            mins, ago = _ago(r["pushed_at"])
+            mood = ("he's coding right now" if mins < 90 else "probably in class or asleep" if mins < 16 * 60
+                    else "quiet for a bit. send a nudge: `hire`")
+            return [f"PING kaushik: 64 bytes from github.com/{OWNER}: last push {ago} ({r['name']})", f"→ {mood}"]
+        if head == "git":
+            import common
+            r = _latest_repo()
+            cs = json.loads(common._req(f"https://api.github.com/repos/{OWNER}/{r['name']}/commits?per_page=3"))
+            return [f"on {r['name']}:"] + [f"{c['sha'][:7]}  {c['commit']['message'].splitlines()[0][:80]}" for c in cs]
+    except Exception:
+        return ["network is quiet right now. try again in a bit."]
+    return []
 
 
 # ---------------------------------------------------------------- commands
@@ -83,8 +120,9 @@ def answer(cmd):
     head, rest = words[0].lower(), " ".join(words[1:])
     pr = projects()
     if head in ("help", "man", "?"):
-        return ["commands: whoami · ls · cat <project> · open <project> · stack",
-                "          contact · uptime · date · fortune · echo <text> · hire"]
+        return ["commands: whoami · ls · cat <project> · open <project> · stack · contact",
+                "live:     ping kaushik · git log · weather · date · uptime",
+                "fun:      fortune · echo <text> · sudo hire kaushik"]
     if head == "whoami":
         return ["kaushik · full-stack + security engineer · bangalore, IN",
                 "builds detection systems and AI-agent tooling, ships them as live demos"]
@@ -101,6 +139,10 @@ def answer(cmd):
         if head == "open":
             return [f"opening {url}"]
         return [f"{f['repo']} [{f['category']}]", f["blurb"][:96], url]
+    if head in ("weather", "ping") or (head == "git" and rest.lower().startswith("log")):
+        return live(head)
+    if head == "git":
+        return ["git: try `git log`. this shell is read-only, so no pushing."]
     if head == "stack":
         return ["Python · TypeScript · JavaScript · Java", "React · Next.js · FastAPI · Supabase · Docker · Zeek · Suricata"]
     if head in ("contact", "mail"):
