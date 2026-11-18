@@ -34,21 +34,21 @@
 <tr>
 <td width="33%" valign="top">
 
-**Security that shows its work**
+<img src="assets/pillar-security.svg" alt="Security that shows its work" width="100%"/>
 
 Detection systems that explain themselves. [Net-Sentinel](https://github.com/Kaushik2210/Net-Sentinel) maps attacks to MITRE ATT&CK, [ORBITAL-SENTINEL](https://github.com/Kaushik2210/ORBITAL-SENTINEL) tells cyberattacks from sensor faults in spacecraft telemetry, [Deepfake-Detector](https://github.com/Kaushik2210/Deepfake-Detector) returns calibrated probabilities instead of a verdict, and [scam-khel](https://github.com/Kaushik2210/scam-khel) shields families from digital-arrest scams.
 
 </td>
 <td width="33%" valign="top">
 
-**Tools for the AI-agent era**
+<img src="assets/pillar-agents.svg" alt="Tools for the AI-agent era" width="100%"/>
 
 Guardrails and visibility for people building with agents. [tapwire](https://github.com/Kaushik2210/tapwire) turns an agent's mistakes into enforced rules and measures how often they repeat, [gitVisualise](https://github.com/Kaushik2210/gitVisualise) turns any repo into a narrated architecture tour (site, CLI and GitHub Action), and [PORTCULLIS](https://github.com/Kaushik2210/PORTCULLIS) screens LLM apps for prompt injection.
 
 </td>
 <td width="33%" valign="top">
 
-**Products that ship**
+<img src="assets/pillar-products.svg" alt="Products that ship" width="100%"/>
 
 Things people can open and use today. [HireOS](https://hireos-beryl.vercel.app) is a job-search workspace that shows its evidence, [AlgoVerse](https://algoverse-lovat-seven.vercel.app) is interview prep with 635+ explained solutions, and [Overrank](https://overrank.vercel.app) runs a live campus leaderboard.
 

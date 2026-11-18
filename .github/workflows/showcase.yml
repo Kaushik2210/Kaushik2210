@@ -28,6 +28,7 @@ jobs:
         working-directory: scripts
         run: |
           python banners.py "${{ github.repository_owner }}" ../assets
+          python pillars.py "${{ github.repository_owner }}" ../assets
           python dossier.py "${{ github.repository_owner }}" ../assets/dossier.svg
           python hero.py    "${{ github.repository_owner }}" ../assets/header.svg
           python badge.py   "${{ github.repository_owner }}" ../assets/badge.svg
