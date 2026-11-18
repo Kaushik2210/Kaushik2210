@@ -199,7 +199,7 @@ def main():
         e = seen[-1]
         line2, sw = f"@{e['by']} painted {e['cell']}", swatch.get(e["colour"], t.HAIRLINE)
     else:
-        line2, sw = "the sky is blank: paint a pixel", t.A3
+        line2, sw = "be the first painter", t.A3
     line2 = line2 if len(line2) <= 30 else line2[:29] + "…"
     bx, by, bwid, bh = 452, 222, 236, 44
     o.append(f'<g>'
