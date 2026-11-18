@@ -1,8 +1,8 @@
 <div align="center">
 
-<img src="assets/header.svg" alt="Kaushik: full-stack developer and security tinkerer. A city skyline built from my GitHub activity under Bangalore's real sky right now, with a neon name sign." width="100%"/>
+<img src="assets/header.svg" alt="Kaushik: full-stack developer and security tinkerer. A city skyline built from my GitHub activity under Bangalore's real sky right now, with a neon name sign that decrypts itself, fireworks over my busiest week and a metro train carrying my projects." width="100%"/>
 
-<sub>The sky above my skyline is Bangalore's real sky right now: live time of day and weather, redrawn through the day. Come back at sunset.</sub>
+<sub>One building per week of my GitHub year, under Bangalore's real sky right now. Fireworks mark my busiest week, and the purple-line metro carries my projects across town. Come back at sunset.</sub>
 
 **I build security tooling and AI-era developer products, then ship them as live demos.**
 

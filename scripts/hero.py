@@ -8,6 +8,10 @@
   wet-street reflection     = the whole city mirrored and faded
   on-air sign               = am I coding right now? (last push < 90 min, < 12 h, or offline)
   the sky                   = Bangalore right now: real time of day and live weather (sky.py)
+  Namma Metro               = a purple-line train whose carriages carry my featured projects
+  fireworks                 = over the tallest tower: my busiest week of the year
+  satellite                 = a slow pass overhead (a nod to ORBITAL-SENTINEL)
+  the name                  = decrypts itself from noise every few seconds
 
 The skyline grows toward "now": quiet early weeks are low, recent weeks are towers.
 Everything is built from the GitHub API on each run. Pure SMIL, no JavaScript.
@@ -132,6 +136,10 @@ def main():
         o.append(f'<circle cx="{sx_}" cy="{STREET - 20}" r="150" fill="url(#sunglow)"/>'
                  f'<circle cx="{sx_}" cy="{STREET - 20}" r="46" fill="url(#sunfill)" opacity=".7"/>')
     o.append(sky.clouds(s, W))
+    # a satellite passing overhead, blinking
+    o.append(f'<g><animateTransform attributeName="transform" type="translate" values="-20 120;{W + 20} 18;{W + 20} 18" keyTimes="0;.75;1" dur="40s" begin="-6s" repeatCount="indefinite"/>'
+             f'<rect x="-2" y="-1.5" width="4" height="3" fill="#dfe6ff"/><rect x="-8" y="-.8" width="5" height="1.6" fill="{t.A1}"/><rect x="3" y="-.8" width="5" height="1.6" fill="{t.A1}"/>'
+             f'<circle r="1.2" cx="0" cy="-3" fill="{t.BEACON[0]}"><animate attributeName="opacity" values="1;0;1" dur="1.1s" repeatCount="indefinite"/></circle></g>')
 
     # ---------------- the city (one group, reused for the reflection) ----------------
     c = [f'<g id="city">']
@@ -169,6 +177,50 @@ def main():
     o.append(f'<g transform="translate({bx - 90:.0f},{STREET - 60})"><g><animateTransform attributeName="transform" type="rotate" values="-24;24;-24" dur="9s" repeatCount="indefinite" calcMode="spline" keyTimes="0;.5;1" keySplines=".45 0 .55 1;.45 0 .55 1"/>'
              f'<polygon points="0,0 -24,-300 24,-300" fill="url(#beam)"/></g></g>')
 
+    # fireworks over the busiest week of the year
+    pk = tallest[0]
+    fx, fy = 10 + pk * pitch + bw / 2, max(96, STREET - heights[pk] - 70)  # keep the caption clear of the weather chip
+    fcyc = 11.0
+    for burst, (dx, dy, col, b0) in enumerate(((0, 0, t.A3, .1), (-34, 22, t.A1, .17), (30, 16, t.BEACON[2], .24))):
+        bx_, by_ = fx + dx, fy + dy
+        o.append(f'<line x1="{bx_:.1f}" y1="{STREET - heights[pk]:.1f}" x2="{bx_:.1f}" y2="{STREET - heights[pk] - 6:.1f}" stroke="{col}" stroke-width="1.6" stroke-linecap="round" opacity="0">'
+                 f'<animateTransform attributeName="transform" type="translate" values="0 0;0 0;0 {by_ - STREET + heights[pk] + 6:.1f};0 {by_ - STREET + heights[pk] + 6:.1f}" keyTimes="0;{b0 - .06:.3f};{b0:.3f};1" dur="{fcyc}s" repeatCount="indefinite"/>'
+                 f'<animate attributeName="opacity" values="0;0;1;0;0" keyTimes="0;{b0 - .06:.3f};{b0 - .01:.3f};{b0:.3f};1" dur="{fcyc}s" repeatCount="indefinite"/></line>')
+        for k in range(14):
+            a = 2 * math.pi * k / 14
+            ex, ey = 26 * math.cos(a), 26 * math.sin(a) + 6
+            o.append(f'<circle cx="{bx_:.1f}" cy="{by_:.1f}" r="1.6" fill="{col}" opacity="0">'
+                     f'<animateTransform attributeName="transform" type="translate" values="0 0;0 0;{ex:.1f} {ey:.1f};{ex:.1f} {ey + 8:.1f};{ex:.1f} {ey + 8:.1f}" keyTimes="0;{b0:.3f};{b0 + .05:.3f};{b0 + .14:.3f};1" dur="{fcyc}s" repeatCount="indefinite"/>'
+                     f'<animate attributeName="opacity" values="0;0;1;0;0" keyTimes="0;{b0:.3f};{b0 + .01:.3f};{b0 + .14:.3f};1" dur="{fcyc}s" repeatCount="indefinite"/></circle>')
+    o.append(f'<text x="{fx:.1f}" y="{fy - 34:.1f}" class="mono" font-size="9.5" text-anchor="middle" fill="{t.A3}" opacity="0">peak week · {max(tot)} contributions'
+             f'<animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;.12;.15;.42;.46;1" dur="{fcyc}s" repeatCount="indefinite"/></text>')
+
+    # Namma Metro: an elevated purple-line track, and a train carrying my featured projects
+    ty = STREET - 34
+    o.append(f'<rect x="0" y="{ty + 9}" width="{W}" height="4" fill="{t.CANVAS}"/><rect x="0" y="{ty + 9}" width="{W}" height="1" fill="{t.HAIRLINE}"/>')
+    for px in range(30, W, 92):
+        o.append(f'<rect x="{px}" y="{ty + 13}" width="5" height="{STREET - ty - 13}" fill="{t.CANVAS}" opacity=".95"/>')
+    try:
+        feat = [f["repo"] for f in json.load(open(Path(__file__).resolve().parent.parent / "data" / "projects.json", encoding="utf-8"))["featured"]][:5]
+    except Exception:
+        feat = []
+    cars = feat or ["metro"] * 4
+    cw_, gap = 84, 3
+    tl = len(cars) * (cw_ + gap)
+    mc = "#8a5cf6"
+    train = []
+    for k, name in enumerate(cars):
+        x = k * (cw_ + gap)
+        nose = k == len(cars) - 1
+        shape = (f'<path d="M{x} {ty - 8} H{x + cw_ - 10} Q{x + cw_} {ty - 8} {x + cw_} {ty + 2} V{ty + 8} H{x} Z" fill="{mc}"/>' if nose
+                 else f'<rect x="{x}" y="{ty - 8}" width="{cw_}" height="16" rx="2" fill="{mc}"/>')
+        train.append(shape + f'<rect x="{x + 4}" y="{ty - 5}" width="{cw_ - (16 if nose else 8)}" height="6" rx="1.5" fill="#fff3c4" opacity=".85"/>'
+                     f'<text x="{x + 6}" y="{ty + 0.2}" class="mono" font-size="5.6" font-weight="700" fill="#3b1d7a">{escape(name[:17])}</text>'
+                     f'<rect x="{x}" y="{ty + 5}" width="{cw_}" height="1.4" fill="#fff" opacity=".35"/>')
+    train.append(f'<circle cx="{tl - gap - 2}" cy="{ty + 3}" r="1.6" fill="#fff6d8"/>')
+    o.append(f'<g><animateTransform attributeName="transform" type="translate" values="{-tl - 20} 0;{W + 20} 0;{W + 20} 0" keyTimes="0;.62;1" dur="16s" begin="1.5s" repeatCount="indefinite" calcMode="spline" keySplines=".35 0 .65 1;0 0 1 1"/>'
+             f'<g transform="translate({-tl - 20} 0)">' + "".join(train) + "</g></g>")
+
     # street, lane marks, cars
     o.append(f'<rect x="0" y="{STREET}" width="{W}" height="28" fill="{t.GROUND[0]}"/>')
     o.append(f'<line x1="0" y1="{STREET}" x2="{W}" y2="{STREET}" stroke="{t.A1}" stroke-opacity=".45"/>')
@@ -194,9 +246,17 @@ def main():
 
     # neon name + copy
     o.append(f'<text x="50" y="82" class="mono" font-size="12" letter-spacing="3" fill="{t.A3}">FULL-STACK  &#183;  SECURITY  &#183;  BANGALORE</text>')
-    o.append(f'<g><text x="44" y="178" font-size="104" font-weight="800" letter-spacing="-4" fill="url(#aurora)" filter="url(#glow)" opacity=".75">{NAME}</text>'
+    dcyc, frames = 12.0, 5
+    glyphs = "#%&@$*?/<>{}01"
+    for k in range(frames):  # the name decrypts: noise frames resolve letter by letter into the real thing
+        txt = "".join(ch if j < k * len(NAME) // frames else rnd.choice(glyphs) for j, ch in enumerate(NAME))
+        a, b = .012 * k, .012 * (k + 1)
+        o.append(f'<text x="44" y="178" font-size="104" font-weight="800" letter-spacing="-4" fill="{t.A2}" opacity="0" class="mono">{escape(txt)}'
+                 f'<animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;{a + .0001:.4f};{b:.4f};{b + .0001:.4f};1" dur="{dcyc}s" repeatCount="indefinite"/></text>')
+    o.append(f'<g opacity="0"><animate attributeName="opacity" values="0;0;1;1" keyTimes="0;{.012 * frames:.4f};{.012 * frames + .001:.4f};1" dur="{dcyc}s" repeatCount="indefinite"/>'
+             f'<g><text x="44" y="178" font-size="104" font-weight="800" letter-spacing="-4" fill="url(#aurora)" filter="url(#glow)" opacity=".75">{NAME}</text>'
              f'<text x="44" y="178" font-size="104" font-weight="800" letter-spacing="-4" fill="url(#aurora)">{NAME}</text>'
-             f'<animate attributeName="opacity" values="1;1;.55;1;.72;1;.9;1" keyTimes="0;.5;.52;.54;.56;.58;.6;1" dur="9s" repeatCount="indefinite"/></g>')
+             f'<animate attributeName="opacity" values="1;1;.55;1;.72;1;.9;1" keyTimes="0;.5;.52;.54;.56;.58;.6;1" dur="9s" repeatCount="indefinite"/></g></g>')
     cyc = 4.2 * len(ROLES)
     for i, r in enumerate(ROLES):
         a, b = i / len(ROLES), (i + 1) / len(ROLES)
