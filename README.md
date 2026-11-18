@@ -129,7 +129,7 @@ Things people can open and use today. [HireOS](https://hireos-beryl.vercel.app) 
 
 <a href="https://github.com/Kaushik2210?tab=repositories"><img src="assets/dossier.svg" alt="Halftone portrait of me next to live GitHub stats: repositories, followers, streak and language mix" width="100%"/></a>
 
-<sub>Rebuilt from my avatar on every run. The numbers beside it come straight from the GitHub API.</sub>
+<sub>Rebuilt from my avatar on every run: the scanner locks onto my face, the file gets stamped, and the pulse at the bottom is my last 60 days of contributions. Every number comes straight from the GitHub API.</sub>
 
 <img src="assets/div-launch.svg" alt="Launch log" width="100%"/>
 

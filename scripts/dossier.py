@@ -113,7 +113,7 @@ def main():
     im, rows = portrait()
     px0, py0 = 30, 62
     ph = rows * PITCH
-    H = max(int(py0 + ph + 46), 530)
+    H = max(int(py0 + ph + 46), 530) + 96   # room for the pulse strip
     tx = 452
     o = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" role="img" '
          f'aria-label="Halftone portrait of {escape(USER)} with live GitHub stats">',
@@ -133,7 +133,33 @@ def main():
     o.append(f'<rect x="{px0 - 4}" y="{py0}" width="{COLS * PITCH + 8:.0f}" height="3" fill="{GREEN}" opacity="0" filter="url(#g)">'
              f'<animate attributeName="y" values="{py0};{py0 + ph:.0f};{py0 + ph:.0f}" keyTimes="0;{f:.4f};1" dur="{CYCLE}s" repeatCount="indefinite"/>'
              f'<animate attributeName="opacity" values=".95;.95;0;0" keyTimes="0;{f:.4f};{f + .004:.4f};1" dur="{CYCLE}s" repeatCount="indefinite"/></rect>')
-    o.append(f'<line x1="{tx - 22}" y1="24" x2="{tx - 22}" y2="{H - 24}" stroke="{th.HAIRLINE}"/>')
+    o.append(f'<line x1="{tx - 22}" y1="24" x2="{tx - 22}" y2="{H - 120}" stroke="{th.HAIRLINE}"/>')
+
+    # face lock: a reticle hunts across the portrait after each scan, then locks on the face
+    fw, fh = COLS * PITCH * .32, ph * .36
+    fx, fy = px0 + COLS * PITCH * .33, py0 + ph * .20
+    lk = f + .02
+    hunt = f"0 0;0 0;{-60} 40;50 -30;20 25;0 0;0 0"
+    o.append(f'<g opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;{f:.4f};{f + .003:.4f};.93;.96;1" dur="{CYCLE}s" repeatCount="indefinite"/>'
+             f'<animateTransform attributeName="transform" type="translate" values="{hunt}" keyTimes="0;{f:.4f};{f + .02:.4f};{f + .04:.4f};{f + .06:.4f};{f + .08:.4f};1" dur="{CYCLE}s" repeatCount="indefinite" calcMode="spline" '
+             f'keySplines="0 0 1 1;.4 0 .6 1;.4 0 .6 1;.4 0 .6 1;.4 0 .6 1;0 0 1 1"/>'
+             + "".join(f'<path d="M{x},{y + 14 * sy} L{x},{y} L{x + 14 * sx},{y}" fill="none" stroke="{th.BEACON[0]}" stroke-width="2.2"/>'
+                       for x, y, sx, sy in ((fx, fy, 1, 1), (fx + fw, fy, -1, 1), (fx, fy + fh, 1, -1), (fx + fw, fy + fh, -1, -1)))
+             + f'<line x1="{fx + fw / 2 - 8:.0f}" y1="{fy + fh / 2:.0f}" x2="{fx + fw / 2 + 8:.0f}" y2="{fy + fh / 2:.0f}" stroke="{th.BEACON[0]}" stroke-opacity=".7"/>'
+             f'<line x1="{fx + fw / 2:.0f}" y1="{fy + fh / 2 - 8:.0f}" x2="{fx + fw / 2:.0f}" y2="{fy + fh / 2 + 8:.0f}" stroke="{th.BEACON[0]}" stroke-opacity=".7"/>'
+             f'<g opacity="0"><animate attributeName="opacity" values="0;0;1;1" keyTimes="0;{f + .08:.4f};{f + .081:.4f};1" dur="{CYCLE}s" repeatCount="indefinite"/>'
+             f'<rect x="{fx:.0f}" y="{fy - 22:.0f}" width="112" height="16" fill="{th.BEACON[0]}"/>'
+             f'<text x="{fx + 6:.0f}" y="{fy - 10:.0f}" font-size="10" font-weight="700" fill="{th.CANVAS}" letter-spacing="1">FACE LOCKED</text>'
+             f'<line x1="{fx + fw:.0f}" y1="{fy + fh * .7:.0f}" x2="{px0 + COLS * PITCH + 2:.0f}" y2="{fy + fh * .7:.0f}" stroke="{th.BEACON[0]}" stroke-dasharray="3 3"/>'
+             f'<text x="{fx + fw + 6:.0f}" y="{fy + fh * .7 - 5:.0f}" font-size="9" fill="{th.BEACON[0]}">12.97°N 77.59°E</text></g></g>')
+    # CLASSIFIED stamp that slams onto the file once the readout has typed out
+    sa = .2  # just after the readout finishes typing
+    o.append(f'<g transform="translate({W - 92} 120) rotate(-12)"><g opacity="0">'
+             f'<animate attributeName="opacity" values="0;0;.85;.85;0;0" keyTimes="0;{sa:.3f};{sa + .006:.3f};.93;.96;1" dur="{CYCLE}s" repeatCount="indefinite"/>'
+             f'<animateTransform attributeName="transform" type="scale" values="1;1;2.2;.94;1;1" keyTimes="0;{sa - .001:.3f};{sa:.3f};{sa + .01:.3f};{sa + .014:.3f};1" dur="{CYCLE}s" repeatCount="indefinite"/>'
+             f'<rect x="-62" y="-18" width="124" height="36" rx="5" fill="none" stroke="{th.BEACON[0]}" stroke-width="2.4"/>'
+             f'<rect x="-57" y="-13" width="114" height="26" rx="3" fill="none" stroke="{th.BEACON[0]}" stroke-width=".9"/>'
+             f'<text y="6" font-size="15" font-weight="800" letter-spacing="3" fill="{th.BEACON[0]}" text-anchor="middle">CLASSIFIED</text></g></g>')
 
     lines = [
         ("h", f"{USER.lower()}@github"),
@@ -195,6 +221,26 @@ def main():
             y += 104
         y += 14 if kind == "r" else 26 if kind not in ("h", "donut") else 30 if kind == "h" else 0
     o.append(f'<rect x="{tx}" y="{y - 4}" width="10" height="17" fill="{GREEN}"><animate attributeName="opacity" values="1;1;0;0" keyTimes="0;.5;.5;1" dur="1s" repeatCount="indefinite"/></rect>')
+    # PULSE: the last 60 days as a heartbeat, one beat per day, spike height = contributions
+    days60 = common.days(u)[-60:]
+    top, base = H - 92, H - 44
+    o.append(f'<line x1="24" y1="{top - 14}" x2="{W - 24}" y2="{top - 14}" stroke="{th.HAIRLINE}"/>'
+             f'<text x="{px0}" y="{top + 2}" font-size="12" fill="{GREEN}">&#9656; PULSE <tspan fill="{th.TEXT3}">· last 60 days, one beat per day, taller = more contributions</tspan></text>')
+    hi = max((c for _, c in days60), default=1) or 1
+    step = (W - 2 * px0) / max(1, len(days60))
+    d, x = [f"M{px0},{base}"], px0
+    for _, c in days60:
+        amp = 4 + 34 * (c / hi) ** .6 if c else 0
+        d.append(f"L{x + step * .35:.1f},{base} L{x + step * .45:.1f},{base + (3 if c else 0)} L{x + step * .55:.1f},{base - amp:.1f} "
+                 f"L{x + step * .65:.1f},{base + (5 if c else 0)} L{x + step * .75:.1f},{base}")
+        x += step
+    d.append(f"L{W - px0},{base}")
+    path = " ".join(d)
+    o.append(f'<path d="{path}" fill="none" stroke="{GREEN}" stroke-opacity=".18" stroke-width="1.2"/>'
+             f'<path d="{path}" fill="none" stroke="{GREEN}" stroke-width="1.8" stroke-linejoin="round" pathLength="1" stroke-dasharray=".22 .78" filter="url(#g)">'
+             f'<animate attributeName="stroke-dashoffset" values=".22;-.78" dur="6s" repeatCount="indefinite"/></path>'
+             f'<text x="{W - px0}" y="{top + 2}" font-size="12" fill="{th.TEXT}" text-anchor="end">{sum(c for _, c in days60)} contributions <tspan fill="{GREEN}">♥</tspan>'
+             f'<animate attributeName="opacity" values="1;.5;1" dur="1s" repeatCount="indefinite"/></text>')
     o.append(f'<text x="{W - 24}" y="{H - 16}" font-size="10" fill="{th.TEXT3}" text-anchor="end">rendered {datetime.now(timezone.utc):%Y-%m-%d %H:%M} UTC &#183; scripts/dossier.py</text>')
     o.append("</svg>")
     with open(OUT, "w", encoding="utf-8") as fh:
