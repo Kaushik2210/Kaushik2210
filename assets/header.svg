@@ -177,7 +177,7 @@ text{font-family:system-ui,-apple-system,'SF Pro Text','Segoe UI',Roboto,'Helvet
 <rect x="766.5" y="170.6" width="12.9" height="151.4" fill="#141821" opacity=".85"/>
 <rect x="781.8" y="239.8" width="12.9" height="82.2" fill="#141821" opacity=".85"/>
 <rect x="797.1" y="199.8" width="12.9" height="122.2" fill="#141821" opacity=".85"/>
-<rect x="812.4" y="233.6" width="12.9" height="88.4" fill="#141821" opacity=".85"/>
+<rect x="812.4" y="233.5" width="12.9" height="88.5" fill="#141821" opacity=".85"/>
 <rect x="10.0" y="295.5" width="12.9" height="26.5" fill="#0b0d12"/>
 <rect x="10.0" y="295.5" width="12.9" height="1.6" fill="#8b9cff" opacity=".55"/>
 <rect x="17.0" y="308.8" width="3.2" height="4.2" fill="#f2c879"><animate attributeName="opacity" values="1;.25;1" dur="3.7s" begin="-4.4s" repeatCount="indefinite"/></rect>
@@ -496,8 +496,8 @@ text{font-family:system-ui,-apple-system,'SF Pro Text','Segoe UI',Roboto,'Helvet
 <rect x="791.6" y="291.8" width="3.2" height="4.2" fill="#f2c879"><animate attributeName="opacity" values="1;.25;1" dur="4.9s" begin="-1.1s" repeatCount="indefinite"/></rect>
 <rect x="796.4" y="291.8" width="3.2" height="4.2" fill="#f2c879"></rect>
 <rect x="791.6" y="300.3" width="3.2" height="4.2" fill="#222836" opacity=".55"/>
-<rect x="804.7" y="193.8" width="12.9" height="128.2" fill="#0b0d12"/>
-<rect x="804.7" y="193.8" width="12.9" height="1.6" fill="#8b9cff" opacity=".55"/>
+<rect x="804.7" y="193.6" width="12.9" height="128.4" fill="#0b0d12"/>
+<rect x="804.7" y="193.6" width="12.9" height="1.6" fill="#8b9cff" opacity=".55"/>
 <rect x="811.7" y="283.3" width="3.2" height="4.2" fill="#f2c879"></rect>
 <rect x="806.9" y="291.8" width="3.2" height="4.2" fill="#f2c879"></rect>
 <rect x="806.9" y="283.3" width="3.2" height="4.2" fill="#f2c879"></rect>
@@ -609,7 +609,7 @@ text{font-family:system-ui,-apple-system,'SF Pro Text','Segoe UI',Roboto,'Helvet
 <text x="50" y="216" font-size="22" fill="#eceef4" opacity="0">Security tinkerer.<animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.333;0.363;0.627;0.657;1" dur="12.600000000000001s" repeatCount="indefinite"/></text>
 <text x="50" y="216" font-size="22" fill="#eceef4" opacity="0">I build things, then I break them.<animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.667;0.697;0.960;0.990;1" dur="12.600000000000001s" repeatCount="indefinite"/></text>
 <g transform="translate(50,234)"><rect width="211" height="24" rx="12" fill="#050608" fill-opacity=".72" stroke="#ff5c6c" stroke-width="1.4" filter="url(#glow)"/><text x="13" y="16.5" class="mono" font-size="11.5" font-weight="700" letter-spacing="1" fill="#ff5c6c">● CODING NOW · CYBERHEIST</text><animate attributeName="opacity" values="1;.55;1" dur="1.6s" repeatCount="indefinite"/></g>
-<text x="804" y="34" class="mono" font-size="10.5" letter-spacing="1.5" text-anchor="end" fill="#eceef4" opacity=".85"><tspan fill="#34d399">●</tspan> BANGALORE NOW · 22:00 IST · 21°C · CLEAR</text>
+<text x="804" y="34" class="mono" font-size="10.5" letter-spacing="1.5" text-anchor="end" fill="#eceef4" opacity=".85"><tspan fill="#34d399">●</tspan> BANGALORE NOW · 22:00 IST · CLEAR</text>
 <circle cx="30" cy="375" r="3.5" fill="#34d399"><animate attributeName="opacity" values="1;.25;1" dur="2.4s" repeatCount="indefinite"/></circle>
 <text x="42" y="379" class="mono" font-size="11" fill="#aab1c2">last push CYBERHEIST (just now) &#183; 26-day streak &#183; early bird, peak 10:00</text>
 </g>
