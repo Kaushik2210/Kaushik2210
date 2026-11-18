@@ -546,7 +546,7 @@ text{font-family:system-ui,-apple-system,'SF Pro Text','Segoe UI',Roboto,'Helvet
 <text x="50" y="216" font-size="22" fill="#eceef4" opacity="0">Security tinkerer.<animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.333;0.363;0.627;0.657;1" dur="12.600000000000001s" repeatCount="indefinite"/></text>
 <text x="50" y="216" font-size="22" fill="#eceef4" opacity="0">I build things, then I break them.<animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.667;0.697;0.960;0.990;1" dur="12.600000000000001s" repeatCount="indefinite"/></text>
 <g transform="translate(50,234)"><rect width="270" height="24" rx="12" fill="#050608" fill-opacity=".72" stroke="#f2c879" stroke-width="1.4"/><text x="13" y="16.5" class="mono" font-size="11.5" font-weight="700" letter-spacing="1" fill="#f2c879">◐ LAST COMMIT 1h AGO · CYBERHEIST</text></g>
-<text x="804" y="34" class="mono" font-size="10.5" letter-spacing="1.5" text-anchor="end" fill="#eceef4" opacity=".85"><tspan fill="#34d399">●</tspan> BANGALORE NOW · 21:37 IST · 22°C · CLEAR</text>
+<text x="804" y="34" class="mono" font-size="10.5" letter-spacing="1.5" text-anchor="end" fill="#eceef4" opacity=".85"><tspan fill="#34d399">●</tspan> BANGALORE NOW · 21:37 IST · CLEAR</text>
 <circle cx="30" cy="375" r="3.5" fill="#34d399"><animate attributeName="opacity" values="1;.25;1" dur="2.4s" repeatCount="indefinite"/></circle>
 <text x="42" y="379" class="mono" font-size="11" fill="#aab1c2">last push CYBERHEIST (1h ago) &#183; 26-day streak &#183; early bird, peak 10:00</text>
 </g>
