@@ -245,6 +245,75 @@ def poster(cfg, r, now, idx=1):
     return "\n".join(o), alt, (r["homepage"] if live else r["html_url"])
 
 
+
+def shelf(groups, names, path):
+    """assets/shelf.svg: every other build as a game cartridge on a shelf, one shelf per group.
+    Cartridges drop in on load, a selector hops between them, and live ones carry a green LED."""
+    CW, CH, GAP, X0 = 98, 66, 10, 30
+    rows = [(title, members) for title, members in groups if members]
+    total = sum(len(m) for _, m in rows)
+    per_row = 7
+    lines = []
+    for title, members in rows:
+        for k in range(0, len(members), per_row):
+            lines.append((title if k == 0 else "", members[k:k + per_row]))
+    RH = CH + 46
+    Hs = 64 + len(lines) * RH + 12
+    o = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W * 2 + 20} {Hs}" width="{W * 2 + 20}" height="{Hs}" role="img" '
+         f'aria-label="{escape(f"More builds: {total} more projects shown as game cartridges on shelves, grouped as " + ", ".join(t_ for t_, _ in rows) + ".")}">',
+         "<title>More builds</title>",
+         t.defs(f'<clipPath id="card"><rect width="{W * 2 + 20}" height="{Hs}" rx="16"/></clipPath>'
+                '<linearGradient id="shine2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".22"/><stop offset=".4" stop-color="#fff" stop-opacity="0"/></linearGradient>'
+                f'<linearGradient id="plank" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="{t.HAIRLINE}"/><stop offset="1" stop-color="{t.CANVAS}"/></linearGradient>'),
+         '<g clip-path="url(#card)">', f'<rect width="{W * 2 + 20}" height="{Hs}" fill="{t.SURFACE}"/>',
+         f'<text x="{X0}" y="38" class="mono" font-size="12" font-weight="700" letter-spacing="2" fill="{t.TEXT}">GAME LIBRARY</text>'
+         f'<text x="{X0 + 128}" y="38" class="mono" font-size="11" fill="{t.TEXT3}">{total} more builds · colour = language · <tspan fill="{t.GREEN}">●</tspan> = live demo</text>']
+    spots, k = [], 0
+    for li, (title, members) in enumerate(lines):
+        y0 = 64 + li * RH
+        if title:
+            o.append(f'<text x="{X0}" y="{y0 + 12}" class="label" style="fill:{t.A3}">{escape(title.upper())}</text>')
+        cy = y0 + 22
+        for j, r in enumerate(members):
+            x = X0 + j * (CW + GAP)
+            lang = r["language"] or "Other"
+            lc = t.lang_color(lang if lang in t.LANG else "Other")
+            name = names.get(r["name"]) or r["name"].strip("-_")
+            name = name if len(name) <= 14 else name[:13] + "…"
+            live = bool(r.get("homepage"))
+            d = .15 + k * .06
+            o.append(f'<g opacity="0"><animate attributeName="opacity" values="0;1" dur=".3s" begin="{d:.2f}s" fill="freeze"/>'
+                     f'<animateTransform attributeName="transform" type="translate" values="0 -26;0 3;0 0" keyTimes="0;.7;1" dur=".5s" begin="{d:.2f}s" fill="freeze"/>'
+                     f'<path d="M{x + 6} {cy} H{x + CW - 6} Q{x + CW} {cy} {x + CW} {cy + 6} V{cy + CH} H{x} V{cy + 6} Q{x} {cy} {x + 6} {cy} Z" fill="{t.RAISED}" stroke="{t.HAIRLINE}"/>'
+                     f'<rect x="{x + CW / 2 - 14}" y="{cy}" width="28" height="5" rx="2" fill="{t.CANVAS}"/>'
+                     f'<rect x="{x + 7}" y="{cy + 10}" width="{CW - 14}" height="36" rx="4" fill="{lc}"/>'
+                     f'<rect x="{x + 7}" y="{cy + 10}" width="{CW - 14}" height="36" rx="4" fill="url(#shine2)"/>'
+                     f'<rect x="{x + 11}" y="{cy + 14}" width="{CW - 22}" height="15" rx="2" fill="{t.CANVAS}" fill-opacity=".78"/>'
+                     f'<text x="{x + CW / 2}" y="{cy + 25}" class="mono" font-size="8.6" font-weight="700" fill="{t.TEXT}" text-anchor="middle">{escape(name)}</text>'
+                     f'<text x="{x + CW / 2}" y="{cy + 41}" class="mono" font-size="8" font-weight="700" fill="{t.CANVAS}" text-anchor="middle">{escape(lang.upper()[:12])}</text>'
+                     + "".join(f'<rect x="{x + 12 + g * 7}" y="{cy + CH - 12}" width="4" height="8" rx="1" fill="{t.HAIRLINE}"/>' for g in range(4))
+                     + (f'<circle cx="{x + CW - 12}" cy="{cy + CH - 8}" r="3" fill="{t.GREEN}"><animate attributeName="opacity" values="1;.3;1" dur="1.6s" begin="{k * .1:.1f}s" repeatCount="indefinite"/></circle>' if live else "")
+                     + f'<title>{escape(r["name"])}: {escape((r.get("description") or "")[:120])}</title></g>')
+            spots.append((x, cy, name))
+            k += 1
+        o.append(f'<rect x="{X0 - 12}" y="{cy + CH}" width="{(W * 2 + 20) - 2 * X0 + 24}" height="8" rx="2" fill="url(#plank)"/>'
+                 f'<rect x="{X0 - 12}" y="{cy + CH}" width="{(W * 2 + 20) - 2 * X0 + 24}" height="1" fill="{t.A1}" opacity=".35"/>')
+    # selector: hops from cartridge to cartridge, like browsing a library
+    if spots:
+        hop = 1.1
+        dur = hop * len(spots)
+        xs = ";".join(f"{x - 5} {y - 5}" for x, y, _ in spots)
+        kt = ";".join(f"{i / len(spots):.4f}" for i in range(len(spots)))
+        o.append(f'<g><animateTransform attributeName="transform" type="translate" values="{xs}" keyTimes="{kt}" calcMode="discrete" dur="{dur:.1f}s" begin="{.4 + k * .06:.1f}s" repeatCount="indefinite"/>'
+                 f'<rect width="{CW + 10}" height="{CH + 10}" rx="9" fill="none" stroke="{t.A3}" stroke-width="2">'
+                 f'<animate attributeName="stroke-opacity" values="1;.4;1" dur=".55s" repeatCount="indefinite"/></rect>'
+                 f'<path d="M{CW / 2 - 4} -8 L{CW / 2 + 5} -8 L{CW / 2 + .5} -2 Z" fill="{t.A3}"/></g>')
+    o.append(f'<text x="{W * 2 + 20 - X0}" y="38" class="mono" font-size="11" font-weight="700" fill="{t.A3}" text-anchor="end">▶ open the list below for links'
+             '<animate attributeName="opacity" values="1;.4;1" dur="1.6s" repeatCount="indefinite"/></text>')
+    o += ["</g>", t.card_border(W * 2 + 20, Hs, 16), "</svg>"]
+    open(path, "w", encoding="utf-8").write("".join(o))
+
+
 def main():
     cfg = json.load(open(CONFIG, encoding="utf-8"))
     repos = {r["name"]: r for r in common.repos(USER)}
@@ -282,16 +351,19 @@ def main():
         link = f"[**{label}**]({r['html_url']})" + (f" · [live]({r['homepage']})" if r.get("homepage") else "")
         return f"| {link} | `{r['language'] or 'misc'}` | {d} |"
 
-    sections, shown = [], 0
+    sections, shown, shelves = [], 0, []
     for title, rs in groups:
         members = [by_name[n] for n in rs if n in by_name]
+        shelves.append((title, members))
         if members:
             shown += len(members)
             sections.append(f"**{title}**\n\n| Build | Stack | What it is |\n|:--|:--|:--|\n" + "\n".join(row(r) for r in members))
     caption = ("<sub>Nine missions, each acting out what the project does, with its own live log. Tap a card to open the live demo or the repository; "
                "language, stars and last push update automatically.</sub>")
-    block = ('<div align="center">\n\n' + " ".join(cells) + f"\n\n{caption}\n\n</div>\n\n"
-             f"<details>\n<summary><b>More builds ({shown})</b></summary>\n\n" + "\n\n".join(sections) + "\n\n</details>")
+    shelf(shelves, names, os.path.join(ASSETS, "shelf.svg"))
+    block = ('<div align="center">\n\n' + " ".join(cells) + f"\n\n{caption}\n\n"
+             f'<img src="assets/shelf.svg" alt="More builds: {shown} more projects as game cartridges on shelves, coloured by language, with a light on the ones that have a live demo." width="100%"/>\n\n</div>\n\n'
+             f"<details>\n<summary><b>Open the game library: {shown} more builds, with links</b></summary>\n\n" + "\n\n".join(sections) + "\n\n</details>")
     text = open(README, encoding="utf-8").read()
     a, b = text.index(START) + len(START), text.index(END)
     new = text[:a] + "\n" + block + "\n" + text[b:]

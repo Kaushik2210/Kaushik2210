@@ -71,10 +71,12 @@ Things people can open and use today. [HireOS](https://hireos-beryl.vercel.app) 
 
 <sub>Nine missions, each acting out what the project does, with its own live log. Tap a card to open the live demo or the repository; language, stars and last push update automatically.</sub>
 
+<img src="assets/shelf.svg" alt="More builds: 20 more projects as game cartridges on shelves, coloured by language, with a light on the ones that have a live demo." width="100%"/>
+
 </div>
 
 <details>
-<summary><b>More builds (20)</b></summary>
+<summary><b>Open the game library: 20 more builds, with links</b></summary>
 
 **Security & AI**
 
