@@ -35,6 +35,7 @@ jobs:
           python launch.py  "${{ github.repository_owner }}" ../assets/launch.svg
           python missionmap.py "${{ github.repository_owner }}" ../assets/missions.svg
           python posters.py  "${{ github.repository_owner }}" ../README.md
+          python ctf_panel.py ../assets/ctf.svg
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Commit if changed

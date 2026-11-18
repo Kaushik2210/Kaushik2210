@@ -28,11 +28,13 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
           CTF_FLAG: ${{ secrets.CTF_FLAG }}
+      - name: Redraw the CTF panel (solver count, first blood)
+        run: cd scripts && python ctf_panel.py ../assets/ctf.svg
       - name: Commit Hall of Fame
         run: |
           git config user.name "ctf-bot"
           git config user.email "ctf-bot@users.noreply.github.com"
-          git add README.md ctf/solvers.json
+          git add README.md ctf/solvers.json assets/ctf.svg
           git diff --cached --quiet && exit 0
           git commit -m "chore(ctf): new operator in the Hall of Fame"
           git pull --rebase -q

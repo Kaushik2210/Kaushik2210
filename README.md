@@ -152,6 +152,8 @@ Things people can open and use today. [HireOS](https://hireos-beryl.vercel.app) 
 
 **A three-stage CTF is hidden in this profile.** Crack it and you join the Hall of Fame below, automatically.
 
+<img src="assets/ctf.svg" alt="Intercepted transmission: a radio scanner locks onto a signal, and a three-stage decryption pipeline leads to a redacted KAUSHIK{...} flag, with a live count of who has cracked it." width="100%"/>
+
 </div>
 
 ```text
