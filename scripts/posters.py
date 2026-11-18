@@ -20,6 +20,7 @@ from datetime import datetime, timezone
 from xml.sax.saxutils import escape
 
 import common
+import scenes
 import theme as t
 
 USER = sys.argv[1] if len(sys.argv) > 1 else "Kaushik2210"
@@ -28,7 +29,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 CONFIG = os.path.join(HERE, "..", "data", "projects.json")
 ASSETS = os.path.join(HERE, "..", "assets")
 START, END = "<!--BUILDS_START-->", "<!--BUILDS_END-->"
-W, H, ART = 405, 264, 112
+W, H, ART = 405, 300, 150
 SKIP_TOPICS = {"hackathon", "hacktoberfest", "good-first-issue", "typescript", "python", "javascript", "java"}
 CATS = {  # label, art colour
     "security": ("SECURITY", t.A1),
@@ -137,14 +138,14 @@ def poster(cfg, r, now):
     title = name.rstrip("-_")
     o = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" role="img" aria-label="{escape(f"{title}: {blurb}")}">',
          f"<title>{escape(title)}</title>",
-         t.defs(f'<clipPath id="card"><rect width="{W}" height="{H}" rx="16"/></clipPath>'
+         t.defs(f'<clipPath id="card"><rect width="{W}" height="{H}" rx="16"/></clipPath><clipPath id="artc"><rect width="{W}" height="{ART}"/></clipPath>'
                 f'<linearGradient id="art" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="{t.RAISED}"/><stop offset="1" stop-color="{t.SURFACE}"/></linearGradient>'
                 f'<radialGradient id="wash"><stop offset="0" stop-color="{col}" stop-opacity=".42"/><stop offset="1" stop-color="{col}" stop-opacity="0"/></radialGradient>'),
          '<g clip-path="url(#card)">',
          f'<rect width="{W}" height="{H}" fill="{t.SURFACE}"/>',
          f'<rect width="{W}" height="{ART}" fill="url(#art)"/>',
          f'<ellipse cx="{rnd.uniform(230, 340):.0f}" cy="{rnd.uniform(30, 70):.0f}" rx="170" ry="90" fill="url(#wash)"/>',
-         MOTIFS[cat](rnd, col),
+         f'<g clip-path="url(#artc)">{scenes.scene(name) or MOTIFS[cat](rnd, col)}</g>',  # animated mission scene, kept inside the art window
          f'<rect y="{ART}" width="{W}" height="1" fill="{t.HAIRLINE}"/>']
     # category + destination pills (over the art)
     cw = 18 + 6.9 * len(label)
@@ -222,7 +223,7 @@ def main():
         if members:
             shown += len(members)
             sections.append(f"**{title}**\n\n| Build | Stack | What it is |\n|:--|:--|:--|\n" + "\n".join(row(r) for r in members))
-    caption = ("<sub>Tap a card to open the live demo or the repository. Cover art is generated from each repo's name; "
+    caption = ("<sub>Every card acts out what the project does. Tap one to open the live demo or the repository; "
                "language, stars and last push update automatically.</sub>")
     block = ('<div align="center">\n\n' + " ".join(cells) + f"\n\n{caption}\n\n</div>\n\n"
              f"<details>\n<summary><b>More builds ({shown})</b></summary>\n\n" + "\n\n".join(sections) + "\n\n</details>")

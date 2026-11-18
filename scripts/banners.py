@@ -13,12 +13,11 @@ ROLES = ["Full-stack developer.", "Security tinkerer.", "I build things, then I 
 
 DIVIDERS = [  # (file, number, label, act)
     ("div-pillars", "01", "What I build", "WORK"),
-    ("div-builds", "02", "Featured builds", "WORK"),
+    ("div-builds", "02", "Mission select: every project, in action", "WORK"),
     ("div-dossier", "03", "Operator dossier", "ACTIVITY"),
     ("div-launch", "04", "Launch log", "ACTIVITY"),
-    ("div-canvas", "05", "The Night Canvas: paint a pixel on my profile", "INTERACTIVE"),
-    ("div-badge", "06", "My badge", "INTERACTIVE"),
-    ("div-ctf", "07", "Intercepted transmission", "INTERACTIVE"),
+    ("div-badge", "05", "My badge", "INTERACTIVE"),
+    ("div-ctf", "06", "Intercepted transmission", "INTERACTIVE"),
 ]
 
 

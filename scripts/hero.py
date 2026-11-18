@@ -7,7 +7,6 @@
   neon sign                 = the name, flickering
   wet-street reflection     = the whole city mirrored and faded
   on-air sign               = am I coding right now? (last push < 90 min, < 12 h, or offline)
-  rooftop billboard         = the latest pixel a visitor painted on the Night Canvas (canvas/state.json)
   the sky                   = Bangalore right now: real time of day and live weather (sky.py)
 
 The skyline grows toward "now": quiet early weeks are low, recent weeks are towers.
@@ -188,28 +187,6 @@ def main():
     # reflection (wet street)
     o.append(f'<g mask="url(#rm)"><use href="#city" xlink:href="#city" transform="translate(0,{2 * STREET + 28}) scale(1,-1)" opacity=".34"/></g>')
     o.append(f'<rect x="0" y="{STREET + 28}" width="{W}" height="1" fill="{t.A1}" opacity=".25"/>')
-
-    # rooftop billboard: the latest pixel a visitor painted on the Night Canvas
-    st_f = Path(__file__).resolve().parent.parent / "canvas" / "state.json"
-    strokes = json.loads(st_f.read_text(encoding="utf-8"))["history"] if st_f.exists() else []
-    seen = [e for e in strokes if e.get("by") != "kaushik"]
-    swatch = {"white": "#eceef4", "periwinkle": "#8b9cff", "lavender": "#c4b5fd", "champagne": "#f2c879", "yellow": "#fde68a",
-              "orange": "#fdba74", "coral": "#fda4af", "red": "#ff5c6c", "mint": "#5eead4", "green": "#34d399", "sky": "#7dd3fc"}
-    if seen:
-        e = seen[-1]
-        line2, sw = f"@{e['by']} painted {e['cell']}", swatch.get(e["colour"], t.HAIRLINE)
-    else:
-        line2, sw = "be the first painter", t.A3
-    line2 = line2 if len(line2) <= 30 else line2[:29] + "…"
-    bx, by, bwid, bh = 452, 222, 236, 44
-    o.append(f'<g>'
-             f'<line x1="{bx + 30}" y1="{by + bh}" x2="{bx + 30}" y2="{STREET}" stroke="{t.HAIRLINE}" stroke-width="2"/>'
-             f'<line x1="{bx + bwid - 30}" y1="{by + bh}" x2="{bx + bwid - 30}" y2="{STREET}" stroke="{t.HAIRLINE}" stroke-width="2"/>'
-             f'<rect x="{bx}" y="{by}" width="{bwid}" height="{bh}" rx="5" fill="{t.CANVAS}" stroke="{t.A2}" stroke-opacity=".75" filter="url(#glow)"/>'
-             f'<text x="{bx + 12}" y="{by + 17}" class="mono" font-size="9" letter-spacing="1.6" fill="{t.A3}">LATEST ON THE NIGHT CANVAS</text>'
-             f'<rect x="{bx + 12}" y="{by + 24}" width="12" height="12" rx="3" fill="{sw}"/>'
-             f'<text x="{bx + 30}" y="{by + 34}" class="mono" font-size="12" font-weight="700" fill="{t.TEXT}">{escape(line2)}</text>'
-             f'<animate attributeName="opacity" values="1;1;.6;1;1" keyTimes="0;.7;.72;.74;1" dur="6s" repeatCount="indefinite"/></g>')
 
     # live weather over the city
     o.append(sky.fog(s, W, STREET))

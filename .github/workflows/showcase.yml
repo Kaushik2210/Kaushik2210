@@ -24,7 +24,7 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install --quiet pillow
-      - name: Render header, dossier, launch log, badge and the Night Canvas
+      - name: Render header, mission cards, dossier, launch log and badge
         working-directory: scripts
         run: |
           python banners.py "${{ github.repository_owner }}" ../assets
@@ -34,7 +34,6 @@ jobs:
           python proof.py   "${{ github.repository_owner }}" ../assets/proof.svg
           python launch.py  "${{ github.repository_owner }}" ../assets/launch.svg
           python posters.py  "${{ github.repository_owner }}" ../README.md
-          python canvas.py --render
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Commit if changed
