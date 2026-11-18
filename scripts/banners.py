@@ -16,7 +16,7 @@ DIVIDERS = [  # (file, number, label, act)
     ("div-builds", "02", "Featured builds", "WORK"),
     ("div-dossier", "03", "Operator dossier", "ACTIVITY"),
     ("div-launch", "04", "Launch log", "ACTIVITY"),
-    ("div-shell", "05", "kaushik.sh: a terminal anyone can type into", "INTERACTIVE"),
+    ("div-canvas", "05", "The Night Canvas: paint a pixel on my profile", "INTERACTIVE"),
     ("div-badge", "06", "My badge", "INTERACTIVE"),
     ("div-ctf", "07", "Intercepted transmission", "INTERACTIVE"),
 ]

@@ -1,0 +1,16 @@
+name: "🎨 Paint a pixel"
+description: "Paint one pixel on the Night Canvas on my profile. It stays, and it's in the timelapse forever."
+title: "[PAINT] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        The pixel you clicked is already in the title (like `[PAINT] H7`). Pick a colour and press **Create**.
+        A bot paints it within a minute and replies here. Paint as many as you like.
+  - type: dropdown
+    id: colour
+    attributes:
+      label: Colour
+      options: [champagne, white, periwinkle, lavender, yellow, orange, coral, red, mint, green, sky, erase]
+    validations:
+      required: true
