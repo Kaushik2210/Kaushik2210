@@ -216,3 +216,21 @@ SCENES = {"net-sentinel": net_sentinel, "orbital-sentinel": orbital_sentinel, "s
 def scene(name):
     f = SCENES.get(name.lower())
     return f() if f else None
+
+
+# mission log lines that scroll under each scene (the radio chatter of the mission)
+TICKER = {
+    "net-sentinel": "ingest 12,408 flows · graph built · path 10.0.0.4 → DC01 flagged · ATT&CK T1021 · analyst paged",
+    "orbital-sentinel": "SAT-7 bus voltage -12% · sensor fault ruled out · solar Kp 3, quiet · verdict: cyber · confidence 0.81",
+    "scam-khel": "incoming call, unknown number · script match: digital arrest · urgency + authority cues · family notified",
+    "deepfake-detector": "frame 0412 · blend seams found · gaze drift · P(synthetic) 0.87, calibrated · evidence report saved",
+    "intentguard": "read_file → ALLOW · rm -rf / → DENY · send_email → ALLOW · exfil keys → DENY · incidents today: 0",
+    "tapwire": "mistake captured · turned into rule #15 · enforced on the next run · same mistake twice: never",
+    "gitvisualise": "clone repo · parse every file · draw the architecture · narrate the tour · onboarding in minutes",
+    "hireos": "parse résumé · match skills to the role · cite evidence for every claim · fit 92% · nothing invented",
+    "algoverse": "compare · swap · compare · swap · watch the algorithm think · sorted ✓ · next up: quicksort",
+}
+
+
+def ticker(name):
+    return TICKER.get(name.lower())

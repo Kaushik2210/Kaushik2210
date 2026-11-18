@@ -29,7 +29,8 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 CONFIG = os.path.join(HERE, "..", "data", "projects.json")
 ASSETS = os.path.join(HERE, "..", "assets")
 START, END = "<!--BUILDS_START-->", "<!--BUILDS_END-->"
-W, H, ART = 405, 300, 150
+W, H, ART = 405, 324, 150
+TICK = 24  # mission-log strip under the art
 SKIP_TOPICS = {"hackathon", "hacktoberfest", "good-first-issue", "typescript", "python", "javascript", "java"}
 CATS = {  # label, art colour
     "security": ("SECURITY", t.A1),
@@ -125,7 +126,44 @@ def art_learning(rnd, col):
 MOTIFS = {"security": art_security, "devtool": art_devtool, "product": art_product, "learning": art_learning}
 
 
-def poster(cfg, r, now):
+def _ticker(text, col, y):
+    """A mission log that scrolls forever under the scene (two copies, so the loop is seamless)."""
+    msg = escape(f"› {text}")
+    L = len(text) * 6.05 + 70
+    dur = L / 36
+    line = lambda x: f'<text x="{x:.0f}" y="{y + 16}" class="mono" font-size="10" fill="{t.TEXT2}">{msg}</text>'
+    return (f'<rect y="{y}" width="{W}" height="{TICK}" fill="{t.CANVAS}"/>'
+            f'<rect y="{y}" width="{W}" height="{TICK}" fill="{col}" fill-opacity=".07"/>'
+            f'<g clip-path="url(#tick)"><g><animateTransform attributeName="transform" type="translate" from="0 0" to="-{L:.0f} 0" dur="{dur:.1f}s" repeatCount="indefinite"/>'
+            f'{line(100)}{line(100 + L)}</g></g>'
+            f'<circle cx="18" cy="{y + 12}" r="3.5" fill="{t.BEACON[0]}"><animate attributeName="opacity" values="1;.15;1" dur="1.2s" repeatCount="indefinite"/></circle>'
+            f'<text x="28" y="{y + 16}" class="mono" font-size="9.5" font-weight="700" fill="{col}">LIVE LOG</text>'
+            f'<rect x="90" y="{y + 5}" width="1" height="{TICK - 10}" fill="{t.HAIRLINE}"/>')
+
+
+def _hud(col, idx):
+    """HUD chrome over the art: corner brackets, scanlines and a light sheen."""
+    b = 14
+    corners = (f'M10 {10 + b} V10 H{10 + b}', f'M{W - 10 - b} 10 H{W - 10} V{10 + b}',
+               f'M10 {ART - 10 - b} V{ART - 10} H{10 + b}', f'M{W - 10 - b} {ART - 10} H{W - 10} V{ART - 10 - b}')
+    return (f'<rect width="{W}" height="{ART}" fill="url(#scan)"/>'
+            f'<g transform="skewX(-18)"><rect x="-200" y="0" width="110" height="{ART}" fill="url(#sheen)">'
+            f'<animate attributeName="x" values="-200;-200;{W + 140}" keyTimes="0;.72;1" dur="7s" begin="{idx * .7:.1f}s" repeatCount="indefinite"/></rect></g>'
+            f'<g fill="none" stroke="{col}" stroke-width="1.6" stroke-opacity=".7">' + "".join(f'<path d="{d}"/>' for d in corners) + "</g>")
+
+
+def _title(title, idx, y):
+    """Project name with a short chromatic glitch every few seconds."""
+    dur, beg = f"{7 + idx % 3}s", f"{idx * .45:.2f}s"
+    def ghost(dx, col):
+        return (f'<text x="{20 + dx}" y="{y}" font-size="18" font-weight="700" fill="{col}" opacity="0">{escape(title)}'
+                f'<animate attributeName="opacity" values="0;0;.85;0;.85;0;0" keyTimes="0;.9;.905;.92;.925;.94;1" dur="{dur}" begin="{beg}" repeatCount="indefinite"/></text>')
+    return (ghost(-2.5, t.BEACON[0]) + ghost(2.5, t.A2)
+            + f'<text x="20" y="{y}" font-size="18" font-weight="700" fill="{t.TEXT}">{escape(title)}'
+            f'<animateTransform attributeName="transform" type="translate" values="0 0;0 0;2 0;-1.5 0;0 0;0 0" keyTimes="0;.9;.905;.92;.935;1" dur="{dur}" begin="{beg}" repeatCount="indefinite"/></text>')
+
+
+def poster(cfg, r, now, idx=1):
     name = r["name"]
     cat = cfg.get("category", "product")
     label, col = CATS[cat]
@@ -136,29 +174,43 @@ def poster(cfg, r, now):
     live = bool(r.get("homepage"))
     topics = [x for x in (r.get("topics") or []) if x not in SKIP_TOPICS][:3]
     title = name.rstrip("-_")
-    o = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" role="img" aria-label="{escape(f"{title}: {blurb}")}">',
+    top = ART + TICK
+    per = 2 * (W + H - 4) - 16 * (8 - 2 * math.pi)  # perimeter of the rounded border
+    o = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" role="img" aria-label="{escape(f"Mission {idx:02d}, {title}: {blurb}")}">',
          f"<title>{escape(title)}</title>",
          t.defs(f'<clipPath id="card"><rect width="{W}" height="{H}" rx="16"/></clipPath><clipPath id="artc"><rect width="{W}" height="{ART}"/></clipPath>'
+                f'<clipPath id="tick"><rect x="92" y="{ART}" width="{W - 92}" height="{TICK}"/></clipPath>'
                 f'<linearGradient id="art" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="{t.RAISED}"/><stop offset="1" stop-color="{t.SURFACE}"/></linearGradient>'
-                f'<radialGradient id="wash"><stop offset="0" stop-color="{col}" stop-opacity=".42"/><stop offset="1" stop-color="{col}" stop-opacity="0"/></radialGradient>'),
+                f'<radialGradient id="wash"><stop offset="0" stop-color="{col}" stop-opacity=".42"/><stop offset="1" stop-color="{col}" stop-opacity="0"/></radialGradient>'
+                '<linearGradient id="sheen" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0"/>'
+                '<stop offset=".5" stop-color="#fff" stop-opacity=".08"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>'
+                '<pattern id="scan" width="4" height="3" patternUnits="userSpaceOnUse"><rect width="4" height="1" fill="#000" opacity=".25"/></pattern>'
+                '<style>@keyframes boot{0%{opacity:0}8%{opacity:1}11%{opacity:.15}14%{opacity:1}18%{opacity:.35}22%{opacity:1}100%{opacity:1}}'
+                '.boot{animation:boot 1.6s steps(1,end) both}'
+                '@media (prefers-reduced-motion: reduce){.boot{animation:none}}</style>'),
          '<g clip-path="url(#card)">',
          f'<rect width="{W}" height="{H}" fill="{t.SURFACE}"/>',
          f'<rect width="{W}" height="{ART}" fill="url(#art)"/>',
          f'<ellipse cx="{rnd.uniform(230, 340):.0f}" cy="{rnd.uniform(30, 70):.0f}" rx="170" ry="90" fill="url(#wash)"/>',
-         f'<g clip-path="url(#artc)">{scenes.scene(name) or MOTIFS[cat](rnd, col)}</g>',  # animated mission scene, kept inside the art window
-         f'<rect y="{ART}" width="{W}" height="1" fill="{t.HAIRLINE}"/>']
-    # category + destination pills (over the art)
-    cw = 18 + 6.9 * len(label)
-    o.append(f'<rect x="16" y="16" width="{cw:.0f}" height="22" rx="11" fill="{t.SURFACE}" fill-opacity=".78" stroke="{col}" stroke-opacity=".6"/>'
-             f'<text x="{16 + cw / 2:.0f}" y="31" class="label" text-anchor="middle" style="fill:{col}">{label}</text>')
+         # animated mission scene, boots in with a CRT flicker, kept inside the art window
+         f'<g class="boot" style="animation-delay:{idx * .12:.2f}s" clip-path="url(#artc)">{scenes.scene(name) or MOTIFS[cat](rnd, col)}</g>',
+         _hud(col, idx),
+         _ticker(scenes.ticker(name) or blurb, col, ART),
+         f'<rect y="{ART}" width="{W}" height="1" fill="{col}" fill-opacity=".55"/><rect y="{top}" width="{W}" height="1" fill="{t.HAIRLINE}"/>']
+    # mission + category pill, destination pill (over the art)
+    pill = f"M{idx:02d} · {label}"
+    cw = 18 + 6.9 * len(pill)
+    o.append(f'<rect x="16" y="16" width="{cw:.0f}" height="22" rx="11" fill="{t.SURFACE}" fill-opacity=".85" stroke="{col}" stroke-opacity=".6"/>'
+             f'<text x="{16 + cw / 2:.0f}" y="31" class="label" text-anchor="middle" style="fill:{col}">{pill}</text>')
     dest = "LIVE &#8599;" if live else "REPO &#8599;"
     dc = t.GREEN if live else t.TEXT2
-    o.append(f'<rect x="{W - 84}" y="16" width="68" height="22" rx="11" fill="{t.SURFACE}" fill-opacity=".78" stroke="{dc}" stroke-opacity=".6"/>'
+    o.append(f'<rect x="{W - 84}" y="16" width="68" height="22" rx="11" fill="{t.SURFACE}" fill-opacity=".85" stroke="{dc}" stroke-opacity=".6">'
+             + ('<animate attributeName="stroke-opacity" values=".5;1;.5" dur="2s" repeatCount="indefinite"/>' if live else "") + "</rect>"
              f'<text x="{W - 50}" y="31" class="label" text-anchor="middle" style="fill:{dc}">{dest}</text>')
     # text
-    o.append(f'<text x="20" y="{ART + 30}" font-size="18" font-weight="700" fill="{t.TEXT}">{escape(title)}</text>')
+    o.append(_title(title, idx, top + 30))
     for i, line in enumerate(wrap(blurb, 60, 3)):
-        o.append(f'<text x="20" y="{ART + 51 + i * 16}" font-size="12" fill="{t.TEXT2}">{escape(line)}</text>')
+        o.append(f'<text x="20" y="{top + 51 + i * 16}" font-size="12" fill="{t.TEXT2}">{escape(line)}</text>')
     # chips
     x = 20
     for tp in topics:
@@ -174,8 +226,13 @@ def poster(cfg, r, now):
              f'<tspan fill="{t.TEXT3}">  &#183;  &#9733; {stars}  &#183;  pushed {ago(days)}</tspan></text>')
     o.append("</g>")
     o.append(t.card_border(W, H))
+    # a spark of light that keeps running around the card edge
+    off = -idx * 137 % per
+    o.append(f'<rect x="1" y="1" width="{W - 2}" height="{H - 2}" rx="16" fill="none" stroke="{col}" stroke-width="2" stroke-linecap="round" '
+             f'stroke-dasharray="80 {per - 80:.0f}" opacity=".9">'
+             f'<animate attributeName="stroke-dashoffset" from="{off:.0f}" to="{off - per:.0f}" dur="9s" repeatCount="indefinite"/></rect>')
     o.append("</svg>")
-    alt = (f"{title}, a {label.lower()} project in {lang}: {blurb} "
+    alt = (f"Mission {idx:02d}, {title}: a {label.lower()} project in {lang}. {blurb} "
            f"{'Opens the live demo.' if live else 'Opens the repository.'}")
     return "\n".join(o), alt, (r["homepage"] if live else r["html_url"])
 
@@ -190,7 +247,7 @@ def main():
         if not r:
             print("skip (repo not found):", item["repo"])
             continue
-        svg, alt, href = poster(item, r, now)
+        svg, alt, href = poster(item, r, now, len(cells) + 1)
         fn = f"p-{slug(r['name'])}.svg"
         open(os.path.join(ASSETS, fn), "w", encoding="utf-8").write(svg)
         used.add(r["name"])
@@ -223,7 +280,7 @@ def main():
         if members:
             shown += len(members)
             sections.append(f"**{title}**\n\n| Build | Stack | What it is |\n|:--|:--|:--|\n" + "\n".join(row(r) for r in members))
-    caption = ("<sub>Every card acts out what the project does. Tap one to open the live demo or the repository; "
+    caption = ("<sub>Nine missions, each acting out what the project does, with its own live log. Tap a card to open the live demo or the repository; "
                "language, stars and last push update automatically.</sub>")
     block = ('<div align="center">\n\n' + " ".join(cells) + f"\n\n{caption}\n\n</div>\n\n"
              f"<details>\n<summary><b>More builds ({shown})</b></summary>\n\n" + "\n\n".join(sections) + "\n\n</details>")
