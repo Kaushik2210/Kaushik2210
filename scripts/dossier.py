@@ -8,6 +8,7 @@ the GitHub API, so there is nothing third-party to break.
 """
 import colorsys
 import collections
+import math
 import io
 import sys
 import urllib.request
@@ -147,7 +148,8 @@ def main():
         ("kv", ("STREAK", f"{cur}d now · {longest}d best")),
         ("r", ""),
         ("s", "LANGUAGE.MIX"),
-    ] + [("bar", (lang, cnt / tot)) for lang, cnt in top]
+        ("donut", [(lang, cnt / tot) for lang, cnt in top]),
+    ]
 
     y = 70
     t0 = rows * 0.06 * 0.5
@@ -166,12 +168,32 @@ def main():
             k, v = val
             o.append(f'<text x="{tx}" y="{y}" font-size="14" opacity="0"><tspan fill="{GREEN}">{k}</tspan>'
                      f'<tspan x="{tx + 118}" fill="{th.TEXT}">{escape(v)}</tspan>{anim}</text>')
-        else:
-            lang, fr = val
-            o.append(f'<text x="{tx}" y="{y}" font-size="14" opacity="0"><tspan fill="{th.TEXT}">{escape(lang)}</tspan>'
-                     f'<tspan x="{tx + 118}" fill="{GREEN}">{bar(fr)}</tspan>'
-                     f'<tspan fill="{th.TEXT3}"> {fr * 100:.0f}%</tspan>{anim}</text>')
-        y += 14 if kind == "r" else 26 if kind != "h" else 30
+        else:  # language reactor: arcs spin up into a slowly turning ring, legend beside it
+            cx, cy, rr = tx + 58, y + 46, 44
+            circ = 2 * math.pi * rr
+            ring = [f'<circle cx="{cx}" cy="{cy}" r="{rr}" fill="none" stroke="{th.RAISED}" stroke-width="13"/>',
+                    f'<g><animateTransform attributeName="transform" type="rotate" from="0 {cx} {cy}" to="360 {cx} {cy}" dur="60s" repeatCount="indefinite"/>']
+            acc, legend = 0.0, []
+            for j, (lang, fr) in enumerate(val):
+                seg = max(2.0, fr * circ - 3)
+                col = th.lang_color(lang if lang in th.LANG else "Other")
+                b = a + (j + 1) * .012
+                ring.append(f'<circle cx="{cx}" cy="{cy}" r="{rr}" fill="none" stroke="{col}" stroke-width="13" '
+                            f'stroke-dasharray="0 {circ:.1f}" transform="rotate({acc * 360 - 90:.1f} {cx} {cy})">'
+                            f'<animate attributeName="stroke-dasharray" values="0 {circ:.1f};0 {circ:.1f};{seg:.1f} {circ:.1f};{seg:.1f} {circ:.1f};0 {circ:.1f};0 {circ:.1f}" '
+                            f'keyTimes="0;{b:.4f};{b + .02:.4f};.93;.97;1" dur="{CYCLE}s" repeatCount="indefinite"/></circle>')
+                ly = cy - 33 + j * 22
+                legend.append(f'<text x="{tx + 128}" y="{ly + 5}" font-size="13" opacity="0"><tspan fill="{col}">&#9679;</tspan> '
+                            f'<tspan fill="{th.TEXT}">{escape(lang)}</tspan><tspan x="{tx + 248}" fill="{th.TEXT3}">{fr * 100:.0f}%</tspan>'
+                            f'<animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;{b:.4f};{b + .004:.4f};.93;.97;1" dur="{CYCLE}s" repeatCount="indefinite"/></text>')
+                acc += fr
+            ring.append("</g>")
+            ring += legend
+            ring.append(f'<circle cx="{cx}" cy="{cy}" r="4" fill="{GREEN}"><animate attributeName="r" values="3;6;3" dur="1.6s" repeatCount="indefinite"/></circle>'
+                        f'<text x="{cx}" y="{cy + 22}" font-size="9" fill="{th.TEXT3}" text-anchor="middle" opacity="0">{len(rp)} repos{anim}</text>')
+            o.append("".join(ring))
+            y += 104
+        y += 14 if kind == "r" else 26 if kind not in ("h", "donut") else 30 if kind == "h" else 0
     o.append(f'<rect x="{tx}" y="{y - 4}" width="10" height="17" fill="{GREEN}"><animate attributeName="opacity" values="1;1;0;0" keyTimes="0;.5;.5;1" dur="1s" repeatCount="indefinite"/></rect>')
     o.append(f'<text x="{W - 24}" y="{H - 16}" font-size="10" fill="{th.TEXT3}" text-anchor="end">rendered {datetime.now(timezone.utc):%Y-%m-%d %H:%M} UTC &#183; scripts/dossier.py</text>')
     o.append("</svg>")

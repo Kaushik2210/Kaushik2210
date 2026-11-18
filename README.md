@@ -131,9 +131,9 @@ Things people can open and use today. [HireOS](https://hireos-beryl.vercel.app) 
 
 <img src="assets/div-launch.svg" alt="Launch log" width="100%"/>
 
-<a href="https://github.com/Kaushik2210?tab=repositories&sort=created"><img src="assets/launch.svg" alt="Launch log: every project I started in the last 12 months, plotted by launch date. Altitude is how long I kept building it; green rings are live demos, gold ones are still in active development." width="100%"/></a>
+<a href="https://github.com/Kaushik2210?tab=repositories&sort=created"><img src="assets/launch.svg" alt="Launch log: every project I started in the last 12 months lifts off from a planet, launched where its month sits on the horizon. The higher it flies, the longer I kept building it; green satellites have live demos, gold ones are still under power." width="100%"/></a>
 
-<sub>Every project I started this year, plotted like a launch. The higher it flies, the longer I kept building it. Green rings are live, gold is still in orbit.</sub>
+<sub>Every project I started this year lifts off from the planet in launch order. The higher it flies, the longer I kept building it. Green satellites reached orbit with a live demo, gold ones are still under power, and the newest one keeps relaunching.</sub>
 
 </div>
 
