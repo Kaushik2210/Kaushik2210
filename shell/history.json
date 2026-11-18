@@ -1,0 +1,30 @@
+[
+ {
+  "login": "kaushik",
+  "cmd": "whoami",
+  "out": [
+   "kaushik · full-stack + security engineer · bangalore, IN",
+   "builds detection systems and AI-agent tooling, ships them as live demos"
+  ],
+  "at": "2026-11-18 06:00"
+ },
+ {
+  "login": "kaushik",
+  "cmd": "ls",
+  "out": [
+   "Net-Sentinel  ORBITAL-SENTINEL  scam-khel  Deepfake-Detector  IntentGuard",
+   "tapwire  gitVisualise  HireOS  AlgoVerse"
+  ],
+  "at": "2026-11-18 06:00"
+ },
+ {
+  "login": "kaushik",
+  "cmd": "cat IntentGuard",
+  "out": [
+   "IntentGuard [security]",
+   "Intent-aware, behavioural runtime authorization for autonomous AI agents.",
+   "https://github.com/Kaushik2210/IntentGuard"
+  ],
+  "at": "2026-11-18 06:00"
+ }
+]

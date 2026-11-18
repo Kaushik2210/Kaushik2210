@@ -4,6 +4,7 @@ Every generator reads named colour ROLES from here (never hex literals), so a ne
 palette is one block of values in PALETTES. Pick with the PROFILE_THEME env var;
 the default is DEFAULT below.
 
+  obsidian   near-black with periwinkle + champagne (default)
   royal      electric blue + gold on deep navy
   nightfall  violet -> pink -> orange sunset on indigo
 
@@ -14,9 +15,26 @@ so they read the same on GitHub's light and dark page themes.
 """
 import os
 
-DEFAULT = "royal"
+DEFAULT = "obsidian"
 
 PALETTES = {
+    "obsidian": dict(  # near-black, quiet periwinkle + champagne: the default dark aesthetic
+        CANVAS="#050608", SURFACE="#0b0d12", RAISED="#141821", HAIRLINE="#222836",
+        TEXT="#eceef4", TEXT2="#aab1c2", TEXT3="#8089a0",
+        A1="#8b9cff", A2="#c4b5fd", A3="#f2c879",
+        GRAD=("#8b9cff", "#f1f2ff", "#f2c879"),
+        RAMP=["#141822", "#2a3366", "#5b6fd6", "#a5b4fc", "#f2c879"],
+        GLOW=("#3d47b8", "#7a6fd9", "#c9974f"),
+        RINGS=("#f2c879", "#8b9cff", "#7dd3fc"),
+        CLOCK=("#8b9cff", "#f2c879", "#7dd3fc", "#f0a37a"),
+        LANG=dict(Python="#5eead4", TypeScript="#7dd3fc", JavaScript="#fde68a", Java="#fda4af",
+                  HTML="#fdba74", C="#a5b4fc"),
+        SKY_GRAD=("#020305", "#070912", "#111729"), GROUND=("#07080d", "#141826", "#030406"),
+        BEAM="#dfe3ff", HALO="#f2c879", STAR_BG="#cdd3ea",
+        STARS=[(110, 125, 230), (150, 160, 245), (205, 212, 240), (242, 200, 121), (250, 240, 220)],
+        GALAXY_HALO=("#3b44a8", "#5a3fa8"), DUST="#1c2236", RING_LINE="#222836",
+        DUOTONE=[(0.00, (11, 13, 18)), (0.30, (42, 51, 102)), (0.55, (91, 111, 214)), (0.80, (165, 180, 252)), (1.00, (242, 230, 200))],
+    ),
     "royal": dict(
         CANVAS="#040918", SURFACE="#08112b", RAISED="#111d40", HAIRLINE="#243566",
         TEXT="#eef4ff", TEXT2="#b4c4e8", TEXT3="#8b9dca",

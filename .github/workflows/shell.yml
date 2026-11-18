@@ -1,4 +1,4 @@
-name: Count a vote
+name: kaushik.sh
 
 on:
   issues:
@@ -9,8 +9,8 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  vote:
-    if: startsWith(github.event.issue.title, '[VOTE]')
+  answer:
+    if: startsWith(github.event.issue.title, '[SH]')
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -22,17 +22,17 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Record the vote and redraw the cards
-        run: python scripts/poll.py
+      - name: Answer the command and redraw the terminal
+        run: python scripts/shell.py
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
       - name: Commit
         run: |
-          git config user.name "vote-bot"
-          git config user.email "vote-bot@users.noreply.github.com"
-          git add README.md poll/ assets/vote-*.svg
+          git config user.name "shell-bot"
+          git config user.email "shell-bot@users.noreply.github.com"
+          git add README.md shell/ assets/shell.svg
           git diff --cached --quiet && exit 0
-          git commit -m "count a vote"
+          git commit -m "kaushik.sh: new command"
           git pull --rebase -q
           git push

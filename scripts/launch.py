@@ -25,6 +25,11 @@ GROUND = H - 52
 TOP = 92
 
 
+def _ctf_desc():
+    f = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "ctf", "desc.hex")
+    return open(f, encoding="utf-8").read().strip() if os.path.exists(f) else ""
+
+
 def when(s):
     return datetime.fromisoformat(s.replace("Z", "+00:00"))
 
@@ -52,6 +57,7 @@ def main():
     o = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" role="img" '
          f'aria-label="{escape(f"Launch log: {len(rs)} projects started in the last 12 months, {live} with live demos, {orbit} still in active development.")}">',
          "<title>Launch log</title>",
+         f"<desc>{_ctf_desc()}</desc>",  # CTF stage 2 lives here (hex, from ctf/desc.hex)
          t.defs('<style>@keyframes up{from{transform:scaleY(0)}to{transform:scaleY(1)}}'
                 '.trail{transform-box:fill-box;transform-origin:50% 100%;animation:up 1.1s cubic-bezier(.2,.8,.2,1) both}'
                 '@keyframes fade{from{opacity:0}to{opacity:1}}.lbl{animation:fade .6s ease-out both}'

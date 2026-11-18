@@ -19,10 +19,10 @@ WMO = {0: "clear", 1: "mostly clear", 2: "partly cloudy", 3: "overcast", 45: "fo
        80: "showers", 81: "showers", 82: "heavy showers", 95: "thunderstorm", 96: "thunderstorm", 99: "thunderstorm"}
 
 # sky gradients (top, middle, horizon). Night uses the theme's own sky.
-SKIES = {"dawn": ("#05081c", "#211a4d", "#6b3a5c"),          # always a dark sky: warm glow low on the horizon
-         "day": ("#040b22", "#0b2257", "#1d4690"),           # deep blue, still a dark card
-         "day_overcast": ("#070d1f", "#17223d", "#34425f"),
-         "dusk": ("#04061a", "#26163f", "#7a3540")}
+SKIES = {"dawn": ("#030409", "#161430", "#4a2f4a"),          # always a dark sky: warm glow low on the horizon
+         "day": ("#03050c", "#0b1430", "#1b2c5c"),           # deep blue, still a dark card
+         "day_overcast": ("#05070c", "#121724", "#262e42"),
+         "dusk": ("#030309", "#1b1230", "#5a2a38")}
 
 
 def _minutes(hhmm):
@@ -75,7 +75,7 @@ def clouds(s, W, top=20, bottom=200):
     if not s["clouds"]:
         return ""
     rnd = random.Random(s["cloud"] + 7)
-    col, op = {"day": ("#5a6f9e", .55), "dawn": ("#8a5f7d", .45), "dusk": ("#8a4f68", .45)}.get(s["phase"], ("#3a4778", .6))
+    col, op = {"day": ("#3e4a6e", .55), "dawn": ("#5e4a66", .45), "dusk": ("#5e3f52", .45)}.get(s["phase"], ("#2a3150", .6))
     if s["phase"] == "day" and s["cloud"] >= 80:
         col, op = "#56627e", .6
     out = []

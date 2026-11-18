@@ -8,9 +8,9 @@
 
 <a href="https://portfolio-general-ten.vercel.app">Portfolio</a> &nbsp;·&nbsp; <a href="https://www.linkedin.com/in/sodagum-venkata-kaushik-3497a4248/">LinkedIn</a> &nbsp;·&nbsp; <a href="https://x.com/svKaushik2210">X</a> &nbsp;·&nbsp; <a href="https://github.com/Kaushik2210?tab=repositories">Repositories</a> &nbsp;·&nbsp; <a href="https://github.com/Kaushik2210/Kaushik2210/issues/new?template=hello.yml">Say hello</a>
 
-<sub><a href="#work">Work</a> &nbsp;›&nbsp; <a href="#activity">Activity</a> &nbsp;›&nbsp; <a href="#interactive">Interactive</a> &nbsp;›&nbsp; <a href="#vote">Vote</a></sub>
+<sub><a href="#work">Work</a> &nbsp;›&nbsp; <a href="#activity">Activity</a> &nbsp;›&nbsp; <a href="#interactive">Interactive</a> &nbsp;›&nbsp; <a href="#shell">Shell</a></sub>
 
-<sub>Try it: <a href="#vote">vote on my next build</a> &nbsp;·&nbsp; <a href="https://github.com/Kaushik2210/Kaushik2210/issues/new?template=star.yml">add your star</a> &nbsp;·&nbsp; <a href="https://badger.github.io/virtual/?u=Kaushik2210">play on my badge</a> &nbsp;·&nbsp; <a href="#interactive">crack the CTF</a> &nbsp;·&nbsp; <a href="https://github.com/Kaushik2210/Kaushik2210/issues/new?template=hello.yml">say hello</a></sub>
+<sub>Try it: <a href="#shell">type into my terminal</a> &nbsp;·&nbsp; <a href="https://badger.github.io/virtual/?u=Kaushik2210">play on my badge</a> &nbsp;·&nbsp; <a href="#interactive">crack the CTF</a> &nbsp;·&nbsp; <a href="https://github.com/Kaushik2210/Kaushik2210/issues/new?template=hello.yml">say hello</a></sub>
 
 <br/>
 
@@ -137,31 +137,27 @@ Things people can open and use today. [HireOS](https://hireos-beryl.vercel.app) 
 
 ## Interactive
 
-<a name="vote"></a>
+<a name="shell"></a>
 
-<img src="assets/div-vote.svg" alt="You decide: what I build next" width="100%"/>
-
-</div>
-
-<!--POLL_START-->
-<div align="center">
-
-**What should I build next?** Click an idea to vote. One vote each; vote again to switch.
-
-<a href="https://github.com/Kaushik2210/Kaushik2210/issues/new?title=%5BVOTE%5D%20jailbreak-arena&body=Voting%20for%20%2A%2AJailbreak%20Arena%2A%2A.%20Just%20press%20%2A%2ACreate%2A%2A%3B%20a%20bot%20counts%20it%20and%20replies%20within%20a%20minute.%20Vote%20again%20any%20time%20to%20switch."><img src="assets/vote-jailbreak-arena.svg" alt="Jailbreak Arena: 1 vote. Click to vote." width="49%"></a> <a href="https://github.com/Kaushik2210/Kaushik2210/issues/new?title=%5BVOTE%5D%20cve-radar&body=Voting%20for%20%2A%2ACVE%20Radar%2A%2A.%20Just%20press%20%2A%2ACreate%2A%2A%3B%20a%20bot%20counts%20it%20and%20replies%20within%20a%20minute.%20Vote%20again%20any%20time%20to%20switch."><img src="assets/vote-cve-radar.svg" alt="CVE Radar: 0 votes. Click to vote." width="49%"></a><br><a href="https://github.com/Kaushik2210/Kaushik2210/issues/new?title=%5BVOTE%5D%20phish-lens&body=Voting%20for%20%2A%2APhish%20Lens%2A%2A.%20Just%20press%20%2A%2ACreate%2A%2A%3B%20a%20bot%20counts%20it%20and%20replies%20within%20a%20minute.%20Vote%20again%20any%20time%20to%20switch."><img src="assets/vote-phish-lens.svg" alt="Phish Lens: 0 votes. Click to vote." width="49%"></a> <a href="https://github.com/Kaushik2210/Kaushik2210/issues/new?title=%5BVOTE%5D%20pr-sentinel&body=Voting%20for%20%2A%2APR%20Sentinel%2A%2A.%20Just%20press%20%2A%2ACreate%2A%2A%3B%20a%20bot%20counts%20it%20and%20replies%20within%20a%20minute.%20Vote%20again%20any%20time%20to%20switch."><img src="assets/vote-pr-sentinel.svg" alt="PR Sentinel: 0 votes. Click to vote." width="49%"></a><br><a href="https://github.com/Kaushik2210/Kaushik2210/issues/new?title=%5BVOTE%5D%20honeypot-map&body=Voting%20for%20%2A%2AHoneypot%20Live%20Map%2A%2A.%20Just%20press%20%2A%2ACreate%2A%2A%3B%20a%20bot%20counts%20it%20and%20replies%20within%20a%20minute.%20Vote%20again%20any%20time%20to%20switch."><img src="assets/vote-honeypot-map.svg" alt="Honeypot Live Map: 0 votes. Click to vote." width="49%"></a> <a href="https://github.com/Kaushik2210/Kaushik2210/issues/new?title=%5BVOTE%5D%20mock-interviewer&body=Voting%20for%20%2A%2AVoice%20Mock%20Interviewer%2A%2A.%20Just%20press%20%2A%2ACreate%2A%2A%3B%20a%20bot%20counts%20it%20and%20replies%20within%20a%20minute.%20Vote%20again%20any%20time%20to%20switch."><img src="assets/vote-mock-interviewer.svg" alt="Voice Mock Interviewer: 0 votes. Click to vote." width="49%"></a>
-
-<sub>1 vote so far · latest: [@Kaushik2210](https://github.com/Kaushik2210) → Jailbreak Arena</sub>
+<img src="assets/div-shell.svg" alt="kaushik.sh: a terminal anyone can type into" width="100%"/>
 
 </div>
-<!--POLL_END-->
 
+<!--SHELL_START-->
 <div align="center">
 
-<img src="assets/div-galaxy.svg" alt="Contribution galaxy" width="100%"/>
+**A real shell on my profile that anyone can type into.** Pick a command, press *Create* on the issue that opens, and a bot answers you here within a minute.
 
-<a href="https://github.com/Kaushik2210/Kaushik2210/issues/new?template=star.yml"><img src="assets/galaxy.svg" alt="My last 365 days of contributions as a spiral galaxy, one star per day, with visitor stars orbiting" width="100%"/></a>
+<a href="https://github.com/Kaushik2210/Kaushik2210/issues/new?title=%5BSH%5D%20help&body=Just%20press%20%2A%2ACreate%2A%2A.%20The%20bot%20answers%20in%20this%20issue%20and%20adds%20your%20command%20to%20the%20terminal%20on%20the%20profile%20within%20a%20minute.%20You%20can%20also%20edit%20the%20title%20to%20type%20any%20command%20after%20%60%5BSH%5D%60."><img src="assets/shell.svg" alt="kaushik.sh terminal showing the latest commands visitors typed and their output" width="100%"/></a>
 
-<sub>One star per day for the last year; the core is today.<br/><b><a href="https://github.com/Kaushik2210/Kaushik2210/issues/new?template=star.yml">Add your own star</a></b>: pick a colour and your handle orbits here too.</sub>
+<a href="https://github.com/Kaushik2210/Kaushik2210/issues/new?title=%5BSH%5D%20help&body=Just%20press%20%2A%2ACreate%2A%2A.%20The%20bot%20answers%20in%20this%20issue%20and%20adds%20your%20command%20to%20the%20terminal%20on%20the%20profile%20within%20a%20minute.%20You%20can%20also%20edit%20the%20title%20to%20type%20any%20command%20after%20%60%5BSH%5D%60."><kbd>help</kbd></a> <a href="https://github.com/Kaushik2210/Kaushik2210/issues/new?title=%5BSH%5D%20whoami&body=Just%20press%20%2A%2ACreate%2A%2A.%20The%20bot%20answers%20in%20this%20issue%20and%20adds%20your%20command%20to%20the%20terminal%20on%20the%20profile%20within%20a%20minute.%20You%20can%20also%20edit%20the%20title%20to%20type%20any%20command%20after%20%60%5BSH%5D%60."><kbd>whoami</kbd></a> <a href="https://github.com/Kaushik2210/Kaushik2210/issues/new?title=%5BSH%5D%20ls&body=Just%20press%20%2A%2ACreate%2A%2A.%20The%20bot%20answers%20in%20this%20issue%20and%20adds%20your%20command%20to%20the%20terminal%20on%20the%20profile%20within%20a%20minute.%20You%20can%20also%20edit%20the%20title%20to%20type%20any%20command%20after%20%60%5BSH%5D%60."><kbd>ls</kbd></a> <a href="https://github.com/Kaushik2210/Kaushik2210/issues/new?title=%5BSH%5D%20cat%20IntentGuard&body=Just%20press%20%2A%2ACreate%2A%2A.%20The%20bot%20answers%20in%20this%20issue%20and%20adds%20your%20command%20to%20the%20terminal%20on%20the%20profile%20within%20a%20minute.%20You%20can%20also%20edit%20the%20title%20to%20type%20any%20command%20after%20%60%5BSH%5D%60."><kbd>cat IntentGuard</kbd></a> <a href="https://github.com/Kaushik2210/Kaushik2210/issues/new?title=%5BSH%5D%20stack&body=Just%20press%20%2A%2ACreate%2A%2A.%20The%20bot%20answers%20in%20this%20issue%20and%20adds%20your%20command%20to%20the%20terminal%20on%20the%20profile%20within%20a%20minute.%20You%20can%20also%20edit%20the%20title%20to%20type%20any%20command%20after%20%60%5BSH%5D%60."><kbd>stack</kbd></a> <a href="https://github.com/Kaushik2210/Kaushik2210/issues/new?title=%5BSH%5D%20fortune&body=Just%20press%20%2A%2ACreate%2A%2A.%20The%20bot%20answers%20in%20this%20issue%20and%20adds%20your%20command%20to%20the%20terminal%20on%20the%20profile%20within%20a%20minute.%20You%20can%20also%20edit%20the%20title%20to%20type%20any%20command%20after%20%60%5BSH%5D%60."><kbd>fortune</kbd></a> <a href="https://github.com/Kaushik2210/Kaushik2210/issues/new?title=%5BSH%5D%20sudo%20hire%20kaushik&body=Just%20press%20%2A%2ACreate%2A%2A.%20The%20bot%20answers%20in%20this%20issue%20and%20adds%20your%20command%20to%20the%20terminal%20on%20the%20profile%20within%20a%20minute.%20You%20can%20also%20edit%20the%20title%20to%20type%20any%20command%20after%20%60%5BSH%5D%60."><kbd>sudo hire kaushik</kbd></a>
+
+<sub>Or open an issue titled <code>[SH] anything</code>. Nothing ever executes: it is a sandbox of answers about me. the first lines are mine. yours come next.</sub>
+
+</div>
+<!--SHELL_END-->
+
+<div align="center">
 
 <img src="assets/div-badge.svg" alt="My badge" width="100%"/>
 
@@ -177,7 +173,7 @@ Things people can open and use today. [HireOS](https://hireos-beryl.vercel.app) 
 
 ```text
 STAGE 1 / 3   (base64)
-U1RBR0UgMS8zIDo6IG5pY2UsIHlvdSBkZWNvZGVkIGJhc2U2NC4gdGhlIGdhbGF4eSBpcyBtb3JlIHRoYW4gYSBwaWN0dXJlOiBvcGVuIGFzc2V0cy9nYWxheHkuc3ZnIGFzIHJhdyB0ZXh0IGFuZCByZWFkIGl0cyA8ZGVzYz4gZWxlbWVudC4gaXQgaXMgaGV4Lg==
+U1RBR0UgMS8zIDo6IG5pY2UsIHlvdSBkZWNvZGVkIGJhc2U2NC4gdGhlIGxhdW5jaCBsb2cgaXMgbW9yZSB0aGFuIGEgcGljdHVyZTogb3BlbiBhc3NldHMvbGF1bmNoLnN2ZyBhcyByYXcgdGV4dCBhbmQgcmVhZCBpdHMgPGRlc2M+IGVsZW1lbnQuIGl0IGlzIGhleC4=
 ```
 
 <details>
