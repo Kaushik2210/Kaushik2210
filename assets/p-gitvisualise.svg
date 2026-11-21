@@ -27,7 +27,7 @@ text{font-family:system-ui,-apple-system,'SF Pro Text','Segoe UI',Roboto,'Helvet
 <rect x="20" y="270" width="87" height="20" rx="10" fill="#141821" stroke="#222836"/><text x="64" y="284" class="mono" font-size="10" fill="#8089a0" text-anchor="middle">architecture</text>
 <rect x="113" y="270" width="136" height="20" rx="10" fill="#141821" stroke="#222836"/><text x="181" y="284" class="mono" font-size="10" fill="#8089a0" text-anchor="middle">architecture-diagram</text>
 <rect x="255" y="270" width="81" height="20" rx="10" fill="#141821" stroke="#222836"/><text x="296" y="284" class="mono" font-size="10" fill="#8089a0" text-anchor="middle">claude-code</text>
-<circle cx="26" cy="307" r="4" fill="#fde68a"/><text x="38" y="311" font-size="11" fill="#aab1c2">JavaScript<tspan fill="#8089a0">  &#183;  &#9733; 2  &#183;  pushed today</tspan></text>
+<circle cx="26" cy="307" r="4" fill="#fde68a"/><text x="38" y="311" font-size="11" fill="#aab1c2">JavaScript<tspan fill="#8089a0">  &#183;  &#9733; 2  &#183;  pushed yesterday</tspan></text>
 </g>
 <rect x=".5" y=".5" width="404" height="323" rx="16" fill="none" stroke="url(#bdr)" stroke-width="1.2"/>
 <rect x="1" y="1" width="403" height="322" rx="16" fill="none" stroke="#f2c879" stroke-width="2" stroke-linecap="round" stroke-dasharray="80 1343" opacity=".9"><animate attributeName="stroke-dashoffset" from="464" to="-959" dur="9s" repeatCount="indefinite"/></rect>
