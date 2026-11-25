@@ -151,9 +151,12 @@ Things people can open and use today. [HireOS](https://hireos-beryl.vercel.app) 
 
 <img src="assets/div-badge.svg" alt="My badge" width="100%"/>
 
-<a href="https://badger.github.io/virtual/?u=Kaushik2210"><img src="assets/badge.svg" alt="My custom conference-style badge swinging on a lanyard, with my halftone portrait and live GitHub stats. Opens a virtual badge that runs DOOM with my GitHub avatar." width="100%"/></a>
+<a href="https://badger.github.io/virtual/?u=Kaushik2210"><picture>
+  <source media="(max-width: 600px)" srcset="https://raw.githubusercontent.com/Kaushik2210/Kaushik2210/main/assets/badge-mobile.svg"/>
+  <img src="assets/badge.svg" width="100%" alt="Kaushik’s conference-style builder pass with his GitHub portrait, woven lanyard, and a QR code. Open the playable DOOM badge."/>
+</picture></a>
 
-<sub>My own badge, rebuilt from live data. It swings, flips to show its ID matrix and access card, and the screen beside it boots up a demo. <b><a href="https://badger.github.io/virtual/?u=Kaushik2210">Open it on the virtual badge</a></b> (GitHub's DOOM-on-a-badge page) to play with my avatar on screen.</sub>
+<sub><a href="https://badger.github.io/virtual/?u=Kaushik2210">Play DOOM on my virtual badge</a> or scan the code on the reverse.</sub>
 
 <img src="assets/div-ctf.svg" alt="Intercepted transmission" width="100%"/>
 

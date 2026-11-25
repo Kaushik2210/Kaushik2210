@@ -1,4 +1,5 @@
 """Shared GitHub data helpers (stdlib only)."""
+import base64
 import json
 import os
 import urllib.request
@@ -18,6 +19,18 @@ def _req(url, data=None):
     r = urllib.request.Request(url, data=data, headers=h)
     with urllib.request.urlopen(r, timeout=30) as f:
         return f.read()
+
+
+def avatar_data_uri(login):
+    request = urllib.request.Request(
+        f"https://github.com/{login}.png?size=640", headers={"User-Agent": "profile-gen"}
+    )
+    with urllib.request.urlopen(request, timeout=30) as response:
+        raw = response.read()
+        mime = response.headers.get_content_type()
+    if mime not in {"image/jpeg", "image/png", "image/webp", "image/gif"}:
+        raise ValueError(f"Unexpected avatar format: {mime}")
+    return f"data:{mime};base64,{base64.b64encode(raw).decode('ascii')}"
 
 
 def user_graph(login):

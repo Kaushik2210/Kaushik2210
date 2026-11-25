@@ -1,24 +1,11 @@
 """Render a mounted GitHub portrait and a tear-off contribution record."""
-import base64
 from collections import Counter
 from datetime import date
 from pathlib import Path
 import sys
-from urllib.request import Request, urlopen
 from xml.sax.saxutils import escape
 
 import common
-
-
-def avatar(login):
-    request = Request(f"https://github.com/{login}.png?size=640",
-                      headers={"User-Agent": "profile-gen"})
-    with urlopen(request, timeout=30) as response:
-        raw = response.read()
-        mime = response.headers.get_content_type()
-    if mime not in {"image/jpeg", "image/png", "image/webp", "image/gif"}:
-        raise ValueError(f"Unexpected avatar format: {mime}")
-    return f"data:{mime};base64,{base64.b64encode(raw).decode('ascii')}"
 
 
 def label(x, y, value, size=16, style="body", anchor="start"):
@@ -185,7 +172,7 @@ def main():
     target = Path(sys.argv[2] if len(sys.argv) > 2 else "assets/dossier.svg")
     user = common.user_graph(login)
     repos = common.repos(login)
-    uri = avatar(login)
+    uri = common.avatar_data_uri(login)
     for compact, path in [(False, target), (True, target.with_name(f"{target.stem}-mobile.svg"))]:
         path.write_text(render(login, user, repos, uri, compact), encoding="utf-8")
         print(f"Wrote {path}")
