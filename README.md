@@ -129,9 +129,12 @@ Things people can open and use today. [HireOS](https://hireos-beryl.vercel.app) 
 
 <img src="assets/div-dossier.svg" alt="Operator dossier" width="100%"/>
 
-<a href="https://github.com/Kaushik2210?tab=repositories"><img src="assets/dossier.svg" alt="Halftone portrait of me next to live GitHub stats: repositories, followers, streak and language mix" width="100%"/></a>
+<a href="https://github.com/Kaushik2210?tab=repositories"><picture>
+  <source media="(max-width: 600px)" srcset="assets/dossier-mobile.svg"/>
+  <img src="assets/dossier.svg" alt="Kaushik’s GitHub portrait and field notes, including repository totals, streaks and a daily contribution chart. Open the public repositories." width="100%"/>
+</picture></a>
 
-<sub>Rebuilt from my avatar on every run: the scanner locks onto my face, the file gets stamped, and the pulse at the bottom is my last 60 days of contributions. Every number comes straight from the GitHub API.</sub>
+<sub>Each bar on the paper strip is one day of GitHub contributions over the past 60 days. Open the file to explore my public repositories.</sub>
 
 <img src="assets/div-launch.svg" alt="Launch log" width="100%"/>
 

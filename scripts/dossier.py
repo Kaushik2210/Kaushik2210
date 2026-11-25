@@ -1,251 +1,194 @@
-#!/usr/bin/env python3
-"""assets/dossier.svg: avatar rendered as an animated colour halftone + live readout.
-
-The portrait is rebuilt from the real avatar on every run (Pillow). Each cell
-becomes a dot sized by local brightness and tinted with the photo's own hue.
-Rows pop in under a scan line, hold, fade and re-scan. Stats come straight from
-the GitHub API, so there is nothing third-party to break.
-"""
-import colorsys
-import collections
-import math
-import io
+"""Render a mounted GitHub portrait and a tear-off contribution record."""
+import base64
+from collections import Counter
+from datetime import date
+from pathlib import Path
 import sys
-import urllib.request
-from datetime import datetime, timezone
+from urllib.request import Request, urlopen
 from xml.sax.saxutils import escape
 
-from PIL import Image, ImageFilter, ImageOps
-
 import common
-import theme as th
-
-USER = sys.argv[1] if len(sys.argv) > 1 else "Kaushik2210"
-OUT = sys.argv[2] if len(sys.argv) > 2 else "assets/dossier.svg"
-CROP = (0.20, 0.40, 0.82, 1.0)  # head + shoulders
-COLS, PITCH = 58, 6.6
-W = 830
-CYCLE = 24.0
-GREEN = th.A2
-FONT = "ui-monospace,SFMono-Regular,Menlo,Consolas,'DejaVu Sans Mono',monospace"
 
 
-def portrait():
-    raw = urllib.request.urlopen(urllib.request.Request(
-        f"https://github.com/{USER}.png?size=460", headers={"User-Agent": "profile-gen"}), timeout=30).read()
-    im = Image.open(io.BytesIO(raw)).convert("RGB")
-    w, h = im.size
-    im = im.crop((int(CROP[0] * w), int(CROP[1] * h), int(CROP[2] * w), int(CROP[3] * h)))
-    rows = round(COLS * im.height / im.width)
-    im = im.resize((COLS, rows), Image.LANCZOS)
-    # local contrast: judge each cell against its neighbourhood so a dark face
-    # in front of a bright wall still gets the full dot-size range
-    im = ImageOps.autocontrast(im, cutoff=1)
-    lum = im.convert("L")
-    blur = lum.filter(ImageFilter.GaussianBlur(4))
-    px, lp, bp = im.load(), lum.load(), blur.load()
-    for y in range(rows):
-        for x in range(COLS):
-            l, b = lp[x, y] / 255, bp[x, y] / 255
-            adj = max(0.0, min(1.0, 0.4 * l + 0.6 * (0.5 + 2.2 * (l - b))))
-            k = adj / l if l > 0.02 else 1.0
-            r, g, bl = px[x, y]
-            px[x, y] = (min(255, int(r * k)), min(255, int(g * k)), min(255, int(bl * k)))
-    return im, rows
+def avatar(login):
+    request = Request(f"https://github.com/{login}.png?size=640",
+                      headers={"User-Agent": "profile-gen"})
+    with urlopen(request, timeout=30) as response:
+        raw = response.read()
+        mime = response.headers.get_content_type()
+    if mime not in {"image/jpeg", "image/png", "image/webp", "image/gif"}:
+        raise ValueError(f"Unexpected avatar format: {mime}")
+    return f"data:{mime};base64,{base64.b64encode(raw).decode('ascii')}"
 
 
-DUOTONE = th.DUOTONE
+def label(x, y, value, size=16, style="body", anchor="start"):
+    return (f'<text x="{x}" y="{y}" class="{style}" font-size="{size}" '
+            f'text-anchor="{anchor}">{escape(str(value))}</text>')
 
 
-def duotone(l):
-    """Map luminance 0..1 onto the Aurora gradient so the portrait matches the palette."""
-    for (a, ca), (b, cb) in zip(DUOTONE, DUOTONE[1:]):
-        if l <= b:
-            k = (l - a) / (b - a)
-            return tuple(round(ca[i] + (cb[i] - ca[i]) * k) for i in range(3))
-    return DUOTONE[-1][1]
+DEFS = """<defs>
+<linearGradient id="cloth" x2=".85" y2="1">
+  <stop stop-color="#373b40"/><stop offset=".55" stop-color="#24282d"/><stop offset="1" stop-color="#191d22"/>
+</linearGradient>
+<linearGradient id="mount" x2=".3" y2="1">
+  <stop stop-color="#faf4e8"/><stop offset=".78" stop-color="#e7decb"/><stop offset="1" stop-color="#c6bca7"/>
+</linearGradient>
+<linearGradient id="paper" x2="1" y2=".3">
+  <stop stop-color="#dcd4c3"/><stop offset=".08" stop-color="#f0e9d9"/><stop offset=".8" stop-color="#e9e2d4"/><stop offset="1" stop-color="#dad2bf"/>
+</linearGradient>
+<linearGradient id="clip" x1="0" y1="0" x2="1" y2=".4">
+  <stop stop-color="#604b34"/><stop offset=".24" stop-color="#ddbb83"/><stop offset=".48" stop-color="#fff1cb"/><stop offset=".78" stop-color="#a18559"/><stop offset="1" stop-color="#534332"/>
+</linearGradient>
+<pattern id="weave" width="5" height="5" patternUnits="userSpaceOnUse">
+  <path d="M0 1h5" stroke="#fff" opacity=".035"/><path d="M2 0v5" stroke="#000" opacity=".09"/>
+</pattern>
+<pattern id="ruling" width="14" height="14" patternUnits="userSpaceOnUse">
+  <path d="M0 0h14M0 0v14" fill="none" stroke="#797369" stroke-opacity=".19"/>
+</pattern>
+<style>
+text{font-family:'Segoe UI',Arial,sans-serif;fill:#f5f1e9}
+.name,.number{font-family:Georgia,'Times New Roman',serif}
+.number{fill:#2a3134}
+.meta,.ink,.pencil,.caps{font-family:Consolas,'Liberation Mono',monospace}
+.meta{fill:#c6cad0}.caps{fill:#dbbf90;letter-spacing:1.3px}
+.ink{fill:#343a3c}.pencil{fill:#534d43}.soft{fill:#cbd0d6}
+@media(prefers-reduced-motion:no-preference){.trace{animation:develop 1.1s ease-out both}
+@keyframes develop{from{opacity:.4}to{opacity:1}}}
+</style></defs>"""
 
 
-def dot(rgb):
-    r, g, b = (v / 255 for v in rgb)
-    lum = 0.299 * r + 0.587 * g + 0.114 * b
-    if lum < 0.10:
-        return None
-    rad = PITCH * 0.52 * min(1.0, (lum * 1.1) ** 0.6)
-    r2, g2, b2 = duotone(min(1.0, lum * 1.05))
-    return rad, "#%02x%02x%02x" % (r2, g2, b2)
+def mounted_photo(uri, x, y, scale):
+    # The original portrait includes the illuminated map above the subject.
+    # Keep some of that setting in the print, and retain the original colours.
+    return f"""<g transform="translate({x} {y}) scale({scale}) rotate(-3 113 133)">
+<rect x="4" y="7" width="228" height="268" rx="2" fill="#080a0d" opacity=".50"/>
+<rect x="2" y="3" width="228" height="268" rx="2" fill="#111318" opacity=".72"/>
+<rect width="228" height="268" rx="2" fill="url(#mount)" stroke="#ede6d8"/>
+<svg x="10" y="10" width="208" height="219" viewBox="48 85 365 375" preserveAspectRatio="xMidYMid slice">
+  <image width="460" height="460" xlink:href="{uri}"/>
+</svg>
+<rect x="10" y="10" width="208" height="219" fill="none" stroke="#27221d" stroke-opacity=".3"/>
+{label(14, 252, "GitHub portrait", 14, "pencil")}
+<path d="M180 246h32" stroke="#8a8170"/>
+<g transform="translate(164 -12) rotate(14)" fill="none" stroke-linecap="round">
+  <path id="wire" d="M2 8v36a6 6 0 0 0 12 0V5a9 9 0 0 0-18 0v34" />
+  <use xlink:href="#wire" transform="translate(1.3 2)" stroke="#13110f" stroke-width="4" opacity=".5"/>
+  <use xlink:href="#wire" stroke="url(#clip)" stroke-width="3"/>
+</g></g>"""
 
 
-def portrait_svg(im, rows, x0, y0):
-    out = []
-    for y in range(rows):
-        cells = []
-        for x in range(COLS):
-            d = dot(im.getpixel((x, y)))
-            if d:
-                cells.append(f'<circle cx="{x0 + x * PITCH + PITCH / 2:.1f}" cy="{y0 + y * PITCH + PITCH / 2:.1f}" '
-                             f'r="{d[0]:.2f}" fill="{d[1]}"/>')
-        a = (y * 0.06) / CYCLE
-        out.append(f'<g opacity="0"><animate attributeName="opacity" values="0;0;1;.8;1;1;0;0" '
-                   f'keyTimes="0;{a:.4f};{a + .005:.4f};{a + .03:.4f};{a + .05:.4f};.93;.97;1" '
-                   f'dur="{CYCLE}s" repeatCount="indefinite"/>{"".join(cells)}</g>')
-    return "\n".join(out)
+def record(x, y, width, rows):
+    parts = []
+    for i, (title, value) in enumerate(rows):
+        baseline = y + i * 33
+        parts += [f'<path d="M{x} {baseline + 10}h{width}" stroke="#555a60"/>',
+                  label(x, baseline, title, 15, "soft"),
+                  label(x + width, baseline, value, 16, "body", "end")]
+    return "".join(parts)
 
 
-def bar(frac, n=14):
-    k = max(1, round(frac * n))
-    return "█" * k + "░" * (n - k)
+def activity(x, y, width, days, compact):
+    height = 158
+    # A continuous cut edge and two punched ends give the chart the feel of
+    # a recorder slip without laying any texture across its labels.
+    bottom = " ".join(f"L{i} {height - (i // 5 % 2) * 2}" for i in range(width, -1, -5))
+    paper = f"M0 0H{width}V{height} {bottom} H0Z"
+    parts = [f'<g transform="translate({x} {y})">',
+             f'<path d="{paper}" transform="translate(2 4)" fill="#0d1013" opacity=".7"/>',
+             f'<path d="{paper}" fill="url(#paper)"/>']
+    pad = 20 if compact else 30
+    for edge in (8, width - 8):
+        for row in range(16, height - 4, 20):
+            parts.append(f'<circle cx="{edge}" cy="{row}" r="2.6" fill="#303438"/>')
+    parts.append(label(pad, 27, "Contribution record", 20, "number"))
+    if not days:
+        parts += [label(pad, 83, "No calendar data available", 15, "ink"), "</g>"]
+        return "".join(parts)
+    count = sum(value for _, value in days)
+    parts.append(label(width - pad, 27, f"{count:,} total", 14, "ink", "end"))
+    peak = max(value for _, value in days)
+    scale_space = max(25, 8 * len(f"{peak:,}") + 7)
+    chart_x, chart_width, base = pad + scale_space, width - 2 * pad - scale_space, 118
+    parts.append(f'<rect x="{chart_x}" y="43" width="{chart_width}" height="75" fill="url(#ruling)"/>')
+    parts.append(f'<path d="M{chart_x} {base}h{chart_width}" stroke="#807a70"/>')
+    parts.append(label(chart_x - 6, base, "0", 12, "pencil", "end"))
+    if peak:
+        parts.append(label(chart_x - 6, 50, f"{peak:,}", 12, "pencil", "end"))
+    step = chart_width / len(days)
+    for i, (_, value) in enumerate(days):
+        if value:
+            h = 73 * value / peak
+            parts.append(f'<rect class="trace" x="{chart_x + (i + .15) * step:.2f}" y="{base - h:.2f}" '
+                         f'width="{step * .70:.2f}" height="{h:.2f}" fill="#36576a"/>')
+    def day_stamp(value):
+        return date.fromisoformat(value).strftime("%d %b").lstrip("0")
+    parts.extend([label(chart_x, 142, day_stamp(days[0][0]), 13, "pencil"),
+                  label(width / 2, 142, "Daily contributions", 13, "pencil", "middle"),
+                  label(width - pad, 142, day_stamp(days[-1][0]), 13, "pencil", "end"),
+                  "</g>"])
+    return "".join(parts)
+
+
+def render(login, user, repos, uri, compact):
+    days = common.days(user)
+    current, best = common.streaks(days)
+    commits = user["contributionsCollection"]["totalCommitContributions"]
+    stars = sum(repo["stargazers_count"] for repo in repos)
+    languages = Counter(repo["language"] for repo in repos if repo["language"])
+    lead = languages.most_common(1)
+    rows = [("Non-fork repos", f"{len(repos):,} repos  /  {stars:,} stars"),
+            ("Commits · past year", f"{commits:,}"),
+            ("Streak · now / best", f"{current}d  /  {best}d"),
+            ("Top repo language", lead[0][0] if lead else "Unlisted")]
+    year = date.fromisoformat(user["createdAt"][:10]).year
+    width, height = (430, 635) if compact else (830, 524)
+    x, y = (209, 103) if compact else (330, 92)
+    title = "Kaushik" if login.lower() == "kaushik2210" else login
+    name_size = min(61 if not compact else 37, (width - x - 22) * 1.55 / len(title))
+    chart_y = 453 if compact else 344
+    cc = user["contributionsCollection"]
+    description = (f"{login} joined GitHub in {year}. {len(repos)} public non-fork repositories, "
+                   f"{stars} stars and {commits} commit contributions in the past year. "
+                   f"{cc['totalPullRequestContributions']} pull requests and {cc['totalIssueContributions']} issues "
+                   f"in that period. {user['followers']['totalCount']} followers. "
+                   f"{sum(v for _, v in days[-60:])} contributions in the latest {len(days[-60:])} calendar days.")
+    parts = [f'<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" '
+             f'width="{width}" height="{height}" viewBox="0 0 {width} {height}" role="img" aria-labelledby="title desc">',
+             f'<title id="title">{escape(title)} · Operator dossier</title><desc id="desc">{escape(description)}</desc>',
+             DEFS,
+             f'<rect width="{width}" height="{height}" rx="12" fill="#111419"/>',
+             f'<rect x="3" y="4" width="{width-6}" height="{height-8}" rx="10" fill="url(#cloth)" stroke="#4f5357"/>',
+             f'<rect x="4" y="5" width="{width-8}" height="{height-10}" rx="10" fill="url(#weave)"/>',
+             f'<rect x="11" y="12" width="{width-22}" height="{height-24}" rx="6" fill="none" '
+             f'stroke="#9a978c" stroke-opacity=".34" stroke-dasharray="3 4"/>',
+             mounted_photo(uri, 34 if compact else 55, 64 if compact else 43, .68 if compact else 1),
+             label(x, y-27, "FIELD NOTES", 13, "caps"),
+             label(x, y + 26, title, round(name_size, 1), "name"),
+             label(x, y + 55, "@" + login, min(17, (width-x-18)*1.52/(len(login)+1)), "meta"),
+             label(x, y + 85, f"On GitHub since {year}", 15, "soft")]
+    if login.lower() == "kaushik2210":
+        if compact:
+            parts.extend([label(x, y + 112, "Security tooling", 16),
+                          label(x, y + 132, "& developer tools", 16)])
+        else:
+            parts.append(label(x + 160, y + 85, "Security & developer tools", 15, "soft"))
+    if compact:
+        parts.append(record(30, 289, width - 60, rows))
+    else:
+        parts.append(record(x, 215, width - x - 43, rows))
+    parts.append(activity(21 if compact else 27, chart_y, width - (42 if compact else 54), days[-60:], compact))
+    return "\n".join(parts + ["</svg>"])
 
 
 def main():
-    u = common.user_graph(USER)
-    ds = common.days(u)
-    cur, longest = common.streaks(ds)
-    rp = common.repos(USER)
-    stars = sum(r["stargazers_count"] for r in rp)
-    langs = collections.Counter(r["language"] for r in rp if r["language"])
-    top = langs.most_common(4)
-    tot = sum(langs.values()) or 1
-    cc = u["contributionsCollection"]
-    joined = datetime.fromisoformat(u["createdAt"].replace("Z", "+00:00"))
-    years = (datetime.now(timezone.utc) - joined).days / 365.25
-
-    im, rows = portrait()
-    px0, py0 = 30, 62
-    ph = rows * PITCH
-    H = max(int(py0 + ph + 46), 530) + 96   # room for the pulse strip
-    tx = 452
-    o = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" role="img" '
-         f'aria-label="Halftone portrait of {escape(USER)} with live GitHub stats">',
-         f"<title>OPERATOR DOSSIER // {escape(USER)}</title>",
-         f"""<defs>{th.BDR}<filter id="g" x="-20%" y="-300%" width="140%" height="700%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-<style>text{{font-family:system-ui,-apple-system,'SF Pro Text','Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif}}</style></defs>
-<rect width="{W}" height="{H}" rx="14" fill="{th.SURFACE}" stroke="url(#bdr)" stroke-width="1.2"/>
-<text x="{px0}" y="36" font-size="13" fill="{GREEN}">&#9608; OPERATOR</text>"""]
-    # corner brackets around the portrait
-    bx0, by0, bx1, by1 = px0 - 8, py0 - 8, px0 + COLS * PITCH + 8, py0 + ph + 8
-    for (x, y, sx, sy) in ((bx0, by0, 1, 1), (bx1, by0, -1, 1), (bx0, by1, 1, -1), (bx1, by1, -1, -1)):
-        o.append(f'<path d="M{x},{y + 16 * sy} L{x},{y} L{x + 16 * sx},{y}" fill="none" stroke="{GREEN}" stroke-width="2"/>')
-    o.append(portrait_svg(im, rows, px0, py0))
-    o.append(f'<text x="{px0}" y="{py0 + ph + 34:.0f}" font-size="12" fill="{th.TEXT3}">SUBJECT_ID <tspan fill="{th.TEXT}">{u["id"] if "id" in u else "83902056"}</tspan>'
-             f' &#183; MATCH <tspan fill="{GREEN}">99.7%</tspan> &#183; STATUS <tspan fill="{th.GREEN}">ONLINE</tspan></text>')
-    f = (rows * 0.06) / CYCLE
-    o.append(f'<rect x="{px0 - 4}" y="{py0}" width="{COLS * PITCH + 8:.0f}" height="3" fill="{GREEN}" opacity="0" filter="url(#g)">'
-             f'<animate attributeName="y" values="{py0};{py0 + ph:.0f};{py0 + ph:.0f}" keyTimes="0;{f:.4f};1" dur="{CYCLE}s" repeatCount="indefinite"/>'
-             f'<animate attributeName="opacity" values=".95;.95;0;0" keyTimes="0;{f:.4f};{f + .004:.4f};1" dur="{CYCLE}s" repeatCount="indefinite"/></rect>')
-    o.append(f'<line x1="{tx - 22}" y1="24" x2="{tx - 22}" y2="{H - 120}" stroke="{th.HAIRLINE}"/>')
-
-    # face lock: a reticle hunts across the portrait after each scan, then locks on the face
-    fw, fh = COLS * PITCH * .32, ph * .36
-    fx, fy = px0 + COLS * PITCH * .33, py0 + ph * .20
-    lk = f + .02
-    hunt = f"0 0;0 0;{-60} 40;50 -30;20 25;0 0;0 0"
-    o.append(f'<g opacity="0"><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;{f:.4f};{f + .003:.4f};.93;.96;1" dur="{CYCLE}s" repeatCount="indefinite"/>'
-             f'<animateTransform attributeName="transform" type="translate" values="{hunt}" keyTimes="0;{f:.4f};{f + .02:.4f};{f + .04:.4f};{f + .06:.4f};{f + .08:.4f};1" dur="{CYCLE}s" repeatCount="indefinite" calcMode="spline" '
-             f'keySplines="0 0 1 1;.4 0 .6 1;.4 0 .6 1;.4 0 .6 1;.4 0 .6 1;0 0 1 1"/>'
-             + "".join(f'<path d="M{x},{y + 14 * sy} L{x},{y} L{x + 14 * sx},{y}" fill="none" stroke="{th.BEACON[0]}" stroke-width="2.2"/>'
-                       for x, y, sx, sy in ((fx, fy, 1, 1), (fx + fw, fy, -1, 1), (fx, fy + fh, 1, -1), (fx + fw, fy + fh, -1, -1)))
-             + f'<line x1="{fx + fw / 2 - 8:.0f}" y1="{fy + fh / 2:.0f}" x2="{fx + fw / 2 + 8:.0f}" y2="{fy + fh / 2:.0f}" stroke="{th.BEACON[0]}" stroke-opacity=".7"/>'
-             f'<line x1="{fx + fw / 2:.0f}" y1="{fy + fh / 2 - 8:.0f}" x2="{fx + fw / 2:.0f}" y2="{fy + fh / 2 + 8:.0f}" stroke="{th.BEACON[0]}" stroke-opacity=".7"/>'
-             f'<g opacity="0"><animate attributeName="opacity" values="0;0;1;1" keyTimes="0;{f + .08:.4f};{f + .081:.4f};1" dur="{CYCLE}s" repeatCount="indefinite"/>'
-             f'<rect x="{fx:.0f}" y="{fy - 22:.0f}" width="112" height="16" fill="{th.BEACON[0]}"/>'
-             f'<text x="{fx + 6:.0f}" y="{fy - 10:.0f}" font-size="10" font-weight="700" fill="{th.CANVAS}" letter-spacing="1">FACE LOCKED</text>'
-             f'<line x1="{fx + fw:.0f}" y1="{fy + fh * .7:.0f}" x2="{px0 + COLS * PITCH + 2:.0f}" y2="{fy + fh * .7:.0f}" stroke="{th.BEACON[0]}" stroke-dasharray="3 3"/>'
-             f'<text x="{fx + fw + 6:.0f}" y="{fy + fh * .7 - 5:.0f}" font-size="9" fill="{th.BEACON[0]}">12.97°N 77.59°E</text></g></g>')
-    # CLASSIFIED stamp that slams onto the file once the readout has typed out
-    sa = .2  # just after the readout finishes typing
-    o.append(f'<g transform="translate({W - 92} 120) rotate(-12)"><g opacity="0">'
-             f'<animate attributeName="opacity" values="0;0;.85;.85;0;0" keyTimes="0;{sa:.3f};{sa + .006:.3f};.93;.96;1" dur="{CYCLE}s" repeatCount="indefinite"/>'
-             f'<animateTransform attributeName="transform" type="scale" values="1;1;2.2;.94;1;1" keyTimes="0;{sa - .001:.3f};{sa:.3f};{sa + .01:.3f};{sa + .014:.3f};1" dur="{CYCLE}s" repeatCount="indefinite"/>'
-             f'<rect x="-62" y="-18" width="124" height="36" rx="5" fill="none" stroke="{th.BEACON[0]}" stroke-width="2.4"/>'
-             f'<rect x="-57" y="-13" width="114" height="26" rx="3" fill="none" stroke="{th.BEACON[0]}" stroke-width=".9"/>'
-             f'<text y="6" font-size="15" font-weight="800" letter-spacing="3" fill="{th.BEACON[0]}" text-anchor="middle">CLASSIFIED</text></g></g>')
-
-    lines = [
-        ("h", f"{USER.lower()}@github"),
-        ("r", "─" * 26),
-        ("kv", ("ROLE", "Developer / Security")),
-        ("kv", ("BASE", "Bangalore, IN")),
-        ("kv", ("UPTIME", f"{years:.1f} yrs on GitHub")),
-        ("kv", ("REPOS", f"{len(rp)} public  ·  {stars}★")),
-        ("kv", ("NETWORK", f"{u['followers']['totalCount']} followers · {u['following']['totalCount']} following")),
-        ("kv", ("COMMITS", f"{cc['totalCommitContributions']} this year")),
-        ("kv", ("PR / ISSUES", f"{cc['totalPullRequestContributions']} / {cc['totalIssueContributions']}")),
-        ("kv", ("STREAK", f"{cur}d now · {longest}d best")),
-        ("r", ""),
-        ("s", "LANGUAGE.MIX"),
-        ("donut", [(lang, cnt / tot) for lang, cnt in top]),
-    ]
-
-    y = 70
-    t0 = rows * 0.06 * 0.5
-    for i, (kind, val) in enumerate(lines):
-        a = (t0 + i * 0.18) / CYCLE
-        anim = (f'<animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;{a:.4f};{a + .004:.4f};.93;.97;1" '
-                f'dur="{CYCLE}s" repeatCount="indefinite"/>')
-        if kind == "h":
-            o.append(f'<text x="{tx}" y="{y}" font-size="21" fill="{GREEN}" font-weight="bold" opacity="0">{escape(val)}{anim}</text>')
-        elif kind == "r":
-            if val:
-                o.append(f'<text x="{tx}" y="{y}" font-size="14" fill="{th.HAIRLINE}" opacity="0">{val}{anim}</text>')
-        elif kind == "s":
-            o.append(f'<text x="{tx}" y="{y}" font-size="13" fill="{GREEN}" opacity="0">&#9656; {val}{anim}</text>')
-        elif kind == "kv":
-            k, v = val
-            o.append(f'<text x="{tx}" y="{y}" font-size="14" opacity="0"><tspan fill="{GREEN}">{k}</tspan>'
-                     f'<tspan x="{tx + 118}" fill="{th.TEXT}">{escape(v)}</tspan>{anim}</text>')
-        else:  # language reactor: arcs spin up into a slowly turning ring, legend beside it
-            cx, cy, rr = tx + 58, y + 46, 44
-            circ = 2 * math.pi * rr
-            ring = [f'<circle cx="{cx}" cy="{cy}" r="{rr}" fill="none" stroke="{th.RAISED}" stroke-width="13"/>',
-                    f'<g><animateTransform attributeName="transform" type="rotate" from="0 {cx} {cy}" to="360 {cx} {cy}" dur="60s" repeatCount="indefinite"/>']
-            acc, legend = 0.0, []
-            for j, (lang, fr) in enumerate(val):
-                seg = max(2.0, fr * circ - 3)
-                col = th.lang_color(lang if lang in th.LANG else "Other")
-                b = a + (j + 1) * .012
-                ring.append(f'<circle cx="{cx}" cy="{cy}" r="{rr}" fill="none" stroke="{col}" stroke-width="13" '
-                            f'stroke-dasharray="0 {circ:.1f}" transform="rotate({acc * 360 - 90:.1f} {cx} {cy})">'
-                            f'<animate attributeName="stroke-dasharray" values="0 {circ:.1f};0 {circ:.1f};{seg:.1f} {circ:.1f};{seg:.1f} {circ:.1f};0 {circ:.1f};0 {circ:.1f}" '
-                            f'keyTimes="0;{b:.4f};{b + .02:.4f};.93;.97;1" dur="{CYCLE}s" repeatCount="indefinite"/></circle>')
-                ly = cy - 33 + j * 22
-                legend.append(f'<text x="{tx + 128}" y="{ly + 5}" font-size="13" opacity="0"><tspan fill="{col}">&#9679;</tspan> '
-                            f'<tspan fill="{th.TEXT}">{escape(lang)}</tspan><tspan x="{tx + 248}" fill="{th.TEXT3}">{fr * 100:.0f}%</tspan>'
-                            f'<animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;{b:.4f};{b + .004:.4f};.93;.97;1" dur="{CYCLE}s" repeatCount="indefinite"/></text>')
-                acc += fr
-            ring.append("</g>")
-            ring += legend
-            ring.append(f'<circle cx="{cx}" cy="{cy}" r="4" fill="{GREEN}"><animate attributeName="r" values="3;6;3" dur="1.6s" repeatCount="indefinite"/></circle>'
-                        f'<text x="{cx}" y="{cy + 22}" font-size="9" fill="{th.TEXT3}" text-anchor="middle" opacity="0">{len(rp)} repos{anim}</text>')
-            o.append("".join(ring))
-            y += 104
-        y += 14 if kind == "r" else 26 if kind not in ("h", "donut") else 30 if kind == "h" else 0
-    o.append(f'<rect x="{tx}" y="{y - 4}" width="10" height="17" fill="{GREEN}"><animate attributeName="opacity" values="1;1;0;0" keyTimes="0;.5;.5;1" dur="1s" repeatCount="indefinite"/></rect>')
-    # PULSE: the last 60 days as a heartbeat, one beat per day, spike height = contributions
-    days60 = common.days(u)[-60:]
-    top, base = H - 92, H - 44
-    o.append(f'<line x1="24" y1="{top - 14}" x2="{W - 24}" y2="{top - 14}" stroke="{th.HAIRLINE}"/>'
-             f'<text x="{px0}" y="{top + 2}" font-size="12" fill="{GREEN}">&#9656; PULSE <tspan fill="{th.TEXT3}">· last 60 days, one beat per day, taller = more contributions</tspan></text>')
-    hi = max((c for _, c in days60), default=1) or 1
-    step = (W - 2 * px0) / max(1, len(days60))
-    d, x = [f"M{px0},{base}"], px0
-    for _, c in days60:
-        amp = 4 + 34 * (c / hi) ** .6 if c else 0
-        d.append(f"L{x + step * .35:.1f},{base} L{x + step * .45:.1f},{base + (3 if c else 0)} L{x + step * .55:.1f},{base - amp:.1f} "
-                 f"L{x + step * .65:.1f},{base + (5 if c else 0)} L{x + step * .75:.1f},{base}")
-        x += step
-    d.append(f"L{W - px0},{base}")
-    path = " ".join(d)
-    o.append(f'<path d="{path}" fill="none" stroke="{GREEN}" stroke-opacity=".18" stroke-width="1.2"/>'
-             f'<path d="{path}" fill="none" stroke="{GREEN}" stroke-width="1.8" stroke-linejoin="round" pathLength="1" stroke-dasharray=".22 .78" filter="url(#g)">'
-             f'<animate attributeName="stroke-dashoffset" values=".22;-.78" dur="6s" repeatCount="indefinite"/></path>'
-             f'<text x="{W - px0}" y="{top + 2}" font-size="12" fill="{th.TEXT}" text-anchor="end">{sum(c for _, c in days60)} contributions <tspan fill="{GREEN}">♥</tspan>'
-             f'<animate attributeName="opacity" values="1;.5;1" dur="1s" repeatCount="indefinite"/></text>')
-    o.append(f'<text x="{W - 24}" y="{H - 16}" font-size="10" fill="{th.TEXT3}" text-anchor="end">rendered {datetime.now(timezone.utc):%Y-%m-%d %H:%M} UTC &#183; scripts/dossier.py</text>')
-    o.append("</svg>")
-    with open(OUT, "w", encoding="utf-8") as fh:
-        fh.write("\n".join(o))
-    print(f"wrote {OUT}: {COLS}x{rows} halftone, {len(rp)} repos, {stars} stars, H={H}")
+    login = sys.argv[1] if len(sys.argv) > 1 else "Kaushik2210"
+    target = Path(sys.argv[2] if len(sys.argv) > 2 else "assets/dossier.svg")
+    user = common.user_graph(login)
+    repos = common.repos(login)
+    uri = avatar(login)
+    for compact, path in [(False, target), (True, target.with_name(f"{target.stem}-mobile.svg"))]:
+        path.write_text(render(login, user, repos, uri, compact), encoding="utf-8")
+        print(f"Wrote {path}")
 
 
 if __name__ == "__main__":
