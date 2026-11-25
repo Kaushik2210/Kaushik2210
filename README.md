@@ -130,7 +130,7 @@ Things people can open and use today. [HireOS](https://hireos-beryl.vercel.app) 
 <img src="assets/div-dossier.svg" alt="Operator dossier" width="100%"/>
 
 <a href="https://github.com/Kaushik2210?tab=repositories"><picture>
-  <source media="(max-width: 600px)" srcset="assets/dossier-mobile.svg"/>
+  <source media="(max-width: 600px)" srcset="https://raw.githubusercontent.com/Kaushik2210/Kaushik2210/main/assets/dossier-mobile.svg"/>
   <img src="assets/dossier.svg" alt="Kaushik’s GitHub portrait and field notes, including repository totals, streaks and a daily contribution chart. Open the public repositories." width="100%"/>
 </picture></a>
 
