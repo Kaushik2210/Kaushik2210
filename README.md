@@ -115,10 +115,10 @@ Things people can open and use today. [HireOS](https://hireos-beryl.vercel.app) 
 
 | Build | Stack | What it is |
 |:--|:--|:--|
-| [**AlgoAscend**](https://github.com/Kaushik2210/AlgoAscend) | `TypeScript` | Interactive algorithm lessons, visual traces, and coding practice in C, Python, and Java. |
+| [**AlgoAscend**](https://github.com/Kaushik2210/AlgoAscend) · [live](https://algoascend.vercel.app) | `TypeScript` | Interactive algorithm lessons, visual traces, and coding practice in C, Python, and Java. |
+| [**campus-connectivity-map**](https://github.com/Kaushik2210/campus-connectivity-map) · [live](https://campus-connectivity-map-christ.streamlit.app/) | `Python` | Crowdsourced campus Wi-Fi quality tracker (Streamlit) |
 | [**aiforge**](https://github.com/Kaushik2210/aiforge) | `Python` | Open-source, gamified academy for becoming a production-ready AI engineer |
 | [**Veritask**](https://github.com/Kaushik2210/Veritask) · [live](https://kaushik2210.github.io/Veritask/) | `Python` | Intent-aware and behavioural runtime authorization for autonomous AI agents |
-| [**campus-connectivity-map**](https://github.com/Kaushik2210/campus-connectivity-map) | `Python` | Crowdsourced campus Wi-Fi quality tracker (Streamlit) |
 | [**leetcode-study-studio**](https://github.com/Kaushik2210/leetcode-study-studio) | `JavaScript` | Chrome extension: LeetCode themes plus a learning layer (blind mode, hint ladder, spaced repetition, mistake… |
 
 </details>
