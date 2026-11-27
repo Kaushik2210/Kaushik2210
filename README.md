@@ -71,12 +71,12 @@ Things people can open and use today. [HireOS](https://hireos-beryl.vercel.app) 
 
 <sub>Nine missions, each acting out what the project does, with its own live log. Tap a card to open the live demo or the repository; language, stars and last push update automatically.</sub>
 
-<img src="assets/shelf.svg" alt="More builds: 22 more projects as game cartridges on shelves, coloured by language, with a light on the ones that have a live demo." width="100%"/>
+<img src="assets/shelf.svg" alt="More builds: 23 more projects as game cartridges on shelves, coloured by language, with a light on the ones that have a live demo." width="100%"/>
 
 </div>
 
 <details>
-<summary><b>Open the game library: 22 more builds, with links</b></summary>
+<summary><b>Open the game library: 23 more builds, with links</b></summary>
 
 **Security & AI**
 
@@ -115,6 +115,7 @@ Things people can open and use today. [HireOS](https://hireos-beryl.vercel.app) 
 
 | Build | Stack | What it is |
 |:--|:--|:--|
+| [**AlgoAscend**](https://github.com/Kaushik2210/AlgoAscend) | `TypeScript` | Interactive algorithm lessons, visual traces, and coding practice in C, Python, and Java. |
 | [**aiforge**](https://github.com/Kaushik2210/aiforge) | `Python` | Open-source, gamified academy for becoming a production-ready AI engineer |
 | [**Veritask**](https://github.com/Kaushik2210/Veritask) · [live](https://kaushik2210.github.io/Veritask/) | `Python` | Intent-aware and behavioural runtime authorization for autonomous AI agents |
 | [**campus-connectivity-map**](https://github.com/Kaushik2210/campus-connectivity-map) | `Python` | Crowdsourced campus Wi-Fi quality tracker (Streamlit) |
