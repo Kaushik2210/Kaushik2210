@@ -26,7 +26,7 @@ text{font-family:system-ui,-apple-system,'SF Pro Text','Segoe UI',Roboto,'Helvet
 <rect x="20" y="270" width="57" height="20" rx="10" fill="#141821" stroke="#222836"/><text x="48" y="284" class="mono" font-size="10" fill="#8089a0" text-anchor="middle">fastapi</text>
 <rect x="83" y="270" width="112" height="20" rx="10" fill="#141821" stroke="#222836"/><text x="138" y="284" class="mono" font-size="10" fill="#8089a0" text-anchor="middle">fraud-prevention</text>
 <rect x="200" y="270" width="63" height="20" rx="10" fill="#141821" stroke="#222836"/><text x="232" y="284" class="mono" font-size="10" fill="#8089a0" text-anchor="middle">honeypot</text>
-<circle cx="26" cy="307" r="4" fill="#5eead4"/><text x="38" y="311" font-size="11" fill="#aab1c2">Python<tspan fill="#8089a0">  &#183;  &#9733; 0  &#183;  pushed 13d ago</tspan></text>
+<circle cx="26" cy="307" r="4" fill="#5eead4"/><text x="38" y="311" font-size="11" fill="#aab1c2">Python<tspan fill="#8089a0">  &#183;  &#9733; 0  &#183;  pushed today</tspan></text>
 </g>
 <rect x=".5" y=".5" width="404" height="323" rx="16" fill="none" stroke="url(#bdr)" stroke-width="1.2"/>
 <rect x="1" y="1" width="403" height="322" rx="16" fill="none" stroke="#8b9cff" stroke-width="2" stroke-linecap="round" stroke-dasharray="80 1343" opacity=".9"><animate attributeName="stroke-dashoffset" from="1012" to="-411" dur="9s" repeatCount="indefinite"/></rect>
